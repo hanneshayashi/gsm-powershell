@@ -13,6 +13,27 @@ Import-Module ./GSM.psm1
 Afterwards, you should have PowerShell-Commandlets for all [GSM commands](https://gsm.hayashi-ke.online/gsm), like
 
 ```powershell
-List-Users
+List-GSMUsers
 ```
 
+```powershell
+Delete-GSMFile -FileId <FileId>
+```
+
+```powershell
+SignOut-GSMUsersRecursive -OrgUnit <OrgUnit>
+```
+
+etc.
+
+To get a list of the available commands, you can call 
+
+```powershell
+Get-Command *GSM*
+```
+
+or, to get help for a specific function:
+
+```powershell
+Get-Help Create-GSMDrives
+```
