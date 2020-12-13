@@ -1,4 +1,4 @@
-Function Get-About {
+Function Get-GSMAbout {
 
 
 [CmdletBinding()]
@@ -73,7 +73,7 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 }
 
 
-Function Delete-AspsBatch {
+Function Delete-GSMAspsBatch {
 
 
 [CmdletBinding()]
@@ -191,7 +191,7 @@ Same as userKey but value is applied to all lines in the CSV file
 }
 
 
-Function Delete-Asps {
+Function Delete-GSMAsps {
 
 
 [CmdletBinding()]
@@ -273,7 +273,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function Get-AspsBatch {
+Function Get-GSMAspsBatch {
 
 
 [CmdletBinding()]
@@ -406,7 +406,7 @@ Same as userKey but value is applied to all lines in the CSV file
 }
 
 
-Function Get-Asps {
+Function Get-GSMAsps {
 
 
 [CmdletBinding()]
@@ -496,7 +496,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function List-AspsBatch {
+Function List-GSMAspsBatch {
 
 
 [CmdletBinding()]
@@ -622,7 +622,7 @@ Same as userKey but value is applied to all lines in the CSV file
 }
 
 
-Function List-AspsRecursive {
+Function List-GSMAspsRecursive {
 
 
 [CmdletBinding()]
@@ -719,7 +719,7 @@ Path of an orgUnit. Can be used multiple times. Note that an orgUnit always incl
 }
 
 
-Function List-Asps {
+Function List-GSMAsps {
 
 
 [CmdletBinding()]
@@ -802,7 +802,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function Get-AttachmentsBatch {
+Function Get-GSMAttachmentsBatch {
 
 
 [CmdletBinding()]
@@ -949,7 +949,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Get-Attachments {
+Function Get-GSMAttachments {
 
 
 [CmdletBinding()]
@@ -1046,7 +1046,1540 @@ The special value me can be used to indicate the authenticated user.
 }
 
 
-Function Delete-CalendarAclBatch {
+Function Delete-GSMBuildingsBatch {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$BuildingId,
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$Customer_ALL,
+[Parameter()]
+[string]$Delimiter,
+[Parameter()]
+[string]$Path,
+[Parameter()]
+[switch]$SkipHeader
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "buildings"
+        "delete"
+        "batch"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Batch retrieves buildings using a CSV file as input.
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
+
+
+.PARAMETER BuildingId
+The ID of the file.
+
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER Customer_ALL
+Same as customer but value is applied to all lines in the CSV file
+
+
+.PARAMETER Delimiter
+Delimiter to use for CSV columns. Must be exactly one character.
+
+
+.PARAMETER Path
+Path of the import file (CSV)
+
+
+.PARAMETER SkipHeader
+Whether to skip the first row (header)
+
+
+
+#>
+}
+
+
+Function Delete-GSMBuildings {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BuildingId,
+[Parameter()]
+[string]$Customer
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "buildings"
+        "delete"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Deletes a building.
+
+.PARAMETER BuildingId
+The ID of the file.
+
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+
+#>
+}
+
+
+Function Get-GSMBuildingsBatch {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$BuildingId,
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$Customer_ALL,
+[Parameter()]
+[string]$Delimiter,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$Fields_ALL,
+[Parameter()]
+[string]$Path,
+[Parameter()]
+[switch]$SkipHeader
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "buildings"
+        "get"
+        "batch"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Batch retrieves buildings using a CSV file as input.
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
+
+
+.PARAMETER BuildingId
+The ID of the file.
+
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER Customer_ALL
+Same as customer but value is applied to all lines in the CSV file
+
+
+.PARAMETER Delimiter
+Delimiter to use for CSV columns. Must be exactly one character.
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER Fields_ALL
+Same as fields but value is applied to all lines in the CSV file
+
+
+.PARAMETER Path
+Path of the import file (CSV)
+
+
+.PARAMETER SkipHeader
+Whether to skip the first row (header)
+
+
+
+#>
+}
+
+
+Function Get-GSMBuildings {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BuildingId,
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$Fields
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "buildings"
+        "get"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Retrieves a building.
+
+.PARAMETER BuildingId
+The ID of the file.
+
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+
+#>
+}
+
+
+Function Insert-GSMBuildingsBatch {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$AddressLines,
+[Parameter()]
+[string]$AddressLines_ALL,
+[Parameter()]
+[string]$AdministrativeArea,
+[Parameter()]
+[string]$AdministrativeArea_ALL,
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$BuildingId,
+[Parameter()]
+[string]$BuildingName,
+[Parameter()]
+[string]$BuildingName_ALL,
+[Parameter()]
+[string]$CoordinatesSource,
+[Parameter()]
+[string]$CoordinatesSource_ALL,
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$Customer_ALL,
+[Parameter()]
+[string]$Delimiter,
+[Parameter()]
+[string]$Description,
+[Parameter()]
+[string]$Description_ALL,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$Fields_ALL,
+[Parameter()]
+[string]$FloorNames,
+[Parameter()]
+[string]$FloorNames_ALL,
+[Parameter()]
+[string]$LanguageCode,
+[Parameter()]
+[string]$LanguageCode_ALL,
+[Parameter()]
+[string]$Latitude,
+[Parameter()]
+[string]$Latitude_ALL,
+[Parameter()]
+[string]$Locality,
+[Parameter()]
+[string]$Locality_ALL,
+[Parameter()]
+[string]$Longitude,
+[Parameter()]
+[string]$Longitude_ALL,
+[Parameter()]
+[string]$Path,
+[Parameter()]
+[string]$PostalCode,
+[Parameter()]
+[string]$PostalCode_ALL,
+[Parameter()]
+[string]$RegionCode,
+[Parameter()]
+[string]$RegionCode_ALL,
+[Parameter()]
+[switch]$SkipHeader,
+[Parameter()]
+[string]$Sublocality,
+[Parameter()]
+[string]$Sublocality_ALL
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        AddressLines = @{ OriginalName = '--addressLines'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        AddressLines_ALL = @{ OriginalName = '--addressLines_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        AdministrativeArea = @{ OriginalName = '--administrativeArea'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        AdministrativeArea_ALL = @{ OriginalName = '--administrativeArea_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        BuildingName = @{ OriginalName = '--buildingName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        BuildingName_ALL = @{ OriginalName = '--buildingName_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        CoordinatesSource = @{ OriginalName = '--coordinatesSource'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        CoordinatesSource_ALL = @{ OriginalName = '--coordinatesSource_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Description = @{ OriginalName = '--description'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Description_ALL = @{ OriginalName = '--description_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FloorNames = @{ OriginalName = '--floorNames'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FloorNames_ALL = @{ OriginalName = '--floorNames_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        LanguageCode = @{ OriginalName = '--languageCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        LanguageCode_ALL = @{ OriginalName = '--languageCode_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Latitude = @{ OriginalName = '--latitude'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Latitude_ALL = @{ OriginalName = '--latitude_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Locality = @{ OriginalName = '--locality'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Locality_ALL = @{ OriginalName = '--locality_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Longitude = @{ OriginalName = '--longitude'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Longitude_ALL = @{ OriginalName = '--longitude_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        PostalCode = @{ OriginalName = '--postalCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        PostalCode_ALL = @{ OriginalName = '--postalCode_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RegionCode = @{ OriginalName = '--regionCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RegionCode_ALL = @{ OriginalName = '--regionCode_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+        Sublocality = @{ OriginalName = '--sublocality'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Sublocality_ALL = @{ OriginalName = '--sublocality_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "buildings"
+        "insert"
+        "batch"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Batch retrieves buildings using a CSV file as input.
+
+.PARAMETER AddressLines
+Unstructured address lines describing the lower levels of an address.
+
+
+.PARAMETER AddressLines_ALL
+Same as addressLines but value is applied to all lines in the CSV file
+
+
+.PARAMETER AdministrativeArea
+Optional. Highest administrative subdivision which is used for postal addresses of a country or region.
+
+
+.PARAMETER AdministrativeArea_ALL
+Same as administrativeArea but value is applied to all lines in the CSV file
+
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
+
+
+.PARAMETER BuildingId
+The ID of the file.
+
+
+.PARAMETER BuildingName
+The building name as seen by users in Calendar.
+Must be unique for the customer. For example, "NYC-CHEL".
+The maximum length is 100 characters.
+
+
+.PARAMETER BuildingName_ALL
+Same as buildingName but value is applied to all lines in the CSV file
+
+
+.PARAMETER CoordinatesSource
+Source from which Building.coordinates are derived.
+
+Acceptable values are:
+CLIENT_SPECIFIED       - Building.coordinates are set to the coordinates included in the request.
+RESOLVED_FROM_ADDRESS  - Building.coordinates are automatically populated based on the postal address.
+SOURCE_UNSPECIFIED     - Defaults to RESOLVED_FROM_ADDRESS if postal address is provided. Otherwise, defaults to CLIENT_SPECIFIED if coordinates are provided. (default)
+
+
+.PARAMETER CoordinatesSource_ALL
+Same as coordinatesSource but value is applied to all lines in the CSV file
+
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER Customer_ALL
+Same as customer but value is applied to all lines in the CSV file
+
+
+.PARAMETER Delimiter
+Delimiter to use for CSV columns. Must be exactly one character.
+
+
+.PARAMETER Description
+A brief description of the building. For example, "Chelsea Market".
+
+
+.PARAMETER Description_ALL
+Same as description but value is applied to all lines in the CSV file
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER Fields_ALL
+Same as fields but value is applied to all lines in the CSV file
+
+
+.PARAMETER FloorNames
+The display names for all floors in this building.
+The floors are expected to be sorted in ascending order, from lowest floor to highest floor.
+For example, ["B2", "B1", "L", "1", "2", "2M", "3", "PH"] Must contain at least one entry.
+
+
+.PARAMETER FloorNames_ALL
+Same as floorNames but value is applied to all lines in the CSV file
+
+
+.PARAMETER LanguageCode
+Optional. BCP-47 language code of the contents of this address (if known).
+
+
+.PARAMETER LanguageCode_ALL
+Same as languageCode but value is applied to all lines in the CSV file
+
+
+.PARAMETER Latitude
+Latitude in decimal degrees.
+
+
+.PARAMETER Latitude_ALL
+Same as latitude but value is applied to all lines in the CSV file
+
+
+.PARAMETER Locality
+Optional. Generally refers to the city/town portion of the address.
+Examples: US city, IT comune, UK post town.
+In regions of the world where localities are not well defined or do not fit into this structure well, leave locality empty and use addressLines.
+
+
+.PARAMETER Locality_ALL
+Same as locality but value is applied to all lines in the CSV file
+
+
+.PARAMETER Longitude
+Longitude in decimal degrees.
+
+
+.PARAMETER Longitude_ALL
+Same as longitude but value is applied to all lines in the CSV file
+
+
+.PARAMETER Path
+Path of the import file (CSV)
+
+
+.PARAMETER PostalCode
+Optional. Postal code of the address.
+
+
+.PARAMETER PostalCode_ALL
+Same as postalCode but value is applied to all lines in the CSV file
+
+
+.PARAMETER RegionCode
+Required. CLDR region code of the country/region of the address.
+
+
+.PARAMETER RegionCode_ALL
+Same as regionCode but value is applied to all lines in the CSV file
+
+
+.PARAMETER SkipHeader
+Whether to skip the first row (header)
+
+
+.PARAMETER Sublocality
+Optional. Sublocality of the address.
+
+
+.PARAMETER Sublocality_ALL
+Same as sublocality but value is applied to all lines in the CSV file
+
+
+
+#>
+}
+
+
+Function Insert-GSMBuildings {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$AddressLines,
+[Parameter()]
+[string]$AdministrativeArea,
+[Parameter()]
+[string]$BuildingId,
+[Parameter()]
+[string]$BuildingName,
+[Parameter()]
+[string]$CoordinatesSource,
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$Description,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$FloorNames,
+[Parameter()]
+[string]$LanguageCode,
+[Parameter()]
+[string]$Latitude,
+[Parameter()]
+[string]$Locality,
+[Parameter()]
+[string]$Longitude,
+[Parameter()]
+[string]$PostalCode,
+[Parameter()]
+[string]$RegionCode,
+[Parameter()]
+[string]$Sublocality
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        AddressLines = @{ OriginalName = '--addressLines'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        AdministrativeArea = @{ OriginalName = '--administrativeArea'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        BuildingName = @{ OriginalName = '--buildingName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        CoordinatesSource = @{ OriginalName = '--coordinatesSource'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Description = @{ OriginalName = '--description'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FloorNames = @{ OriginalName = '--floorNames'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        LanguageCode = @{ OriginalName = '--languageCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Latitude = @{ OriginalName = '--latitude'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Locality = @{ OriginalName = '--locality'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Longitude = @{ OriginalName = '--longitude'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        PostalCode = @{ OriginalName = '--postalCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RegionCode = @{ OriginalName = '--regionCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Sublocality = @{ OriginalName = '--sublocality'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "buildings"
+        "insert"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Inserts a building.
+
+.PARAMETER AddressLines
+Unstructured address lines describing the lower levels of an address.
+
+
+.PARAMETER AdministrativeArea
+Optional. Highest administrative subdivision which is used for postal addresses of a country or region.
+
+
+.PARAMETER BuildingId
+The ID of the file.
+
+
+.PARAMETER BuildingName
+The building name as seen by users in Calendar.
+Must be unique for the customer. For example, "NYC-CHEL".
+The maximum length is 100 characters.
+
+
+.PARAMETER CoordinatesSource
+Source from which Building.coordinates are derived.
+
+Acceptable values are:
+CLIENT_SPECIFIED       - Building.coordinates are set to the coordinates included in the request.
+RESOLVED_FROM_ADDRESS  - Building.coordinates are automatically populated based on the postal address.
+SOURCE_UNSPECIFIED     - Defaults to RESOLVED_FROM_ADDRESS if postal address is provided. Otherwise, defaults to CLIENT_SPECIFIED if coordinates are provided. (default)
+
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER Description
+A brief description of the building. For example, "Chelsea Market".
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER FloorNames
+The display names for all floors in this building.
+The floors are expected to be sorted in ascending order, from lowest floor to highest floor.
+For example, ["B2", "B1", "L", "1", "2", "2M", "3", "PH"] Must contain at least one entry.
+
+
+.PARAMETER LanguageCode
+Optional. BCP-47 language code of the contents of this address (if known).
+
+
+.PARAMETER Latitude
+Latitude in decimal degrees.
+
+
+.PARAMETER Locality
+Optional. Generally refers to the city/town portion of the address.
+Examples: US city, IT comune, UK post town.
+In regions of the world where localities are not well defined or do not fit into this structure well, leave locality empty and use addressLines.
+
+
+.PARAMETER Longitude
+Longitude in decimal degrees.
+
+
+.PARAMETER PostalCode
+Optional. Postal code of the address.
+
+
+.PARAMETER RegionCode
+Required. CLDR region code of the country/region of the address.
+
+
+.PARAMETER Sublocality
+Optional. Sublocality of the address.
+
+
+
+#>
+}
+
+
+Function List-GSMBuildings {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$Fields
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "buildings"
+        "list"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Retrieves a list of buildings for an account.
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+
+#>
+}
+
+
+Function Patch-GSMBuildingsBatch {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$AddressLines,
+[Parameter()]
+[string]$AddressLines_ALL,
+[Parameter()]
+[string]$AdministrativeArea,
+[Parameter()]
+[string]$AdministrativeArea_ALL,
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$BuildingId,
+[Parameter()]
+[string]$BuildingName,
+[Parameter()]
+[string]$BuildingName_ALL,
+[Parameter()]
+[string]$CoordinatesSource,
+[Parameter()]
+[string]$CoordinatesSource_ALL,
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$Customer_ALL,
+[Parameter()]
+[string]$Delimiter,
+[Parameter()]
+[string]$Description,
+[Parameter()]
+[string]$Description_ALL,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$Fields_ALL,
+[Parameter()]
+[string]$FloorNames,
+[Parameter()]
+[string]$FloorNames_ALL,
+[Parameter()]
+[string]$LanguageCode,
+[Parameter()]
+[string]$LanguageCode_ALL,
+[Parameter()]
+[string]$Latitude,
+[Parameter()]
+[string]$Latitude_ALL,
+[Parameter()]
+[string]$Locality,
+[Parameter()]
+[string]$Locality_ALL,
+[Parameter()]
+[string]$Longitude,
+[Parameter()]
+[string]$Longitude_ALL,
+[Parameter()]
+[string]$Path,
+[Parameter()]
+[string]$PostalCode,
+[Parameter()]
+[string]$PostalCode_ALL,
+[Parameter()]
+[string]$RegionCode,
+[Parameter()]
+[string]$RegionCode_ALL,
+[Parameter()]
+[switch]$SkipHeader,
+[Parameter()]
+[string]$Sublocality,
+[Parameter()]
+[string]$Sublocality_ALL
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        AddressLines = @{ OriginalName = '--addressLines'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        AddressLines_ALL = @{ OriginalName = '--addressLines_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        AdministrativeArea = @{ OriginalName = '--administrativeArea'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        AdministrativeArea_ALL = @{ OriginalName = '--administrativeArea_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        BuildingName = @{ OriginalName = '--buildingName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        BuildingName_ALL = @{ OriginalName = '--buildingName_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        CoordinatesSource = @{ OriginalName = '--coordinatesSource'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        CoordinatesSource_ALL = @{ OriginalName = '--coordinatesSource_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Description = @{ OriginalName = '--description'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Description_ALL = @{ OriginalName = '--description_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FloorNames = @{ OriginalName = '--floorNames'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FloorNames_ALL = @{ OriginalName = '--floorNames_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        LanguageCode = @{ OriginalName = '--languageCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        LanguageCode_ALL = @{ OriginalName = '--languageCode_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Latitude = @{ OriginalName = '--latitude'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Latitude_ALL = @{ OriginalName = '--latitude_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Locality = @{ OriginalName = '--locality'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Locality_ALL = @{ OriginalName = '--locality_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Longitude = @{ OriginalName = '--longitude'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Longitude_ALL = @{ OriginalName = '--longitude_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        PostalCode = @{ OriginalName = '--postalCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        PostalCode_ALL = @{ OriginalName = '--postalCode_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RegionCode = @{ OriginalName = '--regionCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RegionCode_ALL = @{ OriginalName = '--regionCode_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+        Sublocality = @{ OriginalName = '--sublocality'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Sublocality_ALL = @{ OriginalName = '--sublocality_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "buildings"
+        "patch"
+        "batch"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Batch retrieves buildings using a CSV file as input.
+
+.PARAMETER AddressLines
+Unstructured address lines describing the lower levels of an address.
+
+
+.PARAMETER AddressLines_ALL
+Same as addressLines but value is applied to all lines in the CSV file
+
+
+.PARAMETER AdministrativeArea
+Optional. Highest administrative subdivision which is used for postal addresses of a country or region.
+
+
+.PARAMETER AdministrativeArea_ALL
+Same as administrativeArea but value is applied to all lines in the CSV file
+
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
+
+
+.PARAMETER BuildingId
+The ID of the file.
+
+
+.PARAMETER BuildingName
+The building name as seen by users in Calendar.
+Must be unique for the customer. For example, "NYC-CHEL".
+The maximum length is 100 characters.
+
+
+.PARAMETER BuildingName_ALL
+Same as buildingName but value is applied to all lines in the CSV file
+
+
+.PARAMETER CoordinatesSource
+Source from which Building.coordinates are derived.
+
+Acceptable values are:
+CLIENT_SPECIFIED       - Building.coordinates are set to the coordinates included in the request.
+RESOLVED_FROM_ADDRESS  - Building.coordinates are automatically populated based on the postal address.
+SOURCE_UNSPECIFIED     - Defaults to RESOLVED_FROM_ADDRESS if postal address is provided. Otherwise, defaults to CLIENT_SPECIFIED if coordinates are provided. (default)
+
+
+.PARAMETER CoordinatesSource_ALL
+Same as coordinatesSource but value is applied to all lines in the CSV file
+
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER Customer_ALL
+Same as customer but value is applied to all lines in the CSV file
+
+
+.PARAMETER Delimiter
+Delimiter to use for CSV columns. Must be exactly one character.
+
+
+.PARAMETER Description
+A brief description of the building. For example, "Chelsea Market".
+
+
+.PARAMETER Description_ALL
+Same as description but value is applied to all lines in the CSV file
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER Fields_ALL
+Same as fields but value is applied to all lines in the CSV file
+
+
+.PARAMETER FloorNames
+The display names for all floors in this building.
+The floors are expected to be sorted in ascending order, from lowest floor to highest floor.
+For example, ["B2", "B1", "L", "1", "2", "2M", "3", "PH"] Must contain at least one entry.
+
+
+.PARAMETER FloorNames_ALL
+Same as floorNames but value is applied to all lines in the CSV file
+
+
+.PARAMETER LanguageCode
+Optional. BCP-47 language code of the contents of this address (if known).
+
+
+.PARAMETER LanguageCode_ALL
+Same as languageCode but value is applied to all lines in the CSV file
+
+
+.PARAMETER Latitude
+Latitude in decimal degrees.
+
+
+.PARAMETER Latitude_ALL
+Same as latitude but value is applied to all lines in the CSV file
+
+
+.PARAMETER Locality
+Optional. Generally refers to the city/town portion of the address.
+Examples: US city, IT comune, UK post town.
+In regions of the world where localities are not well defined or do not fit into this structure well, leave locality empty and use addressLines.
+
+
+.PARAMETER Locality_ALL
+Same as locality but value is applied to all lines in the CSV file
+
+
+.PARAMETER Longitude
+Longitude in decimal degrees.
+
+
+.PARAMETER Longitude_ALL
+Same as longitude but value is applied to all lines in the CSV file
+
+
+.PARAMETER Path
+Path of the import file (CSV)
+
+
+.PARAMETER PostalCode
+Optional. Postal code of the address.
+
+
+.PARAMETER PostalCode_ALL
+Same as postalCode but value is applied to all lines in the CSV file
+
+
+.PARAMETER RegionCode
+Required. CLDR region code of the country/region of the address.
+
+
+.PARAMETER RegionCode_ALL
+Same as regionCode but value is applied to all lines in the CSV file
+
+
+.PARAMETER SkipHeader
+Whether to skip the first row (header)
+
+
+.PARAMETER Sublocality
+Optional. Sublocality of the address.
+
+
+.PARAMETER Sublocality_ALL
+Same as sublocality but value is applied to all lines in the CSV file
+
+
+
+#>
+}
+
+
+Function Patch-GSMBuildings {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$AddressLines,
+[Parameter()]
+[string]$AdministrativeArea,
+[Parameter()]
+[string]$BuildingId,
+[Parameter()]
+[string]$BuildingName,
+[Parameter()]
+[string]$CoordinatesSource,
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$Description,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$FloorNames,
+[Parameter()]
+[string]$LanguageCode,
+[Parameter()]
+[string]$Latitude,
+[Parameter()]
+[string]$Locality,
+[Parameter()]
+[string]$Longitude,
+[Parameter()]
+[string]$PostalCode,
+[Parameter()]
+[string]$RegionCode,
+[Parameter()]
+[string]$Sublocality
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        AddressLines = @{ OriginalName = '--addressLines'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        AdministrativeArea = @{ OriginalName = '--administrativeArea'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        BuildingName = @{ OriginalName = '--buildingName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        CoordinatesSource = @{ OriginalName = '--coordinatesSource'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Description = @{ OriginalName = '--description'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FloorNames = @{ OriginalName = '--floorNames'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        LanguageCode = @{ OriginalName = '--languageCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Latitude = @{ OriginalName = '--latitude'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Locality = @{ OriginalName = '--locality'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Longitude = @{ OriginalName = '--longitude'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        PostalCode = @{ OriginalName = '--postalCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RegionCode = @{ OriginalName = '--regionCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Sublocality = @{ OriginalName = '--sublocality'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "buildings"
+        "patch"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Updates a building. This method supports patch semantics.
+
+.PARAMETER AddressLines
+Unstructured address lines describing the lower levels of an address.
+
+
+.PARAMETER AdministrativeArea
+Optional. Highest administrative subdivision which is used for postal addresses of a country or region.
+
+
+.PARAMETER BuildingId
+The ID of the file.
+
+
+.PARAMETER BuildingName
+The building name as seen by users in Calendar.
+Must be unique for the customer. For example, "NYC-CHEL".
+The maximum length is 100 characters.
+
+
+.PARAMETER CoordinatesSource
+Source from which Building.coordinates are derived.
+
+Acceptable values are:
+CLIENT_SPECIFIED       - Building.coordinates are set to the coordinates included in the request.
+RESOLVED_FROM_ADDRESS  - Building.coordinates are automatically populated based on the postal address.
+SOURCE_UNSPECIFIED     - Defaults to RESOLVED_FROM_ADDRESS if postal address is provided. Otherwise, defaults to CLIENT_SPECIFIED if coordinates are provided. (default)
+
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER Description
+A brief description of the building. For example, "Chelsea Market".
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER FloorNames
+The display names for all floors in this building.
+The floors are expected to be sorted in ascending order, from lowest floor to highest floor.
+For example, ["B2", "B1", "L", "1", "2", "2M", "3", "PH"] Must contain at least one entry.
+
+
+.PARAMETER LanguageCode
+Optional. BCP-47 language code of the contents of this address (if known).
+
+
+.PARAMETER Latitude
+Latitude in decimal degrees.
+
+
+.PARAMETER Locality
+Optional. Generally refers to the city/town portion of the address.
+Examples: US city, IT comune, UK post town.
+In regions of the world where localities are not well defined or do not fit into this structure well, leave locality empty and use addressLines.
+
+
+.PARAMETER Longitude
+Longitude in decimal degrees.
+
+
+.PARAMETER PostalCode
+Optional. Postal code of the address.
+
+
+.PARAMETER RegionCode
+Required. CLDR region code of the country/region of the address.
+
+
+.PARAMETER Sublocality
+Optional. Sublocality of the address.
+
+
+
+#>
+}
+
+
+Function Delete-GSMCalendarAclBatch {
 
 
 [CmdletBinding()]
@@ -1164,7 +2697,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Delete-CalendarAcl {
+Function Delete-GSMCalendarAcl {
 
 
 [CmdletBinding()]
@@ -1246,7 +2779,7 @@ ACL rule identifier.
 }
 
 
-Function Get-CalendarAclBatch {
+Function Get-GSMCalendarAclBatch {
 
 
 [CmdletBinding()]
@@ -1379,7 +2912,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Get-CalendarAcl {
+Function Get-GSMCalendarAcl {
 
 
 [CmdletBinding()]
@@ -1469,7 +3002,7 @@ ACL rule identifier.
 }
 
 
-Function Insert-CalendarAclBatch {
+Function Insert-GSMCalendarAclBatch {
 
 
 [CmdletBinding()]
@@ -1663,7 +3196,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Insert-CalendarAcl {
+Function Insert-GSMCalendarAcl {
 
 
 [CmdletBinding()]
@@ -1786,7 +3319,7 @@ Optional. The default is True.
 }
 
 
-Function List-CalendarAclBatch {
+Function List-GSMCalendarAclBatch {
 
 
 [CmdletBinding()]
@@ -1928,7 +3461,7 @@ Whether to skip the first row (header)
 }
 
 
-Function List-CalendarAcl {
+Function List-GSMCalendarAcl {
 
 
 [CmdletBinding()]
@@ -2020,7 +3553,7 @@ Deleted ACLs will always be included if syncToken is provided.
 }
 
 
-Function Patch-CalendarAclBatch {
+Function Patch-GSMCalendarAclBatch {
 
 
 [CmdletBinding()]
@@ -2221,7 +3754,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Patch-CalendarAcl {
+Function Patch-GSMCalendarAcl {
 
 
 [CmdletBinding()]
@@ -2351,7 +3884,7 @@ Optional. The default is True.
 }
 
 
-Function Delete-CalendarListsBatch {
+Function Delete-GSMCalendarListsBatch {
 
 
 [CmdletBinding()]
@@ -2455,7 +3988,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Delete-CalendarLists {
+Function Delete-GSMCalendarLists {
 
 
 [CmdletBinding()]
@@ -2530,7 +4063,7 @@ If you want to access the primary calendar of the currently logged in user, use 
 }
 
 
-Function Get-CalendarListsBatch {
+Function Get-GSMCalendarListsBatch {
 
 
 [CmdletBinding()]
@@ -2649,7 +4182,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Get-CalendarLists {
+Function Get-GSMCalendarLists {
 
 
 [CmdletBinding()]
@@ -2732,7 +4265,7 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 }
 
 
-Function Insert-CalendarListsBatch {
+Function Insert-GSMCalendarListsBatch {
 
 
 [CmdletBinding()]
@@ -2994,7 +4527,7 @@ Same as summaryOverride but value is applied to all lines in the CSV file
 }
 
 
-Function Insert-CalendarLists {
+Function Insert-GSMCalendarLists {
 
 
 [CmdletBinding()]
@@ -3157,7 +4690,7 @@ The summary that the authenticated user has set for this calendar.
 }
 
 
-Function List-CalendarLists {
+Function List-GSMCalendarLists {
 
 
 [CmdletBinding()]
@@ -3267,7 +4800,7 @@ Whether to show hidden entries.
 }
 
 
-Function Patch-CalendarListsBatch {
+Function Patch-GSMCalendarListsBatch {
 
 
 [CmdletBinding()]
@@ -3537,7 +5070,7 @@ Same as summaryOverride but value is applied to all lines in the CSV file
 }
 
 
-Function Patch-CalendarLists {
+Function Patch-GSMCalendarLists {
 
 
 [CmdletBinding()]
@@ -3708,7 +5241,1427 @@ The summary that the authenticated user has set for this calendar.
 }
 
 
-Function Clear-Calendars {
+Function Delete-GSMCalendarResourcesBatch {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$CalendarResourceId,
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$Customer_ALL,
+[Parameter()]
+[string]$Delimiter,
+[Parameter()]
+[string]$Path,
+[Parameter()]
+[switch]$SkipHeader
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        CalendarResourceId = @{ OriginalName = '--calendarResourceId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "calendarResources"
+        "delete"
+        "batch"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Batch deletes calendar resources using a CSV file as input.
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
+
+
+.PARAMETER CalendarResourceId
+The unique ID of the calendar resource
+
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account.
+As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER Customer_ALL
+Same as customer but value is applied to all lines in the CSV file
+
+
+.PARAMETER Delimiter
+Delimiter to use for CSV columns. Must be exactly one character.
+
+
+.PARAMETER Path
+Path of the import file (CSV)
+
+
+.PARAMETER SkipHeader
+Whether to skip the first row (header)
+
+
+
+#>
+}
+
+
+Function Delete-GSMCalendarResources {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$CalendarResourceId,
+[Parameter()]
+[string]$Customer
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        CalendarResourceId = @{ OriginalName = '--calendarResourceId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "calendarResources"
+        "delete"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Deletes a calendar resource.
+
+.PARAMETER CalendarResourceId
+The unique ID of the calendar resource
+
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account.
+As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+
+#>
+}
+
+
+Function Get-GSMCalendarResourcesBatch {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$CalendarResourceId,
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$Customer_ALL,
+[Parameter()]
+[string]$Delimiter,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$Fields_ALL,
+[Parameter()]
+[string]$Path,
+[Parameter()]
+[switch]$SkipHeader
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        CalendarResourceId = @{ OriginalName = '--calendarResourceId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "calendarResources"
+        "get"
+        "batch"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Batch retrieves calendar resources using a CSV file as input.
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
+
+
+.PARAMETER CalendarResourceId
+The unique ID of the calendar resource
+
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account.
+As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER Customer_ALL
+Same as customer but value is applied to all lines in the CSV file
+
+
+.PARAMETER Delimiter
+Delimiter to use for CSV columns. Must be exactly one character.
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER Fields_ALL
+Same as fields but value is applied to all lines in the CSV file
+
+
+.PARAMETER Path
+Path of the import file (CSV)
+
+
+.PARAMETER SkipHeader
+Whether to skip the first row (header)
+
+
+
+#>
+}
+
+
+Function Get-GSMCalendarResources {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$CalendarResourceId,
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$Fields
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        CalendarResourceId = @{ OriginalName = '--calendarResourceId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "calendarResources"
+        "get"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Gets a calendar resource.
+
+.PARAMETER CalendarResourceId
+The unique ID of the calendar resource
+
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account.
+As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+
+#>
+}
+
+
+Function Insert-GSMCalendarResourcesBatch {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$BuildingId,
+[Parameter()]
+[string]$BuildingId_ALL,
+[Parameter()]
+[string]$Capacity,
+[Parameter()]
+[string]$Capacity_ALL,
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$Customer_ALL,
+[Parameter()]
+[string]$Delimiter,
+[Parameter()]
+[string]$FeatureInstances,
+[Parameter()]
+[string]$FeatureInstances_ALL,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$Fields_ALL,
+[Parameter()]
+[string]$FloorName,
+[Parameter()]
+[string]$FloorName_ALL,
+[Parameter()]
+[string]$FloorSection,
+[Parameter()]
+[string]$FloorSection_ALL,
+[Parameter()]
+[string]$Path,
+[Parameter()]
+[string]$ResourceCategory,
+[Parameter()]
+[string]$ResourceCategory_ALL,
+[Parameter()]
+[string]$ResourceDescription,
+[Parameter()]
+[string]$ResourceDescription_ALL,
+[Parameter()]
+[string]$ResourceId,
+[Parameter()]
+[string]$ResourceName,
+[Parameter()]
+[string]$ResourceName_ALL,
+[Parameter()]
+[string]$ResourceType,
+[Parameter()]
+[string]$ResourceType_ALL,
+[Parameter()]
+[switch]$SkipHeader,
+[Parameter()]
+[string]$UserVisibleDescription,
+[Parameter()]
+[string]$UserVisibleDescription_ALL
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        BuildingId_ALL = @{ OriginalName = '--buildingId_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Capacity = @{ OriginalName = '--capacity'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Capacity_ALL = @{ OriginalName = '--capacity_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FeatureInstances = @{ OriginalName = '--featureInstances'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FeatureInstances_ALL = @{ OriginalName = '--featureInstances_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FloorName = @{ OriginalName = '--floorName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FloorName_ALL = @{ OriginalName = '--floorName_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FloorSection = @{ OriginalName = '--floorSection'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FloorSection_ALL = @{ OriginalName = '--floorSection_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceCategory = @{ OriginalName = '--resourceCategory'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceCategory_ALL = @{ OriginalName = '--resourceCategory_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceDescription = @{ OriginalName = '--resourceDescription'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceDescription_ALL = @{ OriginalName = '--resourceDescription_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceId = @{ OriginalName = '--resourceId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceName = @{ OriginalName = '--resourceName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceName_ALL = @{ OriginalName = '--resourceName_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceType = @{ OriginalName = '--resourceType'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceType_ALL = @{ OriginalName = '--resourceType_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+        UserVisibleDescription = @{ OriginalName = '--userVisibleDescription'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        UserVisibleDescription_ALL = @{ OriginalName = '--userVisibleDescription_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "calendarResources"
+        "insert"
+        "batch"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Batch inserts calendar resources using a CSV file as input.
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
+
+
+.PARAMETER BuildingId
+Unique ID for the building a resource is located in.
+
+
+.PARAMETER BuildingId_ALL
+Same as buildingId but value is applied to all lines in the CSV file
+
+
+.PARAMETER Capacity
+Capacity of a resource, number of seats in a room.
+
+
+.PARAMETER Capacity_ALL
+Same as capacity but value is applied to all lines in the CSV file
+
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account.
+As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER Customer_ALL
+Same as customer but value is applied to all lines in the CSV file
+
+
+.PARAMETER Delimiter
+Delimiter to use for CSV columns. Must be exactly one character.
+
+
+.PARAMETER FeatureInstances
+Instances of features for the calendar resource.
+
+
+.PARAMETER FeatureInstances_ALL
+Same as featureInstances but value is applied to all lines in the CSV file
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER Fields_ALL
+Same as fields but value is applied to all lines in the CSV file
+
+
+.PARAMETER FloorName
+Name of the floor a resource is located on.
+
+
+.PARAMETER FloorName_ALL
+Same as floorName but value is applied to all lines in the CSV file
+
+
+.PARAMETER FloorSection
+Name of the section within a floor a resource is located in.
+
+
+.PARAMETER FloorSection_ALL
+Same as floorSection but value is applied to all lines in the CSV file
+
+
+.PARAMETER Path
+Path of the import file (CSV)
+
+
+.PARAMETER ResourceCategory
+The category of the calendar resource. Either CONFERENCE_ROOM or OTHER. Legacy data is set to CATEGORY_UNKNOWN.
+
+Acceptable values are:
+CATEGORY_UNKNOWN
+CONFERENCE_ROOM
+OTHER
+
+
+.PARAMETER ResourceCategory_ALL
+Same as resourceCategory but value is applied to all lines in the CSV file
+
+
+.PARAMETER ResourceDescription
+Description of the resource, visible only to admins.
+
+
+.PARAMETER ResourceDescription_ALL
+Same as resourceDescription but value is applied to all lines in the CSV file
+
+
+.PARAMETER ResourceId
+The unique ID of the calendar resource
+
+
+.PARAMETER ResourceName
+The name of the calendar resource. For example, "Training Room 1A".
+
+
+.PARAMETER ResourceName_ALL
+Same as resourceName but value is applied to all lines in the CSV file
+
+
+.PARAMETER ResourceType
+The type of the calendar resource, intended for non-room resources.
+
+
+.PARAMETER ResourceType_ALL
+Same as resourceType but value is applied to all lines in the CSV file
+
+
+.PARAMETER SkipHeader
+Whether to skip the first row (header)
+
+
+.PARAMETER UserVisibleDescription
+Description of the resource, visible to users and admins.
+
+
+.PARAMETER UserVisibleDescription_ALL
+Same as userVisibleDescription but value is applied to all lines in the CSV file
+
+
+
+#>
+}
+
+
+Function Insert-GSMCalendarResources {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BuildingId,
+[Parameter()]
+[string]$Capacity,
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$FeatureInstances,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$FloorName,
+[Parameter()]
+[string]$FloorSection,
+[Parameter()]
+[string]$ResourceCategory,
+[Parameter()]
+[string]$ResourceDescription,
+[Parameter()]
+[string]$ResourceId,
+[Parameter()]
+[string]$ResourceName,
+[Parameter()]
+[string]$ResourceType,
+[Parameter()]
+[string]$UserVisibleDescription
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Capacity = @{ OriginalName = '--capacity'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FeatureInstances = @{ OriginalName = '--featureInstances'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FloorName = @{ OriginalName = '--floorName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FloorSection = @{ OriginalName = '--floorSection'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceCategory = @{ OriginalName = '--resourceCategory'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceDescription = @{ OriginalName = '--resourceDescription'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceId = @{ OriginalName = '--resourceId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceName = @{ OriginalName = '--resourceName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceType = @{ OriginalName = '--resourceType'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        UserVisibleDescription = @{ OriginalName = '--userVisibleDescription'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "calendarResources"
+        "insert"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Inserts a calendar resource.
+
+.PARAMETER BuildingId
+Unique ID for the building a resource is located in.
+
+
+.PARAMETER Capacity
+Capacity of a resource, number of seats in a room.
+
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account.
+As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER FeatureInstances
+Instances of features for the calendar resource.
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER FloorName
+Name of the floor a resource is located on.
+
+
+.PARAMETER FloorSection
+Name of the section within a floor a resource is located in.
+
+
+.PARAMETER ResourceCategory
+The category of the calendar resource. Either CONFERENCE_ROOM or OTHER. Legacy data is set to CATEGORY_UNKNOWN.
+
+Acceptable values are:
+CATEGORY_UNKNOWN
+CONFERENCE_ROOM
+OTHER
+
+
+.PARAMETER ResourceDescription
+Description of the resource, visible only to admins.
+
+
+.PARAMETER ResourceId
+The unique ID of the calendar resource
+
+
+.PARAMETER ResourceName
+The name of the calendar resource. For example, "Training Room 1A".
+
+
+.PARAMETER ResourceType
+The type of the calendar resource, intended for non-room resources.
+
+
+.PARAMETER UserVisibleDescription
+Description of the resource, visible to users and admins.
+
+
+
+#>
+}
+
+
+Function List-GSMCalendarResources {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$OrderBy,
+[Parameter()]
+[string]$Query
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        OrderBy = @{ OriginalName = '--orderBy'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Query = @{ OriginalName = '--query'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "calendarResources"
+        "list"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Retrieves a list of calendar resources for an account.
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account.
+As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER OrderBy
+Field(s) to sort results by in either ascending or descending order.
+Supported fields include resourceId, resourceName, capacity, buildingId, and floorName.
+If no order is specified, defaults to ascending.
+Should be of the form "field [asc|desc], field [asc|desc], ...".
+For example buildingId, capacity desc would return results sorted first by buildingId in ascending order then by capacity in descending order.
+
+
+.PARAMETER Query
+	String query used to filter results.
+Should be of the form "field operator value" where field can be any of supported fields and operators can be any of supported operations.
+Operators include '=' for exact match and ':' for prefix match or HAS match, depending on type of field.
+For ':', when the field supports a scalar value, such as a String, and the value is followed by an asterisk (*), the query is considered a prefix match.
+In a prefix match, the value must be at the start of a string to be a match.
+For example, resourceName:Conference* returns all strings whose resourceName starts with "Conference," such as "Conference-Room-1."
+For ':', when the field supports repeated values, such as featureInstances[].features, use a colon (:) without an asterisk (*) to indicate a HAS match.
+For example, featureInstances.feature.name:Phone would return any calendar resource that has a feature instance whose name is "Phone" (all rooms with phones).
+An asterisk (*) is only valid at end of value, it cannot be used at start or middle of value. For example, resourceName:*Room* doesn't work.
+Query strings are case sensitive.
+Supported fields include generatedResourceName, resourceName, name, buildingId, featureInstances.feature.name.
+
+
+
+#>
+}
+
+
+Function Patch-GSMCalendarResourcesBatch {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$BuildingId,
+[Parameter()]
+[string]$BuildingId_ALL,
+[Parameter()]
+[string]$CalendarResourceId,
+[Parameter()]
+[string]$Capacity,
+[Parameter()]
+[string]$Capacity_ALL,
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$Customer_ALL,
+[Parameter()]
+[string]$Delimiter,
+[Parameter()]
+[string]$FeatureInstances,
+[Parameter()]
+[string]$FeatureInstances_ALL,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$Fields_ALL,
+[Parameter()]
+[string]$FloorName,
+[Parameter()]
+[string]$FloorName_ALL,
+[Parameter()]
+[string]$FloorSection,
+[Parameter()]
+[string]$FloorSection_ALL,
+[Parameter()]
+[string]$Path,
+[Parameter()]
+[string]$ResourceCategory,
+[Parameter()]
+[string]$ResourceCategory_ALL,
+[Parameter()]
+[string]$ResourceDescription,
+[Parameter()]
+[string]$ResourceDescription_ALL,
+[Parameter()]
+[string]$ResourceName,
+[Parameter()]
+[string]$ResourceName_ALL,
+[Parameter()]
+[string]$ResourceType,
+[Parameter()]
+[string]$ResourceType_ALL,
+[Parameter()]
+[switch]$SkipHeader,
+[Parameter()]
+[string]$UserVisibleDescription,
+[Parameter()]
+[string]$UserVisibleDescription_ALL
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        BuildingId_ALL = @{ OriginalName = '--buildingId_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        CalendarResourceId = @{ OriginalName = '--calendarResourceId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Capacity = @{ OriginalName = '--capacity'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Capacity_ALL = @{ OriginalName = '--capacity_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FeatureInstances = @{ OriginalName = '--featureInstances'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FeatureInstances_ALL = @{ OriginalName = '--featureInstances_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FloorName = @{ OriginalName = '--floorName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FloorName_ALL = @{ OriginalName = '--floorName_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FloorSection = @{ OriginalName = '--floorSection'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FloorSection_ALL = @{ OriginalName = '--floorSection_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceCategory = @{ OriginalName = '--resourceCategory'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceCategory_ALL = @{ OriginalName = '--resourceCategory_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceDescription = @{ OriginalName = '--resourceDescription'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceDescription_ALL = @{ OriginalName = '--resourceDescription_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceName = @{ OriginalName = '--resourceName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceName_ALL = @{ OriginalName = '--resourceName_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceType = @{ OriginalName = '--resourceType'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceType_ALL = @{ OriginalName = '--resourceType_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+        UserVisibleDescription = @{ OriginalName = '--userVisibleDescription'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        UserVisibleDescription_ALL = @{ OriginalName = '--userVisibleDescription_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "calendarResources"
+        "patch"
+        "batch"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Batch patchs calendar resources using a CSV file as input.
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
+
+
+.PARAMETER BuildingId
+Unique ID for the building a resource is located in.
+
+
+.PARAMETER BuildingId_ALL
+Same as buildingId but value is applied to all lines in the CSV file
+
+
+.PARAMETER CalendarResourceId
+The unique ID of the calendar resource
+
+
+.PARAMETER Capacity
+Capacity of a resource, number of seats in a room.
+
+
+.PARAMETER Capacity_ALL
+Same as capacity but value is applied to all lines in the CSV file
+
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account.
+As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER Customer_ALL
+Same as customer but value is applied to all lines in the CSV file
+
+
+.PARAMETER Delimiter
+Delimiter to use for CSV columns. Must be exactly one character.
+
+
+.PARAMETER FeatureInstances
+Instances of features for the calendar resource.
+
+
+.PARAMETER FeatureInstances_ALL
+Same as featureInstances but value is applied to all lines in the CSV file
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER Fields_ALL
+Same as fields but value is applied to all lines in the CSV file
+
+
+.PARAMETER FloorName
+Name of the floor a resource is located on.
+
+
+.PARAMETER FloorName_ALL
+Same as floorName but value is applied to all lines in the CSV file
+
+
+.PARAMETER FloorSection
+Name of the section within a floor a resource is located in.
+
+
+.PARAMETER FloorSection_ALL
+Same as floorSection but value is applied to all lines in the CSV file
+
+
+.PARAMETER Path
+Path of the import file (CSV)
+
+
+.PARAMETER ResourceCategory
+The category of the calendar resource. Either CONFERENCE_ROOM or OTHER. Legacy data is set to CATEGORY_UNKNOWN.
+
+Acceptable values are:
+CATEGORY_UNKNOWN
+CONFERENCE_ROOM
+OTHER
+
+
+.PARAMETER ResourceCategory_ALL
+Same as resourceCategory but value is applied to all lines in the CSV file
+
+
+.PARAMETER ResourceDescription
+Description of the resource, visible only to admins.
+
+
+.PARAMETER ResourceDescription_ALL
+Same as resourceDescription but value is applied to all lines in the CSV file
+
+
+.PARAMETER ResourceName
+The name of the calendar resource. For example, "Training Room 1A".
+
+
+.PARAMETER ResourceName_ALL
+Same as resourceName but value is applied to all lines in the CSV file
+
+
+.PARAMETER ResourceType
+The type of the calendar resource, intended for non-room resources.
+
+
+.PARAMETER ResourceType_ALL
+Same as resourceType but value is applied to all lines in the CSV file
+
+
+.PARAMETER SkipHeader
+Whether to skip the first row (header)
+
+
+.PARAMETER UserVisibleDescription
+Description of the resource, visible to users and admins.
+
+
+.PARAMETER UserVisibleDescription_ALL
+Same as userVisibleDescription but value is applied to all lines in the CSV file
+
+
+
+#>
+}
+
+
+Function Patch-GSMCalendarResources {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BuildingId,
+[Parameter()]
+[string]$CalendarResourceId,
+[Parameter()]
+[string]$Capacity,
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$FeatureInstances,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$FloorName,
+[Parameter()]
+[string]$FloorSection,
+[Parameter()]
+[string]$ResourceCategory,
+[Parameter()]
+[string]$ResourceDescription,
+[Parameter()]
+[string]$ResourceName,
+[Parameter()]
+[string]$ResourceType,
+[Parameter()]
+[string]$UserVisibleDescription
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        CalendarResourceId = @{ OriginalName = '--calendarResourceId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Capacity = @{ OriginalName = '--capacity'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FeatureInstances = @{ OriginalName = '--featureInstances'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FloorName = @{ OriginalName = '--floorName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FloorSection = @{ OriginalName = '--floorSection'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceCategory = @{ OriginalName = '--resourceCategory'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceDescription = @{ OriginalName = '--resourceDescription'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceName = @{ OriginalName = '--resourceName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceType = @{ OriginalName = '--resourceType'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        UserVisibleDescription = @{ OriginalName = '--userVisibleDescription'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "calendarResources"
+        "patch"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Patches a calendar resource.
+
+.PARAMETER BuildingId
+Unique ID for the building a resource is located in.
+
+
+.PARAMETER CalendarResourceId
+The unique ID of the calendar resource
+
+
+.PARAMETER Capacity
+Capacity of a resource, number of seats in a room.
+
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account.
+As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER FeatureInstances
+Instances of features for the calendar resource.
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER FloorName
+Name of the floor a resource is located on.
+
+
+.PARAMETER FloorSection
+Name of the section within a floor a resource is located in.
+
+
+.PARAMETER ResourceCategory
+The category of the calendar resource. Either CONFERENCE_ROOM or OTHER. Legacy data is set to CATEGORY_UNKNOWN.
+
+Acceptable values are:
+CATEGORY_UNKNOWN
+CONFERENCE_ROOM
+OTHER
+
+
+.PARAMETER ResourceDescription
+Description of the resource, visible only to admins.
+
+
+.PARAMETER ResourceName
+The name of the calendar resource. For example, "Training Room 1A".
+
+
+.PARAMETER ResourceType
+The type of the calendar resource, intended for non-room resources.
+
+
+.PARAMETER UserVisibleDescription
+Description of the resource, visible to users and admins.
+
+
+
+#>
+}
+
+
+Function Clear-GSMCalendars {
 
 
 [CmdletBinding()]
@@ -3784,7 +6737,7 @@ If you want to access the primary calendar of the currently logged in user, use 
 }
 
 
-Function Delete-CalendarsBatch {
+Function Delete-GSMCalendarsBatch {
 
 
 [CmdletBinding()]
@@ -3888,7 +6841,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Delete-Calendars {
+Function Delete-GSMCalendars {
 
 
 [CmdletBinding()]
@@ -3964,7 +6917,7 @@ If you want to access the primary calendar of the currently logged in user, use 
 }
 
 
-Function Get-CalendarsBatch {
+Function Get-GSMCalendarsBatch {
 
 
 [CmdletBinding()]
@@ -4083,7 +7036,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Get-Calendars {
+Function Get-GSMCalendars {
 
 
 [CmdletBinding()]
@@ -4166,7 +7119,7 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 }
 
 
-Function Insert-CalendarsBatch {
+Function Insert-GSMCalendarsBatch {
 
 
 [CmdletBinding()]
@@ -4334,7 +7287,7 @@ Same as timeZone but value is applied to all lines in the CSV file
 }
 
 
-Function Insert-Calendars {
+Function Insert-GSMCalendars {
 
 
 [CmdletBinding()]
@@ -4438,7 +7391,7 @@ The time zone of the calendar.
 }
 
 
-Function Patch-CalendarsBatch {
+Function Patch-GSMCalendarsBatch {
 
 
 [CmdletBinding()]
@@ -4614,7 +7567,7 @@ Same as timeZone but value is applied to all lines in the CSV file
 }
 
 
-Function Patch-Calendars {
+Function Patch-GSMCalendars {
 
 
 [CmdletBinding()]
@@ -4726,7 +7679,7 @@ The time zone of the calendar.
 }
 
 
-Function Get-CalendarSettingsBatch {
+Function Get-GSMCalendarSettingsBatch {
 
 
 [CmdletBinding()]
@@ -4844,7 +7797,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Get-CalendarSettings {
+Function Get-GSMCalendarSettings {
 
 
 [CmdletBinding()]
@@ -4926,7 +7879,7 @@ The id of the user setting.
 }
 
 
-Function List-CalendarSettings {
+Function List-GSMCalendarSettings {
 
 
 [CmdletBinding()]
@@ -5001,7 +7954,7 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 }
 
 
-Function GetStartPageToken-Changes {
+Function GetStartPageToken-GSMChanges {
 
 
 [CmdletBinding()]
@@ -5083,7 +8036,7 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 }
 
 
-Function List-Changes {
+Function List-GSMChanges {
 
 
 [CmdletBinding()]
@@ -5217,7 +8170,7 @@ A comma-separated list of spaces to query within the user corpus. Supported valu
 }
 
 
-Function IssueCommand-ChromeOsBatch {
+Function IssueCommand-GSMChromeOsBatch {
 
 
 [CmdletBinding()]
@@ -5357,7 +8310,7 @@ Whether to skip the first row (header)
 }
 
 
-Function IssueCommand-ChromeOs {
+Function IssueCommand-GSMChromeOs {
 
 
 [CmdletBinding()]
@@ -5468,7 +8421,7 @@ The payload for the command, provide it only if command supports it. The followi
 }
 
 
-Function Action-ChromeOsDevicesBatch {
+Function Action-GSMChromeOsDevicesBatch {
 
 
 [CmdletBinding()]
@@ -5632,7 +8585,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Action-ChromeOsDevices {
+Function Action-GSMChromeOsDevices {
 
 
 [CmdletBinding()]
@@ -5746,7 +8699,7 @@ The resourceIds are returned in the response from the chromeosdevices.list metho
 }
 
 
-Function Get-ChromeOsDevicesBatch {
+Function Get-GSMChromeOsDevicesBatch {
 
 
 [CmdletBinding()]
@@ -5899,7 +8852,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Get-ChromeOsDevices {
+Function Get-GSMChromeOsDevices {
 
 
 [CmdletBinding()]
@@ -6002,7 +8955,7 @@ FULL   - Includes all metadata fields.
 }
 
 
-Function List-ChromeOsDevices {
+Function List-GSMChromeOsDevices {
 
 
 [CmdletBinding()]
@@ -6139,7 +9092,7 @@ DESCENDING  - Descending order.
 }
 
 
-Function MoveToOU-ChromeOsDevices {
+Function MoveToOU-GSMChromeOsDevices {
 
 
 [CmdletBinding()]
@@ -6229,7 +9182,7 @@ The full path of the organizational unit or its unique ID.
 }
 
 
-Function Patch-ChromeOsDevicesBatch {
+Function Patch-GSMChromeOsDevicesBatch {
 
 
 [CmdletBinding()]
@@ -6456,7 +9409,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Patch-ChromeOsDevices {
+Function Patch-GSMChromeOsDevices {
 
 
 [CmdletBinding()]
@@ -6598,7 +9551,7 @@ FULL   - Includes all metadata fields.
 }
 
 
-Function Get-Colors {
+Function Get-GSMColors {
 
 
 [CmdletBinding()]
@@ -6673,7 +9626,7 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 }
 
 
-Function Create-CommentsBatch {
+Function Create-GSMCommentsBatch {
 
 
 [CmdletBinding()]
@@ -6843,7 +9796,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Create-Comments {
+Function Create-GSMComments {
 
 
 [CmdletBinding()]
@@ -6949,7 +9902,7 @@ This is interpreted as plain text if set through the API.
 }
 
 
-Function Delete-CommentsBatch {
+Function Delete-GSMCommentsBatch {
 
 
 [CmdletBinding()]
@@ -7066,7 +10019,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Delete-Comments {
+Function Delete-GSMComments {
 
 
 [CmdletBinding()]
@@ -7147,7 +10100,7 @@ The ID of the file.
 }
 
 
-Function Get-CommentsBatch {
+Function Get-GSMCommentsBatch {
 
 
 [CmdletBinding()]
@@ -7294,7 +10247,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Get-Comments {
+Function Get-GSMComments {
 
 
 [CmdletBinding()]
@@ -7391,7 +10344,7 @@ Deleted comments will not include their original content.
 }
 
 
-Function List-CommentsBatch {
+Function List-GSMCommentsBatch {
 
 
 [CmdletBinding()]
@@ -7545,7 +10498,7 @@ Same as startModifiedTime but value is applied to all lines in the CSV file
 }
 
 
-Function List-Comments {
+Function List-GSMComments {
 
 
 [CmdletBinding()]
@@ -7642,7 +10595,7 @@ The minimum value of 'modifiedTime' for the result comments (RFC 3339 date-time)
 }
 
 
-Function Update-CommentsBatch {
+Function Update-GSMCommentsBatch {
 
 
 [CmdletBinding()]
@@ -7819,7 +10772,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Update-Comments {
+Function Update-GSMComments {
 
 
 [CmdletBinding()]
@@ -7932,7 +10885,7 @@ This is interpreted as plain text if set through the API.
 }
 
 
-Function Get-Configs {
+Function Get-GSMConfigs {
 
 
 [CmdletBinding()]
@@ -8007,7 +10960,7 @@ This (plus ".yaml") will be used as the file name.
 }
 
 
-Function GetScopes-Configs {
+Function GetScopes-GSMConfigs {
 
 
 [CmdletBinding()]
@@ -8082,7 +11035,7 @@ This (plus ".yaml") will be used as the file name.
 }
 
 
-Function List-Configs {
+Function List-GSMConfigs {
 
 
 [CmdletBinding()]
@@ -8156,7 +11109,7 @@ List detailed information about configs.
 }
 
 
-Function Load-Configs {
+Function Load-GSMConfigs {
 
 
 [CmdletBinding()]
@@ -8231,7 +11184,7 @@ This (plus ".yaml") will be used as the file name.
 }
 
 
-Function New-Configs {
+Function New-GSMConfigs {
 
 
 [CmdletBinding()]
@@ -8357,7 +11310,7 @@ The maximum number of threads to use.
 }
 
 
-Function Remove-Configs {
+Function Remove-GSMConfigs {
 
 
 [CmdletBinding()]
@@ -8432,7 +11385,7 @@ This (plus ".yaml") will be used as the file name.
 }
 
 
-Function BatchGet-ContactGroups {
+Function BatchGet-GSMContactGroups {
 
 
 [CmdletBinding()]
@@ -8522,7 +11475,7 @@ The resource names of the contact groups.
 }
 
 
-Function Create-ContactGroupsBatch {
+Function Create-GSMContactGroupsBatch {
 
 
 [CmdletBinding()]
@@ -8640,7 +11593,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Create-ContactGroups {
+Function Create-GSMContactGroups {
 
 
 [CmdletBinding()]
@@ -8722,7 +11675,7 @@ The contact group name set by the group owner or a system provided name for syst
 }
 
 
-Function Delete-ContactGroupsBatch {
+Function Delete-GSMContactGroupsBatch {
 
 
 [CmdletBinding()]
@@ -8839,7 +11792,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Delete-ContactGroups {
+Function Delete-GSMContactGroups {
 
 
 [CmdletBinding()]
@@ -8920,7 +11873,7 @@ The resource name of the contact group.
 }
 
 
-Function Get-ContactGroupsBatch {
+Function Get-GSMContactGroupsBatch {
 
 
 [CmdletBinding()]
@@ -9053,7 +12006,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Get-ContactGroups {
+Function Get-GSMContactGroups {
 
 
 [CmdletBinding()]
@@ -9143,7 +12096,7 @@ The resource name of the contact group.
 }
 
 
-Function List-ContactGroups {
+Function List-GSMContactGroups {
 
 
 [CmdletBinding()]
@@ -9218,7 +12171,7 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 }
 
 
-Function Update-ContactGroupsBatch {
+Function Update-GSMContactGroupsBatch {
 
 
 [CmdletBinding()]
@@ -9343,7 +12296,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Update-ContactGroups {
+Function Update-GSMContactGroups {
 
 
 [CmdletBinding()]
@@ -9432,7 +12385,7 @@ The resource name of the contact group.
 }
 
 
-Function Modify-ContactGroupsMembersBatch {
+Function Modify-GSMContactGroupsMembersBatch {
 
 
 [CmdletBinding()]
@@ -9585,7 +12538,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Modify-ContactGroupsMembers {
+Function Modify-GSMContactGroupsMembers {
 
 
 [CmdletBinding()]
@@ -9681,7 +12634,7 @@ The resource names of the contact people to remove in the form of people/{person
 }
 
 
-Function Get-Customers {
+Function Get-GSMCustomers {
 
 
 [CmdletBinding()]
@@ -9763,7 +12716,7 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 }
 
 
-Function Patch-Customers {
+Function Patch-GSMCustomers {
 
 
 [CmdletBinding()]
@@ -9946,7 +12899,7 @@ An example of a region value is NY for the state of New York.
 }
 
 
-Function Create-DelegatesBatch {
+Function Create-GSMDelegatesBatch {
 
 
 [CmdletBinding()]
@@ -10078,7 +13031,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Create-Delegates {
+Function Create-GSMDelegates {
 
 
 [CmdletBinding()]
@@ -10167,7 +13120,7 @@ The user's email address. The special value me can be used to indicate the authe
 }
 
 
-Function Delete-DelegatesBatch {
+Function Delete-GSMDelegatesBatch {
 
 
 [CmdletBinding()]
@@ -10284,7 +13237,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Delete-Delegates {
+Function Delete-GSMDelegates {
 
 
 [CmdletBinding()]
@@ -10365,7 +13318,7 @@ The user's email address. The special value me can be used to indicate the authe
 }
 
 
-Function Get-DelegatesBatch {
+Function Get-GSMDelegatesBatch {
 
 
 [CmdletBinding()]
@@ -10497,7 +13450,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Get-Delegates {
+Function Get-GSMDelegates {
 
 
 [CmdletBinding()]
@@ -10586,7 +13539,7 @@ The user's email address. The special value me can be used to indicate the authe
 }
 
 
-Function List-Delegates {
+Function List-GSMDelegates {
 
 
 [CmdletBinding()]
@@ -10668,7 +13621,7 @@ The user's email address. The special value me can be used to indicate the authe
 }
 
 
-Function Delete-DomainAliasesBatch {
+Function Delete-GSMDomainAliasesBatch {
 
 
 [CmdletBinding()]
@@ -10785,7 +13738,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Delete-DomainAliases {
+Function Delete-GSMDomainAliases {
 
 
 [CmdletBinding()]
@@ -10866,7 +13819,7 @@ Name of domain alias.
 }
 
 
-Function Get-DomainAliasesBatch {
+Function Get-GSMDomainAliasesBatch {
 
 
 [CmdletBinding()]
@@ -10998,7 +13951,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Get-DomainAliases {
+Function Get-GSMDomainAliases {
 
 
 [CmdletBinding()]
@@ -11087,7 +14040,7 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 }
 
 
-Function Insert-DomainAliasesBatch {
+Function Insert-GSMDomainAliasesBatch {
 
 
 [CmdletBinding()]
@@ -11233,7 +14186,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Insert-DomainAliases {
+Function Insert-GSMDomainAliases {
 
 
 [CmdletBinding()]
@@ -11329,7 +14282,7 @@ Name of domain alias.
 }
 
 
-Function List-DomainAliases {
+Function List-GSMDomainAliases {
 
 
 [CmdletBinding()]
@@ -11418,7 +14371,7 @@ Name of domain alias.
 }
 
 
-Function Delete-DomainsBatch {
+Function Delete-GSMDomainsBatch {
 
 
 [CmdletBinding()]
@@ -11535,7 +14488,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Delete-Domains {
+Function Delete-GSMDomains {
 
 
 [CmdletBinding()]
@@ -11616,7 +14569,7 @@ Name of domain .
 }
 
 
-Function Get-DomainsBatch {
+Function Get-GSMDomainsBatch {
 
 
 [CmdletBinding()]
@@ -11748,7 +14701,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Get-Domains {
+Function Get-GSMDomains {
 
 
 [CmdletBinding()]
@@ -11837,7 +14790,7 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 }
 
 
-Function Insert-DomainsBatch {
+Function Insert-GSMDomainsBatch {
 
 
 [CmdletBinding()]
@@ -11969,7 +14922,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Insert-Domains {
+Function Insert-GSMDomains {
 
 
 [CmdletBinding()]
@@ -12058,7 +15011,7 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 }
 
 
-Function List-Domains {
+Function List-GSMDomains {
 
 
 [CmdletBinding()]
@@ -12140,7 +15093,7 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 }
 
 
-Function Create-DraftsBatch {
+Function Create-GSMDraftsBatch {
 
 
 [CmdletBinding()]
@@ -12335,7 +15288,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Create-Drafts {
+Function Create-GSMDrafts {
 
 
 [CmdletBinding()]
@@ -12452,7 +15405,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function Delete-DraftsBatch {
+Function Delete-GSMDraftsBatch {
 
 
 [CmdletBinding()]
@@ -12569,7 +15522,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Delete-Drafts {
+Function Delete-GSMDrafts {
 
 
 [CmdletBinding()]
@@ -12650,7 +15603,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function Get-DraftsBatch {
+Function Get-GSMDraftsBatch {
 
 
 [CmdletBinding()]
@@ -12801,7 +15754,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Get-Drafts {
+Function Get-GSMDrafts {
 
 
 [CmdletBinding()]
@@ -12902,7 +15855,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function List-Drafts {
+Function List-GSMDrafts {
 
 
 [CmdletBinding()]
@@ -13000,7 +15953,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function Send-DraftsBatch {
+Function Send-GSMDraftsBatch {
 
 
 [CmdletBinding()]
@@ -13117,7 +16070,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Send-Drafts {
+Function Send-GSMDrafts {
 
 
 [CmdletBinding()]
@@ -13198,7 +16151,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function Update-DraftsBatch {
+Function Update-GSMDraftsBatch {
 
 
 [CmdletBinding()]
@@ -13400,7 +16353,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Update-Drafts {
+Function Update-GSMDrafts {
 
 
 [CmdletBinding()]
@@ -13524,7 +16477,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function Create-DrivesBatch {
+Function Create-GSMDrivesBatch {
 
 
 [CmdletBinding()]
@@ -13736,7 +16689,7 @@ Same as useDomainAdminAccess but value is applied to all lines in the CSV file
 }
 
 
-Function Create-Drives {
+Function Create-GSMDrives {
 
 
 [CmdletBinding()]
@@ -13863,7 +16816,7 @@ Issue the request as a domain administrator
 }
 
 
-Function Delete-DrivesBatch {
+Function Delete-GSMDrivesBatch {
 
 
 [CmdletBinding()]
@@ -13966,7 +16919,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Delete-Drives {
+Function Delete-GSMDrives {
 
 
 [CmdletBinding()]
@@ -14041,7 +16994,7 @@ The ID of the shared drive
 }
 
 
-Function Get-DrivesBatch {
+Function Get-GSMDrivesBatch {
 
 
 [CmdletBinding()]
@@ -14173,7 +17126,7 @@ Same as useDomainAdminAccess but value is applied to all lines in the CSV file
 }
 
 
-Function Get-Drives {
+Function Get-GSMDrives {
 
 
 [CmdletBinding()]
@@ -14262,7 +17215,7 @@ Issue the request as a domain administrator
 }
 
 
-Function Hide-DrivesBatch {
+Function Hide-GSMDrivesBatch {
 
 
 [CmdletBinding()]
@@ -14394,7 +17347,7 @@ Same as useDomainAdminAccess but value is applied to all lines in the CSV file
 }
 
 
-Function Hide-Drives {
+Function Hide-GSMDrives {
 
 
 [CmdletBinding()]
@@ -14483,7 +17436,7 @@ Issue the request as a domain administrator
 }
 
 
-Function List-Drives {
+Function List-GSMDrives {
 
 
 [CmdletBinding()]
@@ -14573,7 +17526,7 @@ Issue the request as a domain administrator
 }
 
 
-Function Unhide-DrivesBatch {
+Function Unhide-GSMDrivesBatch {
 
 
 [CmdletBinding()]
@@ -14705,7 +17658,7 @@ Same as useDomainAdminAccess but value is applied to all lines in the CSV file
 }
 
 
-Function Unhide-Drives {
+Function Unhide-GSMDrives {
 
 
 [CmdletBinding()]
@@ -14794,7 +17747,7 @@ Issue the request as a domain administrator
 }
 
 
-Function Update-DrivesBatch {
+Function Update-GSMDrivesBatch {
 
 
 [CmdletBinding()]
@@ -14972,7 +17925,7 @@ Same as useDomainAdminAccess but value is applied to all lines in the CSV file
 }
 
 
-Function Update-Drives {
+Function Update-GSMDrives {
 
 
 [CmdletBinding()]
@@ -15086,7 +18039,7 @@ Issue the request as a domain administrator
 }
 
 
-Function Delete-EventsBatch {
+Function Delete-GSMEventsBatch {
 
 
 [CmdletBinding()]
@@ -15222,7 +18175,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Delete-Events {
+Function Delete-GSMEvents {
 
 
 [CmdletBinding()]
@@ -15315,7 +18268,7 @@ none          - No notifications are sent. This value should only be used for mi
 }
 
 
-Function Get-EventsBatch {
+Function Get-GSMEventsBatch {
 
 
 [CmdletBinding()]
@@ -15478,7 +18431,7 @@ Same as timeZone but value is applied to all lines in the CSV file
 }
 
 
-Function Get-Events {
+Function Get-GSMEvents {
 
 
 [CmdletBinding()]
@@ -15584,7 +18537,7 @@ The default is the time zone of the calendar.
 }
 
 
-Function Import-EventsBatch {
+Function Import-GSMEventsBatch {
 
 
 [CmdletBinding()]
@@ -15761,7 +18714,7 @@ Same as supportsAttachments but value is applied to all lines in the CSV file
 }
 
 
-Function Import-Events {
+Function Import-GSMEvents {
 
 
 [CmdletBinding()]
@@ -15875,7 +18828,7 @@ Whether API client performing operation supports event attachments.
 }
 
 
-Function Insert-EventsBatch {
+Function Insert-GSMEventsBatch {
 
 
 [CmdletBinding()]
@@ -16485,7 +19438,7 @@ Same as visibility but value is applied to all lines in the CSV file
 }
 
 
-Function Insert-Events {
+Function Insert-GSMEvents {
 
 
 [CmdletBinding()]
@@ -16842,7 +19795,7 @@ confidential  - The event is private. This value is provided for compatibility r
 }
 
 
-Function Instances-EventsBatch {
+Function Instances-GSMEventsBatch {
 
 
 [CmdletBinding()]
@@ -17067,7 +20020,7 @@ Same as timeZone but value is applied to all lines in the CSV file
 }
 
 
-Function Instances-Events {
+Function Instances-GSMEvents {
 
 
 [CmdletBinding()]
@@ -17207,7 +20160,7 @@ The default is the time zone of the calendar.
 }
 
 
-Function List-EventsBatch {
+Function List-GSMEventsBatch {
 
 
 [CmdletBinding()]
@@ -17520,7 +20473,7 @@ Same as updatedMin but value is applied to all lines in the CSV file
 }
 
 
-Function List-Events {
+Function List-GSMEvents {
 
 
 [CmdletBinding()]
@@ -17706,7 +20659,7 @@ When specified, entries deleted since this time will always be included regardle
 }
 
 
-Function Move-EventsBatch {
+Function Move-GSMEventsBatch {
 
 
 [CmdletBinding()]
@@ -17871,7 +20824,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Move-Events {
+Function Move-GSMEvents {
 
 
 [CmdletBinding()]
@@ -17979,7 +20932,7 @@ none          - No notifications are sent. This value should only be used for mi
 }
 
 
-Function Patch-EventsBatch {
+Function Patch-GSMEventsBatch {
 
 
 [CmdletBinding()]
@@ -18612,7 +21565,7 @@ Same as visibility but value is applied to all lines in the CSV file
 }
 
 
-Function Patch-Events {
+Function Patch-GSMEvents {
 
 
 [CmdletBinding()]
@@ -18985,7 +21938,7 @@ confidential  - The event is private. This value is provided for compatibility r
 }
 
 
-Function QuickAdd-EventsBatch {
+Function QuickAdd-GSMEventsBatch {
 
 
 [CmdletBinding()]
@@ -19143,7 +22096,7 @@ Same as text but value is applied to all lines in the CSV file
 }
 
 
-Function QuickAdd-Events {
+Function QuickAdd-GSMEvents {
 
 
 [CmdletBinding()]
@@ -19244,7 +22197,1173 @@ The text describing the event to be created.
 }
 
 
-Function Copy-FilesBatch {
+Function Delete-GSMFeaturesBatch {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$Customer_ALL,
+[Parameter()]
+[string]$Delimiter,
+[Parameter()]
+[string]$FeatureKey,
+[Parameter()]
+[string]$Path,
+[Parameter()]
+[switch]$SkipHeader
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FeatureKey = @{ OriginalName = '--featureKey'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "features"
+        "delete"
+        "batch"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Batch deletes feature resources using a CSV file as input.
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
+
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account.
+As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER Customer_ALL
+Same as customer but value is applied to all lines in the CSV file
+
+
+.PARAMETER Delimiter
+Delimiter to use for CSV columns. Must be exactly one character.
+
+
+.PARAMETER FeatureKey
+The unique ID of the feature.
+
+
+.PARAMETER Path
+Path of the import file (CSV)
+
+
+.PARAMETER SkipHeader
+Whether to skip the first row (header)
+
+
+
+#>
+}
+
+
+Function Delete-GSMFeatures {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$FeatureKey
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FeatureKey = @{ OriginalName = '--featureKey'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "features"
+        "delete"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Deletes a feature resource.
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account.
+As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER FeatureKey
+The unique ID of the feature.
+
+
+
+#>
+}
+
+
+Function Get-GSMFeaturesBatch {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$Customer_ALL,
+[Parameter()]
+[string]$Delimiter,
+[Parameter()]
+[string]$FeatureKey,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$Fields_ALL,
+[Parameter()]
+[string]$Path,
+[Parameter()]
+[switch]$SkipHeader
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FeatureKey = @{ OriginalName = '--featureKey'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "features"
+        "get"
+        "batch"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Batch retrieves feature resources using a CSV file as input.
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
+
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account.
+As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER Customer_ALL
+Same as customer but value is applied to all lines in the CSV file
+
+
+.PARAMETER Delimiter
+Delimiter to use for CSV columns. Must be exactly one character.
+
+
+.PARAMETER FeatureKey
+The unique ID of the feature.
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER Fields_ALL
+Same as fields but value is applied to all lines in the CSV file
+
+
+.PARAMETER Path
+Path of the import file (CSV)
+
+
+.PARAMETER SkipHeader
+Whether to skip the first row (header)
+
+
+
+#>
+}
+
+
+Function Get-GSMFeatures {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$FeatureKey,
+[Parameter()]
+[string]$Fields
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FeatureKey = @{ OriginalName = '--featureKey'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "features"
+        "get"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Gets a feature resource.
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account.
+As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER FeatureKey
+The unique ID of the feature.
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+
+#>
+}
+
+
+Function Insert-GSMFeaturesBatch {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$Customer_ALL,
+[Parameter()]
+[string]$Delimiter,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$Fields_ALL,
+[Parameter()]
+[string]$Name,
+[Parameter()]
+[string]$Path,
+[Parameter()]
+[switch]$SkipHeader
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Name = @{ OriginalName = '--name'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "features"
+        "insert"
+        "batch"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Batch inserts feature resources using a CSV file as input.
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
+
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account.
+As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER Customer_ALL
+Same as customer but value is applied to all lines in the CSV file
+
+
+.PARAMETER Delimiter
+Delimiter to use for CSV columns. Must be exactly one character.
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER Fields_ALL
+Same as fields but value is applied to all lines in the CSV file
+
+
+.PARAMETER Name
+The name of the feature.
+
+
+.PARAMETER Path
+Path of the import file (CSV)
+
+
+.PARAMETER SkipHeader
+Whether to skip the first row (header)
+
+
+
+#>
+}
+
+
+Function Insert-GSMFeatures {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$Name
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Name = @{ OriginalName = '--name'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "features"
+        "insert"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Inserts a feature resource.
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account.
+As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER Name
+The name of the feature.
+
+
+
+#>
+}
+
+
+Function List-GSMFeatures {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$Fields
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "features"
+        "list"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Retrieves a list of feature resources for an account.
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account.
+As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+
+#>
+}
+
+
+Function Patch-GSMFeaturesBatch {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$Customer_ALL,
+[Parameter()]
+[string]$Delimiter,
+[Parameter()]
+[string]$FeatureKey,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$Fields_ALL,
+[Parameter()]
+[string]$Path,
+[Parameter()]
+[switch]$SkipHeader
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FeatureKey = @{ OriginalName = '--featureKey'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "features"
+        "patch"
+        "batch"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Batch patchs feature resources using a CSV file as input.
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
+
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account.
+As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER Customer_ALL
+Same as customer but value is applied to all lines in the CSV file
+
+
+.PARAMETER Delimiter
+Delimiter to use for CSV columns. Must be exactly one character.
+
+
+.PARAMETER FeatureKey
+The unique ID of the feature.
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER Fields_ALL
+Same as fields but value is applied to all lines in the CSV file
+
+
+.PARAMETER Path
+Path of the import file (CSV)
+
+
+.PARAMETER SkipHeader
+Whether to skip the first row (header)
+
+
+
+#>
+}
+
+
+Function Patch-GSMFeatures {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$FeatureKey,
+[Parameter()]
+[string]$Fields
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FeatureKey = @{ OriginalName = '--featureKey'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "features"
+        "patch"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Patches a feature resource.
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account.
+As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER FeatureKey
+The unique ID of the feature.
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+
+#>
+}
+
+
+Function Rename-GSMFeaturesBatch {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$Customer_ALL,
+[Parameter()]
+[string]$Delimiter,
+[Parameter()]
+[string]$NewName,
+[Parameter()]
+[string]$OldName,
+[Parameter()]
+[string]$Path,
+[Parameter()]
+[switch]$SkipHeader
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        NewName = @{ OriginalName = '--newName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        OldName = @{ OriginalName = '--oldName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "features"
+        "rename"
+        "batch"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Batch renames feature resources using a CSV file as input.
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
+
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account.
+As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER Customer_ALL
+Same as customer but value is applied to all lines in the CSV file
+
+
+.PARAMETER Delimiter
+Delimiter to use for CSV columns. Must be exactly one character.
+
+
+.PARAMETER NewName
+New name of the feature.
+
+
+.PARAMETER OldName
+The unique ID of the feature to rename.
+
+
+.PARAMETER Path
+Path of the import file (CSV)
+
+
+.PARAMETER SkipHeader
+Whether to skip the first row (header)
+
+
+
+#>
+}
+
+
+Function Rename-GSMFeatures {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$Customer,
+[Parameter()]
+[string]$NewName,
+[Parameter()]
+[string]$OldName
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        NewName = @{ OriginalName = '--newName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        OldName = @{ OriginalName = '--oldName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "features"
+        "rename"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Renames a feature resource.
+
+.PARAMETER Customer
+The unique ID for the customer's Workspace account.
+As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
+
+
+.PARAMETER NewName
+New name of the feature.
+
+
+.PARAMETER OldName
+The unique ID of the feature to rename.
+
+
+
+#>
+}
+
+
+Function Copy-GSMFilesBatch {
 
 
 [CmdletBinding()]
@@ -19654,7 +23773,7 @@ Same as writersCanShare but value is applied to all lines in the CSV file
 }
 
 
-Function Copy-FilesRecursive {
+Function Copy-GSMFilesRecursive {
 
 
 [CmdletBinding()]
@@ -19751,7 +23870,7 @@ The single parent of the file.
 }
 
 
-Function Copy-Files {
+Function Copy-GSMFiles {
 
 
 [CmdletBinding()]
@@ -19993,7 +24112,7 @@ Not populated for items in shared drives.
 }
 
 
-Function Create-FilesBatch {
+Function Create-GSMFilesBatch {
 
 
 [CmdletBinding()]
@@ -20503,7 +24622,7 @@ Same as writersCanShare but value is applied to all lines in the CSV file
 }
 
 
-Function Create-Files {
+Function Create-GSMFiles {
 
 
 [CmdletBinding()]
@@ -20795,7 +24914,7 @@ Not populated for items in shared drives.
 }
 
 
-Function Delete-FilesBatch {
+Function Delete-GSMFilesBatch {
 
 
 [CmdletBinding()]
@@ -20898,7 +25017,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Delete-Files {
+Function Delete-GSMFiles {
 
 
 [CmdletBinding()]
@@ -20972,7 +25091,7 @@ The ID of the file
 }
 
 
-Function Download-FilesBatch {
+Function Download-GSMFilesBatch {
 
 
 [CmdletBinding()]
@@ -21089,7 +25208,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Download-Files {
+Function Download-GSMFiles {
 
 
 [CmdletBinding()]
@@ -21170,7 +25289,7 @@ The ID of the file
 }
 
 
-Function Export-FilesBatch {
+Function Export-GSMFilesBatch {
 
 
 [CmdletBinding()]
@@ -21292,7 +25411,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Export-Files {
+Function Export-GSMFiles {
 
 
 [CmdletBinding()]
@@ -21378,7 +25497,7 @@ The supported import formats are published in the About resource.
 }
 
 
-Function GenerateIds-Files {
+Function GenerateIds-GSMFiles {
 
 
 [CmdletBinding()]
@@ -21460,7 +25579,7 @@ Supported values are 'drive' and 'appDataFolder'.
 }
 
 
-Function Get-FilesBatch {
+Function Get-GSMFilesBatch {
 
 
 [CmdletBinding()]
@@ -21593,7 +25712,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Get-Files {
+Function Get-GSMFiles {
 
 
 [CmdletBinding()]
@@ -21683,7 +25802,7 @@ Only 'published' is supported.
 }
 
 
-Function List-FilesRecursive {
+Function List-GSMFilesRecursive {
 
 
 [CmdletBinding()]
@@ -21773,7 +25892,7 @@ File id of the folder.
 }
 
 
-Function List-Files {
+Function List-GSMFiles {
 
 
 [CmdletBinding()]
@@ -21910,7 +26029,7 @@ Supported values are 'drive', 'appDataFolder' and 'photos'.
 }
 
 
-Function Move-FilesBatch {
+Function Move-GSMFilesBatch {
 
 
 [CmdletBinding()]
@@ -22027,7 +26146,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Move-FilesRecursive {
+Function Move-GSMFilesRecursive {
 
 
 [CmdletBinding()]
@@ -22116,7 +26235,7 @@ The single parent of the file.
 }
 
 
-Function Move-Files {
+Function Move-GSMFiles {
 
 
 [CmdletBinding()]
@@ -22197,7 +26316,7 @@ The single parent of the file.
 }
 
 
-Function Update-FilesBatch {
+Function Update-GSMFilesBatch {
 
 
 [CmdletBinding()]
@@ -22680,7 +26799,7 @@ Same as writersCanShare but value is applied to all lines in the CSV file
 }
 
 
-Function Update-Files {
+Function Update-GSMFiles {
 
 
 [CmdletBinding()]
@@ -22959,7 +27078,7 @@ Not populated for items in shared drives.
 }
 
 
-Function Create-FiltersBatch {
+Function Create-GSMFiltersBatch {
 
 
 [CmdletBinding()]
@@ -23262,7 +27381,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Create-Filters {
+Function Create-GSMFilters {
 
 
 [CmdletBinding()]
@@ -23438,7 +27557,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function Delete-FiltersBatch {
+Function Delete-GSMFiltersBatch {
 
 
 [CmdletBinding()]
@@ -23555,7 +27674,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Delete-Filters {
+Function Delete-GSMFilters {
 
 
 [CmdletBinding()]
@@ -23636,7 +27755,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function Get-FiltersBatch {
+Function Get-GSMFiltersBatch {
 
 
 [CmdletBinding()]
@@ -23768,7 +27887,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Get-Filters {
+Function Get-GSMFilters {
 
 
 [CmdletBinding()]
@@ -23857,7 +27976,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function List-Filters {
+Function List-GSMFilters {
 
 
 [CmdletBinding()]
@@ -23939,7 +28058,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function Create-ForwardingAddressesBatch {
+Function Create-GSMForwardingAddressesBatch {
 
 
 [CmdletBinding()]
@@ -24071,7 +28190,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Create-ForwardingAddresses {
+Function Create-GSMForwardingAddresses {
 
 
 [CmdletBinding()]
@@ -24162,7 +28281,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function Delete-ForwardingAddressesBatch {
+Function Delete-GSMForwardingAddressesBatch {
 
 
 [CmdletBinding()]
@@ -24279,7 +28398,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Delete-ForwardingAddresses {
+Function Delete-GSMForwardingAddresses {
 
 
 [CmdletBinding()]
@@ -24360,7 +28479,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function Get-ForwardingAddressesBatch {
+Function Get-GSMForwardingAddressesBatch {
 
 
 [CmdletBinding()]
@@ -24492,7 +28611,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Get-ForwardingAddresses {
+Function Get-GSMForwardingAddresses {
 
 
 [CmdletBinding()]
@@ -24581,7 +28700,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function List-ForwardingAddresses {
+Function List-GSMForwardingAddresses {
 
 
 [CmdletBinding()]
@@ -24663,7 +28782,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function Query-FreeBusy {
+Function Query-GSMFreeBusy {
 
 
 [CmdletBinding()]
@@ -24783,7 +28902,7 @@ Optional. The default is UTC.
 }
 
 
-Function GetAutoForwarding-GmailSettings {
+Function GetAutoForwarding-GSMGmailSettings {
 
 
 [CmdletBinding()]
@@ -24865,7 +28984,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function GetImap-GmailSettings {
+Function GetImap-GSMGmailSettings {
 
 
 [CmdletBinding()]
@@ -24947,7 +29066,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function GetLanguage-GmailSettings {
+Function GetLanguage-GSMGmailSettings {
 
 
 [CmdletBinding()]
@@ -25029,7 +29148,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function GetPop-GmailSettings {
+Function GetPop-GSMGmailSettings {
 
 
 [CmdletBinding()]
@@ -25111,7 +29230,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function GetVacation-GmailSettings {
+Function GetVacation-GSMGmailSettings {
 
 
 [CmdletBinding()]
@@ -25193,7 +29312,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function UpdateAutoForwarding-GmailSettings {
+Function UpdateAutoForwarding-GSMGmailSettings {
 
 
 [CmdletBinding()]
@@ -25311,7 +29430,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function UpdateImap-GmailSettings {
+Function UpdateImap-GSMGmailSettings {
 
 
 [CmdletBinding()]
@@ -25427,7 +29546,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function UpdateLanguage-GmailSettings {
+Function UpdateLanguage-GSMGmailSettings {
 
 
 [CmdletBinding()]
@@ -25520,7 +29639,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function UpdatePop-GmailSettings {
+Function UpdatePop-GSMGmailSettings {
 
 
 [CmdletBinding()]
@@ -25625,7 +29744,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function UpdateVacation-GmailSettings {
+Function UpdateVacation-GSMGmailSettings {
 
 
 [CmdletBinding()]
@@ -25771,7 +29890,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function GetProfile-GmailUsers {
+Function GetProfile-GSMGmailUsers {
 
 
 [CmdletBinding()]
@@ -25853,7 +29972,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function Delete-GroupAliasesBatch {
+Function Delete-GSMGroupAliasesBatch {
 
 
 [CmdletBinding()]
@@ -25971,7 +30090,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Delete-GroupAliases {
+Function Delete-GSMGroupAliases {
 
 
 [CmdletBinding()]
@@ -26053,7 +30172,7 @@ The value can be the group's email address, group alias, or the unique group ID.
 }
 
 
-Function Insert-GroupAliasesBatch {
+Function Insert-GSMGroupAliasesBatch {
 
 
 [CmdletBinding()]
@@ -26186,7 +30305,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Insert-GroupAliases {
+Function Insert-GSMGroupAliases {
 
 
 [CmdletBinding()]
@@ -26276,7 +30395,7 @@ The value can be the group's email address, group alias, or the unique group ID.
 }
 
 
-Function List-GroupAliasesBatch {
+Function List-GSMGroupAliasesBatch {
 
 
 [CmdletBinding()]
@@ -26395,7 +30514,7 @@ Whether to skip the first row (header)
 }
 
 
-Function List-GroupAliases {
+Function List-GSMGroupAliases {
 
 
 [CmdletBinding()]
@@ -26478,7 +30597,7 @@ The value can be the group's email address, group alias, or the unique group ID.
 }
 
 
-Function CheckTransitiveMembership-GroupMembershipsCi {
+Function CheckTransitiveMembership-GSMGroupMembershipsCi {
 
 
 [CmdletBinding()]
@@ -26577,7 +30696,7 @@ Certain groups are uniquely identified by both a 'member_key_id' and a 'member_k
 }
 
 
-Function Create-GroupMembershipsCi {
+Function Create-GSMGroupMembershipsCi {
 
 
 [CmdletBinding()]
@@ -26713,7 +30832,7 @@ expireTime    - The time at which the MembershipRole will expire.
 }
 
 
-Function Delete-GroupMembershipsCi {
+Function Delete-GSMGroupMembershipsCi {
 
 
 [CmdletBinding()]
@@ -26797,7 +30916,7 @@ Must be of the form groups/{group_id}/memberships/{membership_id}.
 }
 
 
-Function Get-GroupMembershipsCi {
+Function Get-GSMGroupMembershipsCi {
 
 
 [CmdletBinding()]
@@ -26889,7 +31008,7 @@ Must be of the form groups/{group_id}/memberships/{membership_id}.
 }
 
 
-Function GetMembershipGraph-GroupMembershipsCi {
+Function GetMembershipGraph-GSMGroupMembershipsCi {
 
 
 [CmdletBinding()]
@@ -26996,7 +31115,7 @@ Certain groups are uniquely identified by both a 'member_key_id' and a 'member_k
 }
 
 
-Function List-GroupMembershipsCi {
+Function List-GSMGroupMembershipsCi {
 
 
 [CmdletBinding()]
@@ -27097,7 +31216,7 @@ FULL   - All resource information is returned.
 }
 
 
-Function Lookup-GroupMembershipsCi {
+Function Lookup-GSMGroupMembershipsCi {
 
 
 [CmdletBinding()]
@@ -27205,7 +31324,7 @@ Format: groups/{group_id}, where group_id is the unique id assigned to the Group
 }
 
 
-Function ModifyMembershipRoles-GroupMembershipsCi {
+Function ModifyMembershipRoles-GSMGroupMembershipsCi {
 
 
 [CmdletBinding()]
@@ -27340,7 +31459,7 @@ expireTime  - The time at which the MembershipRole will expire.
 }
 
 
-Function SearchTransitiveGroups-GroupMembershipsCi {
+Function SearchTransitiveGroups-GSMGroupMembershipsCi {
 
 
 [CmdletBinding()]
@@ -27447,7 +31566,7 @@ Certain groups are uniquely identified by both a 'member_key_id' and a 'member_k
 }
 
 
-Function SearchTransitiveMemberships-GroupMembershipsCi {
+Function SearchTransitiveMemberships-GSMGroupMembershipsCi {
 
 
 [CmdletBinding()]
@@ -27539,7 +31658,7 @@ Format: groups/{group_id}, where group_id is the unique id assigned to the Group
 }
 
 
-Function Delete-GroupsBatch {
+Function Delete-GSMGroupsBatch {
 
 
 [CmdletBinding()]
@@ -27643,7 +31762,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Delete-Groups {
+Function Delete-GSMGroups {
 
 
 [CmdletBinding()]
@@ -27718,7 +31837,7 @@ The value can be the group's email address, group alias, or the unique group ID.
 }
 
 
-Function Get-GroupsBatch {
+Function Get-GSMGroupsBatch {
 
 
 [CmdletBinding()]
@@ -27837,7 +31956,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Get-Groups {
+Function Get-GSMGroups {
 
 
 [CmdletBinding()]
@@ -27920,7 +32039,7 @@ The value can be the group's email address, group alias, or the unique group ID.
 }
 
 
-Function Insert-GroupsBatch {
+Function Insert-GSMGroupsBatch {
 
 
 [CmdletBinding()]
@@ -28069,7 +32188,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Insert-Groups {
+Function Insert-GSMGroups {
 
 
 [CmdletBinding()]
@@ -28168,7 +32287,7 @@ The group's display name.
 }
 
 
-Function List-Groups {
+Function List-GSMGroups {
 
 
 [CmdletBinding()]
@@ -28297,7 +32416,7 @@ If it's an ID, it should match with the ID of the user object.
 }
 
 
-Function Patch-GroupsBatch {
+Function Patch-GSMGroupsBatch {
 
 
 [CmdletBinding()]
@@ -28454,7 +32573,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Patch-Groups {
+Function Patch-GSMGroups {
 
 
 [CmdletBinding()]
@@ -28561,7 +32680,7 @@ The group's display name.
 }
 
 
-Function Create-GroupsCiBatch {
+Function Create-GSMGroupsCiBatch {
 
 
 [CmdletBinding()]
@@ -28830,7 +32949,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Create-GroupsCi {
+Function Create-GSMGroupsCi {
 
 
 [CmdletBinding()]
@@ -29007,7 +33126,7 @@ query         - Query that determines the memberships of the dynamic group.
 }
 
 
-Function Delete-GroupsCiBatch {
+Function Delete-GSMGroupsCiBatch {
 
 
 [CmdletBinding()]
@@ -29121,7 +33240,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Delete-GroupsCi {
+Function Delete-GSMGroupsCi {
 
 
 [CmdletBinding()]
@@ -29206,7 +33325,7 @@ Must be of the form groups/{group_id}.
 }
 
 
-Function Get-GroupsCiBatch {
+Function Get-GSMGroupsCiBatch {
 
 
 [CmdletBinding()]
@@ -29335,7 +33454,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Get-GroupsCi {
+Function Get-GSMGroupsCi {
 
 
 [CmdletBinding()]
@@ -29428,7 +33547,7 @@ Must be of the form groups/{group_id}.
 }
 
 
-Function List-GroupsCi {
+Function List-GSMGroupsCi {
 
 
 [CmdletBinding()]
@@ -29519,7 +33638,7 @@ FULL   - All resource information is returned.
 }
 
 
-Function Lookup-GroupsCiBatch {
+Function Lookup-GSMGroupsCiBatch {
 
 
 [CmdletBinding()]
@@ -29639,7 +33758,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Lookup-GroupsCi {
+Function Lookup-GSMGroupsCi {
 
 
 [CmdletBinding()]
@@ -29723,7 +33842,7 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 }
 
 
-Function Patch-GroupsCiBatch {
+Function Patch-GSMGroupsCiBatch {
 
 
 [CmdletBinding()]
@@ -29896,7 +34015,7 @@ Same as updateMask but value is applied to all lines in the CSV file
 }
 
 
-Function Patch-GroupsCi {
+Function Patch-GSMGroupsCi {
 
 
 [CmdletBinding()]
@@ -30019,7 +34138,7 @@ A comma-separated list of fully qualified names of fields. Example: "user.displa
 }
 
 
-Function Search-GroupsCi {
+Function Search-GSMGroupsCi {
 
 
 [CmdletBinding()]
@@ -30112,7 +34231,7 @@ FULL   - All resource information is returned.
 }
 
 
-Function Get-GroupSettingsBatch {
+Function Get-GSMGroupSettingsBatch {
 
 
 [CmdletBinding()]
@@ -30244,7 +34363,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Get-GroupSettings {
+Function Get-GSMGroupSettings {
 
 
 [CmdletBinding()]
@@ -30333,7 +34452,7 @@ Ignore deprecated fields.
 }
 
 
-Function Patch-GroupSettingsBatch {
+Function Patch-GSMGroupSettingsBatch {
 
 
 [CmdletBinding()]
@@ -30958,7 +35077,7 @@ Same as whoCanViewMembership but value is applied to all lines in the CSV file
 }
 
 
-Function Patch-GroupSettings {
+Function Patch-GSMGroupSettings {
 
 
 [CmdletBinding()]
@@ -31337,7 +35456,7 @@ ALL_MANAGERS_CAN_VIEW   - The group managers can view group members list.
 }
 
 
-Function List-History {
+Function List-GSMHistory {
 
 
 [CmdletBinding()]
@@ -31444,7 +35563,7 @@ The special value me can be used to indicate the authenticated user.
 }
 
 
-Function Create-LabelsBatch {
+Function Create-GSMLabelsBatch {
 
 
 [CmdletBinding()]
@@ -31632,7 +35751,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Create-Labels {
+Function Create-GSMLabels {
 
 
 [CmdletBinding()]
@@ -31749,7 +35868,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function Delete-LabelsBatch {
+Function Delete-GSMLabelsBatch {
 
 
 [CmdletBinding()]
@@ -31866,7 +35985,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Delete-Labels {
+Function Delete-GSMLabels {
 
 
 [CmdletBinding()]
@@ -31947,7 +36066,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function Get-LabelsBatch {
+Function Get-GSMLabelsBatch {
 
 
 [CmdletBinding()]
@@ -32079,7 +36198,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Get-Labels {
+Function Get-GSMLabels {
 
 
 [CmdletBinding()]
@@ -32168,7 +36287,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function List-Labels {
+Function List-GSMLabels {
 
 
 [CmdletBinding()]
@@ -32250,7 +36369,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function Patch-LabelsBatch {
+Function Patch-GSMLabelsBatch {
 
 
 [CmdletBinding()]
@@ -32445,7 +36564,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Patch-Labels {
+Function Patch-GSMLabels {
 
 
 [CmdletBinding()]
@@ -32569,7 +36688,7 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
-Function Delete-LicenseAssignmentsBatch {
+Function Delete-GSMLicenseAssignmentsBatch {
 
 
 [CmdletBinding()]
@@ -32713,7 +36832,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Delete-LicenseAssignmentsRecursive {
+Function Delete-GSMLicenseAssignmentsRecursive {
 
 
 [CmdletBinding()]
@@ -32818,7 +36937,7 @@ For more information about available SKUs in this version of the API, see https:
 }
 
 
-Function Delete-LicenseAssignments {
+Function Delete-GSMLicenseAssignments {
 
 
 [CmdletBinding()]
@@ -32912,7 +37031,7 @@ If the userId is suspended, the license status changes.
 }
 
 
-Function Get-LicenseAssignmentsBatch {
+Function Get-GSMLicenseAssignmentsBatch {
 
 
 [CmdletBinding()]
@@ -33074,7 +37193,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Get-LicenseAssignmentsRecursive {
+Function Get-GSMLicenseAssignmentsRecursive {
 
 
 [CmdletBinding()]
@@ -33190,7 +37309,7 @@ For more information about available SKUs in this version of the API, see https:
 }
 
 
-Function Get-LicenseAssignments {
+Function Get-GSMLicenseAssignments {
 
 
 [CmdletBinding()]
@@ -33295,7 +37414,7 @@ If the userId is suspended, the license status changes.
 }
 
 
-Function Insert-LicenseAssignmentsBatch {
+Function Insert-GSMLicenseAssignmentsBatch {
 
 
 [CmdletBinding()]
@@ -33457,7 +37576,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Insert-LicenseAssignmentsRecursive {
+Function Insert-GSMLicenseAssignmentsRecursive {
 
 
 [CmdletBinding()]
@@ -33573,7 +37692,7 @@ For more information about available SKUs in this version of the API, see https:
 }
 
 
-Function Insert-LicenseAssignments {
+Function Insert-GSMLicenseAssignments {
 
 
 [CmdletBinding()]
@@ -33678,7 +37797,7 @@ If the userId is suspended, the license status changes.
 }
 
 
-Function ListForProduct-LicenseAssignments {
+Function ListForProduct-GSMLicenseAssignments {
 
 
 [CmdletBinding()]
@@ -33775,7 +37894,7 @@ For more information about products in this version of the API, see https://deve
 }
 
 
-Function ListForProductAndSku-LicenseAssignments {
+Function ListForProductAndSku-GSMLicenseAssignments {
 
 
 [CmdletBinding()]
@@ -33880,7 +37999,7 @@ For more information about available SKUs in this version of the API, see https:
 }
 
 
-Function Patch-LicenseAssignmentsBatch {
+Function Patch-GSMLicenseAssignmentsBatch {
 
 
 [CmdletBinding()]
@@ -34057,7 +38176,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Patch-LicenseAssignmentsRecursive {
+Function Patch-GSMLicenseAssignmentsRecursive {
 
 
 [CmdletBinding()]
@@ -34181,7 +38300,7 @@ For more information about products in this version of the API, see https://deve
 }
 
 
-Function Patch-LicenseAssignments {
+Function Patch-GSMLicenseAssignments {
 
 
 [CmdletBinding()]
@@ -34294,7 +38413,7 @@ If the userId is suspended, the license status changes.
 }
 
 
-Function Delete-MembersBatch {
+Function Delete-GSMMembersBatch {
 
 
 [CmdletBinding()]
@@ -34421,7 +38540,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Delete-MembersRecursive {
+Function Delete-GSMMembersRecursive {
 
 
 [CmdletBinding()]
@@ -34518,7 +38637,7 @@ Path of an orgUnit. Can be used multiple times. Note that an orgUnit always incl
 }
 
 
-Function Delete-Members {
+Function Delete-GSMMembers {
 
 
 [CmdletBinding()]
@@ -34602,7 +38721,7 @@ The value can be the member's (group or user) primary email address, alias, or u
 }
 
 
-Function Get-MembersBatch {
+Function Get-GSMMembersBatch {
 
 
 [CmdletBinding()]
@@ -34744,7 +38863,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Get-MembersRecursive {
+Function Get-GSMMembersRecursive {
 
 
 [CmdletBinding()]
@@ -34849,7 +38968,7 @@ Path of an orgUnit. Can be used multiple times. Note that an orgUnit always incl
 }
 
 
-Function Get-Members {
+Function Get-GSMMembers {
 
 
 [CmdletBinding()]
@@ -34941,7 +39060,7 @@ The value can be the member's (group or user) primary email address, alias, or u
 }
 
 
-Function HasMember-MembersBatch {
+Function HasMember-GSMMembersBatch {
 
 
 [CmdletBinding()]
@@ -35068,7 +39187,7 @@ Whether to skip the first row (header)
 }
 
 
-Function HasMember-MembersRecursive {
+Function HasMember-GSMMembersRecursive {
 
 
 [CmdletBinding()]
@@ -35165,7 +39284,7 @@ Path of an orgUnit. Can be used multiple times. Note that an orgUnit always incl
 }
 
 
-Function HasMember-Members {
+Function HasMember-GSMMembers {
 
 
 [CmdletBinding()]
@@ -35249,7 +39368,7 @@ The value can be the member's (group or user) primary email address, alias, or u
 }
 
 
-Function Insert-MembersBatch {
+Function Insert-GSMMembersBatch {
 
 
 [CmdletBinding()]
@@ -35431,7 +39550,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Insert-MembersRecursive {
+Function Insert-GSMMembersRecursive {
 
 
 [CmdletBinding()]
@@ -35561,7 +39680,7 @@ OWNER    - This role can send messages to the group, add or remove members, chan
 }
 
 
-Function Insert-Members {
+Function Insert-GSMMembers {
 
 
 [CmdletBinding()]
@@ -35679,7 +39798,7 @@ OWNER    - This role can send messages to the group, add or remove members, chan
 }
 
 
-Function List-MembersBatch {
+Function List-GSMMembersBatch {
 
 
 [CmdletBinding()]
@@ -35834,7 +39953,7 @@ Whether to skip the first row (header)
 }
 
 
-Function List-Members {
+Function List-GSMMembers {
 
 
 [CmdletBinding()]
@@ -35932,7 +40051,7 @@ Allowed values are OWNER, MANAGER, and MEMBER.
 }
 
 
-Function Patch-MembersBatch {
+Function Patch-GSMMembersBatch {
 
 
 [CmdletBinding()]
@@ -36097,7 +40216,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Patch-MembersRecursive {
+Function Patch-GSMMembersRecursive {
 
 
 [CmdletBinding()]
@@ -36227,7 +40346,7 @@ OWNER    - This role can send messages to the group, add or remove members, chan
 }
 
 
-Function Patch-Members {
+Function Patch-GSMMembers {
 
 
 [CmdletBinding()]
@@ -36335,7 +40454,7 @@ OWNER    - This role can send messages to the group, add or remove members, chan
 }
 
 
-Function BatchDelete-Messages {
+Function BatchDelete-GSMMessages {
 
 
 [CmdletBinding()]
@@ -36409,7 +40528,7 @@ The IDs of the messages. There is a limit of 1000 ids per request.
 }
 
 
-Function Delete-Messages {
+Function Delete-GSMMessages {
 
 
 [CmdletBinding()]
@@ -36490,7 +40609,7 @@ The user's email address. The special value \"me\" can be used to indicate the a
 }
 
 
-Function Get-MessagesBatch {
+Function Get-GSMMessagesBatch {
 
 
 [CmdletBinding()]
@@ -36655,7 +40774,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Get-Messages {
+Function Get-GSMMessages {
 
 
 [CmdletBinding()]
@@ -36763,7 +40882,7 @@ The user's email address. The special value \"me\" can be used to indicate the a
 }
 
 
-Function Import-MessagesBatch {
+Function Import-GSMMessagesBatch {
 
 
 [CmdletBinding()]
@@ -36959,7 +41078,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Import-Messages {
+Function Import-GSMMessages {
 
 
 [CmdletBinding()]
@@ -37078,7 +41197,7 @@ The user's email address. The special value \"me\" can be used to indicate the a
 }
 
 
-Function Insert-MessagesBatch {
+Function Insert-GSMMessagesBatch {
 
 
 [CmdletBinding()]
@@ -37246,7 +41365,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Insert-Messages {
+Function Insert-GSMMessages {
 
 
 [CmdletBinding()]
@@ -37351,7 +41470,7 @@ The user's email address. The special value \"me\" can be used to indicate the a
 }
 
 
-Function List-Messages {
+Function List-GSMMessages {
 
 
 [CmdletBinding()]
@@ -37457,7 +41576,7 @@ The user's email address. The special value \"me\" can be used to indicate the a
 }
 
 
-Function Modify-MessagesBatch {
+Function Modify-GSMMessagesBatch {
 
 
 [CmdletBinding()]
@@ -37617,7 +41736,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Modify-Messages {
+Function Modify-GSMMessages {
 
 
 [CmdletBinding()]
@@ -37720,7 +41839,7 @@ The user's email address. The special value \"me\" can be used to indicate the a
 }
 
 
-Function Send-MessagesBatch {
+Function Send-GSMMessagesBatch {
 
 
 [CmdletBinding()]
@@ -37915,7 +42034,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Send-Messages {
+Function Send-GSMMessages {
 
 
 [CmdletBinding()]
@@ -38032,7 +42151,7 @@ The user's email address. The special value \"me\" can be used to indicate the a
 }
 
 
-Function Trash-MessagesBatch {
+Function Trash-GSMMessagesBatch {
 
 
 [CmdletBinding()]
@@ -38164,7 +42283,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Trash-Messages {
+Function Trash-GSMMessages {
 
 
 [CmdletBinding()]
@@ -38253,7 +42372,7 @@ The user's email address. The special value \"me\" can be used to indicate the a
 }
 
 
-Function Untrash-MessagesBatch {
+Function Untrash-GSMMessagesBatch {
 
 
 [CmdletBinding()]
@@ -38385,7 +42504,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Untrash-Messages {
+Function Untrash-GSMMessages {
 
 
 [CmdletBinding()]
@@ -38474,7 +42593,7 @@ The user's email address. The special value \"me\" can be used to indicate the a
 }
 
 
-Function Action-MobileDevicesBatch {
+Function Action-GSMMobileDevicesBatch {
 
 
 [CmdletBinding()]
@@ -38614,7 +42733,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Action-MobileDevices {
+Function Action-GSMMobileDevices {
 
 
 [CmdletBinding()]
@@ -38711,7 +42830,7 @@ The unique ID the API service uses to identify the mobile device.
 }
 
 
-Function Delete-MobileDevicesBatch {
+Function Delete-GSMMobileDevicesBatch {
 
 
 [CmdletBinding()]
@@ -38830,7 +42949,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Delete-MobileDevices {
+Function Delete-GSMMobileDevices {
 
 
 [CmdletBinding()]
@@ -38913,7 +43032,7 @@ The unique ID the API service uses to identify the mobile device.
 }
 
 
-Function Get-MobileDevicesBatch {
+Function Get-GSMMobileDevicesBatch {
 
 
 [CmdletBinding()]
@@ -39064,7 +43183,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Get-MobileDevices {
+Function Get-GSMMobileDevices {
 
 
 [CmdletBinding()]
@@ -39165,7 +43284,7 @@ The unique ID the API service uses to identify the mobile device.
 }
 
 
-Function List-MobileDevices {
+Function List-GSMMobileDevices {
 
 
 [CmdletBinding()]
@@ -39293,7 +43412,7 @@ DESCENDING  - Descending order.
 }
 
 
-Function Delete-OrgUnitsBatch {
+Function Delete-GSMOrgUnitsBatch {
 
 
 [CmdletBinding()]
@@ -39412,7 +43531,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Delete-OrgUnits {
+Function Delete-GSMOrgUnits {
 
 
 [CmdletBinding()]
@@ -39495,7 +43614,7 @@ The full path of the organizational unit or its unique ID.
 }
 
 
-Function Get-OrgUnitsBatch {
+Function Get-GSMOrgUnitsBatch {
 
 
 [CmdletBinding()]
@@ -39629,7 +43748,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Get-OrgUnits {
+Function Get-GSMOrgUnits {
 
 
 [CmdletBinding()]
@@ -39720,7 +43839,7 @@ The full path of the organizational unit or its unique ID.
 }
 
 
-Function Insert-OrgUnitsBatch {
+Function Insert-GSMOrgUnitsBatch {
 
 
 [CmdletBinding()]
@@ -39940,7 +44059,7 @@ Same as type but value is applied to all lines in the CSV file
 }
 
 
-Function Insert-OrgUnits {
+Function Insert-GSMOrgUnits {
 
 
 [CmdletBinding()]
@@ -40075,7 +44194,7 @@ children  - Immediate children only (default).
 }
 
 
-Function List-OrgUnits {
+Function List-GSMOrgUnits {
 
 
 [CmdletBinding()]
@@ -40176,7 +44295,7 @@ children  - Immediate children only (default).
 }
 
 
-Function Patch-OrgUnitsBatch {
+Function Patch-GSMOrgUnitsBatch {
 
 
 [CmdletBinding()]
@@ -40403,7 +44522,7 @@ Same as type but value is applied to all lines in the CSV file
 }
 
 
-Function Patch-OrgUnits {
+Function Patch-GSMOrgUnits {
 
 
 [CmdletBinding()]
@@ -40545,7 +44664,7 @@ children  - Immediate children only (default).
 }
 
 
-Function CopyOtherContactToMyContactsGroup-OtherContacts {
+Function CopyOtherContactToMyContactsGroup-GSMOtherContacts {
 
 
 [CmdletBinding()]
@@ -40686,7 +44805,7 @@ READ_SOURCE_TYPE_DOMAIN_CONTACT  - Returns SourceType.DOMAIN_CONTACT.
 }
 
 
-Function List-OtherContacts {
+Function List-GSMOtherContacts {
 
 
 [CmdletBinding()]
@@ -40800,7 +44919,7 @@ Valid values are:
 }
 
 
-Function CreateContact-PeopleBatch {
+Function CreateContact-GSMPeopleBatch {
 
 
 [CmdletBinding()]
@@ -41830,7 +45949,7 @@ Same as userDefined but value is applied to all lines in the CSV file
 }
 
 
-Function CreateContact-People {
+Function CreateContact-GSMPeople {
 
 
 [CmdletBinding()]
@@ -42516,7 +46635,7 @@ value    - The end user specified value of the user defined data.
 }
 
 
-Function DeleteContact-PeopleBatch {
+Function DeleteContact-GSMPeopleBatch {
 
 
 [CmdletBinding()]
@@ -42619,7 +46738,7 @@ Whether to skip the first row (header)
 }
 
 
-Function DeleteContact-People {
+Function DeleteContact-GSMPeople {
 
 
 [CmdletBinding()]
@@ -42693,7 +46812,7 @@ The resource name of the contact-
 }
 
 
-Function DeleteContactPhoto-PeopleBatch {
+Function DeleteContactPhoto-GSMPeopleBatch {
 
 
 [CmdletBinding()]
@@ -42876,7 +46995,7 @@ Same as sources but value is applied to all lines in the CSV file
 }
 
 
-Function DeleteContactPhoto-People {
+Function DeleteContactPhoto-GSMPeople {
 
 
 [CmdletBinding()]
@@ -43009,7 +47128,7 @@ READ_SOURCE_TYPE_DOMAIN_CONTACT       - Returns SourceType.DOMAIN_CONTACT.
 }
 
 
-Function Get-People {
+Function Get-GSMPeople {
 
 
 [CmdletBinding()]
@@ -43142,7 +47261,7 @@ READ_SOURCE_TYPE_DOMAIN_CONTACT       - Returns SourceType.DOMAIN_CONTACT.
 }
 
 
-Function GetBatchGet-People {
+Function GetBatchGet-GSMPeople {
 
 
 [CmdletBinding()]
@@ -43283,7 +47402,7 @@ READ_SOURCE_TYPE_DOMAIN_CONTACT       - Returns SourceType.DOMAIN_CONTACT.
 }
 
 
-Function List-People {
+Function List-GSMPeople {
 
 
 [CmdletBinding()]
@@ -43346,7 +47465,7 @@ Provides a list of the authenticated user's contacts.
 }
 
 
-Function ListDirectoryPeople-People {
+Function ListDirectoryPeople-GSMPeople {
 
 
 [CmdletBinding()]
@@ -43478,7 +47597,7 @@ READ_SOURCE_TYPE_DOMAIN_CONTACT       - Returns SourceType.DOMAIN_CONTACT.
 }
 
 
-Function SearchDirectoryPeople-People {
+Function SearchDirectoryPeople-GSMPeople {
 
 
 [CmdletBinding()]
@@ -43618,7 +47737,7 @@ READ_SOURCE_TYPE_DOMAIN_CONTACT       - Returns SourceType.DOMAIN_CONTACT.
 }
 
 
-Function UpdateContact-PeopleBatch {
+Function UpdateContact-GSMPeopleBatch {
 
 
 [CmdletBinding()]
@@ -44696,7 +48815,7 @@ Same as userDefined but value is applied to all lines in the CSV file
 }
 
 
-Function UpdateContact-People {
+Function UpdateContact-GSMPeople {
 
 
 [CmdletBinding()]
@@ -45423,7 +49542,7 @@ value    - The end user specified value of the user defined data.
 }
 
 
-Function UpdateContactPhoto-PeopleBatch {
+Function UpdateContactPhoto-GSMPeopleBatch {
 
 
 [CmdletBinding()]
@@ -45620,7 +49739,7 @@ Same as sources but value is applied to all lines in the CSV file
 }
 
 
-Function UpdateContactPhoto-People {
+Function UpdateContactPhoto-GSMPeople {
 
 
 [CmdletBinding()]
@@ -45760,7 +49879,7 @@ READ_SOURCE_TYPE_DOMAIN_CONTACT       - Returns SourceType.DOMAIN_CONTACT.
 }
 
 
-Function Create-PermissionsBatch {
+Function Create-GSMPermissionsBatch {
 
 
 [CmdletBinding()]
@@ -46052,7 +50171,7 @@ Same as view but value is applied to all lines in the CSV file
 }
 
 
-Function Create-PermissionsRecursive {
+Function Create-GSMPermissionsRecursive {
 
 
 [CmdletBinding()]
@@ -46224,7 +50343,7 @@ Issue the request as a domain administrator; if set to true, then the requester 
 }
 
 
-Function Create-Permissions {
+Function Create-GSMPermissions {
 
 
 [CmdletBinding()]
@@ -46396,7 +50515,7 @@ Only populated for permissions that belong to a view. published is the only supp
 }
 
 
-Function Delete-PermissionsBatch {
+Function Delete-GSMPermissionsBatch {
 
 
 [CmdletBinding()]
@@ -46527,7 +50646,7 @@ Same as useDomainAdminAccess but value is applied to all lines in the CSV file
 }
 
 
-Function Delete-PermissionsRecursive {
+Function Delete-GSMPermissionsRecursive {
 
 
 [CmdletBinding()]
@@ -46623,7 +50742,7 @@ Issue the request as a domain administrator; if set to true, then the requester 
 }
 
 
-Function Delete-Permissions {
+Function Delete-GSMPermissions {
 
 
 [CmdletBinding()]
@@ -46711,7 +50830,7 @@ Issue the request as a domain administrator; if set to true, then the requester 
 }
 
 
-Function Get-PermissionsBatch {
+Function Get-GSMPermissionsBatch {
 
 
 [CmdletBinding()]
@@ -46857,7 +50976,7 @@ Same as useDomainAdminAccess but value is applied to all lines in the CSV file
 }
 
 
-Function Get-Permissions {
+Function Get-GSMPermissions {
 
 
 [CmdletBinding()]
@@ -46953,7 +51072,7 @@ Issue the request as a domain administrator; if set to true, then the requester 
 }
 
 
-Function List-PermissionsBatch {
+Function List-GSMPermissionsBatch {
 
 
 [CmdletBinding()]
@@ -47107,7 +51226,7 @@ Same as useDomainAdminAccess but value is applied to all lines in the CSV file
 }
 
 
-Function List-PermissionsRecursive {
+Function List-GSMPermissionsRecursive {
 
 
 [CmdletBinding()]
@@ -47204,7 +51323,7 @@ Issue the request as a domain administrator; if set to true, then the requester 
 }
 
 
-Function List-Permissions {
+Function List-GSMPermissions {
 
 
 [CmdletBinding()]
@@ -47301,7 +51420,7 @@ Issue the request as a domain administrator; if set to true, then the requester 
 }
 
 
-Function Update-PermissionsBatch {
+Function Update-GSMPermissionsBatch {
 
 
 [CmdletBinding()]
@@ -47617,7 +51736,7 @@ Same as view but value is applied to all lines in the CSV file
 }
 
 
-Function Update-Permissions {
+Function Update-GSMPermissions {
 
 
 [CmdletBinding()]
@@ -47806,7 +51925,7 @@ Only populated for permissions that belong to a view. published is the only supp
 }
 
 
-Function List-Privileges {
+Function List-GSMPrivileges {
 
 
 [CmdletBinding()]
@@ -47888,7 +52007,7 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 }
 
 
-Function Create-RepliesBatch {
+Function Create-GSMRepliesBatch {
 
 
 [CmdletBinding()]
@@ -48057,7 +52176,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Create-Replies {
+Function Create-GSMReplies {
 
 
 [CmdletBinding()]
@@ -48162,7 +52281,7 @@ The ID of the file.
 }
 
 
-Function Delete-RepliesBatch {
+Function Delete-GSMRepliesBatch {
 
 
 [CmdletBinding()]
@@ -48293,7 +52412,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Delete-Replies {
+Function Delete-GSMReplies {
 
 
 [CmdletBinding()]
@@ -48381,7 +52500,7 @@ The ID of the reply.
 }
 
 
-Function Get-RepliesBatch {
+Function Get-GSMRepliesBatch {
 
 
 [CmdletBinding()]
@@ -48527,7 +52646,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Get-Replies {
+Function Get-GSMReplies {
 
 
 [CmdletBinding()]
@@ -48623,7 +52742,7 @@ The ID of the reply.
 }
 
 
-Function List-Replies {
+Function List-GSMReplies {
 
 
 [CmdletBinding()]
@@ -48712,7 +52831,7 @@ The ID of the file.
 }
 
 
-Function Update-RepliesBatch {
+Function Update-GSMRepliesBatch {
 
 
 [CmdletBinding()]
@@ -48888,7 +53007,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Update-Replies {
+Function Update-GSMReplies {
 
 
 [CmdletBinding()]
@@ -49000,4126 +53119,7 @@ The ID of the reply.
 }
 
 
-Function Delete-ResourcesBuildingsBatch {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$BatchThreads,
-[Parameter()]
-[string]$BuildingId,
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$Customer_ALL,
-[Parameter()]
-[string]$Delimiter,
-[Parameter()]
-[string]$Path,
-[Parameter()]
-[switch]$SkipHeader
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesBuildings"
-        "delete"
-        "batch"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Batch retrieves buildings using a CSV file as input.
-
-.PARAMETER BatchThreads
-Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
-
-
-.PARAMETER BuildingId
-The ID of the file.
-
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER Customer_ALL
-Same as customer but value is applied to all lines in the CSV file
-
-
-.PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
-
-
-.PARAMETER Path
-Path of the import file (CSV)
-
-
-.PARAMETER SkipHeader
-Whether to skip the first row (header)
-
-
-
-#>
-}
-
-
-Function Delete-ResourcesBuildings {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$BuildingId,
-[Parameter()]
-[string]$Customer
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesBuildings"
-        "delete"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Deletes a building.
-
-.PARAMETER BuildingId
-The ID of the file.
-
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-
-#>
-}
-
-
-Function Get-ResourcesBuildingsBatch {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$BatchThreads,
-[Parameter()]
-[string]$BuildingId,
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$Customer_ALL,
-[Parameter()]
-[string]$Delimiter,
-[Parameter()]
-[string]$Fields,
-[Parameter()]
-[string]$Fields_ALL,
-[Parameter()]
-[string]$Path,
-[Parameter()]
-[switch]$SkipHeader
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesBuildings"
-        "get"
-        "batch"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Batch retrieves buildings using a CSV file as input.
-
-.PARAMETER BatchThreads
-Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
-
-
-.PARAMETER BuildingId
-The ID of the file.
-
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER Customer_ALL
-Same as customer but value is applied to all lines in the CSV file
-
-
-.PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
-
-
-.PARAMETER Fields
-Fields allows partial responses to be retrieved.
-See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
-
-
-.PARAMETER Fields_ALL
-Same as fields but value is applied to all lines in the CSV file
-
-
-.PARAMETER Path
-Path of the import file (CSV)
-
-
-.PARAMETER SkipHeader
-Whether to skip the first row (header)
-
-
-
-#>
-}
-
-
-Function Get-ResourcesBuildings {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$BuildingId,
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$Fields
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesBuildings"
-        "get"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Retrieves a building.
-
-.PARAMETER BuildingId
-The ID of the file.
-
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER Fields
-Fields allows partial responses to be retrieved.
-See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
-
-
-
-#>
-}
-
-
-Function Insert-ResourcesBuildingsBatch {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$AddressLines,
-[Parameter()]
-[string]$AddressLines_ALL,
-[Parameter()]
-[string]$AdministrativeArea,
-[Parameter()]
-[string]$AdministrativeArea_ALL,
-[Parameter()]
-[string]$BatchThreads,
-[Parameter()]
-[string]$BuildingId,
-[Parameter()]
-[string]$BuildingName,
-[Parameter()]
-[string]$BuildingName_ALL,
-[Parameter()]
-[string]$CoordinatesSource,
-[Parameter()]
-[string]$CoordinatesSource_ALL,
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$Customer_ALL,
-[Parameter()]
-[string]$Delimiter,
-[Parameter()]
-[string]$Description,
-[Parameter()]
-[string]$Description_ALL,
-[Parameter()]
-[string]$Fields,
-[Parameter()]
-[string]$Fields_ALL,
-[Parameter()]
-[string]$FloorNames,
-[Parameter()]
-[string]$FloorNames_ALL,
-[Parameter()]
-[string]$LanguageCode,
-[Parameter()]
-[string]$LanguageCode_ALL,
-[Parameter()]
-[string]$Latitude,
-[Parameter()]
-[string]$Latitude_ALL,
-[Parameter()]
-[string]$Locality,
-[Parameter()]
-[string]$Locality_ALL,
-[Parameter()]
-[string]$Longitude,
-[Parameter()]
-[string]$Longitude_ALL,
-[Parameter()]
-[string]$Path,
-[Parameter()]
-[string]$PostalCode,
-[Parameter()]
-[string]$PostalCode_ALL,
-[Parameter()]
-[string]$RegionCode,
-[Parameter()]
-[string]$RegionCode_ALL,
-[Parameter()]
-[switch]$SkipHeader,
-[Parameter()]
-[string]$Sublocality,
-[Parameter()]
-[string]$Sublocality_ALL
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        AddressLines = @{ OriginalName = '--addressLines'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        AddressLines_ALL = @{ OriginalName = '--addressLines_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        AdministrativeArea = @{ OriginalName = '--administrativeArea'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        AdministrativeArea_ALL = @{ OriginalName = '--administrativeArea_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        BuildingName = @{ OriginalName = '--buildingName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        BuildingName_ALL = @{ OriginalName = '--buildingName_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        CoordinatesSource = @{ OriginalName = '--coordinatesSource'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        CoordinatesSource_ALL = @{ OriginalName = '--coordinatesSource_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Description = @{ OriginalName = '--description'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Description_ALL = @{ OriginalName = '--description_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FloorNames = @{ OriginalName = '--floorNames'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FloorNames_ALL = @{ OriginalName = '--floorNames_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        LanguageCode = @{ OriginalName = '--languageCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        LanguageCode_ALL = @{ OriginalName = '--languageCode_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Latitude = @{ OriginalName = '--latitude'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Latitude_ALL = @{ OriginalName = '--latitude_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Locality = @{ OriginalName = '--locality'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Locality_ALL = @{ OriginalName = '--locality_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Longitude = @{ OriginalName = '--longitude'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Longitude_ALL = @{ OriginalName = '--longitude_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        PostalCode = @{ OriginalName = '--postalCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        PostalCode_ALL = @{ OriginalName = '--postalCode_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        RegionCode = @{ OriginalName = '--regionCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        RegionCode_ALL = @{ OriginalName = '--regionCode_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
-        Sublocality = @{ OriginalName = '--sublocality'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Sublocality_ALL = @{ OriginalName = '--sublocality_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesBuildings"
-        "insert"
-        "batch"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Batch retrieves buildings using a CSV file as input.
-
-.PARAMETER AddressLines
-Unstructured address lines describing the lower levels of an address.
-
-
-.PARAMETER AddressLines_ALL
-Same as addressLines but value is applied to all lines in the CSV file
-
-
-.PARAMETER AdministrativeArea
-Optional. Highest administrative subdivision which is used for postal addresses of a country or region.
-
-
-.PARAMETER AdministrativeArea_ALL
-Same as administrativeArea but value is applied to all lines in the CSV file
-
-
-.PARAMETER BatchThreads
-Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
-
-
-.PARAMETER BuildingId
-The ID of the file.
-
-
-.PARAMETER BuildingName
-The building name as seen by users in Calendar.
-Must be unique for the customer. For example, "NYC-CHEL".
-The maximum length is 100 characters.
-
-
-.PARAMETER BuildingName_ALL
-Same as buildingName but value is applied to all lines in the CSV file
-
-
-.PARAMETER CoordinatesSource
-Source from which Building.coordinates are derived.
-
-Acceptable values are:
-CLIENT_SPECIFIED       - Building.coordinates are set to the coordinates included in the request.
-RESOLVED_FROM_ADDRESS  - Building.coordinates are automatically populated based on the postal address.
-SOURCE_UNSPECIFIED     - Defaults to RESOLVED_FROM_ADDRESS if postal address is provided. Otherwise, defaults to CLIENT_SPECIFIED if coordinates are provided. (default)
-
-
-.PARAMETER CoordinatesSource_ALL
-Same as coordinatesSource but value is applied to all lines in the CSV file
-
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER Customer_ALL
-Same as customer but value is applied to all lines in the CSV file
-
-
-.PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
-
-
-.PARAMETER Description
-A brief description of the building. For example, "Chelsea Market".
-
-
-.PARAMETER Description_ALL
-Same as description but value is applied to all lines in the CSV file
-
-
-.PARAMETER Fields
-Fields allows partial responses to be retrieved.
-See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
-
-
-.PARAMETER Fields_ALL
-Same as fields but value is applied to all lines in the CSV file
-
-
-.PARAMETER FloorNames
-The display names for all floors in this building.
-The floors are expected to be sorted in ascending order, from lowest floor to highest floor.
-For example, ["B2", "B1", "L", "1", "2", "2M", "3", "PH"] Must contain at least one entry.
-
-
-.PARAMETER FloorNames_ALL
-Same as floorNames but value is applied to all lines in the CSV file
-
-
-.PARAMETER LanguageCode
-Optional. BCP-47 language code of the contents of this address (if known).
-
-
-.PARAMETER LanguageCode_ALL
-Same as languageCode but value is applied to all lines in the CSV file
-
-
-.PARAMETER Latitude
-Latitude in decimal degrees.
-
-
-.PARAMETER Latitude_ALL
-Same as latitude but value is applied to all lines in the CSV file
-
-
-.PARAMETER Locality
-Optional. Generally refers to the city/town portion of the address.
-Examples: US city, IT comune, UK post town.
-In regions of the world where localities are not well defined or do not fit into this structure well, leave locality empty and use addressLines.
-
-
-.PARAMETER Locality_ALL
-Same as locality but value is applied to all lines in the CSV file
-
-
-.PARAMETER Longitude
-Longitude in decimal degrees.
-
-
-.PARAMETER Longitude_ALL
-Same as longitude but value is applied to all lines in the CSV file
-
-
-.PARAMETER Path
-Path of the import file (CSV)
-
-
-.PARAMETER PostalCode
-Optional. Postal code of the address.
-
-
-.PARAMETER PostalCode_ALL
-Same as postalCode but value is applied to all lines in the CSV file
-
-
-.PARAMETER RegionCode
-Required. CLDR region code of the country/region of the address.
-
-
-.PARAMETER RegionCode_ALL
-Same as regionCode but value is applied to all lines in the CSV file
-
-
-.PARAMETER SkipHeader
-Whether to skip the first row (header)
-
-
-.PARAMETER Sublocality
-Optional. Sublocality of the address.
-
-
-.PARAMETER Sublocality_ALL
-Same as sublocality but value is applied to all lines in the CSV file
-
-
-
-#>
-}
-
-
-Function Insert-ResourcesBuildings {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$AddressLines,
-[Parameter()]
-[string]$AdministrativeArea,
-[Parameter()]
-[string]$BuildingId,
-[Parameter()]
-[string]$BuildingName,
-[Parameter()]
-[string]$CoordinatesSource,
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$Description,
-[Parameter()]
-[string]$Fields,
-[Parameter()]
-[string]$FloorNames,
-[Parameter()]
-[string]$LanguageCode,
-[Parameter()]
-[string]$Latitude,
-[Parameter()]
-[string]$Locality,
-[Parameter()]
-[string]$Longitude,
-[Parameter()]
-[string]$PostalCode,
-[Parameter()]
-[string]$RegionCode,
-[Parameter()]
-[string]$Sublocality
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        AddressLines = @{ OriginalName = '--addressLines'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        AdministrativeArea = @{ OriginalName = '--administrativeArea'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        BuildingName = @{ OriginalName = '--buildingName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        CoordinatesSource = @{ OriginalName = '--coordinatesSource'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Description = @{ OriginalName = '--description'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FloorNames = @{ OriginalName = '--floorNames'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        LanguageCode = @{ OriginalName = '--languageCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Latitude = @{ OriginalName = '--latitude'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Locality = @{ OriginalName = '--locality'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Longitude = @{ OriginalName = '--longitude'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        PostalCode = @{ OriginalName = '--postalCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        RegionCode = @{ OriginalName = '--regionCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Sublocality = @{ OriginalName = '--sublocality'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesBuildings"
-        "insert"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Inserts a building.
-
-.PARAMETER AddressLines
-Unstructured address lines describing the lower levels of an address.
-
-
-.PARAMETER AdministrativeArea
-Optional. Highest administrative subdivision which is used for postal addresses of a country or region.
-
-
-.PARAMETER BuildingId
-The ID of the file.
-
-
-.PARAMETER BuildingName
-The building name as seen by users in Calendar.
-Must be unique for the customer. For example, "NYC-CHEL".
-The maximum length is 100 characters.
-
-
-.PARAMETER CoordinatesSource
-Source from which Building.coordinates are derived.
-
-Acceptable values are:
-CLIENT_SPECIFIED       - Building.coordinates are set to the coordinates included in the request.
-RESOLVED_FROM_ADDRESS  - Building.coordinates are automatically populated based on the postal address.
-SOURCE_UNSPECIFIED     - Defaults to RESOLVED_FROM_ADDRESS if postal address is provided. Otherwise, defaults to CLIENT_SPECIFIED if coordinates are provided. (default)
-
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER Description
-A brief description of the building. For example, "Chelsea Market".
-
-
-.PARAMETER Fields
-Fields allows partial responses to be retrieved.
-See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
-
-
-.PARAMETER FloorNames
-The display names for all floors in this building.
-The floors are expected to be sorted in ascending order, from lowest floor to highest floor.
-For example, ["B2", "B1", "L", "1", "2", "2M", "3", "PH"] Must contain at least one entry.
-
-
-.PARAMETER LanguageCode
-Optional. BCP-47 language code of the contents of this address (if known).
-
-
-.PARAMETER Latitude
-Latitude in decimal degrees.
-
-
-.PARAMETER Locality
-Optional. Generally refers to the city/town portion of the address.
-Examples: US city, IT comune, UK post town.
-In regions of the world where localities are not well defined or do not fit into this structure well, leave locality empty and use addressLines.
-
-
-.PARAMETER Longitude
-Longitude in decimal degrees.
-
-
-.PARAMETER PostalCode
-Optional. Postal code of the address.
-
-
-.PARAMETER RegionCode
-Required. CLDR region code of the country/region of the address.
-
-
-.PARAMETER Sublocality
-Optional. Sublocality of the address.
-
-
-
-#>
-}
-
-
-Function List-ResourcesBuildings {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$Fields
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesBuildings"
-        "list"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Retrieves a list of buildings for an account.
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER Fields
-Fields allows partial responses to be retrieved.
-See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
-
-
-
-#>
-}
-
-
-Function Patch-ResourcesBuildingsBatch {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$AddressLines,
-[Parameter()]
-[string]$AddressLines_ALL,
-[Parameter()]
-[string]$AdministrativeArea,
-[Parameter()]
-[string]$AdministrativeArea_ALL,
-[Parameter()]
-[string]$BatchThreads,
-[Parameter()]
-[string]$BuildingId,
-[Parameter()]
-[string]$BuildingName,
-[Parameter()]
-[string]$BuildingName_ALL,
-[Parameter()]
-[string]$CoordinatesSource,
-[Parameter()]
-[string]$CoordinatesSource_ALL,
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$Customer_ALL,
-[Parameter()]
-[string]$Delimiter,
-[Parameter()]
-[string]$Description,
-[Parameter()]
-[string]$Description_ALL,
-[Parameter()]
-[string]$Fields,
-[Parameter()]
-[string]$Fields_ALL,
-[Parameter()]
-[string]$FloorNames,
-[Parameter()]
-[string]$FloorNames_ALL,
-[Parameter()]
-[string]$LanguageCode,
-[Parameter()]
-[string]$LanguageCode_ALL,
-[Parameter()]
-[string]$Latitude,
-[Parameter()]
-[string]$Latitude_ALL,
-[Parameter()]
-[string]$Locality,
-[Parameter()]
-[string]$Locality_ALL,
-[Parameter()]
-[string]$Longitude,
-[Parameter()]
-[string]$Longitude_ALL,
-[Parameter()]
-[string]$Path,
-[Parameter()]
-[string]$PostalCode,
-[Parameter()]
-[string]$PostalCode_ALL,
-[Parameter()]
-[string]$RegionCode,
-[Parameter()]
-[string]$RegionCode_ALL,
-[Parameter()]
-[switch]$SkipHeader,
-[Parameter()]
-[string]$Sublocality,
-[Parameter()]
-[string]$Sublocality_ALL
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        AddressLines = @{ OriginalName = '--addressLines'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        AddressLines_ALL = @{ OriginalName = '--addressLines_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        AdministrativeArea = @{ OriginalName = '--administrativeArea'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        AdministrativeArea_ALL = @{ OriginalName = '--administrativeArea_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        BuildingName = @{ OriginalName = '--buildingName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        BuildingName_ALL = @{ OriginalName = '--buildingName_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        CoordinatesSource = @{ OriginalName = '--coordinatesSource'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        CoordinatesSource_ALL = @{ OriginalName = '--coordinatesSource_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Description = @{ OriginalName = '--description'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Description_ALL = @{ OriginalName = '--description_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FloorNames = @{ OriginalName = '--floorNames'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FloorNames_ALL = @{ OriginalName = '--floorNames_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        LanguageCode = @{ OriginalName = '--languageCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        LanguageCode_ALL = @{ OriginalName = '--languageCode_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Latitude = @{ OriginalName = '--latitude'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Latitude_ALL = @{ OriginalName = '--latitude_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Locality = @{ OriginalName = '--locality'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Locality_ALL = @{ OriginalName = '--locality_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Longitude = @{ OriginalName = '--longitude'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Longitude_ALL = @{ OriginalName = '--longitude_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        PostalCode = @{ OriginalName = '--postalCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        PostalCode_ALL = @{ OriginalName = '--postalCode_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        RegionCode = @{ OriginalName = '--regionCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        RegionCode_ALL = @{ OriginalName = '--regionCode_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
-        Sublocality = @{ OriginalName = '--sublocality'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Sublocality_ALL = @{ OriginalName = '--sublocality_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesBuildings"
-        "patch"
-        "batch"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Batch retrieves buildings using a CSV file as input.
-
-.PARAMETER AddressLines
-Unstructured address lines describing the lower levels of an address.
-
-
-.PARAMETER AddressLines_ALL
-Same as addressLines but value is applied to all lines in the CSV file
-
-
-.PARAMETER AdministrativeArea
-Optional. Highest administrative subdivision which is used for postal addresses of a country or region.
-
-
-.PARAMETER AdministrativeArea_ALL
-Same as administrativeArea but value is applied to all lines in the CSV file
-
-
-.PARAMETER BatchThreads
-Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
-
-
-.PARAMETER BuildingId
-The ID of the file.
-
-
-.PARAMETER BuildingName
-The building name as seen by users in Calendar.
-Must be unique for the customer. For example, "NYC-CHEL".
-The maximum length is 100 characters.
-
-
-.PARAMETER BuildingName_ALL
-Same as buildingName but value is applied to all lines in the CSV file
-
-
-.PARAMETER CoordinatesSource
-Source from which Building.coordinates are derived.
-
-Acceptable values are:
-CLIENT_SPECIFIED       - Building.coordinates are set to the coordinates included in the request.
-RESOLVED_FROM_ADDRESS  - Building.coordinates are automatically populated based on the postal address.
-SOURCE_UNSPECIFIED     - Defaults to RESOLVED_FROM_ADDRESS if postal address is provided. Otherwise, defaults to CLIENT_SPECIFIED if coordinates are provided. (default)
-
-
-.PARAMETER CoordinatesSource_ALL
-Same as coordinatesSource but value is applied to all lines in the CSV file
-
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER Customer_ALL
-Same as customer but value is applied to all lines in the CSV file
-
-
-.PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
-
-
-.PARAMETER Description
-A brief description of the building. For example, "Chelsea Market".
-
-
-.PARAMETER Description_ALL
-Same as description but value is applied to all lines in the CSV file
-
-
-.PARAMETER Fields
-Fields allows partial responses to be retrieved.
-See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
-
-
-.PARAMETER Fields_ALL
-Same as fields but value is applied to all lines in the CSV file
-
-
-.PARAMETER FloorNames
-The display names for all floors in this building.
-The floors are expected to be sorted in ascending order, from lowest floor to highest floor.
-For example, ["B2", "B1", "L", "1", "2", "2M", "3", "PH"] Must contain at least one entry.
-
-
-.PARAMETER FloorNames_ALL
-Same as floorNames but value is applied to all lines in the CSV file
-
-
-.PARAMETER LanguageCode
-Optional. BCP-47 language code of the contents of this address (if known).
-
-
-.PARAMETER LanguageCode_ALL
-Same as languageCode but value is applied to all lines in the CSV file
-
-
-.PARAMETER Latitude
-Latitude in decimal degrees.
-
-
-.PARAMETER Latitude_ALL
-Same as latitude but value is applied to all lines in the CSV file
-
-
-.PARAMETER Locality
-Optional. Generally refers to the city/town portion of the address.
-Examples: US city, IT comune, UK post town.
-In regions of the world where localities are not well defined or do not fit into this structure well, leave locality empty and use addressLines.
-
-
-.PARAMETER Locality_ALL
-Same as locality but value is applied to all lines in the CSV file
-
-
-.PARAMETER Longitude
-Longitude in decimal degrees.
-
-
-.PARAMETER Longitude_ALL
-Same as longitude but value is applied to all lines in the CSV file
-
-
-.PARAMETER Path
-Path of the import file (CSV)
-
-
-.PARAMETER PostalCode
-Optional. Postal code of the address.
-
-
-.PARAMETER PostalCode_ALL
-Same as postalCode but value is applied to all lines in the CSV file
-
-
-.PARAMETER RegionCode
-Required. CLDR region code of the country/region of the address.
-
-
-.PARAMETER RegionCode_ALL
-Same as regionCode but value is applied to all lines in the CSV file
-
-
-.PARAMETER SkipHeader
-Whether to skip the first row (header)
-
-
-.PARAMETER Sublocality
-Optional. Sublocality of the address.
-
-
-.PARAMETER Sublocality_ALL
-Same as sublocality but value is applied to all lines in the CSV file
-
-
-
-#>
-}
-
-
-Function Patch-ResourcesBuildings {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$AddressLines,
-[Parameter()]
-[string]$AdministrativeArea,
-[Parameter()]
-[string]$BuildingId,
-[Parameter()]
-[string]$BuildingName,
-[Parameter()]
-[string]$CoordinatesSource,
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$Description,
-[Parameter()]
-[string]$Fields,
-[Parameter()]
-[string]$FloorNames,
-[Parameter()]
-[string]$LanguageCode,
-[Parameter()]
-[string]$Latitude,
-[Parameter()]
-[string]$Locality,
-[Parameter()]
-[string]$Longitude,
-[Parameter()]
-[string]$PostalCode,
-[Parameter()]
-[string]$RegionCode,
-[Parameter()]
-[string]$Sublocality
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        AddressLines = @{ OriginalName = '--addressLines'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        AdministrativeArea = @{ OriginalName = '--administrativeArea'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        BuildingName = @{ OriginalName = '--buildingName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        CoordinatesSource = @{ OriginalName = '--coordinatesSource'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Description = @{ OriginalName = '--description'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FloorNames = @{ OriginalName = '--floorNames'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        LanguageCode = @{ OriginalName = '--languageCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Latitude = @{ OriginalName = '--latitude'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Locality = @{ OriginalName = '--locality'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Longitude = @{ OriginalName = '--longitude'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        PostalCode = @{ OriginalName = '--postalCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        RegionCode = @{ OriginalName = '--regionCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Sublocality = @{ OriginalName = '--sublocality'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesBuildings"
-        "patch"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Updates a building. This method supports patch semantics. 
-
-.PARAMETER AddressLines
-Unstructured address lines describing the lower levels of an address.
-
-
-.PARAMETER AdministrativeArea
-Optional. Highest administrative subdivision which is used for postal addresses of a country or region.
-
-
-.PARAMETER BuildingId
-The ID of the file.
-
-
-.PARAMETER BuildingName
-The building name as seen by users in Calendar.
-Must be unique for the customer. For example, "NYC-CHEL".
-The maximum length is 100 characters.
-
-
-.PARAMETER CoordinatesSource
-Source from which Building.coordinates are derived.
-
-Acceptable values are:
-CLIENT_SPECIFIED       - Building.coordinates are set to the coordinates included in the request.
-RESOLVED_FROM_ADDRESS  - Building.coordinates are automatically populated based on the postal address.
-SOURCE_UNSPECIFIED     - Defaults to RESOLVED_FROM_ADDRESS if postal address is provided. Otherwise, defaults to CLIENT_SPECIFIED if coordinates are provided. (default)
-
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER Description
-A brief description of the building. For example, "Chelsea Market".
-
-
-.PARAMETER Fields
-Fields allows partial responses to be retrieved.
-See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
-
-
-.PARAMETER FloorNames
-The display names for all floors in this building.
-The floors are expected to be sorted in ascending order, from lowest floor to highest floor.
-For example, ["B2", "B1", "L", "1", "2", "2M", "3", "PH"] Must contain at least one entry.
-
-
-.PARAMETER LanguageCode
-Optional. BCP-47 language code of the contents of this address (if known).
-
-
-.PARAMETER Latitude
-Latitude in decimal degrees.
-
-
-.PARAMETER Locality
-Optional. Generally refers to the city/town portion of the address.
-Examples: US city, IT comune, UK post town.
-In regions of the world where localities are not well defined or do not fit into this structure well, leave locality empty and use addressLines.
-
-
-.PARAMETER Longitude
-Longitude in decimal degrees.
-
-
-.PARAMETER PostalCode
-Optional. Postal code of the address.
-
-
-.PARAMETER RegionCode
-Required. CLDR region code of the country/region of the address.
-
-
-.PARAMETER Sublocality
-Optional. Sublocality of the address.
-
-
-
-#>
-}
-
-
-Function Delete-ResourcesCalendarsBatch {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$BatchThreads,
-[Parameter()]
-[string]$CalendarResourceId,
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$Customer_ALL,
-[Parameter()]
-[string]$Delimiter,
-[Parameter()]
-[string]$Path,
-[Parameter()]
-[switch]$SkipHeader
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        CalendarResourceId = @{ OriginalName = '--calendarResourceId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesCalendars"
-        "delete"
-        "batch"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Batch deletes calendar resources using a CSV file as input.
-
-.PARAMETER BatchThreads
-Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
-
-
-.PARAMETER CalendarResourceId
-The unique ID of the calendar resource
-
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account.
-As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER Customer_ALL
-Same as customer but value is applied to all lines in the CSV file
-
-
-.PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
-
-
-.PARAMETER Path
-Path of the import file (CSV)
-
-
-.PARAMETER SkipHeader
-Whether to skip the first row (header)
-
-
-
-#>
-}
-
-
-Function Delete-ResourcesCalendars {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$CalendarResourceId,
-[Parameter()]
-[string]$Customer
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        CalendarResourceId = @{ OriginalName = '--calendarResourceId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesCalendars"
-        "delete"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Deletes a calendar resource.
-
-.PARAMETER CalendarResourceId
-The unique ID of the calendar resource
-
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account.
-As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-
-#>
-}
-
-
-Function Get-ResourcesCalendarsBatch {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$BatchThreads,
-[Parameter()]
-[string]$CalendarResourceId,
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$Customer_ALL,
-[Parameter()]
-[string]$Delimiter,
-[Parameter()]
-[string]$Fields,
-[Parameter()]
-[string]$Fields_ALL,
-[Parameter()]
-[string]$Path,
-[Parameter()]
-[switch]$SkipHeader
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        CalendarResourceId = @{ OriginalName = '--calendarResourceId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesCalendars"
-        "get"
-        "batch"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Batch retrieves calendar resources using a CSV file as input.
-
-.PARAMETER BatchThreads
-Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
-
-
-.PARAMETER CalendarResourceId
-The unique ID of the calendar resource
-
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account.
-As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER Customer_ALL
-Same as customer but value is applied to all lines in the CSV file
-
-
-.PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
-
-
-.PARAMETER Fields
-Fields allows partial responses to be retrieved.
-See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
-
-
-.PARAMETER Fields_ALL
-Same as fields but value is applied to all lines in the CSV file
-
-
-.PARAMETER Path
-Path of the import file (CSV)
-
-
-.PARAMETER SkipHeader
-Whether to skip the first row (header)
-
-
-
-#>
-}
-
-
-Function Get-ResourcesCalendars {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$CalendarResourceId,
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$Fields
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        CalendarResourceId = @{ OriginalName = '--calendarResourceId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesCalendars"
-        "get"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Gets a calendar resource.
-
-.PARAMETER CalendarResourceId
-The unique ID of the calendar resource
-
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account.
-As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER Fields
-Fields allows partial responses to be retrieved.
-See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
-
-
-
-#>
-}
-
-
-Function Insert-ResourcesCalendarsBatch {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$BatchThreads,
-[Parameter()]
-[string]$BuildingId,
-[Parameter()]
-[string]$BuildingId_ALL,
-[Parameter()]
-[string]$Capacity,
-[Parameter()]
-[string]$Capacity_ALL,
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$Customer_ALL,
-[Parameter()]
-[string]$Delimiter,
-[Parameter()]
-[string]$FeatureInstances,
-[Parameter()]
-[string]$FeatureInstances_ALL,
-[Parameter()]
-[string]$Fields,
-[Parameter()]
-[string]$Fields_ALL,
-[Parameter()]
-[string]$FloorName,
-[Parameter()]
-[string]$FloorName_ALL,
-[Parameter()]
-[string]$FloorSection,
-[Parameter()]
-[string]$FloorSection_ALL,
-[Parameter()]
-[string]$Path,
-[Parameter()]
-[string]$ResourceCategory,
-[Parameter()]
-[string]$ResourceCategory_ALL,
-[Parameter()]
-[string]$ResourceDescription,
-[Parameter()]
-[string]$ResourceDescription_ALL,
-[Parameter()]
-[string]$ResourceId,
-[Parameter()]
-[string]$ResourceName,
-[Parameter()]
-[string]$ResourceName_ALL,
-[Parameter()]
-[string]$ResourceType,
-[Parameter()]
-[string]$ResourceType_ALL,
-[Parameter()]
-[switch]$SkipHeader,
-[Parameter()]
-[string]$UserVisibleDescription,
-[Parameter()]
-[string]$UserVisibleDescription_ALL
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        BuildingId_ALL = @{ OriginalName = '--buildingId_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Capacity = @{ OriginalName = '--capacity'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Capacity_ALL = @{ OriginalName = '--capacity_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FeatureInstances = @{ OriginalName = '--featureInstances'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FeatureInstances_ALL = @{ OriginalName = '--featureInstances_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FloorName = @{ OriginalName = '--floorName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FloorName_ALL = @{ OriginalName = '--floorName_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FloorSection = @{ OriginalName = '--floorSection'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FloorSection_ALL = @{ OriginalName = '--floorSection_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceCategory = @{ OriginalName = '--resourceCategory'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceCategory_ALL = @{ OriginalName = '--resourceCategory_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceDescription = @{ OriginalName = '--resourceDescription'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceDescription_ALL = @{ OriginalName = '--resourceDescription_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceId = @{ OriginalName = '--resourceId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceName = @{ OriginalName = '--resourceName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceName_ALL = @{ OriginalName = '--resourceName_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceType = @{ OriginalName = '--resourceType'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceType_ALL = @{ OriginalName = '--resourceType_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
-        UserVisibleDescription = @{ OriginalName = '--userVisibleDescription'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        UserVisibleDescription_ALL = @{ OriginalName = '--userVisibleDescription_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesCalendars"
-        "insert"
-        "batch"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Batch inserts calendar resources using a CSV file as input.
-
-.PARAMETER BatchThreads
-Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
-
-
-.PARAMETER BuildingId
-Unique ID for the building a resource is located in.
-
-
-.PARAMETER BuildingId_ALL
-Same as buildingId but value is applied to all lines in the CSV file
-
-
-.PARAMETER Capacity
-Capacity of a resource, number of seats in a room.
-
-
-.PARAMETER Capacity_ALL
-Same as capacity but value is applied to all lines in the CSV file
-
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account.
-As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER Customer_ALL
-Same as customer but value is applied to all lines in the CSV file
-
-
-.PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
-
-
-.PARAMETER FeatureInstances
-Instances of features for the calendar resource.
-
-
-.PARAMETER FeatureInstances_ALL
-Same as featureInstances but value is applied to all lines in the CSV file
-
-
-.PARAMETER Fields
-Fields allows partial responses to be retrieved.
-See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
-
-
-.PARAMETER Fields_ALL
-Same as fields but value is applied to all lines in the CSV file
-
-
-.PARAMETER FloorName
-Name of the floor a resource is located on.
-
-
-.PARAMETER FloorName_ALL
-Same as floorName but value is applied to all lines in the CSV file
-
-
-.PARAMETER FloorSection
-Name of the section within a floor a resource is located in.
-
-
-.PARAMETER FloorSection_ALL
-Same as floorSection but value is applied to all lines in the CSV file
-
-
-.PARAMETER Path
-Path of the import file (CSV)
-
-
-.PARAMETER ResourceCategory
-The category of the calendar resource. Either CONFERENCE_ROOM or OTHER. Legacy data is set to CATEGORY_UNKNOWN.
-
-Acceptable values are:
-CATEGORY_UNKNOWN
-CONFERENCE_ROOM
-OTHER
-
-
-.PARAMETER ResourceCategory_ALL
-Same as resourceCategory but value is applied to all lines in the CSV file
-
-
-.PARAMETER ResourceDescription
-Description of the resource, visible only to admins.
-
-
-.PARAMETER ResourceDescription_ALL
-Same as resourceDescription but value is applied to all lines in the CSV file
-
-
-.PARAMETER ResourceId
-The unique ID of the calendar resource
-
-
-.PARAMETER ResourceName
-The name of the calendar resource. For example, "Training Room 1A".
-
-
-.PARAMETER ResourceName_ALL
-Same as resourceName but value is applied to all lines in the CSV file
-
-
-.PARAMETER ResourceType
-The type of the calendar resource, intended for non-room resources.
-
-
-.PARAMETER ResourceType_ALL
-Same as resourceType but value is applied to all lines in the CSV file
-
-
-.PARAMETER SkipHeader
-Whether to skip the first row (header)
-
-
-.PARAMETER UserVisibleDescription
-Description of the resource, visible to users and admins.
-
-
-.PARAMETER UserVisibleDescription_ALL
-Same as userVisibleDescription but value is applied to all lines in the CSV file
-
-
-
-#>
-}
-
-
-Function Insert-ResourcesCalendars {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$BuildingId,
-[Parameter()]
-[string]$Capacity,
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$FeatureInstances,
-[Parameter()]
-[string]$Fields,
-[Parameter()]
-[string]$FloorName,
-[Parameter()]
-[string]$FloorSection,
-[Parameter()]
-[string]$ResourceCategory,
-[Parameter()]
-[string]$ResourceDescription,
-[Parameter()]
-[string]$ResourceId,
-[Parameter()]
-[string]$ResourceName,
-[Parameter()]
-[string]$ResourceType,
-[Parameter()]
-[string]$UserVisibleDescription
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Capacity = @{ OriginalName = '--capacity'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FeatureInstances = @{ OriginalName = '--featureInstances'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FloorName = @{ OriginalName = '--floorName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FloorSection = @{ OriginalName = '--floorSection'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceCategory = @{ OriginalName = '--resourceCategory'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceDescription = @{ OriginalName = '--resourceDescription'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceId = @{ OriginalName = '--resourceId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceName = @{ OriginalName = '--resourceName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceType = @{ OriginalName = '--resourceType'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        UserVisibleDescription = @{ OriginalName = '--userVisibleDescription'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesCalendars"
-        "insert"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Inserts a calendar resource.
-
-.PARAMETER BuildingId
-Unique ID for the building a resource is located in.
-
-
-.PARAMETER Capacity
-Capacity of a resource, number of seats in a room.
-
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account.
-As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER FeatureInstances
-Instances of features for the calendar resource.
-
-
-.PARAMETER Fields
-Fields allows partial responses to be retrieved.
-See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
-
-
-.PARAMETER FloorName
-Name of the floor a resource is located on.
-
-
-.PARAMETER FloorSection
-Name of the section within a floor a resource is located in.
-
-
-.PARAMETER ResourceCategory
-The category of the calendar resource. Either CONFERENCE_ROOM or OTHER. Legacy data is set to CATEGORY_UNKNOWN.
-
-Acceptable values are:
-CATEGORY_UNKNOWN
-CONFERENCE_ROOM
-OTHER
-
-
-.PARAMETER ResourceDescription
-Description of the resource, visible only to admins.
-
-
-.PARAMETER ResourceId
-The unique ID of the calendar resource
-
-
-.PARAMETER ResourceName
-The name of the calendar resource. For example, "Training Room 1A".
-
-
-.PARAMETER ResourceType
-The type of the calendar resource, intended for non-room resources.
-
-
-.PARAMETER UserVisibleDescription
-Description of the resource, visible to users and admins.
-
-
-
-#>
-}
-
-
-Function List-ResourcesCalendars {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$Fields,
-[Parameter()]
-[string]$OrderBy,
-[Parameter()]
-[string]$Query
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        OrderBy = @{ OriginalName = '--orderBy'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Query = @{ OriginalName = '--query'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesCalendars"
-        "list"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Retrieves a list of calendar resources for an account.
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account.
-As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER Fields
-Fields allows partial responses to be retrieved.
-See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
-
-
-.PARAMETER OrderBy
-Field(s) to sort results by in either ascending or descending order.
-Supported fields include resourceId, resourceName, capacity, buildingId, and floorName.
-If no order is specified, defaults to ascending.
-Should be of the form "field [asc|desc], field [asc|desc], ...".
-For example buildingId, capacity desc would return results sorted first by buildingId in ascending order then by capacity in descending order.
-
-
-.PARAMETER Query
-	String query used to filter results.
-Should be of the form "field operator value" where field can be any of supported fields and operators can be any of supported operations.
-Operators include '=' for exact match and ':' for prefix match or HAS match, depending on type of field.
-For ':', when the field supports a scalar value, such as a String, and the value is followed by an asterisk (*), the query is considered a prefix match.
-In a prefix match, the value must be at the start of a string to be a match.
-For example, resourceName:Conference* returns all strings whose resourceName starts with "Conference," such as "Conference-Room-1."
-For ':', when the field supports repeated values, such as featureInstances[].features, use a colon (:) without an asterisk (*) to indicate a HAS match.
-For example, featureInstances.feature.name:Phone would return any calendar resource that has a feature instance whose name is "Phone" (all rooms with phones).
-An asterisk (*) is only valid at end of value, it cannot be used at start or middle of value. For example, resourceName:*Room* doesn't work.
-Query strings are case sensitive.
-Supported fields include generatedResourceName, resourceName, name, buildingId, featureInstances.feature.name.
-
-
-
-#>
-}
-
-
-Function Patch-ResourcesCalendarsBatch {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$BatchThreads,
-[Parameter()]
-[string]$BuildingId,
-[Parameter()]
-[string]$BuildingId_ALL,
-[Parameter()]
-[string]$CalendarResourceId,
-[Parameter()]
-[string]$Capacity,
-[Parameter()]
-[string]$Capacity_ALL,
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$Customer_ALL,
-[Parameter()]
-[string]$Delimiter,
-[Parameter()]
-[string]$FeatureInstances,
-[Parameter()]
-[string]$FeatureInstances_ALL,
-[Parameter()]
-[string]$Fields,
-[Parameter()]
-[string]$Fields_ALL,
-[Parameter()]
-[string]$FloorName,
-[Parameter()]
-[string]$FloorName_ALL,
-[Parameter()]
-[string]$FloorSection,
-[Parameter()]
-[string]$FloorSection_ALL,
-[Parameter()]
-[string]$Path,
-[Parameter()]
-[string]$ResourceCategory,
-[Parameter()]
-[string]$ResourceCategory_ALL,
-[Parameter()]
-[string]$ResourceDescription,
-[Parameter()]
-[string]$ResourceDescription_ALL,
-[Parameter()]
-[string]$ResourceName,
-[Parameter()]
-[string]$ResourceName_ALL,
-[Parameter()]
-[string]$ResourceType,
-[Parameter()]
-[string]$ResourceType_ALL,
-[Parameter()]
-[switch]$SkipHeader,
-[Parameter()]
-[string]$UserVisibleDescription,
-[Parameter()]
-[string]$UserVisibleDescription_ALL
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        BuildingId_ALL = @{ OriginalName = '--buildingId_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        CalendarResourceId = @{ OriginalName = '--calendarResourceId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Capacity = @{ OriginalName = '--capacity'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Capacity_ALL = @{ OriginalName = '--capacity_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FeatureInstances = @{ OriginalName = '--featureInstances'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FeatureInstances_ALL = @{ OriginalName = '--featureInstances_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FloorName = @{ OriginalName = '--floorName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FloorName_ALL = @{ OriginalName = '--floorName_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FloorSection = @{ OriginalName = '--floorSection'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FloorSection_ALL = @{ OriginalName = '--floorSection_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceCategory = @{ OriginalName = '--resourceCategory'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceCategory_ALL = @{ OriginalName = '--resourceCategory_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceDescription = @{ OriginalName = '--resourceDescription'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceDescription_ALL = @{ OriginalName = '--resourceDescription_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceName = @{ OriginalName = '--resourceName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceName_ALL = @{ OriginalName = '--resourceName_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceType = @{ OriginalName = '--resourceType'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceType_ALL = @{ OriginalName = '--resourceType_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
-        UserVisibleDescription = @{ OriginalName = '--userVisibleDescription'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        UserVisibleDescription_ALL = @{ OriginalName = '--userVisibleDescription_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesCalendars"
-        "patch"
-        "batch"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Batch patchs calendar resources using a CSV file as input.
-
-.PARAMETER BatchThreads
-Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
-
-
-.PARAMETER BuildingId
-Unique ID for the building a resource is located in.
-
-
-.PARAMETER BuildingId_ALL
-Same as buildingId but value is applied to all lines in the CSV file
-
-
-.PARAMETER CalendarResourceId
-The unique ID of the calendar resource
-
-
-.PARAMETER Capacity
-Capacity of a resource, number of seats in a room.
-
-
-.PARAMETER Capacity_ALL
-Same as capacity but value is applied to all lines in the CSV file
-
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account.
-As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER Customer_ALL
-Same as customer but value is applied to all lines in the CSV file
-
-
-.PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
-
-
-.PARAMETER FeatureInstances
-Instances of features for the calendar resource.
-
-
-.PARAMETER FeatureInstances_ALL
-Same as featureInstances but value is applied to all lines in the CSV file
-
-
-.PARAMETER Fields
-Fields allows partial responses to be retrieved.
-See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
-
-
-.PARAMETER Fields_ALL
-Same as fields but value is applied to all lines in the CSV file
-
-
-.PARAMETER FloorName
-Name of the floor a resource is located on.
-
-
-.PARAMETER FloorName_ALL
-Same as floorName but value is applied to all lines in the CSV file
-
-
-.PARAMETER FloorSection
-Name of the section within a floor a resource is located in.
-
-
-.PARAMETER FloorSection_ALL
-Same as floorSection but value is applied to all lines in the CSV file
-
-
-.PARAMETER Path
-Path of the import file (CSV)
-
-
-.PARAMETER ResourceCategory
-The category of the calendar resource. Either CONFERENCE_ROOM or OTHER. Legacy data is set to CATEGORY_UNKNOWN.
-
-Acceptable values are:
-CATEGORY_UNKNOWN
-CONFERENCE_ROOM
-OTHER
-
-
-.PARAMETER ResourceCategory_ALL
-Same as resourceCategory but value is applied to all lines in the CSV file
-
-
-.PARAMETER ResourceDescription
-Description of the resource, visible only to admins.
-
-
-.PARAMETER ResourceDescription_ALL
-Same as resourceDescription but value is applied to all lines in the CSV file
-
-
-.PARAMETER ResourceName
-The name of the calendar resource. For example, "Training Room 1A".
-
-
-.PARAMETER ResourceName_ALL
-Same as resourceName but value is applied to all lines in the CSV file
-
-
-.PARAMETER ResourceType
-The type of the calendar resource, intended for non-room resources.
-
-
-.PARAMETER ResourceType_ALL
-Same as resourceType but value is applied to all lines in the CSV file
-
-
-.PARAMETER SkipHeader
-Whether to skip the first row (header)
-
-
-.PARAMETER UserVisibleDescription
-Description of the resource, visible to users and admins.
-
-
-.PARAMETER UserVisibleDescription_ALL
-Same as userVisibleDescription but value is applied to all lines in the CSV file
-
-
-
-#>
-}
-
-
-Function Patch-ResourcesCalendars {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$BuildingId,
-[Parameter()]
-[string]$CalendarResourceId,
-[Parameter()]
-[string]$Capacity,
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$FeatureInstances,
-[Parameter()]
-[string]$Fields,
-[Parameter()]
-[string]$FloorName,
-[Parameter()]
-[string]$FloorSection,
-[Parameter()]
-[string]$ResourceCategory,
-[Parameter()]
-[string]$ResourceDescription,
-[Parameter()]
-[string]$ResourceName,
-[Parameter()]
-[string]$ResourceType,
-[Parameter()]
-[string]$UserVisibleDescription
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        BuildingId = @{ OriginalName = '--buildingId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        CalendarResourceId = @{ OriginalName = '--calendarResourceId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Capacity = @{ OriginalName = '--capacity'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FeatureInstances = @{ OriginalName = '--featureInstances'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FloorName = @{ OriginalName = '--floorName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FloorSection = @{ OriginalName = '--floorSection'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceCategory = @{ OriginalName = '--resourceCategory'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceDescription = @{ OriginalName = '--resourceDescription'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceName = @{ OriginalName = '--resourceName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        ResourceType = @{ OriginalName = '--resourceType'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        UserVisibleDescription = @{ OriginalName = '--userVisibleDescription'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesCalendars"
-        "patch"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Patches a calendar resource.
-
-.PARAMETER BuildingId
-Unique ID for the building a resource is located in.
-
-
-.PARAMETER CalendarResourceId
-The unique ID of the calendar resource
-
-
-.PARAMETER Capacity
-Capacity of a resource, number of seats in a room.
-
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account.
-As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER FeatureInstances
-Instances of features for the calendar resource.
-
-
-.PARAMETER Fields
-Fields allows partial responses to be retrieved.
-See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
-
-
-.PARAMETER FloorName
-Name of the floor a resource is located on.
-
-
-.PARAMETER FloorSection
-Name of the section within a floor a resource is located in.
-
-
-.PARAMETER ResourceCategory
-The category of the calendar resource. Either CONFERENCE_ROOM or OTHER. Legacy data is set to CATEGORY_UNKNOWN.
-
-Acceptable values are:
-CATEGORY_UNKNOWN
-CONFERENCE_ROOM
-OTHER
-
-
-.PARAMETER ResourceDescription
-Description of the resource, visible only to admins.
-
-
-.PARAMETER ResourceName
-The name of the calendar resource. For example, "Training Room 1A".
-
-
-.PARAMETER ResourceType
-The type of the calendar resource, intended for non-room resources.
-
-
-.PARAMETER UserVisibleDescription
-Description of the resource, visible to users and admins.
-
-
-
-#>
-}
-
-
-Function Delete-ResourcesFeaturesBatch {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$BatchThreads,
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$Customer_ALL,
-[Parameter()]
-[string]$Delimiter,
-[Parameter()]
-[string]$FeatureKey,
-[Parameter()]
-[string]$Path,
-[Parameter()]
-[switch]$SkipHeader
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FeatureKey = @{ OriginalName = '--featureKey'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesFeatures"
-        "delete"
-        "batch"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Batch deletes feature resources using a CSV file as input.
-
-.PARAMETER BatchThreads
-Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
-
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account.
-As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER Customer_ALL
-Same as customer but value is applied to all lines in the CSV file
-
-
-.PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
-
-
-.PARAMETER FeatureKey
-The unique ID of the feature.
-
-
-.PARAMETER Path
-Path of the import file (CSV)
-
-
-.PARAMETER SkipHeader
-Whether to skip the first row (header)
-
-
-
-#>
-}
-
-
-Function Delete-ResourcesFeatures {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$FeatureKey
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FeatureKey = @{ OriginalName = '--featureKey'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesFeatures"
-        "delete"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Deletes a feature resource.
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account.
-As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER FeatureKey
-The unique ID of the feature.
-
-
-
-#>
-}
-
-
-Function Get-ResourcesFeaturesBatch {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$BatchThreads,
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$Customer_ALL,
-[Parameter()]
-[string]$Delimiter,
-[Parameter()]
-[string]$FeatureKey,
-[Parameter()]
-[string]$Fields,
-[Parameter()]
-[string]$Fields_ALL,
-[Parameter()]
-[string]$Path,
-[Parameter()]
-[switch]$SkipHeader
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FeatureKey = @{ OriginalName = '--featureKey'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesFeatures"
-        "get"
-        "batch"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Batch retrieves feature resources using a CSV file as input.
-
-.PARAMETER BatchThreads
-Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
-
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account.
-As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER Customer_ALL
-Same as customer but value is applied to all lines in the CSV file
-
-
-.PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
-
-
-.PARAMETER FeatureKey
-The unique ID of the feature.
-
-
-.PARAMETER Fields
-Fields allows partial responses to be retrieved.
-See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
-
-
-.PARAMETER Fields_ALL
-Same as fields but value is applied to all lines in the CSV file
-
-
-.PARAMETER Path
-Path of the import file (CSV)
-
-
-.PARAMETER SkipHeader
-Whether to skip the first row (header)
-
-
-
-#>
-}
-
-
-Function Get-ResourcesFeatures {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$FeatureKey,
-[Parameter()]
-[string]$Fields
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FeatureKey = @{ OriginalName = '--featureKey'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesFeatures"
-        "get"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Gets a feature resource.
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account.
-As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER FeatureKey
-The unique ID of the feature.
-
-
-.PARAMETER Fields
-Fields allows partial responses to be retrieved.
-See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
-
-
-
-#>
-}
-
-
-Function Insert-ResourcesFeaturesBatch {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$BatchThreads,
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$Customer_ALL,
-[Parameter()]
-[string]$Delimiter,
-[Parameter()]
-[string]$Fields,
-[Parameter()]
-[string]$Fields_ALL,
-[Parameter()]
-[string]$Name,
-[Parameter()]
-[string]$Path,
-[Parameter()]
-[switch]$SkipHeader
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Name = @{ OriginalName = '--name'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesFeatures"
-        "insert"
-        "batch"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Batch inserts feature resources using a CSV file as input.
-
-.PARAMETER BatchThreads
-Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
-
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account.
-As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER Customer_ALL
-Same as customer but value is applied to all lines in the CSV file
-
-
-.PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
-
-
-.PARAMETER Fields
-Fields allows partial responses to be retrieved.
-See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
-
-
-.PARAMETER Fields_ALL
-Same as fields but value is applied to all lines in the CSV file
-
-
-.PARAMETER Name
-The name of the feature.
-
-
-.PARAMETER Path
-Path of the import file (CSV)
-
-
-.PARAMETER SkipHeader
-Whether to skip the first row (header)
-
-
-
-#>
-}
-
-
-Function Insert-ResourcesFeatures {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$Fields,
-[Parameter()]
-[string]$Name
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Name = @{ OriginalName = '--name'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesFeatures"
-        "insert"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Inserts a feature resource.
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account.
-As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER Fields
-Fields allows partial responses to be retrieved.
-See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
-
-
-.PARAMETER Name
-The name of the feature.
-
-
-
-#>
-}
-
-
-Function List-ResourcesFeatures {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$Fields
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesFeatures"
-        "list"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Retrieves a list of feature resources for an account.
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account.
-As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER Fields
-Fields allows partial responses to be retrieved.
-See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
-
-
-
-#>
-}
-
-
-Function Patch-ResourcesFeaturesBatch {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$BatchThreads,
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$Customer_ALL,
-[Parameter()]
-[string]$Delimiter,
-[Parameter()]
-[string]$FeatureKey,
-[Parameter()]
-[string]$Fields,
-[Parameter()]
-[string]$Fields_ALL,
-[Parameter()]
-[string]$Path,
-[Parameter()]
-[switch]$SkipHeader
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FeatureKey = @{ OriginalName = '--featureKey'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesFeatures"
-        "patch"
-        "batch"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Batch patchs feature resources using a CSV file as input.
-
-.PARAMETER BatchThreads
-Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
-
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account.
-As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER Customer_ALL
-Same as customer but value is applied to all lines in the CSV file
-
-
-.PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
-
-
-.PARAMETER FeatureKey
-The unique ID of the feature.
-
-
-.PARAMETER Fields
-Fields allows partial responses to be retrieved.
-See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
-
-
-.PARAMETER Fields_ALL
-Same as fields but value is applied to all lines in the CSV file
-
-
-.PARAMETER Path
-Path of the import file (CSV)
-
-
-.PARAMETER SkipHeader
-Whether to skip the first row (header)
-
-
-
-#>
-}
-
-
-Function Patch-ResourcesFeatures {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$FeatureKey,
-[Parameter()]
-[string]$Fields
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        FeatureKey = @{ OriginalName = '--featureKey'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesFeatures"
-        "patch"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Patches a feature resource.
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account.
-As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER FeatureKey
-The unique ID of the feature.
-
-
-.PARAMETER Fields
-Fields allows partial responses to be retrieved.
-See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
-
-
-
-#>
-}
-
-
-Function Rename-ResourcesFeaturesBatch {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$BatchThreads,
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$Customer_ALL,
-[Parameter()]
-[string]$Delimiter,
-[Parameter()]
-[string]$NewName,
-[Parameter()]
-[string]$OldName,
-[Parameter()]
-[string]$Path,
-[Parameter()]
-[switch]$SkipHeader
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Customer_ALL = @{ OriginalName = '--customer_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        NewName = @{ OriginalName = '--newName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        OldName = @{ OriginalName = '--oldName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesFeatures"
-        "rename"
-        "batch"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Batch renames feature resources using a CSV file as input.
-
-.PARAMETER BatchThreads
-Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
-
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account.
-As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER Customer_ALL
-Same as customer but value is applied to all lines in the CSV file
-
-
-.PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
-
-
-.PARAMETER NewName
-New name of the feature.
-
-
-.PARAMETER OldName
-The unique ID of the feature to rename.
-
-
-.PARAMETER Path
-Path of the import file (CSV)
-
-
-.PARAMETER SkipHeader
-Whether to skip the first row (header)
-
-
-
-#>
-}
-
-
-Function Rename-ResourcesFeatures {
-
-
-[CmdletBinding()]
-
-param(
-[Parameter()]
-[string]$Customer,
-[Parameter()]
-[string]$NewName,
-[Parameter()]
-[string]$OldName
-    )
-
-BEGIN {
-    $__PARAMETERMAP = @{
-        Customer = @{ OriginalName = '--customer'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        NewName = @{ OriginalName = '--newName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        OldName = @{ OriginalName = '--oldName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-    }
-
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "resourcesFeatures"
-        "rename"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Renames a feature resource.
-
-.PARAMETER Customer
-The unique ID for the customer's Workspace account.
-As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
-
-
-.PARAMETER NewName
-New name of the feature.
-
-
-.PARAMETER OldName
-The unique ID of the feature to rename.
-
-
-
-#>
-}
-
-
-Function Delete-RevisionsBatch {
+Function Delete-GSMRevisionsBatch {
 
 
 [CmdletBinding()]
@@ -53251,7 +53251,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Delete-Revisions {
+Function Delete-GSMRevisions {
 
 
 [CmdletBinding()]
@@ -53340,7 +53340,7 @@ The ID of the revision.
 }
 
 
-Function Get-RevisionsBatch {
+Function Get-GSMRevisionsBatch {
 
 
 [CmdletBinding()]
@@ -53487,7 +53487,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Get-Revisions {
+Function Get-GSMRevisions {
 
 
 [CmdletBinding()]
@@ -53584,7 +53584,7 @@ The ID of the revision.
 }
 
 
-Function List-Revisions {
+Function List-GSMRevisions {
 
 
 [CmdletBinding()]
@@ -53666,7 +53666,7 @@ The ID of the file.
 }
 
 
-Function Update-RevisionsBatch {
+Function Update-GSMRevisionsBatch {
 
 
 [CmdletBinding()]
@@ -53875,7 +53875,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Update-Revisions {
+Function Update-GSMRevisions {
 
 
 [CmdletBinding()]
@@ -54006,7 +54006,7 @@ The ID of the revision.
 }
 
 
-Function Delete-RoleAssignmentsBatch {
+Function Delete-GSMRoleAssignmentsBatch {
 
 
 [CmdletBinding()]
@@ -54123,7 +54123,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Delete-RoleAssignments {
+Function Delete-GSMRoleAssignments {
 
 
 [CmdletBinding()]
@@ -54204,7 +54204,7 @@ Immutable ID of the role assignment.
 }
 
 
-Function Get-RoleAssignmentsBatch {
+Function Get-GSMRoleAssignmentsBatch {
 
 
 [CmdletBinding()]
@@ -54336,7 +54336,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Get-RoleAssignments {
+Function Get-GSMRoleAssignments {
 
 
 [CmdletBinding()]
@@ -54425,7 +54425,7 @@ Immutable ID of the role assignment.
 }
 
 
-Function Insert-RoleAssignmentsBatch {
+Function Insert-GSMRoleAssignmentsBatch {
 
 
 [CmdletBinding()]
@@ -54609,7 +54609,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Insert-RoleAssignmentsRecursive {
+Function Insert-GSMRoleAssignmentsRecursive {
 
 
 [CmdletBinding()]
@@ -54737,7 +54737,7 @@ ORG_UNIT
 }
 
 
-Function Insert-RoleAssignments {
+Function Insert-GSMRoleAssignments {
 
 
 [CmdletBinding()]
@@ -54850,7 +54850,7 @@ ORG_UNIT
 }
 
 
-Function List-RoleAssignmentsRecursive {
+Function List-GSMRoleAssignmentsRecursive {
 
 
 [CmdletBinding()]
@@ -54954,7 +54954,7 @@ Path of an orgUnit. Can be used multiple times. Note that an orgUnit always incl
 }
 
 
-Function List-RoleAssignments {
+Function List-GSMRoleAssignments {
 
 
 [CmdletBinding()]
@@ -55051,7 +55051,7 @@ If included in the request, returns role assignments only for this user.
 }
 
 
-Function Delete-RolesBatch {
+Function Delete-GSMRolesBatch {
 
 
 [CmdletBinding()]
@@ -55168,7 +55168,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Delete-Roles {
+Function Delete-GSMRoles {
 
 
 [CmdletBinding()]
@@ -55249,7 +55249,7 @@ Immutable ID of the role.
 }
 
 
-Function Get-RolesBatch {
+Function Get-GSMRolesBatch {
 
 
 [CmdletBinding()]
@@ -55381,7 +55381,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Get-Roles {
+Function Get-GSMRoles {
 
 
 [CmdletBinding()]
@@ -55470,7 +55470,7 @@ Immutable ID of the role.
 }
 
 
-Function Insert-RolesBatch {
+Function Insert-GSMRolesBatch {
 
 
 [CmdletBinding()]
@@ -55616,7 +55616,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Insert-Roles {
+Function Insert-GSMRoles {
 
 
 [CmdletBinding()]
@@ -55712,7 +55712,7 @@ The set of privileges that are granted to this role.
 }
 
 
-Function List-Roles {
+Function List-GSMRoles {
 
 
 [CmdletBinding()]
@@ -55794,7 +55794,7 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 }
 
 
-Function Patch-RolesBatch {
+Function Patch-GSMRolesBatch {
 
 
 [CmdletBinding()]
@@ -55947,7 +55947,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Patch-Roles {
+Function Patch-GSMRoles {
 
 
 [CmdletBinding()]
@@ -56050,7 +56050,7 @@ The set of privileges that are granted to this role.
 }
 
 
-Function Delete-SchemasBatch {
+Function Delete-GSMSchemasBatch {
 
 
 [CmdletBinding()]
@@ -56167,7 +56167,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Delete-Schemas {
+Function Delete-GSMSchemas {
 
 
 [CmdletBinding()]
@@ -56248,7 +56248,7 @@ Name or immutable ID of the schema.
 }
 
 
-Function Get-SchemasBatch {
+Function Get-GSMSchemasBatch {
 
 
 [CmdletBinding()]
@@ -56380,7 +56380,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Get-Schemas {
+Function Get-GSMSchemas {
 
 
 [CmdletBinding()]
@@ -56469,7 +56469,7 @@ Name or immutable ID of the schema.
 }
 
 
-Function Insert-SchemasBatch {
+Function Insert-GSMSchemasBatch {
 
 
 [CmdletBinding()]
@@ -56638,7 +56638,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Insert-Schemas {
+Function Insert-GSMSchemas {
 
 
 [CmdletBinding()]
@@ -56764,7 +56764,7 @@ The schema's name.
 }
 
 
-Function List-Schemas {
+Function List-GSMSchemas {
 
 
 [CmdletBinding()]
@@ -56846,7 +56846,7 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 }
 
 
-Function Patch-SchemasBatch {
+Function Patch-GSMSchemasBatch {
 
 
 [CmdletBinding()]
@@ -57022,7 +57022,7 @@ Whether to skip the first row (header)
 }
 
 
-Function Patch-Schemas {
+Function Patch-GSMSchemas {
 
 
 [CmdletBinding()]
@@ -57155,7 +57155,7 @@ The schema's name.
 }
 
 
-Function Create-SendAsBatch {
+Function Create-GSMSendAsBatch {
 
 
 [CmdletBinding()]
@@ -57444,7 +57444,7 @@ Same as username but value is applied to all lines in the CSV file
 }
 
 
-Function Create-SendAs {
+Function Create-GSMSendAs {
 
 
 [CmdletBinding()]
@@ -57613,7 +57613,7 @@ The username that will be used for authentication with the SMTP service.
 }
 
 
-Function Delete-SendAsBatch {
+Function Delete-GSMSendAsBatch {
 
 
 [CmdletBinding()]
@@ -57737,7 +57737,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Delete-SendAs {
+Function Delete-GSMSendAs {
 
 
 [CmdletBinding()]
@@ -57818,7 +57818,7 @@ The user's email address. The special value me can be used to indicate the authe
 }
 
 
-Function Get-SendAsBatch {
+Function Get-GSMSendAsBatch {
 
 
 [CmdletBinding()]
@@ -57957,7 +57957,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Get-SendAs {
+Function Get-GSMSendAs {
 
 
 [CmdletBinding()]
@@ -58046,7 +58046,7 @@ The user's email address. The special value me can be used to indicate the authe
 }
 
 
-Function List-SendAs {
+Function List-GSMSendAs {
 
 
 [CmdletBinding()]
@@ -58129,7 +58129,7 @@ The user's email address. The special value me can be used to indicate the authe
 }
 
 
-Function Patch-SendAsBatch {
+Function Patch-GSMSendAsBatch {
 
 
 [CmdletBinding()]
@@ -58418,7 +58418,7 @@ Same as username but value is applied to all lines in the CSV file
 }
 
 
-Function Patch-SendAs {
+Function Patch-GSMSendAs {
 
 
 [CmdletBinding()]
@@ -58587,7 +58587,7 @@ The username that will be used for authentication with the SMTP service.
 }
 
 
-Function Verify-SendAsBatch {
+Function Verify-GSMSendAsBatch {
 
 
 [CmdletBinding()]
@@ -58711,7 +58711,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Verify-SendAs {
+Function Verify-GSMSendAs {
 
 
 [CmdletBinding()]
@@ -58792,7 +58792,7 @@ The user's email address. The special value me can be used to indicate the authe
 }
 
 
-Function Create-SharedContactsBatch {
+Function Create-GSMSharedContactsBatch {
 
 
 [CmdletBinding()]
@@ -59093,7 +59093,7 @@ Same as structuredPostalAddress but value is applied to all lines in the CSV fil
 }
 
 
-Function Create-SharedContacts {
+Function Create-GSMSharedContacts {
 
 
 [CmdletBinding()]
@@ -59268,7 +59268,7 @@ Must be in the form of "mailClass=...;label=...;usage=...;primary=[true|false];a
 }
 
 
-Function Delete-SharedContactsBatch {
+Function Delete-GSMSharedContactsBatch {
 
 
 [CmdletBinding()]
@@ -59386,7 +59386,7 @@ MUST BE https://!
 }
 
 
-Function Delete-SharedContacts {
+Function Delete-GSMSharedContacts {
 
 
 [CmdletBinding()]
@@ -59468,7 +59468,7 @@ MUST BE https://!
 }
 
 
-Function Get-SharedContactsBatch {
+Function Get-GSMSharedContactsBatch {
 
 
 [CmdletBinding()]
@@ -59600,7 +59600,7 @@ MUST BE https://!
 }
 
 
-Function Get-SharedContacts {
+Function Get-GSMSharedContacts {
 
 
 [CmdletBinding()]
@@ -59690,7 +59690,7 @@ MUST BE https://!
 }
 
 
-Function List-SharedContacts {
+Function List-GSMSharedContacts {
 
 
 [CmdletBinding()]
@@ -59772,7 +59772,7 @@ Output as JSON"
 }
 
 
-Function Update-SharedContactsBatch {
+Function Update-GSMSharedContactsBatch {
 
 
 [CmdletBinding()]
@@ -60067,7 +60067,7 @@ MUST BE https://!
 }
 
 
-Function Update-SharedContacts {
+Function Update-GSMSharedContacts {
 
 
 [CmdletBinding()]
@@ -60243,7 +60243,7 @@ MUST BE https://!
 }
 
 
-Function Delete-SmimeInfoBatch {
+Function Delete-GSMSmimeInfoBatch {
 
 
 [CmdletBinding()]
@@ -60374,7 +60374,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Delete-SmimeInfo {
+Function Delete-GSMSmimeInfo {
 
 
 [CmdletBinding()]
@@ -60462,7 +60462,7 @@ The user's email address. The special value me can be used to indicate the authe
 }
 
 
-Function Get-SmimeInfoBatch {
+Function Get-GSMSmimeInfoBatch {
 
 
 [CmdletBinding()]
@@ -60608,7 +60608,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Get-SmimeInfo {
+Function Get-GSMSmimeInfo {
 
 
 [CmdletBinding()]
@@ -60704,7 +60704,7 @@ The user's email address. The special value me can be used to indicate the authe
 }
 
 
-Function Insert-SmimeInfoBatch {
+Function Insert-GSMSmimeInfoBatch {
 
 
 [CmdletBinding()]
@@ -60932,7 +60932,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Insert-SmimeInfo {
+Function Insert-GSMSmimeInfo {
 
 
 [CmdletBinding()]
@@ -61069,7 +61069,7 @@ The user's email address. The special value me can be used to indicate the authe
 }
 
 
-Function List-SmimeInfo {
+Function List-GSMSmimeInfo {
 
 
 [CmdletBinding()]
@@ -61158,7 +61158,7 @@ The user's email address. The special value me can be used to indicate the authe
 }
 
 
-Function SetDefault-SmimeInfo {
+Function SetDefault-GSMSmimeInfo {
 
 
 [CmdletBinding()]
@@ -61246,7 +61246,7 @@ The user's email address. The special value me can be used to indicate the authe
 }
 
 
-Function BatchUpdate-Spreadsheets {
+Function BatchUpdate-GSMSpreadsheets {
 
 
 [CmdletBinding()]
@@ -61337,7 +61337,7 @@ The ID of the spreadsheet
 }
 
 
-Function Create-Spreadsheets {
+Function Create-GSMSpreadsheets {
 
 
 [CmdletBinding()]
@@ -61428,7 +61428,7 @@ The ID of the spreadsheet
 }
 
 
-Function Get-Spreadsheets {
+Function Get-GSMSpreadsheets {
 
 
 [CmdletBinding()]
@@ -61525,7 +61525,7 @@ The ID of the spreadsheet
 }
 
 
-Function Delete-ThreadsBatch {
+Function Delete-GSMThreadsBatch {
 
 
 [CmdletBinding()]
@@ -61642,7 +61642,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Delete-Threads {
+Function Delete-GSMThreads {
 
 
 [CmdletBinding()]
@@ -61724,7 +61724,7 @@ The user's email address. The special value me can be used to indicate the authe
 }
 
 
-Function Get-ThreadsBatch {
+Function Get-GSMThreadsBatch {
 
 
 [CmdletBinding()]
@@ -61889,7 +61889,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Get-Threads {
+Function Get-GSMThreads {
 
 
 [CmdletBinding()]
@@ -61997,7 +61997,7 @@ The user's email address. The special value me can be used to indicate the authe
 }
 
 
-Function List-Threads {
+Function List-GSMThreads {
 
 
 [CmdletBinding()]
@@ -62103,7 +62103,7 @@ The user's email address. The special value me can be used to indicate the authe
 }
 
 
-Function Modify-ThreadsBatch {
+Function Modify-GSMThreadsBatch {
 
 
 [CmdletBinding()]
@@ -62263,7 +62263,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Modify-Threads {
+Function Modify-GSMThreads {
 
 
 [CmdletBinding()]
@@ -62366,7 +62366,7 @@ The user's email address. The special value me can be used to indicate the authe
 }
 
 
-Function Trash-ThreadsBatch {
+Function Trash-GSMThreadsBatch {
 
 
 [CmdletBinding()]
@@ -62498,7 +62498,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Trash-Threads {
+Function Trash-GSMThreads {
 
 
 [CmdletBinding()]
@@ -62587,7 +62587,7 @@ The user's email address. The special value me can be used to indicate the authe
 }
 
 
-Function Untrash-ThreadsBatch {
+Function Untrash-GSMThreadsBatch {
 
 
 [CmdletBinding()]
@@ -62719,7 +62719,7 @@ Same as userId but value is applied to all lines in the CSV file
 }
 
 
-Function Untrash-Threads {
+Function Untrash-GSMThreads {
 
 
 [CmdletBinding()]
@@ -62808,7 +62808,7 @@ The user's email address. The special value me can be used to indicate the authe
 }
 
 
-Function Delete-TokensBatch {
+Function Delete-GSMTokensBatch {
 
 
 [CmdletBinding()]
@@ -62933,7 +62933,7 @@ Same as userKey but value is applied to all lines in the CSV file
 }
 
 
-Function Delete-TokensRecursive {
+Function Delete-GSMTokensRecursive {
 
 
 [CmdletBinding()]
@@ -63029,7 +63029,7 @@ Path of an orgUnit. Can be used multiple times. Note that an orgUnit always incl
 }
 
 
-Function Delete-Tokens {
+Function Delete-GSMTokens {
 
 
 [CmdletBinding()]
@@ -63111,7 +63111,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function Get-TokensBatch {
+Function Get-GSMTokensBatch {
 
 
 [CmdletBinding()]
@@ -63251,7 +63251,7 @@ Same as userKey but value is applied to all lines in the CSV file
 }
 
 
-Function Get-Tokens {
+Function Get-GSMTokens {
 
 
 [CmdletBinding()]
@@ -63341,7 +63341,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function List-TokensBatch {
+Function List-GSMTokensBatch {
 
 
 [CmdletBinding()]
@@ -63467,7 +63467,7 @@ Same as userKey but value is applied to all lines in the CSV file
 }
 
 
-Function List-TokensRecursive {
+Function List-GSMTokensRecursive {
 
 
 [CmdletBinding()]
@@ -63564,7 +63564,7 @@ Path of an orgUnit. Can be used multiple times. Note that an orgUnit always incl
 }
 
 
-Function List-Tokens {
+Function List-GSMTokens {
 
 
 [CmdletBinding()]
@@ -63647,7 +63647,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function TurnOff-TwoStepVerificationBatch {
+Function TurnOff-GSMTwoStepVerificationBatch {
 
 
 [CmdletBinding()]
@@ -63751,7 +63751,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function TurnOff-TwoStepVerificationRecursive {
+Function TurnOff-GSMTwoStepVerificationRecursive {
 
 
 [CmdletBinding()]
@@ -63840,7 +63840,7 @@ Path of an orgUnit. Can be used multiple times. Note that an orgUnit always incl
 }
 
 
-Function TurnOff-TwoStepVerification {
+Function TurnOff-GSMTwoStepVerification {
 
 
 [CmdletBinding()]
@@ -63915,7 +63915,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function Delete-UserAliasesBatch {
+Function Delete-GSMUserAliasesBatch {
 
 
 [CmdletBinding()]
@@ -64033,7 +64033,7 @@ Same as userKey but value is applied to all lines in the CSV file
 }
 
 
-Function Delete-UserAliases {
+Function Delete-GSMUserAliases {
 
 
 [CmdletBinding()]
@@ -64115,7 +64115,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function Insert-UserAliasesBatch {
+Function Insert-GSMUserAliasesBatch {
 
 
 [CmdletBinding()]
@@ -64248,7 +64248,7 @@ Same as userKey but value is applied to all lines in the CSV file
 }
 
 
-Function Insert-UserAliases {
+Function Insert-GSMUserAliases {
 
 
 [CmdletBinding()]
@@ -64338,7 +64338,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function List-UserAliasesBatch {
+Function List-GSMUserAliasesBatch {
 
 
 [CmdletBinding()]
@@ -64464,7 +64464,7 @@ Same as userKey but value is applied to all lines in the CSV file
 }
 
 
-Function List-UserAliases {
+Function List-GSMUserAliases {
 
 
 [CmdletBinding()]
@@ -64547,7 +64547,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function Delete-UserPhotosBatch {
+Function Delete-GSMUserPhotosBatch {
 
 
 [CmdletBinding()]
@@ -64651,7 +64651,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function Delete-UserPhotosRecursive {
+Function Delete-GSMUserPhotosRecursive {
 
 
 [CmdletBinding()]
@@ -64740,7 +64740,7 @@ Path of an orgUnit. Can be used multiple times. Note that an orgUnit always incl
 }
 
 
-Function Delete-UserPhotos {
+Function Delete-GSMUserPhotos {
 
 
 [CmdletBinding()]
@@ -64815,7 +64815,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function Get-UserPhotosBatch {
+Function Get-GSMUserPhotosBatch {
 
 
 [CmdletBinding()]
@@ -64934,7 +64934,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function Get-UserPhotosRecursive {
+Function Get-GSMUserPhotosRecursive {
 
 
 [CmdletBinding()]
@@ -65031,7 +65031,7 @@ Path of an orgUnit. Can be used multiple times. Note that an orgUnit always incl
 }
 
 
-Function Get-UserPhotos {
+Function Get-GSMUserPhotos {
 
 
 [CmdletBinding()]
@@ -65114,7 +65114,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function Update-UserPhotosBatch {
+Function Update-GSMUserPhotosBatch {
 
 
 [CmdletBinding()]
@@ -65248,7 +65248,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function Update-UserPhotosRecursive {
+Function Update-GSMUserPhotosRecursive {
 
 
 [CmdletBinding()]
@@ -65353,7 +65353,7 @@ Allowed formats are: jpeg, png, gif, bmp and tiff.
 }
 
 
-Function Update-UserPhotos {
+Function Update-GSMUserPhotos {
 
 
 [CmdletBinding()]
@@ -65444,7 +65444,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function Delete-UsersBatch {
+Function Delete-GSMUsersBatch {
 
 
 [CmdletBinding()]
@@ -65548,7 +65548,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function Delete-UsersRecursive {
+Function Delete-GSMUsersRecursive {
 
 
 [CmdletBinding()]
@@ -65637,7 +65637,7 @@ Path of an orgUnit. Can be used multiple times. Note that an orgUnit always incl
 }
 
 
-Function Delete-Users {
+Function Delete-GSMUsers {
 
 
 [CmdletBinding()]
@@ -65712,7 +65712,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function Get-UsersBatch {
+Function Get-GSMUsersBatch {
 
 
 [CmdletBinding()]
@@ -65885,7 +65885,7 @@ Same as viewType but value is applied to all lines in the CSV file
 }
 
 
-Function Get-Users {
+Function Get-GSMUsers {
 
 
 [CmdletBinding()]
@@ -66001,7 +66001,7 @@ domain_public  - Results only include fields for the user that are publicly visi
 }
 
 
-Function Insert-UsersBatch {
+Function Insert-GSMUsersBatch {
 
 
 [CmdletBinding()]
@@ -66786,7 +66786,7 @@ Same as websites but value is applied to all lines in the CSV file
 }
 
 
-Function Insert-Users {
+Function Insert-GSMUsers {
 
 
 [CmdletBinding()]
@@ -67332,7 +67332,7 @@ value       - The URL of the website.
 }
 
 
-Function List-Users {
+Function List-GSMUsers {
 
 
 [CmdletBinding()]
@@ -67497,7 +67497,7 @@ domain_public  - Results only include fields for the user that are publicly visi
 }
 
 
-Function MakeAdmin-UsersBatch {
+Function MakeAdmin-GSMUsersBatch {
 
 
 [CmdletBinding()]
@@ -67615,7 +67615,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function MakeAdmin-UsersRecursive {
+Function MakeAdmin-GSMUsersRecursive {
 
 
 [CmdletBinding()]
@@ -67711,7 +67711,7 @@ Use to remove admin access.
 }
 
 
-Function MakeAdmin-Users {
+Function MakeAdmin-GSMUsers {
 
 
 [CmdletBinding()]
@@ -67793,7 +67793,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function Patch-UsersBatch {
+Function Patch-GSMUsersBatch {
 
 
 [CmdletBinding()]
@@ -68586,7 +68586,7 @@ Same as websites but value is applied to all lines in the CSV file
 }
 
 
-Function Patch-UsersRecursive {
+Function Patch-GSMUsersRecursive {
 
 
 [CmdletBinding()]
@@ -69028,7 +69028,7 @@ value       - The URL of the website.
 }
 
 
-Function Patch-Users {
+Function Patch-GSMUsers {
 
 
 [CmdletBinding()]
@@ -69582,7 +69582,7 @@ value       - The URL of the website.
 }
 
 
-Function SignOut-UsersBatch {
+Function SignOut-GSMUsersBatch {
 
 
 [CmdletBinding()]
@@ -69686,7 +69686,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function SignOut-UsersRecursive {
+Function SignOut-GSMUsersRecursive {
 
 
 [CmdletBinding()]
@@ -69775,7 +69775,7 @@ Path of an orgUnit. Can be used multiple times. Note that an orgUnit always incl
 }
 
 
-Function SignOut-Users {
+Function SignOut-GSMUsers {
 
 
 [CmdletBinding()]
@@ -69851,7 +69851,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function Undelete-UsersBatch {
+Function Undelete-GSMUsersBatch {
 
 
 [CmdletBinding()]
@@ -69970,7 +69970,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function Undelete-Users {
+Function Undelete-GSMUsers {
 
 
 [CmdletBinding()]
@@ -70053,7 +70053,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function Generate-VerificationCodesBatch {
+Function Generate-GSMVerificationCodesBatch {
 
 
 [CmdletBinding()]
@@ -70157,7 +70157,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function Generate-VerificationCodesRecursive {
+Function Generate-GSMVerificationCodesRecursive {
 
 
 [CmdletBinding()]
@@ -70246,7 +70246,7 @@ Path of an orgUnit. Can be used multiple times. Note that an orgUnit always incl
 }
 
 
-Function Generate-VerificationCodes {
+Function Generate-GSMVerificationCodes {
 
 
 [CmdletBinding()]
@@ -70321,7 +70321,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function Invalidate-VerificationCodesBatch {
+Function Invalidate-GSMVerificationCodesBatch {
 
 
 [CmdletBinding()]
@@ -70425,7 +70425,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function Invalidate-VerificationCodesRecursive {
+Function Invalidate-GSMVerificationCodesRecursive {
 
 
 [CmdletBinding()]
@@ -70514,7 +70514,7 @@ Path of an orgUnit. Can be used multiple times. Note that an orgUnit always incl
 }
 
 
-Function Invalidate-VerificationCodes {
+Function Invalidate-GSMVerificationCodes {
 
 
 [CmdletBinding()]
@@ -70589,7 +70589,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function List-VerificationCodesBatch {
+Function List-GSMVerificationCodesBatch {
 
 
 [CmdletBinding()]
@@ -70708,7 +70708,7 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Function List-VerificationCodesRecursive {
+Function List-GSMVerificationCodesRecursive {
 
 
 [CmdletBinding()]
@@ -70805,7 +70805,7 @@ Path of an orgUnit. Can be used multiple times. Note that an orgUnit always incl
 }
 
 
-Function List-VerificationCodes {
+Function List-GSMVerificationCodes {
 
 
 [CmdletBinding()]

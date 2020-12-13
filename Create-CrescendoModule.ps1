@@ -12,7 +12,6 @@ foreach($module in $modules) {
     $moduleName = ($module.Name).Replace(".psm1","")
     Remove-Module $moduleName -ErrorAction Ignore -WarningAction Ignore
     Import-Module $module.FullName -Global -WarningAction Ignore
-    $null = Remove-Item $module.FullName
     $foo = ($moduleName).Split("_")
     if ($foo.Count -eq 2) {
         $fName = $foo[1] + "-" + $foo[0]   
@@ -20,5 +19,6 @@ foreach($module in $modules) {
         $fName = $foo[1] + "-" + $foo[0]+$foo[2]
     }
     $command = Get-Command $fName
-    "Function " + $command + " {`n`n" + $command.Definition  + "}`n`n" >> GSM.psm1
+    "Function " + ($command.ToString()).Replace("-","-GSM") + " {`n`n" + $command.Definition  + "}`n`n" >> GSM.psm1
+    $null = Remove-Item $module.FullName
 }
