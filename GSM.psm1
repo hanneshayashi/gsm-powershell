@@ -15100,6 +15100,10 @@ Function Create-GSMDraftsBatch {
 
 param(
 [Parameter()]
+[string]$Attachment,
+[Parameter()]
+[string]$Attachment_ALL,
+[Parameter()]
 [string]$BatchThreads,
 [Parameter()]
 [string]$Bcc,
@@ -15139,6 +15143,8 @@ param(
 
 BEGIN {
     $__PARAMETERMAP = @{
+        Attachment = @{ OriginalName = '--attachment'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Attachment_ALL = @{ OriginalName = '--attachment_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Bcc = @{ OriginalName = '--bcc'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Bcc_ALL = @{ OriginalName = '--bcc_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -15209,6 +15215,15 @@ PROCESS {
 
 .DESCRIPTION
 Batch Creates a new draft with the DRAFT label using a CSV file as input.
+
+.PARAMETER Attachment
+Path to a file that should be attached to the message.
+Can be used multiple times.
+
+
+.PARAMETER Attachment_ALL
+Same as attachment but value is applied to all lines in the CSV file
+
 
 .PARAMETER BatchThreads
 Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
@@ -15295,6 +15310,8 @@ Function Create-GSMDrafts {
 
 param(
 [Parameter()]
+[string]$Attachment,
+[Parameter()]
 [string]$Bcc,
 [Parameter()]
 [string]$Body,
@@ -15312,6 +15329,7 @@ param(
 
 BEGIN {
     $__PARAMETERMAP = @{
+        Attachment = @{ OriginalName = '--attachment'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Bcc = @{ OriginalName = '--bcc'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Body = @{ OriginalName = '--body'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Cc = @{ OriginalName = '--cc'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -15370,6 +15388,11 @@ PROCESS {
 
 .DESCRIPTION
 Creates a new draft with the DRAFT label.
+
+.PARAMETER Attachment
+Path to a file that should be attached to the message.
+Can be used multiple times.
+
 
 .PARAMETER Bcc
 Blind Copy (Bcc)
@@ -16158,6 +16181,10 @@ Function Update-GSMDraftsBatch {
 
 param(
 [Parameter()]
+[string]$Attachment,
+[Parameter()]
+[string]$Attachment_ALL,
+[Parameter()]
 [string]$BatchThreads,
 [Parameter()]
 [string]$Bcc,
@@ -16199,6 +16226,8 @@ param(
 
 BEGIN {
     $__PARAMETERMAP = @{
+        Attachment = @{ OriginalName = '--attachment'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Attachment_ALL = @{ OriginalName = '--attachment_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Bcc = @{ OriginalName = '--bcc'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Bcc_ALL = @{ OriginalName = '--bcc_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -16270,6 +16299,15 @@ PROCESS {
 
 .DESCRIPTION
 Batch updates drafts using a CSV file as input.
+
+.PARAMETER Attachment
+Path to a file that should be attached to the message.
+Can be used multiple times.
+
+
+.PARAMETER Attachment_ALL
+Same as attachment but value is applied to all lines in the CSV file
+
 
 .PARAMETER BatchThreads
 Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
@@ -16360,6 +16398,8 @@ Function Update-GSMDrafts {
 
 param(
 [Parameter()]
+[string]$Attachment,
+[Parameter()]
 [string]$Bcc,
 [Parameter()]
 [string]$Body,
@@ -16379,6 +16419,7 @@ param(
 
 BEGIN {
     $__PARAMETERMAP = @{
+        Attachment = @{ OriginalName = '--attachment'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Bcc = @{ OriginalName = '--bcc'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Body = @{ OriginalName = '--body'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Cc = @{ OriginalName = '--cc'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -16438,6 +16479,11 @@ PROCESS {
 
 .DESCRIPTION
 Replaces a draft's content.
+
+.PARAMETER Attachment
+Path to a file that should be attached to the message.
+Can be used multiple times.
+
 
 .PARAMETER Bcc
 Blind Copy (Bcc)
@@ -41846,6 +41892,10 @@ Function Send-GSMMessagesBatch {
 
 param(
 [Parameter()]
+[string]$Attachment,
+[Parameter()]
+[string]$Attachment_ALL,
+[Parameter()]
 [string]$BatchThreads,
 [Parameter()]
 [string]$Bcc,
@@ -41885,6 +41935,8 @@ param(
 
 BEGIN {
     $__PARAMETERMAP = @{
+        Attachment = @{ OriginalName = '--attachment'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Attachment_ALL = @{ OriginalName = '--attachment_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Bcc = @{ OriginalName = '--bcc'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Bcc_ALL = @{ OriginalName = '--bcc_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -41955,6 +42007,15 @@ PROCESS {
 
 .DESCRIPTION
 Batch sends messages using a CSV file as input.
+
+.PARAMETER Attachment
+Path to a file that should be attached to the message.
+Can be used multiple times.
+
+
+.PARAMETER Attachment_ALL
+Same as attachment but value is applied to all lines in the CSV file
+
 
 .PARAMETER BatchThreads
 Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
@@ -42041,6 +42102,8 @@ Function Send-GSMMessages {
 
 param(
 [Parameter()]
+[string]$Attachment,
+[Parameter()]
 [string]$Bcc,
 [Parameter()]
 [string]$Body,
@@ -42058,6 +42121,7 @@ param(
 
 BEGIN {
     $__PARAMETERMAP = @{
+        Attachment = @{ OriginalName = '--attachment'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Bcc = @{ OriginalName = '--bcc'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Body = @{ OriginalName = '--body'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Cc = @{ OriginalName = '--cc'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -42116,6 +42180,11 @@ PROCESS {
 
 .DESCRIPTION
 Sends the specified message to the recipients in the To, Cc, and Bcc headers.
+
+.PARAMETER Attachment
+Path to a file that should be attached to the message.
+Can be used multiple times.
+
 
 .PARAMETER Bcc
 Blind Copy (Bcc)
