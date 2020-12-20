@@ -85,7 +85,7 @@ param(
 [string]$CodeId,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -197,9 +197,9 @@ Function Delete-GSMAsps {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$CodeId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserKey
     )
 
@@ -289,7 +289,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -412,11 +412,11 @@ Function Get-GSMAsps {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$CodeId,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserKey
     )
 
@@ -510,7 +510,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -727,7 +727,7 @@ Function List-GSMAsps {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserKey
     )
 
@@ -822,7 +822,7 @@ param(
 [string]$MessageId,
 [Parameter()]
 [string]$MessageId_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -957,9 +957,9 @@ Function Get-GSMAttachments {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Id,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$MessageId,
 [Parameter()]
 [string]$UserId
@@ -1062,7 +1062,7 @@ param(
 [string]$Customer_ALL,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -1169,7 +1169,7 @@ Function Delete-GSMBuildings {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$BuildingId,
 [Parameter()]
 [string]$Customer
@@ -1264,7 +1264,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -1382,7 +1382,7 @@ Function Get-GSMBuildings {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$BuildingId,
 [Parameter()]
 [string]$Customer,
@@ -1525,7 +1525,7 @@ param(
 [string]$Longitude,
 [Parameter()]
 [string]$Longitude_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$PostalCode,
@@ -1800,7 +1800,7 @@ param(
 [string]$AddressLines,
 [Parameter()]
 [string]$AdministrativeArea,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$BuildingId,
 [Parameter()]
 [string]$BuildingName,
@@ -1812,7 +1812,7 @@ param(
 [string]$Description,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FloorNames,
 [Parameter()]
 [string]$LanguageCode,
@@ -1824,7 +1824,7 @@ param(
 [string]$Longitude,
 [Parameter()]
 [string]$PostalCode,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$RegionCode,
 [Parameter()]
 [string]$Sublocality
@@ -2123,7 +2123,7 @@ param(
 [string]$Longitude,
 [Parameter()]
 [string]$Longitude_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$PostalCode,
@@ -2398,7 +2398,7 @@ param(
 [string]$AddressLines,
 [Parameter()]
 [string]$AdministrativeArea,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$BuildingId,
 [Parameter()]
 [string]$BuildingName,
@@ -2593,7 +2593,7 @@ param(
 [string]$CalendarId_ALL,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$RuleId,
@@ -2705,7 +2705,7 @@ Function Delete-GSMCalendarAcl {
 param(
 [Parameter()]
 [string]$CalendarId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$RuleId
     )
 
@@ -2797,7 +2797,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$RuleId,
@@ -2922,7 +2922,7 @@ param(
 [string]$CalendarId,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$RuleId
     )
 
@@ -3020,7 +3020,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Role,
@@ -3206,7 +3206,7 @@ param(
 [string]$CalendarId,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Role,
 [Parameter()]
 [string]$ScopeType,
@@ -3337,7 +3337,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$ShowDeleted,
@@ -3571,7 +3571,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Role,
@@ -3764,9 +3764,9 @@ param(
 [string]$CalendarId,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Role,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$RuleId,
 [Parameter()]
 [string]$ScopeType,
@@ -3896,7 +3896,7 @@ param(
 [string]$CalendarId,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -4079,7 +4079,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -4309,7 +4309,7 @@ param(
 [string]$NotificationsType,
 [Parameter()]
 [string]$NotificationsType_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Selected,
@@ -4846,7 +4846,7 @@ param(
 [string]$NotificationsType,
 [Parameter()]
 [string]$NotificationsType_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Selected,
@@ -5257,7 +5257,7 @@ param(
 [string]$Customer_ALL,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -5365,7 +5365,7 @@ Function Delete-GSMCalendarResources {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$CalendarResourceId,
 [Parameter()]
 [string]$Customer
@@ -5461,7 +5461,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -5580,7 +5580,7 @@ Function Get-GSMCalendarResources {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$CalendarResourceId,
 [Parameter()]
 [string]$Customer,
@@ -5702,7 +5702,7 @@ param(
 [string]$FloorSection,
 [Parameter()]
 [string]$FloorSection_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$ResourceCategory,
@@ -5966,9 +5966,9 @@ param(
 [string]$ResourceCategory,
 [Parameter()]
 [string]$ResourceDescription,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ResourceId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ResourceName,
 [Parameter()]
 [string]$ResourceType,
@@ -6258,7 +6258,7 @@ param(
 [string]$FloorSection,
 [Parameter()]
 [string]$FloorSection_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$ResourceCategory,
@@ -6504,7 +6504,7 @@ Function Patch-GSMCalendarResources {
 param(
 [Parameter()]
 [string]$BuildingId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$CalendarResourceId,
 [Parameter()]
 [string]$Capacity,
@@ -6667,7 +6667,7 @@ Function Clear-GSMCalendars {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$CalendarId
     )
 
@@ -6749,7 +6749,7 @@ param(
 [string]$CalendarId,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -6847,7 +6847,7 @@ Function Delete-GSMCalendars {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$CalendarId
     )
 
@@ -6933,7 +6933,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -7141,7 +7141,7 @@ param(
 [string]$Location,
 [Parameter()]
 [string]$Location_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -7299,7 +7299,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Location,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Summary,
 [Parameter()]
 [string]$TimeZone
@@ -7415,7 +7415,7 @@ param(
 [string]$Location,
 [Parameter()]
 [string]$Location_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -7573,7 +7573,7 @@ Function Patch-GSMCalendars {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$CalendarId,
 [Parameter()]
 [string]$Description,
@@ -7693,7 +7693,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Setting,
@@ -7805,7 +7805,7 @@ Function Get-GSMCalendarSettings {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Setting
     )
 
@@ -8054,7 +8054,7 @@ param(
 [string]$IncludePermissionsForView,
 [Parameter()]
 [switch]$IncludeRemoved,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$PageToken,
 [Parameter()]
 [switch]$RestrictToMyDrive,
@@ -8186,7 +8186,7 @@ param(
 [string]$Delimiter,
 [Parameter()]
 [string]$DeviceId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Payload,
@@ -8316,11 +8316,11 @@ Function IssueCommand-GSMChromeOs {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$CommandType,
 [Parameter()]
 [string]$CustomerId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$DeviceId,
 [Parameter()]
 [string]$Payload
@@ -8443,7 +8443,7 @@ param(
 [string]$DeprovisionReason,
 [Parameter()]
 [string]$DeprovisionReason_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$ResourceId,
@@ -8591,13 +8591,13 @@ Function Action-GSMChromeOsDevices {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Action,
 [Parameter()]
 [string]$CustomerId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$DeprovisionReason,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ResourceId
     )
 
@@ -8719,7 +8719,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Projection,
@@ -8860,7 +8860,7 @@ Function Get-GSMChromeOsDevices {
 param(
 [Parameter()]
 [string]$CustomerId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$DeviceId,
 [Parameter()]
 [string]$Fields,
@@ -9098,11 +9098,11 @@ Function MoveToOU-GSMChromeOsDevices {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$CustomerId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$DeviceIds,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$OrgUnitPath
     )
 
@@ -9222,7 +9222,7 @@ param(
 [string]$OrgUnitPath,
 [Parameter()]
 [string]$OrgUnitPath_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Projection,
@@ -9423,7 +9423,7 @@ param(
 [string]$AnnotatedUser,
 [Parameter()]
 [string]$CustomerId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$DeviceId,
 [Parameter()]
 [string]$Fields,
@@ -9652,7 +9652,7 @@ param(
 [string]$FileId,
 [Parameter()]
 [string]$FileId_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$QuotedFileContentValue,
@@ -9804,11 +9804,11 @@ Function Create-GSMComments {
 param(
 [Parameter()]
 [string]$Anchor,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Content,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId,
 [Parameter()]
 [string]$QuotedFileContentValue
@@ -9918,7 +9918,7 @@ param(
 [string]$FileId,
 [Parameter()]
 [string]$FileId_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -10025,9 +10025,9 @@ Function Delete-GSMComments {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$CommentId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId
     )
 
@@ -10124,7 +10124,7 @@ param(
 [string]$IncludeDeleted,
 [Parameter()]
 [switch]$IncludeDeleted_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -10253,11 +10253,11 @@ Function Get-GSMComments {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$CommentId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId,
 [Parameter()]
 [switch]$IncludeDeleted
@@ -10366,7 +10366,7 @@ param(
 [string]$IncludeDeleted,
 [Parameter()]
 [switch]$IncludeDeleted_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -10504,9 +10504,9 @@ Function List-GSMComments {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId,
 [Parameter()]
 [switch]$IncludeDeleted,
@@ -10623,7 +10623,7 @@ param(
 [string]$FileId,
 [Parameter()]
 [string]$FileId_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$QuotedFileContentValue,
@@ -10780,13 +10780,13 @@ Function Update-GSMComments {
 param(
 [Parameter()]
 [string]$Anchor,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$CommentId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Content,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId,
 [Parameter()]
 [string]$QuotedFileContentValue
@@ -11115,7 +11115,7 @@ Function Load-GSMConfigs {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Name
     )
 
@@ -11190,13 +11190,13 @@ Function New-GSMConfigs {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$CredentialsFile,
 [Parameter()]
 [string]$LogFile,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Mode,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Name,
 [Parameter()]
 [string]$Scopes,
@@ -11316,7 +11316,7 @@ Function Remove-GSMConfigs {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Name
     )
 
@@ -11385,6 +11385,132 @@ This (plus ".yaml") will be used as the file name.
 }
 
 
+Function Update-GSMConfigs {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$CredentialsFile,
+[Parameter()]
+[string]$LogFile,
+[Parameter()]
+[string]$Mode,
+[Parameter()]
+[string]$Name,
+[Parameter()]
+[string]$Scopes,
+[Parameter()]
+[string]$StandardDelay,
+[Parameter()]
+[string]$Subject,
+[Parameter()]
+[string]$Threads
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        CredentialsFile = @{ OriginalName = '--credentialsFile'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        LogFile = @{ OriginalName = '--logFile'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Mode = @{ OriginalName = '--mode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Name = @{ OriginalName = '--name'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Scopes = @{ OriginalName = '--scopes'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        StandardDelay = @{ OriginalName = '--standardDelay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Subject = @{ OriginalName = '--subject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Threads = @{ OriginalName = '--threads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "configs"
+        "update"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Updates the current config.
+
+.PARAMETER CredentialsFile
+Path to the credential file.
+Can be relative to the binary or fully qualified.
+
+
+.PARAMETER LogFile
+Path of the log file.
+
+
+.PARAMETER Mode
+The mode to operate in. Can be:
+[dwd|user]
+
+
+.PARAMETER Name
+Name of the configuration.
+This (plus ".yaml") will be used as the file name.
+
+
+.PARAMETER Scopes
+OAuth Scopes to use.
+
+
+.PARAMETER StandardDelay
+Delay in ms to wait after each API call
+
+
+.PARAMETER Subject
+The user who should be impersonated with DWD.
+
+
+.PARAMETER Threads
+The maximum number of threads to use.
+
+
+
+#>
+}
+
+
 Function BatchGet-GSMContactGroups {
 
 
@@ -11395,7 +11521,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$MaxMembers,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ResourceNames
     )
 
@@ -11491,7 +11617,7 @@ param(
 [string]$Fields_ALL,
 [Parameter()]
 [string]$Name,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -11601,7 +11727,7 @@ Function Create-GSMContactGroups {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Name
     )
 
@@ -11689,7 +11815,7 @@ param(
 [switch]$DeleteContacts_ALL,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$ResourceName,
@@ -11800,7 +11926,7 @@ Function Delete-GSMContactGroups {
 param(
 [Parameter()]
 [switch]$DeleteContacts,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ResourceName
     )
 
@@ -11891,7 +12017,7 @@ param(
 [string]$MaxMembers,
 [Parameter()]
 [string]$MaxMembers_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$ResourceName,
@@ -12016,7 +12142,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$MaxMembers,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ResourceName
     )
 
@@ -12187,7 +12313,7 @@ param(
 [string]$Fields_ALL,
 [Parameter()]
 [string]$Name,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$ResourceName,
@@ -12306,7 +12432,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Name,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ResourceName
     )
 
@@ -12399,7 +12525,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$ResourceName,
@@ -12546,7 +12672,7 @@ Function Modify-GSMContactGroupsMembers {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ResourceName,
 [Parameter()]
 [string]$ResourceNamesToAdd,
@@ -12915,7 +13041,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -13037,7 +13163,7 @@ Function Create-GSMDelegates {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$DelegateEmail,
 [Parameter()]
 [string]$Fields,
@@ -13132,7 +13258,7 @@ param(
 [string]$DelegateEmail,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -13243,7 +13369,7 @@ Function Delete-GSMDelegates {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$DelegateEmail,
 [Parameter()]
 [string]$UserId
@@ -13334,7 +13460,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -13456,7 +13582,7 @@ Function Get-GSMDelegates {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$DelegateEmail,
 [Parameter()]
 [string]$Fields,
@@ -13637,7 +13763,7 @@ param(
 [string]$Delimiter,
 [Parameter()]
 [string]$DomainAliasName,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -13746,7 +13872,7 @@ Function Delete-GSMDomainAliases {
 param(
 [Parameter()]
 [string]$Customer,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$DomainAliasName
     )
 
@@ -13839,7 +13965,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -13959,7 +14085,7 @@ Function Get-GSMDomainAliases {
 param(
 [Parameter()]
 [string]$Customer,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$DomainAliasName,
 [Parameter()]
 [string]$Fields
@@ -14064,7 +14190,7 @@ param(
 [string]$ParentDomainName,
 [Parameter()]
 [string]$ParentDomainName_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -14194,11 +14320,11 @@ Function Insert-GSMDomainAliases {
 param(
 [Parameter()]
 [string]$Customer,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$DomainAliasName,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ParentDomainName
     )
 
@@ -14387,7 +14513,7 @@ param(
 [string]$Delimiter,
 [Parameter()]
 [string]$DomainName,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -14496,7 +14622,7 @@ Function Delete-GSMDomains {
 param(
 [Parameter()]
 [string]$Customer,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$DomainName
     )
 
@@ -14589,7 +14715,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -14709,7 +14835,7 @@ Function Get-GSMDomains {
 param(
 [Parameter()]
 [string]$Customer,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$DomainName,
 [Parameter()]
 [string]$Fields
@@ -14810,7 +14936,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -14930,7 +15056,7 @@ Function Insert-GSMDomains {
 param(
 [Parameter()]
 [string]$Customer,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$DomainName,
 [Parameter()]
 [string]$Fields
@@ -15123,7 +15249,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -15440,7 +15566,7 @@ param(
 [string]$Delimiter,
 [Parameter()]
 [string]$Id,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -15551,7 +15677,7 @@ Function Delete-GSMDrafts {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Id,
 [Parameter()]
 [string]$UserId
@@ -15646,7 +15772,7 @@ param(
 [string]$Format_ALL,
 [Parameter()]
 [string]$Id,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -15787,7 +15913,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Format,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Id,
 [Parameter()]
 [string]$UserId
@@ -15988,7 +16114,7 @@ param(
 [string]$Delimiter,
 [Parameter()]
 [string]$Id,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -16099,7 +16225,7 @@ Function Send-GSMDrafts {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Id,
 [Parameter()]
 [string]$UserId
@@ -16206,7 +16332,7 @@ param(
 [string]$Fields_ALL,
 [Parameter()]
 [string]$Id,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -16407,7 +16533,7 @@ param(
 [string]$Cc,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Id,
 [Parameter()]
 [string]$Subject,
@@ -16557,7 +16683,7 @@ param(
 [string]$Name,
 [Parameter()]
 [string]$Name_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -16874,7 +17000,7 @@ param(
 [string]$Delimiter,
 [Parameter()]
 [string]$DriveId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -16971,7 +17097,7 @@ Function Delete-GSMDrives {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$DriveId
     )
 
@@ -17056,7 +17182,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -17178,7 +17304,7 @@ Function Get-GSMDrives {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$DriveId,
 [Parameter()]
 [string]$Fields,
@@ -17277,7 +17403,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -17399,7 +17525,7 @@ Function Hide-GSMDrives {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$DriveId,
 [Parameter()]
 [string]$Fields,
@@ -17588,7 +17714,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -17710,7 +17836,7 @@ Function Unhide-GSMDrives {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$DriveId,
 [Parameter()]
 [string]$Fields,
@@ -17817,7 +17943,7 @@ param(
 [string]$Name,
 [Parameter()]
 [string]$Name_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -17979,7 +18105,7 @@ Function Update-GSMDrives {
 param(
 [Parameter()]
 [string]$ColorRgb,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$DriveId,
 [Parameter()]
 [string]$Fields,
@@ -18101,7 +18227,7 @@ param(
 [string]$Delimiter,
 [Parameter()]
 [string]$EventId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$SendUpdates,
@@ -18229,7 +18355,7 @@ Function Delete-GSMEvents {
 param(
 [Parameter()]
 [string]$CalendarId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$EventId,
 [Parameter()]
 [string]$SendUpdates
@@ -18338,7 +18464,7 @@ param(
 [string]$MaxAttendees,
 [Parameter()]
 [string]$MaxAttendees_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -18485,7 +18611,7 @@ Function Get-GSMEvents {
 param(
 [Parameter()]
 [string]$CalendarId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$EventId,
 [Parameter()]
 [string]$Fields,
@@ -18611,7 +18737,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -18770,9 +18896,9 @@ param(
 [string]$CalendarId,
 [Parameter()]
 [string]$ConferenceDataVersion,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Destination,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$EventId,
 [Parameter()]
 [string]$Fields,
@@ -18954,7 +19080,7 @@ param(
 [string]$MaxAttendees,
 [Parameter()]
 [string]$MaxAttendees_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$PrivateExtendedProperty,
@@ -19869,7 +19995,7 @@ param(
 [string]$OriginalStart,
 [Parameter()]
 [string]$OriginalStart_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$ShowDeleted,
@@ -20074,7 +20200,7 @@ Function Instances-GSMEvents {
 param(
 [Parameter()]
 [string]$CalendarId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$EventId,
 [Parameter()]
 [string]$Fields,
@@ -20234,7 +20360,7 @@ param(
 [string]$OrderBy,
 [Parameter()]
 [string]$OrderBy_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$PrivateExtendedProperty,
@@ -20729,7 +20855,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$SendUpdates,
@@ -20878,9 +21004,9 @@ Function Move-GSMEvents {
 param(
 [Parameter()]
 [string]$CalendarId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Destination,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$EventId,
 [Parameter()]
 [string]$Fields,
@@ -21064,7 +21190,7 @@ param(
 [string]$MaxAttendees,
 [Parameter()]
 [string]$MaxAttendees_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$PrivateExtendedProperty,
@@ -21639,7 +21765,7 @@ param(
 [string]$EndDateTime,
 [Parameter()]
 [string]$EndTimeZone,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$EventId,
 [Parameter()]
 [string]$Fields,
@@ -22002,7 +22128,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$SendUpdates,
@@ -22259,7 +22385,7 @@ param(
 [string]$Delimiter,
 [Parameter()]
 [string]$FeatureKey,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -22369,7 +22495,7 @@ Function Delete-GSMFeatures {
 param(
 [Parameter()]
 [string]$Customer,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FeatureKey
     )
 
@@ -22463,7 +22589,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -22584,7 +22710,7 @@ Function Get-GSMFeatures {
 param(
 [Parameter()]
 [string]$Customer,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FeatureKey,
 [Parameter()]
 [string]$Fields
@@ -22686,7 +22812,7 @@ param(
 [string]$Fields_ALL,
 [Parameter()]
 [string]$Name,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -22809,7 +22935,7 @@ param(
 [string]$Customer,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Name
     )
 
@@ -22992,7 +23118,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -23113,7 +23239,7 @@ Function Patch-GSMFeatures {
 param(
 [Parameter()]
 [string]$Customer,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FeatureKey,
 [Parameter()]
 [string]$Fields
@@ -23213,7 +23339,7 @@ param(
 [string]$NewName,
 [Parameter()]
 [string]$OldName,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -23328,9 +23454,9 @@ Function Rename-GSMFeatures {
 param(
 [Parameter()]
 [string]$Customer,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$NewName,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$OldName
     )
 
@@ -23471,7 +23597,7 @@ param(
 [string]$Parent,
 [Parameter()]
 [string]$Parent_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Properties,
@@ -23829,7 +23955,7 @@ param(
 [string]$BatchThreads,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FolderId,
 [Parameter()]
 [string]$Parent
@@ -23930,7 +24056,7 @@ param(
 [string]$Description,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId,
 [Parameter()]
 [string]$Id,
@@ -24238,7 +24364,7 @@ param(
 [string]$Parent,
 [Parameter()]
 [string]$Parent_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Properties,
@@ -24972,7 +25098,7 @@ param(
 [string]$Delimiter,
 [Parameter()]
 [string]$FileId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -25069,7 +25195,7 @@ Function Delete-GSMFiles {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId
     )
 
@@ -25153,7 +25279,7 @@ param(
 [string]$Delimiter,
 [Parameter()]
 [string]$FileId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -25262,7 +25388,7 @@ Function Download-GSMFiles {
 param(
 [Parameter()]
 [switch]$AcknowledgeAbuse,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId
     )
 
@@ -25351,7 +25477,7 @@ param(
 [string]$MimeType,
 [Parameter()]
 [string]$MimeType_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -25463,9 +25589,9 @@ Function Export-GSMFiles {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$MimeType
     )
 
@@ -25645,7 +25771,7 @@ param(
 [string]$IncludePermissionsForView,
 [Parameter()]
 [string]$IncludePermissionsForView_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -25766,7 +25892,7 @@ Function Get-GSMFiles {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId,
 [Parameter()]
 [string]$IncludePermissionsForView
@@ -25858,7 +25984,7 @@ param(
 [string]$BatchThreads,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FolderId
     )
 
@@ -26091,7 +26217,7 @@ param(
 [string]$Parent,
 [Parameter()]
 [string]$Parent_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -26200,9 +26326,9 @@ Function Move-GSMFilesRecursive {
 param(
 [Parameter()]
 [string]$BatchThreads,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FolderId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Parent
     )
 
@@ -26287,9 +26413,9 @@ Function Move-GSMFiles {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Parent
     )
 
@@ -26434,7 +26560,7 @@ param(
 [string]$Parent,
 [Parameter()]
 [string]$Parent_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Properties,
@@ -26859,7 +26985,7 @@ param(
 [string]$Description,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId,
 [Parameter()]
 [string]$FolderColorRgb,
@@ -27162,7 +27288,7 @@ param(
 [string]$NegatedQuery,
 [Parameter()]
 [string]$NegatedQuery_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Query,
@@ -27615,7 +27741,7 @@ param(
 [string]$Delimiter,
 [Parameter()]
 [string]$Id,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -27817,7 +27943,7 @@ param(
 [string]$Fields_ALL,
 [Parameter()]
 [string]$Id,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -28120,7 +28246,7 @@ param(
 [string]$Fields_ALL,
 [Parameter()]
 [string]$ForwardingEmail,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -28244,7 +28370,7 @@ Function Create-GSMForwardingAddresses {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ForwardingEmail,
 [Parameter()]
 [string]$UserId
@@ -28339,7 +28465,7 @@ param(
 [string]$Delimiter,
 [Parameter()]
 [string]$ForwardingEmail,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -28450,7 +28576,7 @@ Function Delete-GSMForwardingAddresses {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ForwardingEmail,
 [Parameter()]
 [string]$UserId
@@ -28541,7 +28667,7 @@ param(
 [string]$Fields_ALL,
 [Parameter()]
 [string]$ForwardingEmail,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -28665,7 +28791,7 @@ Function Get-GSMForwardingAddresses {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ForwardingEmail,
 [Parameter()]
 [string]$UserId
@@ -28842,9 +28968,9 @@ param(
 [string]$GroupExpansionMax,
 [Parameter()]
 [string]$Id,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$TimeMax,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$TimeMin,
 [Parameter()]
 [string]$TimeZone
@@ -30034,7 +30160,7 @@ param(
 [string]$Delimiter,
 [Parameter()]
 [string]$GroupKey,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -30142,9 +30268,9 @@ Function Delete-GSMGroupAliases {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Alias,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$GroupKey
     )
 
@@ -30238,7 +30364,7 @@ param(
 [string]$Fields_ALL,
 [Parameter()]
 [string]$GroupKey,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -30357,11 +30483,11 @@ Function Insert-GSMGroupAliases {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Alias,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$GroupKey
     )
 
@@ -30457,7 +30583,7 @@ param(
 [string]$Fields_ALL,
 [Parameter()]
 [string]$GroupKey,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -30568,7 +30694,7 @@ Function List-GSMGroupAliases {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$GroupKey
     )
 
@@ -30653,7 +30779,7 @@ param(
 [string]$Email,
 [Parameter()]
 [string]$Parent,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Query
     )
 
@@ -30752,13 +30878,13 @@ param(
 [string]$Email,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$MemberKeyId,
 [Parameter()]
 [string]$MemberKeyNamespace,
 [Parameter()]
 [string]$Parent,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Roles
     )
 
@@ -31066,7 +31192,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Parent,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Query
     )
 
@@ -31270,7 +31396,7 @@ Function Lookup-GSMGroupMembershipsCi {
 param(
 [Parameter()]
 [string]$Email,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$MemberKeyId,
 [Parameter()]
 [string]$MemberKeyNamespace,
@@ -31517,7 +31643,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Parent,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Query
     )
 
@@ -31716,7 +31842,7 @@ param(
 [string]$Delimiter,
 [Parameter()]
 [string]$GroupKey,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -31814,7 +31940,7 @@ Function Delete-GSMGroups {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$GroupKey
     )
 
@@ -31899,7 +32025,7 @@ param(
 [string]$Fields_ALL,
 [Parameter()]
 [string]$GroupKey,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -32010,7 +32136,7 @@ Function Get-GSMGroups {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$GroupKey
     )
 
@@ -32109,7 +32235,7 @@ param(
 [string]$Name,
 [Parameter()]
 [string]$Name_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -32242,7 +32368,7 @@ Function Insert-GSMGroups {
 param(
 [Parameter()]
 [string]$Description,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Email,
 [Parameter()]
 [string]$Fields,
@@ -32488,7 +32614,7 @@ param(
 [string]$Name,
 [Parameter()]
 [string]$Name_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -32631,7 +32757,7 @@ param(
 [string]$Email,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$GroupKey,
 [Parameter()]
 [string]$Name
@@ -32770,7 +32896,7 @@ param(
 [string]$Parent,
 [Parameter()]
 [string]$Parent_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Queries,
@@ -33009,7 +33135,7 @@ param(
 [string]$DisplayName,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Id,
 [Parameter()]
 [string]$InitialGroupConfig,
@@ -33186,7 +33312,7 @@ param(
 [string]$Email,
 [Parameter()]
 [string]$Name,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -33389,7 +33515,7 @@ param(
 [string]$Fields_ALL,
 [Parameter()]
 [string]$Name,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -33700,7 +33826,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -33910,7 +34036,7 @@ param(
 [string]$Labels_ALL,
 [Parameter()]
 [string]$Name,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -34297,7 +34423,7 @@ param(
 [string]$IgnoreDeprecated,
 [Parameter()]
 [switch]$IgnoreDeprecated_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -34417,7 +34543,7 @@ Function Get-GSMGroupSettings {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$GroupUniqueId,
 [Parameter()]
 [switch]$IgnoreDeprecated
@@ -34570,7 +34696,7 @@ param(
 [string]$MessageModerationLevel,
 [Parameter()]
 [string]$MessageModerationLevel_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$PrimaryLanguage,
@@ -35147,7 +35273,7 @@ param(
 [string]$FavoriteRepliesOnTop,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$GroupUniqueId,
 [Parameter()]
 [switch]$IgnoreDeprecated,
@@ -35514,7 +35640,7 @@ param(
 [string]$HistoryTypes,
 [Parameter()]
 [string]$LabelId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$StartHistoryId,
 [Parameter()]
 [string]$UserId
@@ -35637,7 +35763,7 @@ param(
 [string]$MessageListVisibility_ALL,
 [Parameter()]
 [string]$Name,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -35811,7 +35937,7 @@ param(
 [string]$LabelListVisibility,
 [Parameter()]
 [string]$MessageListVisibility,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Name,
 [Parameter()]
 [string]$TextColor,
@@ -35926,7 +36052,7 @@ param(
 [string]$Delimiter,
 [Parameter()]
 [string]$Id,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -36037,7 +36163,7 @@ Function Delete-GSMLabels {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Id,
 [Parameter()]
 [string]$UserId
@@ -36128,7 +36254,7 @@ param(
 [string]$Fields_ALL,
 [Parameter()]
 [string]$Id,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -36252,7 +36378,7 @@ Function Get-GSMLabels {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Id,
 [Parameter()]
 [string]$UserId
@@ -36445,7 +36571,7 @@ param(
 [string]$MessageListVisibility_ALL,
 [Parameter()]
 [string]$Name,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -36620,7 +36746,7 @@ param(
 [string]$BackgroundColor,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Id,
 [Parameter()]
 [string]$LabelListVisibility,
@@ -36744,7 +36870,7 @@ param(
 [string]$BatchThreads,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$ProductId,
@@ -36892,7 +37018,7 @@ param(
 [string]$OrgUnit,
 [Parameter()]
 [string]$ProductId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SkuId
     )
 
@@ -36991,9 +37117,9 @@ Function Delete-GSMLicenseAssignments {
 param(
 [Parameter()]
 [string]$ProductId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SkuId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserId
     )
 
@@ -37091,7 +37217,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$ProductId,
@@ -37255,7 +37381,7 @@ param(
 [string]$OrgUnit,
 [Parameter()]
 [string]$ProductId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SkuId
     )
 
@@ -37365,9 +37491,9 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$ProductId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SkuId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserId
     )
 
@@ -37474,7 +37600,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$ProductId,
@@ -37638,7 +37764,7 @@ param(
 [string]$OrgUnit,
 [Parameter()]
 [string]$ProductId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SkuId
     )
 
@@ -37748,9 +37874,9 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$ProductId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SkuId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserId
     )
 
@@ -37952,7 +38078,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$ProductId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SkuId
     )
 
@@ -38059,7 +38185,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$ProductId,
@@ -38238,9 +38364,9 @@ param(
 [string]$OrgUnit,
 [Parameter()]
 [string]$ProductId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SkuId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SkuIdNew
     )
 
@@ -38356,11 +38482,11 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$ProductId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SkuId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SkuIdNew,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserId
     )
 
@@ -38459,6 +38585,143 @@ If the userId is suspended, the license status changes.
 }
 
 
+Function Clear-GSMLog {
+
+
+[CmdletBinding()]
+
+param(    )
+
+BEGIN {
+    $__PARAMETERMAP = @{}
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "log"
+        "clear"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Clears the current log.
+
+#>
+}
+
+
+Function Show-GSMLog {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$Lines
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Lines = @{ OriginalName = '--lines'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "log"
+        "show"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Shows the current log.
+
+.PARAMETER Lines
+Number of lines to return
+
+
+
+#>
+}
+
+
 Function Delete-GSMMembersBatch {
 
 
@@ -38477,7 +38740,7 @@ param(
 [string]$MemberKey,
 [Parameter()]
 [string]$MemberKey_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -38596,7 +38859,7 @@ param(
 [string]$BatchThreads,
 [Parameter()]
 [string]$GroupEmail,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$GroupKey,
 [Parameter()]
 [string]$OrgUnit
@@ -38689,9 +38952,9 @@ Function Delete-GSMMembers {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$GroupKey,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$MemberKey
     )
 
@@ -38789,7 +39052,7 @@ param(
 [string]$MemberKey,
 [Parameter()]
 [string]$MemberKey_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -38921,7 +39184,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$GroupEmail,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$GroupKey,
 [Parameter()]
 [string]$OrgUnit
@@ -39022,9 +39285,9 @@ Function Get-GSMMembers {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$GroupKey,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$MemberKey
     )
 
@@ -39124,7 +39387,7 @@ param(
 [string]$MemberKey,
 [Parameter()]
 [string]$MemberKey_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -39243,7 +39506,7 @@ param(
 [string]$BatchThreads,
 [Parameter()]
 [string]$GroupEmail,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$GroupKey,
 [Parameter()]
 [string]$OrgUnit
@@ -39336,9 +39599,9 @@ Function HasMember-GSMMembers {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$GroupKey,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$MemberKey
     )
 
@@ -39440,7 +39703,7 @@ param(
 [string]$GroupKey,
 [Parameter()]
 [string]$GroupKey_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Role,
@@ -39610,7 +39873,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$GroupEmail,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$GroupKey,
 [Parameter()]
 [string]$OrgUnit,
@@ -39738,7 +40001,7 @@ param(
 [string]$Email,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$GroupKey,
 [Parameter()]
 [string]$Role
@@ -39866,7 +40129,7 @@ param(
 [string]$IncludeDerivedMembership,
 [Parameter()]
 [switch]$IncludeDerivedMembership_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Roles,
@@ -40007,7 +40270,7 @@ Function List-GSMMembers {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$GroupKey,
 [Parameter()]
 [switch]$IncludeDerivedMembership,
@@ -40119,7 +40382,7 @@ param(
 [string]$GroupKey,
 [Parameter()]
 [string]$GroupKey_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Role,
@@ -40276,7 +40539,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$GroupEmail,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$GroupKey,
 [Parameter()]
 [string]$OrgUnit,
@@ -40402,7 +40665,7 @@ param(
 [string]$Delivery_settings,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$GroupKey,
 [Parameter()]
 [string]$Role
@@ -40506,7 +40769,7 @@ Function BatchDelete-GSMMessages {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Ids
     )
 
@@ -40679,7 +40942,7 @@ param(
 [string]$MetadataHeaders,
 [Parameter()]
 [string]$MetadataHeaders_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -40958,7 +41221,7 @@ param(
 [string]$NeverMarkSpam,
 [Parameter()]
 [switch]$NeverMarkSpam_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$ProcessForCalendar,
@@ -41132,7 +41395,7 @@ Function Import-GSMMessages {
 param(
 [Parameter()]
 [switch]$Deleted,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Eml,
 [Parameter()]
 [string]$Fields,
@@ -41269,7 +41532,7 @@ param(
 [string]$InternalDateSource,
 [Parameter()]
 [string]$InternalDateSource_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -41419,7 +41682,7 @@ Function Insert-GSMMessages {
 param(
 [Parameter()]
 [switch]$Deleted,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Eml,
 [Parameter()]
 [string]$Fields,
@@ -41642,7 +41905,7 @@ param(
 [string]$Fields_ALL,
 [Parameter()]
 [string]$Id,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$RemoveLabelIds,
@@ -41916,6 +42179,10 @@ param(
 [Parameter()]
 [string]$Fields_ALL,
 [Parameter()]
+[string]$From,
+[Parameter()]
+[string]$From_ALL,
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -41947,6 +42214,8 @@ BEGIN {
         Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        From = @{ OriginalName = '--from'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        From_ALL = @{ OriginalName = '--from_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
         Subject = @{ OriginalName = '--subject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -42058,6 +42327,16 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 Same as fields but value is applied to all lines in the CSV file
 
 
+.PARAMETER From
+Sender of the (draft) message.
+Must be a valid sendAs address.
+If this is not set, your primary sendAs address will be used automatically.
+
+
+.PARAMETER From_ALL
+Same as from but value is applied to all lines in the CSV file
+
+
 .PARAMETER Path
 Path of the import file (CSV)
 
@@ -42112,6 +42391,8 @@ param(
 [Parameter()]
 [string]$Fields,
 [Parameter()]
+[string]$From,
+[Parameter()]
 [string]$Subject,
 [Parameter()]
 [string]$To,
@@ -42126,6 +42407,7 @@ BEGIN {
         Body = @{ OriginalName = '--body'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Cc = @{ OriginalName = '--cc'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        From = @{ OriginalName = '--from'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Subject = @{ OriginalName = '--subject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         To = @{ OriginalName = '--to'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         UserId = @{ OriginalName = '--userId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -42203,6 +42485,12 @@ Fields allows partial responses to be retrieved.
 See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
 
 
+.PARAMETER From
+Sender of the (draft) message.
+Must be a valid sendAs address.
+If this is not set, your primary sendAs address will be used automatically.
+
+
 .PARAMETER Subject
 Subject of the (draft) message
 
@@ -42236,7 +42524,7 @@ param(
 [string]$Fields_ALL,
 [Parameter()]
 [string]$Id,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -42457,7 +42745,7 @@ param(
 [string]$Fields_ALL,
 [Parameter()]
 [string]$Id,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -42680,7 +42968,7 @@ param(
 [string]$CustomerId_ALL,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$ResourceId,
@@ -42913,7 +43201,7 @@ param(
 [string]$CustomerId_ALL,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$ResourceId,
@@ -43119,7 +43407,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Projection,
@@ -43497,7 +43785,7 @@ param(
 [string]$Delimiter,
 [Parameter()]
 [string]$OrgUnitPath,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -43703,7 +43991,7 @@ param(
 [string]$Fields_ALL,
 [Parameter()]
 [string]$OrgUnitPath,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -43946,7 +44234,7 @@ param(
 [string]$ParentOrgUnitPath,
 [Parameter()]
 [string]$ParentOrgUnitPath_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -44404,7 +44692,7 @@ param(
 [string]$ParentOrgUnitPath,
 [Parameter()]
 [string]$ParentOrgUnitPath_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -44605,7 +44893,7 @@ param(
 [string]$Description,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Name,
 [Parameter()]
 [string]$OrgUnitPath,
@@ -44739,13 +45027,13 @@ Function CopyOtherContactToMyContactsGroup-GSMOtherContacts {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$CopyMask,
 [Parameter()]
 [string]$Fields,
 [Parameter()]
 [string]$ReadMask,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ResourceName,
 [Parameter()]
 [string]$Sources
@@ -44882,7 +45170,7 @@ Function List-GSMOtherContacts {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ReadMask
     )
 
@@ -45118,7 +45406,7 @@ param(
 [string]$Organizations,
 [Parameter()]
 [string]$Organizations_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$PersonFields,
@@ -46714,7 +47002,7 @@ param(
 [string]$BatchThreads,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$ResourceName,
@@ -46813,7 +47101,7 @@ Function DeleteContact-GSMPeople {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ResourceName
     )
 
@@ -46895,7 +47183,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$PersonFields,
@@ -47074,7 +47362,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$PersonFields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ResourceName,
 [Parameter()]
 [string]$Sources
@@ -47205,9 +47493,9 @@ Function Get-GSMPeople {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$PersonFields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ResourceName,
 [Parameter()]
 [string]$Sources
@@ -47338,9 +47626,9 @@ Function GetBatchGet-GSMPeople {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$PersonFields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ResourceNames,
 [Parameter()]
 [string]$Sources
@@ -47471,69 +47759,6 @@ READ_SOURCE_TYPE_DOMAIN_CONTACT       - Returns SourceType.DOMAIN_CONTACT.
 }
 
 
-Function List-GSMPeople {
-
-
-[CmdletBinding()]
-
-param(    )
-
-BEGIN {
-    $__PARAMETERMAP = @{}
-    $__outputHandlers = @{
-        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
-    }
-}
-PROCESS {
-    $__commandArgs = @(
-        "people"
-        "list"
-        "--compressOutput"
-    )
-    $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
-        $value = $PSBoundParameters[$paramName]
-        $param = $__PARAMETERMAP[$paramName]
-        if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
-            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
-            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
-        }
-    }
-    $__commandArgs = $__commandArgs|Where-Object {$_}
-    if ($PSBoundParameters["Debug"]){wait-debugger}
-    if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gsm
-         $__commandArgs | Write-Verbose -Verbose
-    }
-    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
-    if (! $__handlerInfo ) {
-        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
-    }
-    $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gsm")) {
-        if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | & $__handler
-        }
-        else {
-            $result = & "gsm" $__commandArgs
-            & $__handler $result
-        }
-    }
-  } # end PROCESS
-
-<#
-
-
-.DESCRIPTION
-Provides a list of the authenticated user's contacts.
-
-#>
-}
-
-
 Function ListDirectoryPeople-GSMPeople {
 
 
@@ -47544,9 +47769,9 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$MergeSources,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ReadMask,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Sources
     )
 
@@ -47676,11 +47901,11 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$MergeSources,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Query,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ReadMask,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Sources
     )
 
@@ -47936,7 +48161,7 @@ param(
 [string]$Organizations,
 [Parameter()]
 [string]$Organizations_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$PersonFields,
@@ -48950,7 +49175,7 @@ param(
 [string]$Occupations,
 [Parameter()]
 [string]$Organizations,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$PersonFields,
 [Parameter()]
 [string]$PhoneNumbers,
@@ -48968,17 +49193,17 @@ param(
 [string]$PhoneticMiddleName,
 [Parameter()]
 [string]$Relations,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ResourceName,
 [Parameter()]
 [string]$SipAddresses,
 [Parameter()]
 [string]$Skills,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Sources,
 [Parameter()]
 [string]$UnstructuredName,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UpdatePersonFields,
 [Parameter()]
 [string]$Urls,
@@ -49625,7 +49850,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$PersonFields,
@@ -49818,9 +50043,9 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$PersonFields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Photo,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ResourceName,
 [Parameter()]
 [string]$Sources
@@ -49948,6 +50173,136 @@ READ_SOURCE_TYPE_DOMAIN_CONTACT       - Returns SourceType.DOMAIN_CONTACT.
 }
 
 
+Function List-GSMPeopleConnections {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$Fields,
+[Parameter(Mandatory=$true)]
+[string]$PersonFields,
+[Parameter()]
+[string]$ResourceName,
+[Parameter()]
+[string]$Sources
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        PersonFields = @{ OriginalName = '--personFields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ResourceName = @{ OriginalName = '--resourceName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Sources = @{ OriginalName = '--sources'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "peopleConnections"
+        "list"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Provides a list of the authenticated user's contacts.
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER PersonFields
+A field mask to restrict which fields on each person are returned.
+Multiple fields can be specified by separating them with commas.
+Valid values are:
+  - addresses
+  - ageRanges
+  - biographies
+  - birthdays
+  - calendarUrls
+  - clientData
+  - coverPhotos
+  - emailAddresses
+  - events
+  - externalIds
+  - genders
+  - imClients
+  - interests
+  - locales
+  - locations
+  - memberships
+  - metadata
+  - miscKeywords
+  - names
+  - nicknames
+  - occupations
+  - organizations
+  - phoneNumbers
+  - photos
+  - relations
+  - sipAddresses
+  - skills
+  - urls
+  - userDefined
+
+
+.PARAMETER ResourceName
+The resource name to return connections for. Only people/me is valid.
+
+
+.PARAMETER Sources
+A mask of what source types to return.
+READ_SOURCE_TYPE_PROFILE         - Returns SourceType.ACCOUNT, SourceType.DOMAIN_PROFILE, and SourceType.PROFILE.
+READ_SOURCE_TYPE_CONTACT         - Returns SourceType.CONTACT.
+READ_SOURCE_TYPE_DOMAIN_CONTACT  - Returns SourceType.DOMAIN_CONTACT.
+
+
+
+#>
+}
+
+
 Function Create-GSMPermissionsBatch {
 
 
@@ -49986,7 +50341,7 @@ param(
 [string]$MoveToNewOwnersRoot,
 [Parameter()]
 [switch]$MoveToNewOwnersRoot_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Role,
@@ -50258,17 +50613,17 @@ param(
 [string]$EmailMessage,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FolderId,
 [Parameter()]
 [switch]$MoveToNewOwnersRoot,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Role,
 [Parameter()]
 [switch]$SendNotificationEmail,
 [Parameter()]
 [switch]$TransferOwnership,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Type,
 [Parameter()]
 [switch]$UseDomainAdminAccess
@@ -50428,17 +50783,17 @@ param(
 [string]$EmailMessage,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId,
 [Parameter()]
 [switch]$MoveToNewOwnersRoot,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Role,
 [Parameter()]
 [switch]$SendNotificationEmail,
 [Parameter()]
 [switch]$TransferOwnership,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Type,
 [Parameter()]
 [switch]$UseDomainAdminAccess,
@@ -50598,7 +50953,7 @@ param(
 [string]$FileId,
 [Parameter()]
 [string]$FileId_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$PermissionId,
@@ -50723,9 +51078,9 @@ Function Delete-GSMPermissionsRecursive {
 param(
 [Parameter()]
 [string]$BatchThreads,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FolderId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$PermissionId,
 [Parameter()]
 [switch]$UseDomainAdminAccess
@@ -50817,9 +51172,9 @@ Function Delete-GSMPermissions {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$PermissionId,
 [Parameter()]
 [switch]$UseDomainAdminAccess
@@ -50917,7 +51272,7 @@ param(
 [string]$FileId,
 [Parameter()]
 [string]$FileId_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$PermissionId,
@@ -51053,9 +51408,9 @@ Function Get-GSMPermissions {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$PermissionId,
 [Parameter()]
 [switch]$UseDomainAdminAccess
@@ -51163,7 +51518,7 @@ param(
 [string]$IncludePermissionsForView,
 [Parameter()]
 [string]$IncludePermissionsForView_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -51305,7 +51660,7 @@ param(
 [string]$BatchThreads,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FolderId,
 [Parameter()]
 [switch]$UseDomainAdminAccess
@@ -51400,7 +51755,7 @@ Function List-GSMPermissions {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId,
 [Parameter()]
 [string]$IncludePermissionsForView,
@@ -51527,7 +51882,7 @@ param(
 [string]$MoveToNewOwnersRoot,
 [Parameter()]
 [switch]$MoveToNewOwnersRoot_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$PermissionId,
@@ -51821,11 +52176,11 @@ param(
 [string]$ExpirationTime,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId,
 [Parameter()]
 [switch]$MoveToNewOwnersRoot,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$PermissionId,
 [Parameter()]
 [switch]$RemoveExpiration,
@@ -52106,7 +52461,7 @@ param(
 [string]$FileId,
 [Parameter()]
 [string]$FileId_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader
@@ -52253,13 +52608,13 @@ Function Create-GSMReplies {
 param(
 [Parameter()]
 [string]$Action,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$CommentId,
 [Parameter()]
 [string]$Content,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId
     )
 
@@ -52368,7 +52723,7 @@ param(
 [string]$FileId,
 [Parameter()]
 [string]$FileId_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$ReplyId,
@@ -52487,11 +52842,11 @@ Function Delete-GSMReplies {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$CommentId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ReplyId
     )
 
@@ -52591,7 +52946,7 @@ param(
 [string]$FileId,
 [Parameter()]
 [string]$FileId_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$ReplyId,
@@ -52721,13 +53076,13 @@ Function Get-GSMReplies {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$CommentId,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ReplyId
     )
 
@@ -52817,11 +53172,11 @@ Function List-GSMReplies {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$CommentId,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId
     )
 
@@ -52930,7 +53285,7 @@ param(
 [string]$FileId,
 [Parameter()]
 [string]$FileId_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$ReplyId,
@@ -53084,15 +53439,15 @@ Function Update-GSMReplies {
 param(
 [Parameter()]
 [string]$Action,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$CommentId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Content,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ReplyId
     )
 
@@ -53206,7 +53561,7 @@ param(
 [string]$FileId,
 [Parameter()]
 [string]$FileId_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$RevisionId,
@@ -53328,9 +53683,9 @@ Function Delete-GSMRevisions {
 param(
 [Parameter()]
 [switch]$AcknowledgeAbuse,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$RevisionId
     )
 
@@ -53431,7 +53786,7 @@ param(
 [string]$FileId,
 [Parameter()]
 [string]$FileId_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$RevisionId,
@@ -53566,9 +53921,9 @@ param(
 [switch]$AcknowledgeAbuse,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$RevisionId
     )
 
@@ -53661,7 +54016,7 @@ Function List-GSMRevisions {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId
     )
 
@@ -53761,7 +54116,7 @@ param(
 [string]$KeepForever,
 [Parameter()]
 [switch]$KeepForever_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$PublishAuto,
@@ -53954,7 +54309,7 @@ param(
 [switch]$AcknowledgeAbuse,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FileId,
 [Parameter()]
 [switch]$KeepForever,
@@ -53964,7 +54319,7 @@ param(
 [switch]$Published,
 [Parameter()]
 [switch]$PublishedOutsideDomain,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$RevisionId
     )
 
@@ -54089,7 +54444,7 @@ param(
 [string]$Customer_ALL,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$RoleAssignmentId,
@@ -54200,7 +54555,7 @@ Function Delete-GSMRoleAssignments {
 param(
 [Parameter()]
 [string]$Customer,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$RoleAssignmentId
     )
 
@@ -54291,7 +54646,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$RoleAssignmentId,
@@ -54415,7 +54770,7 @@ param(
 [string]$Customer,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$RoleAssignmentId
     )
 
@@ -54520,7 +54875,7 @@ param(
 [string]$OrgUnitId,
 [Parameter()]
 [string]$OrgUnitId_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$RoleId,
@@ -54696,7 +55051,7 @@ param(
 [string]$OrgUnit,
 [Parameter()]
 [string]$OrgUnitId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$RoleId,
 [Parameter()]
 [string]$ScopeType
@@ -54812,7 +55167,7 @@ Function Insert-GSMRoleAssignments {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$AssignedTo,
 [Parameter()]
 [string]$Customer,
@@ -54820,7 +55175,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$OrgUnitId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$RoleId,
 [Parameter()]
 [string]$ScopeType
@@ -55134,7 +55489,7 @@ param(
 [string]$Customer_ALL,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$RoleId,
@@ -55336,7 +55691,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$RoleId,
@@ -55557,7 +55912,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$RoleName,
@@ -55881,7 +56236,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$RoleId,
@@ -56133,7 +56488,7 @@ param(
 [string]$CustomerId_ALL,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$SchemaKey,
@@ -56244,7 +56599,7 @@ Function Delete-GSMSchemas {
 param(
 [Parameter()]
 [string]$CustomerId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SchemaKey
     )
 
@@ -56335,7 +56690,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$SchemaKey,
@@ -56459,7 +56814,7 @@ param(
 [string]$CustomerId,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SchemaKey
     )
 
@@ -56558,7 +56913,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$SchemaFields,
@@ -56715,13 +57070,13 @@ Function Insert-GSMSchemas {
 param(
 [Parameter()]
 [string]$CustomerId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$DisplayName,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SchemaFields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SchemaName
     )
 
@@ -56935,7 +57290,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$SchemaFields,
@@ -57105,7 +57460,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$SchemaFields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SchemaKey,
 [Parameter()]
 [string]$SchemaName
@@ -57254,7 +57609,7 @@ param(
 [string]$Password,
 [Parameter()]
 [string]$Password_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Port,
@@ -57535,7 +57890,7 @@ param(
 [string]$ReplyToAddress,
 [Parameter()]
 [string]$SecurityMode,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SendAsEmail,
 [Parameter()]
 [string]$Signature,
@@ -57692,7 +58047,7 @@ param(
 [string]$BatchThreads,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$SendAsEmail,
@@ -57812,7 +58167,7 @@ Function Delete-GSMSendAs {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SendAsEmail,
 [Parameter()]
 [string]$UserId
@@ -57901,7 +58256,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$SendAsEmail,
@@ -58228,7 +58583,7 @@ param(
 [string]$Password,
 [Parameter()]
 [string]$Password_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Port,
@@ -58509,7 +58864,7 @@ param(
 [string]$ReplyToAddress,
 [Parameter()]
 [string]$SecurityMode,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SendAsEmail,
 [Parameter()]
 [string]$Signature,
@@ -58666,7 +59021,7 @@ param(
 [string]$BatchThreads,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$SendAsEmail,
@@ -58786,7 +59141,7 @@ Function Verify-GSMSendAs {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SendAsEmail,
 [Parameter()]
 [string]$UserId
@@ -58919,7 +59274,7 @@ param(
 [string]$Organization,
 [Parameter()]
 [string]$Organization_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$PhoneNumber,
@@ -59170,7 +59525,7 @@ Function Create-GSMSharedContacts {
 param(
 [Parameter()]
 [string]$AdditionalName,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Domain,
 [Parameter()]
 [string]$Email,
@@ -59351,7 +59706,7 @@ param(
 [string]$Domain,
 [Parameter()]
 [string]$Domain_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -59461,9 +59816,9 @@ Function Delete-GSMSharedContacts {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Domain,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Url
     )
 
@@ -59555,7 +59910,7 @@ param(
 [string]$Json,
 [Parameter()]
 [switch]$Json_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -59675,11 +60030,11 @@ Function Get-GSMSharedContacts {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Domain,
 [Parameter()]
 [switch]$Json,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Url
     )
 
@@ -59765,7 +60120,7 @@ Function List-GSMSharedContacts {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Domain,
 [Parameter()]
 [switch]$Json
@@ -59895,7 +60250,7 @@ param(
 [string]$Organization,
 [Parameter()]
 [string]$Organization_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$PhoneNumber,
@@ -60168,7 +60523,7 @@ param(
 [string]$PhoneNumber,
 [Parameter()]
 [string]$StructuredPostalAddress,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Url
     )
 
@@ -60324,7 +60679,7 @@ param(
 [string]$Delimiter,
 [Parameter()]
 [string]$Id,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$SendAsEmail,
@@ -60449,9 +60804,9 @@ Function Delete-GSMSmimeInfo {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Id,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SendAsEmail,
 [Parameter()]
 [string]$UserId
@@ -60547,7 +60902,7 @@ param(
 [string]$Fields_ALL,
 [Parameter()]
 [string]$Id,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$SendAsEmail,
@@ -60685,9 +61040,9 @@ Function Get-GSMSmimeInfo {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Id,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SendAsEmail,
 [Parameter()]
 [string]$UserId
@@ -60786,33 +61141,17 @@ param(
 [Parameter()]
 [string]$EncryptedKeyPassword,
 [Parameter()]
-[switch]$EncryptedKeyPassword_ALL,
-[Parameter()]
-[string]$Expiration,
-[Parameter()]
-[switch]$Expiration_ALL,
+[string]$EncryptedKeyPassword_ALL,
 [Parameter()]
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
-[string]$IsDefault,
-[Parameter()]
-[switch]$IsDefault_ALL,
-[Parameter()]
-[string]$IssuerCn,
-[Parameter()]
-[string]$IssuerCn_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
-[Parameter()]
-[string]$Pem,
-[Parameter()]
-[switch]$Pem_ALL,
 [Parameter()]
 [string]$Pkcs12,
 [Parameter()]
-[switch]$Pkcs12_ALL,
+[string]$Pkcs12_ALL,
 [Parameter()]
 [string]$SendAsEmail,
 [Parameter()]
@@ -60830,20 +61169,12 @@ BEGIN {
         BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         EncryptedKeyPassword = @{ OriginalName = '--encryptedKeyPassword'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        EncryptedKeyPassword_ALL = @{ OriginalName = '--encryptedKeyPassword_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
-        Expiration = @{ OriginalName = '--expiration'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Expiration_ALL = @{ OriginalName = '--expiration_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+        EncryptedKeyPassword_ALL = @{ OriginalName = '--encryptedKeyPassword_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        IsDefault = @{ OriginalName = '--isDefault'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        IsDefault_ALL = @{ OriginalName = '--isDefault_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
-        IssuerCn = @{ OriginalName = '--issuerCn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        IssuerCn_ALL = @{ OriginalName = '--issuerCn_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Pem = @{ OriginalName = '--pem'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Pem_ALL = @{ OriginalName = '--pem_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
         Pkcs12 = @{ OriginalName = '--pkcs12'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Pkcs12_ALL = @{ OriginalName = '--pkcs12_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+        Pkcs12_ALL = @{ OriginalName = '--pkcs12_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         SendAsEmail = @{ OriginalName = '--sendAsEmail'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         SendAsEmail_ALL = @{ OriginalName = '--sendAsEmail_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
@@ -60918,14 +61249,6 @@ Encrypted key password, when key is encrypted.
 Same as encryptedKeyPassword but value is applied to all lines in the CSV file
 
 
-.PARAMETER Expiration
-When the certificate expires (in milliseconds since epoch).
-
-
-.PARAMETER Expiration_ALL
-Same as expiration but value is applied to all lines in the CSV file
-
-
 .PARAMETER Fields
 Fields allows partial responses to be retrieved.
 See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
@@ -60935,41 +61258,14 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 Same as fields but value is applied to all lines in the CSV file
 
 
-.PARAMETER IsDefault
-The S/MIME certificate issuer's common name.
-
-
-.PARAMETER IsDefault_ALL
-Same as isDefault but value is applied to all lines in the CSV file
-
-
-.PARAMETER IssuerCn
-The S/MIME certificate issuer's common name.
-
-
-.PARAMETER IssuerCn_ALL
-Same as issuerCn but value is applied to all lines in the CSV file
-
-
 .PARAMETER Path
 Path of the import file (CSV)
 
 
-.PARAMETER Pem
-PEM formatted X509 concatenated certificate string (standard base64 encoding).
-Format used for returning key, which includes public key as well as certificate chain (not private key).
-
-
-.PARAMETER Pem_ALL
-Same as pem but value is applied to all lines in the CSV file
-
-
 .PARAMETER Pkcs12
-PKCS#12 format containing a single private/public key pair and certificate chain.
+Path to a PKCS#12 format file containing a single private/public key pair and certificate chain.
 This format is only accepted from client for creating a new SmimeInfo and is never returned, because the private key is not intended to be exported.
 PKCS#12 may be encrypted, in which case encryptedKeyPassword should be set appropriately.
-
-A base64-encoded string.
 
 
 .PARAMETER Pkcs12_ALL
@@ -61008,20 +61304,12 @@ Function Insert-GSMSmimeInfo {
 
 param(
 [Parameter()]
-[switch]$EncryptedKeyPassword,
-[Parameter()]
-[switch]$Expiration,
+[string]$EncryptedKeyPassword,
 [Parameter()]
 [string]$Fields,
 [Parameter()]
-[switch]$IsDefault,
-[Parameter()]
-[string]$IssuerCn,
-[Parameter()]
-[switch]$Pem,
-[Parameter()]
-[switch]$Pkcs12,
-[Parameter()]
+[string]$Pkcs12,
+[Parameter(Mandatory=$true)]
 [string]$SendAsEmail,
 [Parameter()]
 [string]$UserId
@@ -61029,13 +61317,9 @@ param(
 
 BEGIN {
     $__PARAMETERMAP = @{
-        EncryptedKeyPassword = @{ OriginalName = '--encryptedKeyPassword'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
-        Expiration = @{ OriginalName = '--expiration'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+        EncryptedKeyPassword = @{ OriginalName = '--encryptedKeyPassword'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        IsDefault = @{ OriginalName = '--isDefault'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
-        IssuerCn = @{ OriginalName = '--issuerCn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Pem = @{ OriginalName = '--pem'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
-        Pkcs12 = @{ OriginalName = '--pkcs12'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+        Pkcs12 = @{ OriginalName = '--pkcs12'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         SendAsEmail = @{ OriginalName = '--sendAsEmail'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         UserId = @{ OriginalName = '--userId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
@@ -61095,34 +61379,15 @@ Note that pkcs12 format is required for the key.
 Encrypted key password, when key is encrypted.
 
 
-.PARAMETER Expiration
-When the certificate expires (in milliseconds since epoch).
-
-
 .PARAMETER Fields
 Fields allows partial responses to be retrieved.
 See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
 
 
-.PARAMETER IsDefault
-The S/MIME certificate issuer's common name.
-
-
-.PARAMETER IssuerCn
-The S/MIME certificate issuer's common name.
-
-
-.PARAMETER Pem
-PEM formatted X509 concatenated certificate string (standard base64 encoding).
-Format used for returning key, which includes public key as well as certificate chain (not private key).
-
-
 .PARAMETER Pkcs12
-PKCS#12 format containing a single private/public key pair and certificate chain.
+Path to a PKCS#12 format file containing a single private/public key pair and certificate chain.
 This format is only accepted from client for creating a new SmimeInfo and is never returned, because the private key is not intended to be exported.
 PKCS#12 may be encrypted, in which case encryptedKeyPassword should be set appropriately.
-
-A base64-encoded string.
 
 
 .PARAMETER SendAsEmail
@@ -61146,7 +61411,7 @@ Function List-GSMSmimeInfo {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SendAsEmail,
 [Parameter()]
 [string]$UserId
@@ -61233,9 +61498,9 @@ Function SetDefault-GSMSmimeInfo {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Id,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SendAsEmail,
 [Parameter()]
 [string]$UserId
@@ -61325,7 +61590,7 @@ param(
 [string]$CsvFileToUpload,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SpreadsheetId
     )
 
@@ -61416,7 +61681,7 @@ param(
 [string]$CsvFileToUpload,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Title
     )
 
@@ -61509,7 +61774,7 @@ param(
 [switch]$IncludeGridData,
 [Parameter()]
 [string]$Ranges,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$SpreadsheetId
     )
 
@@ -61606,7 +61871,7 @@ param(
 [string]$Delimiter,
 [Parameter()]
 [string]$Id,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -61717,7 +61982,7 @@ Function Delete-GSMThreads {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Id,
 [Parameter()]
 [string]$UserId
@@ -61817,7 +62082,7 @@ param(
 [string]$MetadataHeaders,
 [Parameter()]
 [string]$MetadataHeaders_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -61968,7 +62233,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Format,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Id,
 [Parameter()]
 [string]$MetadataHeaders,
@@ -62192,7 +62457,7 @@ param(
 [string]$Fields_ALL,
 [Parameter()]
 [string]$Id,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$RemoveLabelIds,
@@ -62342,7 +62607,7 @@ param(
 [string]$AddLabelIds,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Id,
 [Parameter()]
 [string]$RemoveLabelIds,
@@ -62451,7 +62716,7 @@ param(
 [string]$Fields_ALL,
 [Parameter()]
 [string]$Id,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -62575,7 +62840,7 @@ Function Trash-GSMThreads {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Id,
 [Parameter()]
 [string]$UserId
@@ -62672,7 +62937,7 @@ param(
 [string]$Fields_ALL,
 [Parameter()]
 [string]$Id,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -62796,7 +63061,7 @@ Function Untrash-GSMThreads {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Id,
 [Parameter()]
 [string]$UserId
@@ -62891,7 +63156,7 @@ param(
 [string]$ClientId_ALL,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -63010,7 +63275,7 @@ Function Delete-GSMTokensRecursive {
 param(
 [Parameter()]
 [string]$BatchThreads,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ClientId,
 [Parameter()]
 [string]$GroupEmail,
@@ -63104,9 +63369,9 @@ Function Delete-GSMTokens {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ClientId,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserKey
     )
 
@@ -63198,7 +63463,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -63326,11 +63591,11 @@ Function Get-GSMTokens {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$ClientId,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserKey
     )
 
@@ -63424,7 +63689,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -63641,7 +63906,7 @@ Function List-GSMTokens {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserKey
     )
 
@@ -63726,7 +63991,7 @@ param(
 [string]$BatchThreads,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -63915,7 +64180,7 @@ Function TurnOff-GSMTwoStepVerification {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserKey
     )
 
@@ -63996,7 +64261,7 @@ param(
 [string]$BatchThreads,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -64108,9 +64373,9 @@ Function Delete-GSMUserAliases {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Alias,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserKey
     )
 
@@ -64200,7 +64465,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -64323,11 +64588,11 @@ Function Insert-GSMUserAliases {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Alias,
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserKey
     )
 
@@ -64421,7 +64686,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -64533,6 +64798,103 @@ Same as userKey but value is applied to all lines in the CSV file
 }
 
 
+Function List-GSMUserAliasesRecursive {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$GroupEmail,
+[Parameter()]
+[string]$OrgUnit
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        GroupEmail = @{ OriginalName = '--groupEmail'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        OrgUnit = @{ OriginalName = '--orgUnit'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "userAliases"
+        "list"
+        "recursive"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Lists user aliases by referencing one or more organizational units and/or groups.
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for recursive commands (overrides value in config file. Max 16)
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER GroupEmail
+An email address of a group. Can be used multiple times. Note that a group will include recursive memberships!
+
+
+.PARAMETER OrgUnit
+Path of an orgUnit. Can be used multiple times. Note that an orgUnit always includes all of its children!
+
+
+
+#>
+}
+
+
 Function List-GSMUserAliases {
 
 
@@ -64541,7 +64903,7 @@ Function List-GSMUserAliases {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserKey
     )
 
@@ -64626,7 +64988,7 @@ param(
 [string]$BatchThreads,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -64815,7 +65177,7 @@ Function Delete-GSMUserPhotos {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserKey
     )
 
@@ -64898,7 +65260,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -65108,7 +65470,7 @@ Function Get-GSMUserPhotos {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserKey
     )
 
@@ -65197,7 +65559,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Photo,
@@ -65331,7 +65693,7 @@ param(
 [string]$GroupEmail,
 [Parameter()]
 [string]$OrgUnit,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Photo
     )
 
@@ -65430,9 +65792,9 @@ Function Update-GSMUserPhotos {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Photo,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserKey
     )
 
@@ -65523,7 +65885,7 @@ param(
 [string]$BatchThreads,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -65712,7 +66074,7 @@ Function Delete-GSMUsers {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserKey
     )
 
@@ -65799,7 +66161,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Projection,
@@ -65942,11 +66304,141 @@ For more information, see https://developers.google.com/admin-sdk/directory/v1/g
 Acceptable values are:
 admin_view     - Results include both administrator-only and domain-public fields for the user. (default)
 domain_public  - Results only include fields for the user that are publicly visible to other users in the domain.
-                 Contact sharing must be enabled for the domain.
+				 Contact sharing must be enabled for the domain.
 
 
 .PARAMETER ViewType_ALL
 Same as viewType but value is applied to all lines in the CSV file
+
+
+
+#>
+}
+
+
+Function Get-GSMUsersRecursive {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$CustomFieldMask,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$GroupEmail,
+[Parameter()]
+[string]$OrgUnit,
+[Parameter()]
+[string]$Projection,
+[Parameter()]
+[string]$ViewType
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        CustomFieldMask = @{ OriginalName = '--customFieldMask'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        GroupEmail = @{ OriginalName = '--groupEmail'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        OrgUnit = @{ OriginalName = '--orgUnit'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Projection = @{ OriginalName = '--projection'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ViewType = @{ OriginalName = '--viewType'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $False; Handler = { $args[0] | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "users"
+        "get"
+        "recursive"
+        "--compressOutput"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gsm
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gsm")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gsm" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gsm" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Grants or removes the Super Admin role to/from users by referencing one or more organizational units and/or groups.
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for recursive commands (overrides value in config file. Max 16)
+
+
+.PARAMETER CustomFieldMask
+A comma-separated list of schema names.
+All fields from these schemas are fetched. This should only be set when projection=custom
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER GroupEmail
+An email address of a group. Can be used multiple times. Note that a group will include recursive memberships!
+
+
+.PARAMETER OrgUnit
+Path of an orgUnit. Can be used multiple times. Note that an orgUnit always includes all of its children!
+
+
+.PARAMETER Projection
+What subset of fields to fetch for this user.
+
+Acceptable values are:
+basic   - Do not include any custom fields for the user. (default)
+custom  - Include custom fields from schemas requested in customFieldMask.
+full    - Include all fields associated with this user.
+
+
+.PARAMETER ViewType
+Whether to fetch the administrator-only or domain-wide public view of the user.
+For more information, see https://developers.google.com/admin-sdk/directory/v1/guides/manage-users#retrieve_users_non_admin.
+
+Acceptable values are:
+admin_view     - Results include both administrator-only and domain-public fields for the user. (default)
+domain_public  - Results only include fields for the user that are publicly visible to other users in the domain.
+				 Contact sharing must be enabled for the domain.
 
 
 
@@ -65966,7 +66458,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Projection,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserKey,
 [Parameter()]
 [string]$ViewType
@@ -66062,7 +66554,7 @@ For more information, see https://developers.google.com/admin-sdk/directory/v1/g
 Acceptable values are:
 admin_view     - Results include both administrator-only and domain-public fields for the user. (default)
 domain_public  - Results only include fields for the user that are publicly visible to other users in the domain.
-                 Contact sharing must be enabled for the domain.
+				 Contact sharing must be enabled for the domain.
 
 
 
@@ -66168,7 +66660,7 @@ param(
 [string]$Password,
 [Parameter()]
 [string]$Password_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Phones,
@@ -66873,13 +67365,13 @@ param(
 [string]$Emails,
 [Parameter()]
 [string]$ExternalIds,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$FamilyName,
 [Parameter()]
 [string]$Fields,
 [Parameter()]
 [string]$GenderType,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$GivenName,
 [Parameter()]
 [string]$HashFunction,
@@ -66903,13 +67395,13 @@ param(
 [string]$OrgUnitPath,
 [Parameter()]
 [string]$Organizations,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Password,
 [Parameter()]
 [string]$Phones,
 [Parameter()]
 [string]$PosixAccounts,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$PrimaryEmail,
 [Parameter()]
 [string]$RecoveryEmail,
@@ -67558,7 +68050,7 @@ For more information, see https://developers.google.com/admin-sdk/directory/v1/g
 Acceptable values are:
 admin_view     - Results include both administrator-only and domain-public fields for the user. (default)
 domain_public  - Results only include fields for the user that are publicly visible to other users in the domain.
-                 Contact sharing must be enabled for the domain.
+				 Contact sharing must be enabled for the domain.
 
 
 
@@ -67576,7 +68068,7 @@ param(
 [string]$BatchThreads,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -67788,7 +68280,7 @@ Function MakeAdmin-GSMUsers {
 param(
 [Parameter()]
 [switch]$Unmake,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserKey
     )
 
@@ -67960,7 +68452,7 @@ param(
 [string]$Password,
 [Parameter()]
 [string]$Password_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [string]$Phones,
@@ -69163,7 +69655,7 @@ param(
 [string]$SshPublicKeys,
 [Parameter()]
 [switch]$Suspended,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserKey,
 [Parameter()]
 [string]$Websites
@@ -69661,7 +70153,7 @@ param(
 [string]$BatchThreads,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -69850,7 +70342,7 @@ Function SignOut-GSMUsers {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserKey
     )
 
@@ -69934,7 +70426,7 @@ param(
 [string]$OrgUnitPath,
 [Parameter()]
 [string]$OrgUnitPath_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -70045,9 +70537,9 @@ Function Undelete-GSMUsers {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$OrgUnitPath,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserKey
     )
 
@@ -70132,7 +70624,7 @@ param(
 [string]$BatchThreads,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -70321,7 +70813,7 @@ Function Generate-GSMVerificationCodes {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserKey
     )
 
@@ -70400,7 +70892,7 @@ param(
 [string]$BatchThreads,
 [Parameter()]
 [string]$Delimiter,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -70589,7 +71081,7 @@ Function Invalidate-GSMVerificationCodes {
 [CmdletBinding()]
 
 param(
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserKey
     )
 
@@ -70672,7 +71164,7 @@ param(
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
 [switch]$SkipHeader,
@@ -70882,7 +71374,7 @@ Function List-GSMVerificationCodes {
 param(
 [Parameter()]
 [string]$Fields,
-[Parameter()]
+[Parameter(Mandatory=$true)]
 [string]$UserKey
     )
 
