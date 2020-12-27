@@ -19,6 +19,6 @@ foreach($module in $modules) {
         $fName = $foo[1] + "-" + $foo[0]+$foo[2]
     }
     $command = Get-Command $fName
-    "Function " + ($command.ToString()).Replace("-","-GSM") + " {`n`n" + $command.Definition  + "}`n`n" >> GSM.psm1
+    "Function " + ($command.ToString()).Replace("-","-GSM") + " {`n`n" + ($command.Definition).Replace('$__commandArgs | & $__handler','$__commandArgs | % $__handler')  + "}`n`n" >> GSM.psm1
     $null = Remove-Item $module.FullName
 }
