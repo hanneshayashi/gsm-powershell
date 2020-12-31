@@ -13,7 +13,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -23,6 +25,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -97,6 +100,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -137,7 +144,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -157,6 +166,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -347,6 +357,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -379,7 +393,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -395,6 +411,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -494,6 +511,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -516,7 +537,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -527,6 +550,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -605,6 +629,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -641,7 +669,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -659,6 +689,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -767,6 +798,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -791,7 +826,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -803,6 +840,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -886,6 +924,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -920,7 +962,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -937,6 +981,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -1041,6 +1086,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -1067,7 +1116,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -1080,6 +1131,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -1167,6 +1219,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -1189,7 +1245,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -1200,6 +1258,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -1279,6 +1338,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -1319,7 +1382,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -1339,6 +1404,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -1455,6 +1521,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -1481,7 +1551,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -1494,6 +1566,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -1581,6 +1654,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -1613,7 +1690,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -1629,6 +1708,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -1727,6 +1807,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -1749,7 +1833,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -1760,6 +1846,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -1837,6 +1924,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -1873,7 +1964,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -1891,6 +1984,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -1998,6 +2092,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -2022,7 +2120,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -2034,6 +2134,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -2114,6 +2215,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 
 .PARAMETER Log
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
 
 
 
@@ -2204,7 +2309,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -2248,6 +2355,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -2470,6 +2578,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -2520,7 +2632,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -2545,6 +2659,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -2690,6 +2805,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -2712,7 +2831,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -2723,6 +2844,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -2799,6 +2921,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 
 .PARAMETER Log
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
 
 
 
@@ -2889,7 +3015,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -2933,6 +3061,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -3155,6 +3284,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -3205,7 +3338,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -3230,6 +3365,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -3375,6 +3511,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -3407,7 +3547,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -3423,6 +3565,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -3522,6 +3665,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -3544,7 +3691,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -3555,6 +3704,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -3633,6 +3783,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -3669,7 +3823,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -3687,6 +3843,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -3795,6 +3952,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -3819,7 +3980,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -3831,6 +3994,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -3914,6 +4078,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -3964,7 +4132,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -3989,6 +4159,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -4137,6 +4308,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -4167,7 +4342,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -4182,6 +4359,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -4289,6 +4467,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -4327,7 +4509,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -4346,6 +4530,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -4460,6 +4645,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -4484,7 +4673,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -4496,6 +4687,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -4581,6 +4773,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -4633,7 +4829,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -4659,6 +4857,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -4811,6 +5010,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -4843,7 +5046,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -4859,6 +5064,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -4970,6 +5176,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -4998,7 +5208,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -5012,6 +5224,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -5103,6 +5316,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -5123,7 +5340,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -5133,6 +5352,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -5207,6 +5427,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -5239,7 +5463,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -5255,6 +5481,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -5355,6 +5582,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -5377,7 +5608,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -5388,6 +5621,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -5467,6 +5701,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -5535,7 +5773,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -5569,6 +5809,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -5758,6 +5999,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -5798,7 +6043,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -5818,6 +6065,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -5950,6 +6198,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -5978,7 +6230,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -5992,6 +6246,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -6089,6 +6344,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -6159,7 +6418,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -6194,6 +6455,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -6388,6 +6650,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -6430,7 +6696,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -6451,6 +6719,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -6588,6 +6857,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -6620,7 +6893,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -6636,6 +6911,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -6735,6 +7011,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -6757,7 +7037,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -6768,6 +7050,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -6846,6 +7129,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -6882,7 +7169,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -6900,6 +7189,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -7008,6 +7298,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -7032,7 +7326,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -7044,6 +7340,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -7127,6 +7424,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -7203,7 +7504,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -7241,6 +7544,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -7434,6 +7738,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -7478,7 +7786,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -7500,6 +7810,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -7628,6 +7939,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -7654,7 +7969,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -7667,6 +7984,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -7768,6 +8086,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -7844,7 +8166,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -7882,6 +8206,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -8075,6 +8400,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -8119,7 +8448,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -8141,6 +8472,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -8269,6 +8601,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -8289,7 +8625,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -8299,6 +8637,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -8374,6 +8713,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -8402,7 +8745,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -8416,6 +8761,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -8507,6 +8853,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -8527,7 +8877,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -8537,6 +8889,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -8612,6 +8965,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -8644,7 +9001,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -8660,6 +9019,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -8760,6 +9120,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -8782,7 +9146,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -8793,6 +9159,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -8872,6 +9239,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -8918,7 +9289,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -8941,6 +9314,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -9069,6 +9443,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -9097,7 +9475,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -9111,6 +9491,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -9202,6 +9583,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -9250,7 +9635,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -9274,6 +9661,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -9407,6 +9795,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -9437,7 +9829,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -9452,6 +9846,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -9548,6 +9943,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -9580,7 +9979,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -9596,6 +9997,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -9695,6 +10097,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -9717,7 +10123,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -9728,6 +10136,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -9806,6 +10215,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -9826,7 +10239,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -9836,6 +10251,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -9910,6 +10326,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -9932,7 +10352,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -9943,6 +10365,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -10021,6 +10444,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -10057,7 +10484,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -10075,6 +10504,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -10184,6 +10614,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -10218,7 +10652,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -10235,6 +10671,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -10353,6 +10790,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -10379,7 +10820,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -10392,6 +10835,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -10493,6 +10937,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -10533,7 +10981,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -10553,6 +11003,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -10686,6 +11137,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -10712,7 +11167,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -10725,6 +11182,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -10829,6 +11287,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -10869,7 +11331,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -10889,6 +11353,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -11011,6 +11476,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -11037,7 +11506,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -11050,6 +11521,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -11143,6 +11615,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -11175,7 +11651,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -11191,6 +11669,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -11309,6 +11788,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -11333,7 +11816,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -11345,6 +11830,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -11428,6 +11914,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -11488,7 +11978,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -11518,6 +12010,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -11684,6 +12177,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -11720,7 +12217,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -11738,6 +12237,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -11855,6 +12355,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -11875,7 +12379,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -11885,6 +12391,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -11959,6 +12466,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -12005,7 +12516,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -12028,6 +12541,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -12158,6 +12672,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -12186,7 +12704,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -12200,6 +12720,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -12293,6 +12814,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -12325,7 +12850,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -12341,6 +12868,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -12439,6 +12967,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -12461,7 +12993,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -12472,6 +13006,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -12549,6 +13084,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -12589,7 +13128,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -12609,6 +13150,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -12725,6 +13267,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -12751,7 +13297,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -12764,6 +13312,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -12851,6 +13400,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -12893,7 +13446,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -12914,6 +13469,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -13034,6 +13590,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -13060,7 +13620,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -13073,6 +13635,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -13160,6 +13723,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -13208,7 +13775,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -13232,6 +13801,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -13366,6 +13936,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -13396,7 +13970,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -13411,6 +13987,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -13508,6 +14085,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -13528,7 +14109,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -13538,6 +14121,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -13612,6 +14196,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -13632,7 +14220,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -13642,6 +14232,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -13716,6 +14307,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -13736,7 +14331,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -13746,6 +14343,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -13819,6 +14417,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -13839,7 +14441,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -13849,6 +14453,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -13923,6 +14528,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -13957,7 +14566,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -13974,6 +14585,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -14078,6 +14690,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -14098,7 +14714,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -14108,6 +14726,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -14182,6 +14801,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -14216,7 +14839,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -14233,6 +14858,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -14337,6 +14963,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -14361,7 +14991,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -14373,6 +15005,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -14456,6 +15089,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -14488,7 +15125,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -14504,6 +15143,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -14603,6 +15243,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -14625,7 +15269,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -14636,6 +15282,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -14714,6 +15361,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -14746,7 +15397,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -14762,6 +15415,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -14860,6 +15514,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -14882,7 +15540,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -14893,6 +15553,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -14970,6 +15631,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -15006,7 +15671,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -15024,6 +15691,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -15132,6 +15800,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -15156,7 +15828,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -15168,6 +15842,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -15251,6 +15926,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -15271,7 +15950,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -15281,6 +15962,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -15355,6 +16037,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -15389,7 +16075,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -15406,6 +16094,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -15509,6 +16198,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -15533,7 +16226,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -15545,6 +16240,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -15627,6 +16323,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -15669,7 +16369,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -15690,6 +16392,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -15809,6 +16512,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -15835,7 +16542,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -15848,6 +16557,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -15934,6 +16644,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -15956,7 +16670,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -15967,6 +16683,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -16045,6 +16762,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -16093,7 +16814,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -16117,6 +16840,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -16257,6 +16981,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -16283,7 +17011,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -16296,6 +17026,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -16395,6 +17126,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -16431,7 +17166,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -16449,6 +17186,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -16556,6 +17294,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -16580,7 +17322,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -16592,6 +17336,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -16674,6 +17419,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -16706,7 +17455,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -16722,6 +17473,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -16820,6 +17572,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -16842,7 +17598,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -16853,6 +17611,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -16930,6 +17689,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -16966,7 +17729,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -16984,6 +17749,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -17091,6 +17857,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -17115,7 +17885,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -17127,6 +17899,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -17209,6 +17982,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -17231,7 +18008,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -17242,6 +18021,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -17320,6 +18100,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -17352,7 +18136,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -17368,6 +18154,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -17466,6 +18253,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -17488,7 +18279,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -17499,6 +18292,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -17576,6 +18370,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -17612,7 +18410,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -17630,6 +18430,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -17737,6 +18538,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -17761,7 +18566,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -17773,6 +18580,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -17855,6 +18663,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -17895,7 +18707,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -17915,6 +18729,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -18030,6 +18845,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -18056,7 +18875,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -18069,6 +18890,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -18155,6 +18977,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -18179,7 +19005,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -18191,6 +19019,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -18273,6 +19102,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -18305,7 +19138,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -18321,6 +19156,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -18419,6 +19255,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -18441,7 +19281,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -18452,6 +19294,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -18529,6 +19372,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -18565,7 +19412,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -18583,6 +19432,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -18690,6 +19540,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -18714,7 +19568,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -18726,6 +19582,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -18808,6 +19665,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -18844,7 +19705,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -18862,6 +19725,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -18969,6 +19833,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -18993,7 +19861,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -19005,6 +19875,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -19087,6 +19958,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -19109,7 +19984,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -19120,6 +19997,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -19198,6 +20076,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -19256,7 +20138,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -19285,6 +20169,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -19437,6 +20322,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -19471,7 +20360,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -19488,6 +20379,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -19591,6 +20483,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -19623,7 +20519,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -19639,6 +20537,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -19737,6 +20636,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -19759,7 +20662,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -19770,6 +20675,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -19847,6 +20753,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -19887,7 +20797,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -19907,6 +20819,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -20027,6 +20940,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -20053,7 +20970,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -20066,6 +20985,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -20157,6 +21077,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -20183,7 +21107,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -20196,6 +21122,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -20284,6 +21211,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -20316,7 +21247,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -20332,6 +21265,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -20430,6 +21364,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -20452,7 +21390,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -20463,6 +21403,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -20540,6 +21481,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -20600,7 +21545,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -20630,6 +21577,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -20786,6 +21734,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -20822,7 +21774,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -20840,6 +21794,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -20947,6 +21902,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -21005,7 +21964,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -21034,6 +21995,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -21188,6 +22150,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -21222,7 +22188,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -21239,6 +22207,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -21344,6 +22313,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -21372,7 +22345,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -21386,6 +22361,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -21476,6 +22452,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -21496,7 +22476,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -21506,6 +22488,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -21580,6 +22563,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -21616,7 +22603,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -21634,6 +22623,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -21741,6 +22731,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -21765,7 +22759,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -21777,6 +22773,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -21859,6 +22856,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -21895,7 +22896,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -21913,6 +22916,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -22020,6 +23024,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -22044,7 +23052,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -22056,6 +23066,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -22138,6 +23149,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -22162,7 +23177,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -22174,6 +23191,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -22257,6 +23275,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -22293,7 +23315,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -22311,6 +23335,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -22418,6 +23443,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -22442,7 +23471,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -22454,6 +23485,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -22536,6 +23568,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -22584,7 +23620,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -22608,6 +23646,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -22743,6 +23782,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -22773,7 +23816,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -22788,6 +23833,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -22886,6 +23932,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -22918,7 +23968,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -22934,6 +23986,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -23071,6 +24124,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -23107,7 +24164,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -23125,6 +24184,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -23236,6 +24296,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -23260,7 +24324,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -23272,6 +24338,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -23358,6 +24425,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -23402,7 +24473,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -23424,6 +24497,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -23550,6 +24624,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -23578,7 +24656,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -23592,6 +24672,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -23685,6 +24766,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -23733,7 +24818,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -23757,6 +24844,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -23891,6 +24979,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -23921,7 +25013,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -23936,6 +25030,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -24032,6 +25127,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 
 .PARAMETER Log
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
 
 
 
@@ -24190,7 +25289,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -24268,6 +25369,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -24673,6 +25775,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -24757,7 +25863,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -24799,6 +25907,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -25059,6 +26168,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -25119,7 +26232,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -25149,6 +26264,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -25313,6 +26429,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -25349,7 +26469,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -25367,6 +26489,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -25482,6 +26605,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -25566,7 +26693,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -25608,6 +26737,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -25824,6 +26954,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -25872,7 +27006,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -25896,6 +27032,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -26039,6 +27176,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -26083,7 +27224,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -26105,6 +27248,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -26233,6 +27377,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -26261,7 +27409,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -26275,6 +27425,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -26368,6 +27519,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 
 .PARAMETER Log
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
 
 
 
@@ -26532,7 +27687,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -26613,6 +27770,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -27032,6 +28190,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -27120,7 +28282,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -27164,6 +28328,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -27434,6 +28599,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -27476,7 +28645,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -27497,6 +28668,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -27621,6 +28793,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -27647,7 +28823,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -27660,6 +28838,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -27751,6 +28930,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -27783,7 +28966,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -27799,6 +28984,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -27898,6 +29084,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -27920,7 +29110,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -27931,6 +29123,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -28009,6 +29202,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -28045,7 +29242,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -28063,6 +29262,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -28171,6 +29371,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -28195,7 +29399,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -28207,6 +29413,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -28290,6 +29497,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -28326,7 +29537,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -28344,6 +29557,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -28452,6 +29666,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -28476,7 +29694,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -28488,6 +29708,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -28571,6 +29792,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -28593,7 +29818,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -28604,6 +29831,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -28683,6 +29911,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -28719,7 +29951,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -28737,6 +29971,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -28845,6 +30080,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -28869,7 +30108,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -28881,6 +30122,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -28964,6 +30206,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -28998,7 +30244,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -29015,6 +30263,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -29118,6 +30367,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -29142,7 +30395,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -29154,6 +30409,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -29234,6 +30490,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 
 .PARAMETER Log
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
 
 
 
@@ -29346,7 +30606,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -29401,6 +30663,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -29675,6 +30938,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -29701,7 +30968,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -29714,6 +30983,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -29801,6 +31071,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -29863,7 +31137,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -29894,6 +31170,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -30072,6 +31349,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -30208,7 +31489,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -30276,6 +31559,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -30611,6 +31895,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -30685,7 +31973,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -30722,6 +32012,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -30932,6 +32223,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -30960,7 +32255,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -30974,6 +32271,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -31064,6 +32362,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -31084,7 +32386,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -31094,6 +32398,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -31167,6 +32472,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -31199,7 +32508,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -31215,6 +32526,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -31313,6 +32625,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -31335,7 +32651,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -31346,6 +32664,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -31423,6 +32742,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -31455,7 +32778,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -31471,6 +32796,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -31574,6 +32900,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -31596,7 +32926,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -31607,6 +32939,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -31689,6 +33022,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -31711,7 +33048,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -31722,6 +33061,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -31800,6 +33140,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -31836,7 +33180,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -31854,6 +33200,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -31962,6 +33309,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -31986,7 +33337,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -31998,6 +33351,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -32081,6 +33435,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -32105,7 +33463,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -32117,6 +33477,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -32200,6 +33561,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -32234,7 +33599,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -32251,6 +33618,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -32366,6 +33734,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -32398,7 +33770,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -32414,6 +33788,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -32512,6 +33887,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -32536,7 +33915,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -32548,6 +33929,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -32630,6 +34012,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -32652,7 +34038,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -32663,6 +34051,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -32738,6 +34127,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 
 .PARAMETER Log
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
 
 
 
@@ -32868,7 +34261,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -32932,6 +34327,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -33252,6 +34648,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -33322,7 +34722,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -33357,6 +34759,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -33560,6 +34963,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -33642,7 +35049,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -33683,6 +35092,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -33892,6 +35302,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -33938,7 +35352,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -33961,6 +35377,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -34097,6 +35514,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -34129,7 +35550,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -34145,6 +35568,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -34243,6 +35667,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -34265,7 +35693,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -34276,6 +35706,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -34353,6 +35784,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -34389,7 +35824,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -34407,6 +35844,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -34514,6 +35952,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -34538,7 +35980,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -34550,6 +35994,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -34632,6 +36077,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -34654,7 +36103,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -34665,6 +36116,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -34743,6 +36195,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -34779,7 +36235,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -34797,6 +36255,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -34904,6 +36363,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -34928,7 +36391,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -34940,6 +36405,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -35024,6 +36490,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -35056,7 +36526,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -35072,6 +36544,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -35170,6 +36643,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -35192,7 +36669,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -35203,6 +36682,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -35280,6 +36760,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -35316,7 +36800,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -35334,6 +36820,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -35441,6 +36928,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -35465,7 +36956,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -35477,6 +36970,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -35559,6 +37053,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -35581,7 +37079,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -35592,6 +37092,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -35670,6 +37171,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -35702,7 +37207,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -35718,6 +37225,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -35819,6 +37327,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -35841,7 +37353,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -35852,6 +37366,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -35930,6 +37445,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -35952,7 +37471,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -35963,6 +37484,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -36041,6 +37563,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -36063,7 +37589,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -36074,6 +37602,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -36152,6 +37681,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -36174,7 +37707,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -36185,6 +37720,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -36263,6 +37799,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -36285,7 +37825,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -36296,6 +37838,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -36374,6 +37917,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -36404,7 +37951,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -36419,6 +37968,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -36521,6 +38071,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -36551,7 +38105,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -36566,6 +38122,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -36666,6 +38223,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -36690,7 +38251,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -36702,6 +38265,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -36788,6 +38352,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -36814,7 +38382,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -36827,6 +38397,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -36922,6 +38493,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -36960,7 +38535,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -36979,6 +38556,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -37097,6 +38675,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -37119,7 +38701,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -37130,6 +38714,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -37208,6 +38793,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -37240,7 +38829,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -37256,6 +38847,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -37355,6 +38947,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -37377,7 +38973,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -37388,6 +38986,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -37466,6 +39065,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -37502,7 +39105,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -37520,6 +39125,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -37628,6 +39234,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -37652,7 +39262,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -37664,6 +39276,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -37747,6 +39360,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -37779,7 +39396,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -37795,6 +39414,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -37895,6 +39515,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -37917,7 +39541,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -37928,6 +39554,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -38007,6 +39634,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -38031,7 +39662,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -38043,6 +39676,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -38135,6 +39769,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -38165,7 +39803,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -38180,6 +39820,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -38300,6 +39941,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -38322,7 +39967,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -38333,6 +39980,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -38413,6 +40061,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -38437,7 +40089,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -38449,6 +40103,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -38534,6 +40189,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -38560,7 +40219,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -38573,6 +40234,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -38670,6 +40332,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -38696,7 +40362,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -38709,6 +40377,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -38800,6 +40469,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -38826,7 +40499,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -38839,6 +40514,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -38937,6 +40613,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -38965,7 +40645,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -38979,6 +40661,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -39101,6 +40784,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -39127,7 +40814,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -39140,6 +40829,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -39237,6 +40927,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -39261,7 +40955,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -39273,6 +40969,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -39358,6 +41055,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -39386,7 +41087,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -39400,6 +41103,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -39491,6 +41195,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -39511,7 +41219,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -39521,6 +41231,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -39595,6 +41306,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -39627,7 +41342,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -39643,6 +41360,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -39743,6 +41461,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -39765,7 +41487,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -39776,6 +41500,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -39855,6 +41580,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -39895,7 +41624,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -39915,6 +41646,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -40033,6 +41765,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -40059,7 +41795,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -40072,6 +41810,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -40161,6 +41900,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -40193,7 +41936,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -40209,6 +41954,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -40319,6 +42065,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -40361,7 +42111,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -40382,6 +42134,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -40505,6 +42258,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -40533,7 +42290,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -40547,6 +42306,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -40641,6 +42401,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -40705,7 +42469,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -40737,6 +42503,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -40939,6 +42706,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -40977,7 +42748,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -40996,6 +42769,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -41145,6 +42919,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -41175,7 +42953,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -41190,6 +42970,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -41288,6 +43069,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -41310,7 +43095,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -41321,6 +43108,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -41402,6 +43190,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -41436,7 +43228,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -41453,6 +43247,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -41560,6 +43355,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -41584,7 +43383,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -41596,6 +43397,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -41682,6 +43484,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -41706,7 +43512,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -41718,6 +43526,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -41802,6 +43611,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -41834,7 +43647,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -41850,6 +43665,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -41951,6 +43767,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -41973,7 +43793,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -41984,6 +43806,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -42064,6 +43887,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -42106,7 +43933,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -42127,6 +43956,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -42266,6 +44096,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -42294,7 +44128,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -42308,6 +44144,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -42418,6 +44255,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -42442,7 +44283,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -42454,6 +44297,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -42540,6 +44384,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -42576,7 +44424,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -42594,6 +44444,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -42701,6 +44552,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -42725,7 +44580,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -42737,6 +44594,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -42817,6 +44675,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 
 .PARAMETER Log
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
 
 
 
@@ -42971,7 +44833,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -43047,6 +44911,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -43473,6 +45338,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -43555,7 +45424,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -43596,6 +45467,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -43881,6 +45753,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -43909,7 +45785,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -43923,6 +45801,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -44017,6 +45896,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -44069,7 +45952,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -44095,6 +45980,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -44234,6 +46120,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -44266,7 +46156,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -44282,6 +46174,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -44380,6 +46273,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -44412,7 +46309,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -44428,6 +46327,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -44526,6 +46426,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -44548,7 +46452,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -44559,6 +46465,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -44636,6 +46543,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -44672,7 +46583,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -44690,6 +46603,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -44797,6 +46711,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -44821,7 +46739,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -44833,6 +46753,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -44915,6 +46836,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -44937,7 +46862,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -44948,6 +46875,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -45026,6 +46954,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -45080,7 +47012,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -45107,6 +47041,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -45250,6 +47185,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -45284,7 +47223,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -45301,6 +47242,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -45403,6 +47345,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -45441,7 +47387,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -45460,6 +47408,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -45576,6 +47525,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -45604,7 +47557,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -45618,6 +47573,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -45710,6 +47666,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -45734,7 +47694,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -45746,6 +47708,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -45833,6 +47796,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -45875,7 +47842,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -45896,6 +47865,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -46024,6 +47994,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -46054,7 +48028,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -46069,6 +48045,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -46169,6 +48146,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -46195,7 +48176,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -46208,6 +48191,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -46303,6 +48287,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -46345,7 +48333,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -46366,6 +48356,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -46494,6 +48485,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -46524,7 +48519,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -46539,6 +48536,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -46639,6 +48637,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -46665,7 +48667,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -46678,6 +48682,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -46773,6 +48778,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -46797,7 +48806,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -46809,6 +48820,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -46899,6 +48911,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -46925,7 +48941,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -46938,6 +48956,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -47033,6 +49052,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -47079,7 +49102,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -47102,6 +49127,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -47239,6 +49265,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -47271,7 +49301,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -47287,6 +49319,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -47392,6 +49425,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -47420,7 +49457,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -47434,6 +49473,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -47534,6 +49574,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -47552,7 +49596,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -47561,6 +49607,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -47630,6 +49677,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -47650,7 +49701,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -47660,6 +49713,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -47733,6 +49787,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -47767,7 +49825,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -47784,6 +49844,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -47889,6 +49950,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -47915,7 +49980,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -47928,6 +49995,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -48015,6 +50083,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -48037,7 +50109,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -48048,6 +50122,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -48128,6 +50203,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -48166,7 +50245,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -48185,6 +50266,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -48299,6 +50381,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -48327,7 +50413,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -48341,6 +50429,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -48433,6 +50522,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -48457,7 +50550,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -48469,6 +50564,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -48554,6 +50650,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -48588,7 +50688,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -48605,6 +50707,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -48710,6 +50813,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -48736,7 +50843,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -48749,6 +50858,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -48836,6 +50946,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -48858,7 +50972,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -48869,6 +50985,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -48949,6 +51066,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -48995,7 +51116,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -49018,6 +51141,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -49160,6 +51284,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -49192,7 +51320,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -49208,6 +51338,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -49319,6 +51450,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -49347,7 +51482,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -49361,6 +51498,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -49466,6 +51604,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -49508,7 +51650,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -49529,6 +51673,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -49650,6 +51795,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -49676,7 +51825,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -49689,6 +51840,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -49777,6 +51929,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -49819,7 +51975,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -49840,6 +51998,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -49971,6 +52130,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -50003,7 +52166,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -50019,6 +52184,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -50130,6 +52296,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -50156,7 +52326,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -50169,6 +52341,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -50267,6 +52440,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -50299,7 +52476,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -50315,6 +52494,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -50426,6 +52606,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -50454,7 +52638,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -50468,6 +52654,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -50572,6 +52759,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -50592,7 +52783,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -50602,6 +52795,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -50675,6 +52869,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -50697,7 +52895,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -50708,6 +52908,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -50785,6 +52986,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -50829,7 +53034,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -50851,6 +53058,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -50979,6 +53187,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -51007,7 +53219,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -51021,6 +53235,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -51116,6 +53331,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -51170,7 +53389,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -51197,6 +53418,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -51341,6 +53563,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -51373,7 +53599,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -51389,6 +53617,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -51489,6 +53718,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -51535,7 +53768,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -51558,6 +53793,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -51686,6 +53922,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -51714,7 +53954,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -51728,6 +53970,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -51820,6 +54063,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -51848,7 +54095,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -51862,6 +54111,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -51955,6 +54205,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -51999,7 +54253,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -52021,6 +54277,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -52144,6 +54401,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -52172,7 +54433,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -52186,6 +54449,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -52276,6 +54540,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -52338,7 +54606,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -52369,6 +54639,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -52531,6 +54802,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -52567,7 +54842,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -52585,6 +54862,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -52694,6 +54972,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -52730,7 +55012,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -52748,6 +55032,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -52855,6 +55140,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -52879,7 +55168,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -52891,6 +55182,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -52973,6 +55265,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -53009,7 +55305,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -53027,6 +55325,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -53134,6 +55433,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -53158,7 +55461,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -53170,6 +55475,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -53252,6 +55558,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -53288,7 +55598,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -53306,6 +55618,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -53421,6 +55734,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -53445,7 +55762,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -53457,6 +55776,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -53547,6 +55867,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -53579,7 +55903,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -53595,6 +55921,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -53695,6 +56022,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -53717,7 +56048,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -53728,6 +56061,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -53807,6 +56141,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -53847,7 +56185,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -53867,6 +56207,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -53987,6 +56328,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -54013,7 +56358,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -54026,6 +56373,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -54117,6 +56465,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -54147,7 +56499,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -54162,6 +56516,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -54274,6 +56629,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -54306,7 +56665,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -54322,6 +56683,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -54422,6 +56784,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -54444,7 +56810,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -54455,6 +56823,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -54534,6 +56903,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -54570,7 +56943,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -54588,6 +56963,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -54697,6 +57073,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -54721,7 +57101,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -54733,6 +57115,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -54817,6 +57200,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -54875,7 +57262,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -54904,6 +57293,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -55066,6 +57456,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -55100,7 +57494,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -55117,6 +57513,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -55230,6 +57627,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -55256,7 +57657,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -55269,6 +57672,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -55360,6 +57764,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -55420,7 +57828,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -55450,6 +57860,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -55616,6 +58027,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -55652,7 +58067,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -55670,6 +58087,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -55787,6 +58205,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -55815,7 +58237,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -55829,6 +58253,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -55957,6 +58382,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -55979,7 +58408,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -55990,6 +58421,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -56098,6 +58530,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 
 .PARAMETER Log
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
 
 
 
@@ -56306,7 +58742,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -56409,6 +58847,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -57159,6 +59598,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -57267,7 +59710,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -57321,6 +59766,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -57874,6 +60320,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -57902,7 +60352,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -57916,6 +60368,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -58006,6 +60459,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -58026,7 +60483,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -58036,6 +60495,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -58109,6 +60569,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -58149,7 +60613,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -58169,6 +60635,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -58321,6 +60788,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -58347,7 +60818,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -58360,6 +60833,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -58483,6 +60957,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -58509,7 +60987,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -58522,6 +61002,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -58645,6 +61126,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -58671,7 +61156,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -58684,6 +61171,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -58815,6 +61303,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -58841,7 +61333,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -58854,6 +61348,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -58976,6 +61471,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -59004,7 +61503,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -59018,6 +61519,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -59143,6 +61645,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 
 .PARAMETER Log
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
 
 
 
@@ -59357,7 +61863,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -59463,6 +61971,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -60252,6 +62761,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -60364,7 +62877,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -60420,6 +62935,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -61008,6 +63524,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -61052,7 +63572,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -61074,6 +63596,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -61234,6 +63757,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -61262,7 +63789,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -61276,6 +63805,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -61403,6 +63933,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -61429,7 +63963,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -61442,6 +63978,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -61562,6 +64099,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -61640,7 +64181,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -61679,6 +64222,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -61883,6 +64427,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -61927,7 +64475,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -61949,6 +64499,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -62084,6 +64635,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -62128,7 +64683,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -62150,6 +64707,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -62285,6 +64843,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -62321,7 +64883,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -62339,6 +64903,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -62445,6 +65010,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -62471,7 +65040,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -62484,6 +65055,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -62570,6 +65142,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -62594,7 +65170,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -62606,6 +65184,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -62687,6 +65266,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -62727,7 +65310,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -62747,6 +65332,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -62862,6 +65448,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -62888,7 +65478,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -62901,6 +65493,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -62987,6 +65580,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -63029,7 +65626,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -63050,6 +65649,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -63170,6 +65770,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -63196,7 +65800,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -63209,6 +65815,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -63296,6 +65903,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -63322,7 +65933,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -63335,6 +65948,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -63422,6 +66036,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -63506,7 +66124,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -63548,6 +66168,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -63767,6 +66388,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -63815,7 +66440,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -63839,6 +66466,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -63985,6 +66613,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -64007,7 +66639,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -64018,6 +66652,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -64096,6 +66731,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -64142,7 +66781,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -64165,6 +66806,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -64294,6 +66936,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -64322,7 +66968,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -64336,6 +66984,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -64428,6 +67077,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -64464,7 +67117,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -64482,6 +67137,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -64588,6 +67244,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -64612,7 +67272,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -64624,6 +67286,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -64705,6 +67368,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -64745,7 +67412,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -64765,6 +67434,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -64880,6 +67550,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -64906,7 +67580,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -64919,6 +67595,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -65005,6 +67682,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -65029,7 +67710,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -65041,6 +67724,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -65123,6 +67807,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -65171,7 +67859,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -65195,6 +67885,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -65328,6 +68019,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -65358,7 +68053,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -65373,6 +68070,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -65469,6 +68167,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -65505,7 +68207,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -65523,6 +68227,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -65630,6 +68335,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -65654,7 +68363,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -65666,6 +68377,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -65748,6 +68460,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -65788,7 +68504,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -65808,6 +68526,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -65924,6 +68643,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -65950,7 +68673,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -65963,6 +68688,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -66050,6 +68776,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -66072,7 +68802,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -66083,6 +68815,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -66161,6 +68894,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -66217,7 +68954,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -66245,6 +68984,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -66399,6 +69139,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -66433,7 +69177,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -66450,6 +69196,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -66559,6 +69306,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -66591,7 +69342,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -66607,6 +69360,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -66705,6 +69459,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -66727,7 +69485,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -66738,6 +69498,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -66815,6 +69576,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -66851,7 +69616,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -66869,6 +69636,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -66976,6 +69744,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -67000,7 +69772,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -67012,6 +69786,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -67094,6 +69869,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -67144,7 +69923,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -67169,6 +69950,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -67307,6 +70089,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -67341,7 +70127,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -67358,6 +70146,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -67464,6 +70253,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -67494,7 +70287,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -67509,6 +70304,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -67606,6 +70402,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -67634,7 +70434,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -67648,6 +70450,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -67739,6 +70542,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -67765,7 +70572,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -67778,6 +70587,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -67865,6 +70675,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -67897,7 +70711,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -67913,6 +70729,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -68011,6 +70828,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -68033,7 +70854,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -68044,6 +70867,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -68121,6 +70945,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -68157,7 +70985,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -68175,6 +71005,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -68282,6 +71113,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -68306,7 +71141,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -68318,6 +71155,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -68400,6 +71238,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -68440,7 +71282,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -68460,6 +71304,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -68575,6 +71420,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -68601,7 +71450,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -68614,6 +71465,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -68700,6 +71552,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -68722,7 +71578,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -68733,6 +71591,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -68811,6 +71670,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -68853,7 +71716,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -68874,6 +71739,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -68993,6 +71859,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -69021,7 +71891,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -69035,6 +71907,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -69125,6 +71998,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -69157,7 +72034,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -69173,6 +72052,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -69271,6 +72151,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -69293,7 +72177,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -69304,6 +72190,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -69381,6 +72268,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -69417,7 +72308,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -69435,6 +72328,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -69542,6 +72436,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -69566,7 +72464,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -69578,6 +72478,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -69660,6 +72561,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -69700,7 +72605,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -69720,6 +72627,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -69858,6 +72766,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -69886,7 +72798,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -69900,6 +72814,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -70013,6 +72928,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -70035,7 +72954,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -70046,6 +72967,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -70124,6 +73046,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -70166,7 +73092,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -70187,6 +73115,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -70329,6 +73258,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -70359,7 +73292,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -70374,6 +73309,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -70491,6 +73427,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -70569,7 +73509,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -70608,6 +73550,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -70809,6 +73752,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -70853,7 +73800,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -70875,6 +73824,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -71007,6 +73957,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -71041,7 +73995,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -71058,6 +74014,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -71160,6 +74117,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -71182,7 +74143,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -71193,6 +74156,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -71270,6 +74234,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -71308,7 +74276,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -71327,6 +74297,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -71438,6 +74409,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -71462,7 +74437,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -71474,6 +74451,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -71556,6 +74534,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -71578,7 +74560,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -71589,6 +74573,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -71666,6 +74651,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 
 .PARAMETER Log
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
 
 
 
@@ -71746,7 +74735,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -71785,6 +74776,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -71986,6 +74978,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -72030,7 +75026,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -72052,6 +75050,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -72184,6 +75183,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -72218,7 +75221,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -72235,6 +75240,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -72337,6 +75343,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -72359,7 +75369,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -72370,6 +75382,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -72445,6 +75458,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 
 .PARAMETER Log
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
 
 
 
@@ -72529,7 +75546,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -72570,6 +75589,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -72777,6 +75797,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -72823,7 +75847,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -72846,6 +75872,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -72981,6 +76008,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -73013,7 +76044,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -73029,6 +76062,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -73128,6 +76162,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -73150,7 +76188,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -73161,6 +76201,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -73239,6 +76280,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -73275,7 +76320,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -73293,6 +76340,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -73400,6 +76448,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -73424,7 +76476,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -73436,6 +76490,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -73519,6 +76574,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -73541,7 +76600,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -73552,6 +76613,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -73628,6 +76690,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 
 .PARAMETER Log
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
 
 
 
@@ -73710,7 +76776,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -73750,6 +76818,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -73954,6 +77023,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -74000,7 +77073,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -74023,6 +77098,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -74159,6 +77235,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -74195,7 +77275,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -74213,6 +77295,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -74319,6 +77402,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -74343,7 +77430,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -74355,6 +77444,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -74436,6 +77526,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -74476,7 +77570,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -74496,6 +77592,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -74611,6 +77708,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -74637,7 +77738,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -74650,6 +77753,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -74736,6 +77840,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -74782,7 +77890,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -74805,6 +77915,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -74934,6 +78045,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -74962,7 +78077,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -74976,6 +78093,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -75069,6 +78187,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -75093,7 +78215,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -75105,6 +78229,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -75187,6 +78312,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -75211,7 +78340,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -75223,6 +78354,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -75304,6 +78436,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -75328,7 +78464,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -75340,6 +78478,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -75424,6 +78563,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -75448,7 +78591,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -75460,6 +78605,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -75544,6 +78690,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -75570,7 +78720,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -75583,6 +78735,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -75670,6 +78823,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -75702,7 +78859,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -75718,6 +78877,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -75816,6 +78976,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -75838,7 +79002,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -75849,6 +79015,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -75927,6 +79094,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -75971,7 +79142,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -75993,6 +79166,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -76121,6 +79295,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -76149,7 +79327,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -76163,6 +79343,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -76258,6 +79439,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -76286,7 +79471,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -76300,6 +79487,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -76393,6 +79581,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -76437,7 +79629,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -76459,6 +79653,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -76582,6 +79777,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -76610,7 +79809,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -76624,6 +79825,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -76714,6 +79916,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -76750,7 +79956,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -76768,6 +79976,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -76875,6 +80084,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -76899,7 +80112,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -76911,6 +80126,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -76993,6 +80209,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -77029,7 +80249,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -77047,6 +80269,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -77154,6 +80377,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -77178,7 +80405,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -77190,6 +80419,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -77272,6 +80502,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -77306,7 +80540,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -77323,6 +80559,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -77426,6 +80663,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -77452,7 +80693,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -77465,6 +80708,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -77551,6 +80795,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -77573,7 +80821,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -77584,6 +80834,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -77662,6 +80913,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -77700,7 +80955,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -77719,6 +80976,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -77831,6 +81089,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -77855,7 +81117,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -77867,6 +81131,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -77950,6 +81215,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -77984,7 +81253,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -78001,6 +81272,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -78105,6 +81377,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -78131,7 +81407,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -78144,6 +81422,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -78231,6 +81510,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -78253,7 +81536,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -78264,6 +81549,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -78343,6 +81629,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -78371,7 +81661,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -78385,6 +81677,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -78476,6 +81769,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -78500,7 +81797,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -78512,6 +81811,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -78594,6 +81894,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -78614,7 +81918,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -78624,6 +81930,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -78698,6 +82005,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -78730,7 +82041,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -78746,6 +82059,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -78845,6 +82159,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -78867,7 +82185,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -78878,6 +82198,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -78956,6 +82277,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -78992,7 +82317,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -79010,6 +82337,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -79118,6 +82446,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -79142,7 +82474,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -79154,6 +82488,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -79237,6 +82572,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -79271,7 +82610,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -79288,6 +82629,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -79392,6 +82734,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -79418,7 +82764,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -79431,6 +82779,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -79518,6 +82867,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -79540,7 +82893,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -79551,6 +82906,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -79630,6 +82986,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -79658,7 +83018,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -79672,6 +83034,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -79763,6 +83126,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -79787,7 +83154,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -79799,6 +83168,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -79881,6 +83251,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -79901,7 +83275,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -79911,6 +83287,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -79985,6 +83362,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -80017,7 +83398,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -80033,6 +83416,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -80133,6 +83517,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -80159,7 +83547,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -80172,6 +83562,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -80259,6 +83650,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -80281,7 +83676,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -80292,6 +83689,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -80371,6 +83769,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -80407,7 +83809,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -80425,6 +83829,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -80534,6 +83939,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -80562,7 +83971,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -80576,6 +83987,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -80668,6 +84080,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -80692,7 +84108,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -80704,6 +84122,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -80788,6 +84207,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -80816,7 +84239,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -80830,6 +84255,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -80921,6 +84347,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -80945,7 +84375,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -80957,6 +84389,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -81039,6 +84472,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -81059,7 +84496,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -81069,6 +84508,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -81143,6 +84583,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -81187,7 +84631,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -81209,6 +84655,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -81345,6 +84792,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -81377,7 +84828,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -81393,6 +84846,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -81504,6 +84958,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -81532,7 +84990,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -81546,6 +85006,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -81647,6 +85108,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 
 .PARAMETER Log
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
 
 
 
@@ -81797,7 +85262,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -81871,6 +85338,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -82463,6 +85931,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -82543,7 +86015,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -82583,6 +86057,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -83038,6 +86513,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -83076,7 +86555,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -83095,6 +86576,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -83232,6 +86714,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -83264,7 +86750,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -83280,6 +86768,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -83379,6 +86868,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -83405,7 +86898,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -83418,6 +86913,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -83504,6 +87000,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -83526,7 +87026,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -83537,6 +87039,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -83613,6 +87116,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 
 .PARAMETER Log
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
 
 
 
@@ -83765,7 +87272,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -83840,6 +87349,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -84437,6 +87947,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -84509,7 +88023,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -84545,6 +88061,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -84908,6 +88425,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -84990,7 +88511,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -85031,6 +88554,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -85491,6 +89015,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -85519,7 +89047,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -85533,6 +89063,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -85624,6 +89155,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -85648,7 +89183,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -85660,6 +89197,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -85742,6 +89280,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -85762,7 +89304,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -85772,6 +89316,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -85847,6 +89392,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -85879,7 +89428,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -85895,6 +89446,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -85995,6 +89547,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -86017,7 +89573,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -86028,6 +89586,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -86107,6 +89666,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -86141,7 +89704,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -86158,6 +89723,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -86298,6 +89864,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -86326,7 +89896,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -86340,6 +89912,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -86431,6 +90004,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -86455,7 +90032,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -86467,6 +90046,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -86549,6 +90129,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -86569,7 +90153,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -86579,6 +90165,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -86653,6 +90240,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -86681,7 +90272,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -86695,6 +90288,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -86786,6 +90380,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -86810,7 +90408,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -86822,6 +90422,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -86904,6 +90505,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -86924,7 +90529,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -86934,6 +90541,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -87008,6 +90616,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -87040,7 +90652,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -87056,6 +90670,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -87156,6 +90771,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -87182,7 +90801,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -87195,6 +90816,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -87282,6 +90904,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
 
 #>
 }
@@ -87304,7 +90930,9 @@ param(
 [Parameter()]
 [string]$DwdSubject,
 [Parameter()]
-[string]$Log
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
     )
 
 BEGIN {
@@ -87315,6 +90943,7 @@ BEGIN {
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
     }
 
     $__outputHandlers = @{
@@ -87392,6 +91021,10 @@ Specify a subject used for DWD impersonation (overrides value in config file)
 
 .PARAMETER Log
 Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
 
 
 
