@@ -40,13 +40,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -64,7 +64,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -181,13 +181,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -205,7 +205,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -427,13 +427,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -451,7 +451,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -565,13 +565,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -589,7 +589,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -705,13 +705,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -729,7 +729,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -855,13 +855,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -879,7 +879,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -997,13 +997,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -1021,7 +1021,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -1147,13 +1147,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -1171,7 +1171,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -1273,13 +1273,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -1297,7 +1297,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -1420,13 +1420,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -1444,7 +1444,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -1581,13 +1581,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -1605,7 +1605,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -1724,13 +1724,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -1748,7 +1748,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -1861,13 +1861,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -1885,7 +1885,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -2000,13 +2000,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -2024,7 +2024,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -2149,13 +2149,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -2173,7 +2173,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -2371,13 +2371,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -2395,7 +2395,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -2674,13 +2674,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -2698,7 +2698,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -2859,13 +2859,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -2883,7 +2883,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -3077,13 +3077,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -3101,7 +3101,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -3380,13 +3380,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -3404,7 +3404,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -3581,13 +3581,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -3605,7 +3605,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -3719,13 +3719,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -3743,7 +3743,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -3859,13 +3859,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -3883,7 +3883,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -4009,13 +4009,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -4033,7 +4033,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -4175,13 +4175,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -4199,7 +4199,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -4374,13 +4374,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -4398,7 +4398,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -4546,13 +4546,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -4570,7 +4570,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -4702,13 +4702,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -4726,7 +4726,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -4873,13 +4873,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -4897,7 +4897,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -5079,13 +5079,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -5103,7 +5103,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -5240,13 +5240,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -5264,7 +5264,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -5367,13 +5367,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -5391,7 +5391,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -5497,13 +5497,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -5521,7 +5521,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -5636,13 +5636,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -5660,7 +5660,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -5825,13 +5825,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -5849,7 +5849,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -6080,13 +6080,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -6104,7 +6104,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -6261,13 +6261,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -6285,7 +6285,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -6471,13 +6471,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -6495,7 +6495,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -6734,13 +6734,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -6758,7 +6758,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -6927,13 +6927,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -6951,7 +6951,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -7065,13 +7065,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -7089,7 +7089,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -7205,13 +7205,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -7229,7 +7229,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -7355,13 +7355,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -7379,7 +7379,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -7560,13 +7560,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -7584,7 +7584,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -7825,13 +7825,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -7849,7 +7849,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -7999,13 +7999,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -8023,7 +8023,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -8222,13 +8222,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -8246,7 +8246,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -8487,13 +8487,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -8511,7 +8511,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -8652,13 +8652,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -8676,7 +8676,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -8777,13 +8777,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -8801,7 +8801,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -8904,13 +8904,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -8928,7 +8928,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -9035,13 +9035,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -9059,7 +9059,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -9174,13 +9174,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -9198,7 +9198,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -9330,13 +9330,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -9354,7 +9354,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -9506,13 +9506,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -9530,7 +9530,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -9677,13 +9677,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -9701,7 +9701,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -9861,13 +9861,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -9885,7 +9885,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -10013,13 +10013,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -10037,7 +10037,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -10151,13 +10151,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -10175,7 +10175,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -10266,13 +10266,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -10290,7 +10290,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -10380,13 +10380,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -10404,7 +10404,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -10519,13 +10519,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -10543,7 +10543,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -10687,13 +10687,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -10711,7 +10711,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -10850,13 +10850,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -10874,7 +10874,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -11019,13 +11019,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -11043,7 +11043,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -11197,13 +11197,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -11221,7 +11221,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -11369,13 +11369,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -11393,7 +11393,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -11536,13 +11536,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -11560,7 +11560,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -11684,13 +11684,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -11708,7 +11708,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -11845,13 +11845,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -11869,7 +11869,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -12026,13 +12026,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -12050,7 +12050,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -12252,13 +12252,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -12276,7 +12276,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -12406,13 +12406,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -12430,7 +12430,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -12557,13 +12557,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -12581,7 +12581,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -12735,13 +12735,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -12759,7 +12759,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -12884,13 +12884,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -12908,7 +12908,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -13021,13 +13021,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -13045,7 +13045,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -13166,13 +13166,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -13190,7 +13190,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -13327,13 +13327,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -13351,7 +13351,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -13485,13 +13485,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -13509,7 +13509,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -13650,13 +13650,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -13674,7 +13674,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -13817,13 +13817,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -13841,7 +13841,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -14002,13 +14002,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -14026,7 +14026,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -14136,13 +14136,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -14160,7 +14160,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -14247,13 +14247,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -14271,7 +14271,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -14358,13 +14358,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -14382,7 +14382,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -14468,13 +14468,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -14492,7 +14492,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -14600,13 +14600,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -14624,7 +14624,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -14741,13 +14741,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -14765,7 +14765,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -14873,13 +14873,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -14897,7 +14897,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -15020,13 +15020,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -15044,7 +15044,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -15159,13 +15159,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -15183,7 +15183,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -15297,13 +15297,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -15321,7 +15321,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -15431,13 +15431,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -15455,7 +15455,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -15568,13 +15568,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -15592,7 +15592,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -15707,13 +15707,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -15731,7 +15731,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -15857,13 +15857,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -15881,7 +15881,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -15977,13 +15977,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -16001,7 +16001,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -16110,13 +16110,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -16134,7 +16134,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -16255,13 +16255,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -16279,7 +16279,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -16408,13 +16408,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -16432,7 +16432,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -16572,13 +16572,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -16596,7 +16596,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -16698,13 +16698,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -16722,7 +16722,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -16855,13 +16855,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -16879,7 +16879,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -17041,13 +17041,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -17065,7 +17065,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -17202,13 +17202,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -17226,7 +17226,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -17351,13 +17351,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -17375,7 +17375,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -17489,13 +17489,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -17513,7 +17513,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -17626,13 +17626,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -17650,7 +17650,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -17765,13 +17765,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -17789,7 +17789,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -17914,13 +17914,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -17938,7 +17938,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -18036,13 +18036,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -18060,7 +18060,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -18170,13 +18170,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -18194,7 +18194,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -18307,13 +18307,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -18331,7 +18331,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -18446,13 +18446,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -18470,7 +18470,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -18595,13 +18595,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -18619,7 +18619,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -18745,13 +18745,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -18769,7 +18769,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -18905,13 +18905,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -18929,7 +18929,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -19034,13 +19034,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -19058,7 +19058,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -19172,13 +19172,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -19196,7 +19196,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -19309,13 +19309,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -19333,7 +19333,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -19448,13 +19448,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -19472,7 +19472,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -19597,13 +19597,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -19621,7 +19621,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -19741,13 +19741,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -19765,7 +19765,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -19890,13 +19890,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -19914,7 +19914,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -20012,13 +20012,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -20036,7 +20036,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -20185,13 +20185,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -20209,7 +20209,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -20394,13 +20394,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -20418,7 +20418,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -20553,13 +20553,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -20577,7 +20577,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -20690,13 +20690,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -20714,7 +20714,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -20835,13 +20835,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -20859,7 +20859,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -21000,13 +21000,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -21024,7 +21024,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -21137,13 +21137,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -21161,7 +21161,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -21281,13 +21281,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -21305,7 +21305,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -21418,13 +21418,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -21442,7 +21442,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -21593,13 +21593,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -21617,7 +21617,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -21809,13 +21809,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -21833,7 +21833,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -22011,13 +22011,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -22035,7 +22035,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -22222,13 +22222,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -22246,7 +22246,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -22377,13 +22377,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -22401,7 +22401,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -22503,13 +22503,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -22527,7 +22527,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -22639,13 +22639,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -22663,7 +22663,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -22788,13 +22788,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -22812,7 +22812,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -22932,13 +22932,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -22956,7 +22956,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -23081,13 +23081,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -23105,7 +23105,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -23206,13 +23206,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -23230,7 +23230,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -23351,13 +23351,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -23375,7 +23375,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -23500,13 +23500,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -23524,7 +23524,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -23662,13 +23662,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -23686,7 +23686,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -23848,13 +23848,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -23872,7 +23872,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -24001,13 +24001,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -24025,7 +24025,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -24200,13 +24200,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -24224,7 +24224,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -24353,13 +24353,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -24377,7 +24377,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -24513,13 +24513,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -24537,7 +24537,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -24687,13 +24687,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -24711,7 +24711,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -24860,13 +24860,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -24884,7 +24884,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -25045,13 +25045,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -25069,7 +25069,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -25385,13 +25385,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -25409,7 +25409,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -25922,13 +25922,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -25946,7 +25946,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -26280,13 +26280,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -26304,7 +26304,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -26504,13 +26504,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -26528,7 +26528,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -26753,13 +26753,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -26777,7 +26777,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -27047,13 +27047,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -27071,7 +27071,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -27264,13 +27264,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -27288,7 +27288,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -27440,13 +27440,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -27464,7 +27464,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -27786,13 +27786,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -27810,7 +27810,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -28343,13 +28343,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -28367,7 +28367,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -28684,13 +28684,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -28708,7 +28708,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -28853,13 +28853,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -28877,7 +28877,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -29000,13 +29000,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -29024,7 +29024,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -29138,13 +29138,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -29162,7 +29162,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -29278,13 +29278,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -29302,7 +29302,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -29428,13 +29428,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -29452,7 +29452,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -29573,13 +29573,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -29597,7 +29597,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -29723,13 +29723,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -29747,7 +29747,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -29846,13 +29846,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -29870,7 +29870,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -29987,13 +29987,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -30011,7 +30011,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -30137,13 +30137,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -30161,7 +30161,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -30279,13 +30279,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -30303,7 +30303,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -30424,13 +30424,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -30448,7 +30448,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -30679,13 +30679,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -30703,7 +30703,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -30999,13 +30999,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -31023,7 +31023,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -31185,13 +31185,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -31209,7 +31209,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -31575,13 +31575,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -31599,7 +31599,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -32027,13 +32027,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -32051,7 +32051,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -32287,13 +32287,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -32311,7 +32311,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -32413,13 +32413,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -32437,7 +32437,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -32542,13 +32542,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -32566,7 +32566,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -32679,13 +32679,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -32703,7 +32703,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -32812,13 +32812,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -32836,7 +32836,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -32954,13 +32954,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -32978,7 +32978,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -33076,13 +33076,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -33100,7 +33100,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -33216,13 +33216,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -33240,7 +33240,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -33366,13 +33366,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -33390,7 +33390,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -33493,13 +33493,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -33517,7 +33517,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -33633,13 +33633,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -33657,7 +33657,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -33804,13 +33804,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -33828,7 +33828,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -33945,13 +33945,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -33969,7 +33969,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -34066,13 +34066,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -34090,7 +34090,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -34343,13 +34343,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -34367,7 +34367,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -34774,13 +34774,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -34798,7 +34798,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -35108,13 +35108,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -35132,7 +35132,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -35392,13 +35392,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -35416,7 +35416,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -35584,13 +35584,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -35608,7 +35608,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -35721,13 +35721,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -35745,7 +35745,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -35860,13 +35860,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -35884,7 +35884,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -36009,13 +36009,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -36033,7 +36033,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -36131,13 +36131,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -36155,7 +36155,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -36271,13 +36271,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -36295,7 +36295,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -36420,13 +36420,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -36444,7 +36444,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -36560,13 +36560,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -36584,7 +36584,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -36697,13 +36697,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -36721,7 +36721,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -36836,13 +36836,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -36860,7 +36860,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -36985,13 +36985,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -37009,7 +37009,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -37107,13 +37107,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -37131,7 +37131,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -37240,13 +37240,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -37264,7 +37264,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -37381,13 +37381,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -37405,7 +37405,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -37499,13 +37499,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -37523,7 +37523,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -37617,13 +37617,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -37641,7 +37641,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -37735,13 +37735,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -37759,7 +37759,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -37853,13 +37853,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -37877,7 +37877,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -37983,13 +37983,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -38007,7 +38007,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -38137,13 +38137,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -38161,7 +38161,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -38280,13 +38280,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -38304,7 +38304,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -38412,13 +38412,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -38436,7 +38436,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -38571,13 +38571,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -38595,7 +38595,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -38729,13 +38729,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -38753,7 +38753,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -38863,13 +38863,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -38887,7 +38887,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -39001,13 +39001,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -39025,7 +39025,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -39141,13 +39141,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -39165,7 +39165,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -39291,13 +39291,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -39315,7 +39315,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -39430,13 +39430,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -39454,7 +39454,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -39569,13 +39569,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -39593,7 +39593,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -39691,13 +39691,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -39715,7 +39715,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -39835,13 +39835,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -39859,7 +39859,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -39995,13 +39995,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -40019,7 +40019,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -40118,13 +40118,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -40142,7 +40142,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -40249,13 +40249,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -40273,7 +40273,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -40392,13 +40392,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -40416,7 +40416,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -40529,13 +40529,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -40553,7 +40553,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -40676,13 +40676,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -40700,7 +40700,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -40844,13 +40844,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -40868,7 +40868,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -40984,13 +40984,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -41008,7 +41008,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -41119,13 +41119,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -41143,7 +41143,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -41246,13 +41246,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -41270,7 +41270,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -41376,13 +41376,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -41400,7 +41400,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -41515,13 +41515,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -41539,7 +41539,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -41662,13 +41662,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -41686,7 +41686,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -41825,13 +41825,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -41849,7 +41849,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -41969,13 +41969,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -41993,7 +41993,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -42150,13 +42150,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -42174,7 +42174,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -42321,13 +42321,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -42345,7 +42345,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -42519,13 +42519,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -42543,7 +42543,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -42784,13 +42784,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -42808,7 +42808,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -42986,13 +42986,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -43010,7 +43010,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -43123,13 +43123,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -43147,7 +43147,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -43263,13 +43263,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -43287,7 +43287,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -43412,13 +43412,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -43436,7 +43436,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -43541,13 +43541,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -43565,7 +43565,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -43681,13 +43681,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -43705,7 +43705,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -43821,13 +43821,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -43845,7 +43845,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -43972,13 +43972,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -43996,7 +43996,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -44159,13 +44159,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -44183,7 +44183,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -44312,13 +44312,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -44336,7 +44336,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -44460,13 +44460,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -44484,7 +44484,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -44609,13 +44609,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -44633,7 +44633,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -44927,13 +44927,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -44951,7 +44951,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -45482,13 +45482,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -45506,7 +45506,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -45816,13 +45816,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -45840,7 +45840,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -45996,13 +45996,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -46020,7 +46020,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -46189,13 +46189,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -46213,7 +46213,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -46343,13 +46343,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -46367,7 +46367,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -46480,13 +46480,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -46504,7 +46504,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -46619,13 +46619,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -46643,7 +46643,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -46768,13 +46768,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -46792,7 +46792,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -46890,13 +46890,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -46914,7 +46914,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -47057,13 +47057,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -47081,7 +47081,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -47257,13 +47257,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -47281,7 +47281,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -47424,13 +47424,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -47448,7 +47448,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -47589,13 +47589,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -47613,7 +47613,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -47723,13 +47723,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -47747,7 +47747,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -47881,13 +47881,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -47905,7 +47905,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -48061,13 +48061,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -48085,7 +48085,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -48206,13 +48206,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -48230,7 +48230,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -48372,13 +48372,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -48396,7 +48396,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -48552,13 +48552,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -48576,7 +48576,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -48697,13 +48697,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -48721,7 +48721,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -48835,13 +48835,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -48859,7 +48859,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -48971,13 +48971,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -48995,7 +48995,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -49143,13 +49143,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -49167,7 +49167,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -49335,13 +49335,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -49359,7 +49359,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -49488,13 +49488,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -49512,7 +49512,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -49622,13 +49622,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -49646,7 +49646,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -49728,13 +49728,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -49752,7 +49752,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -49860,13 +49860,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -49884,7 +49884,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -50011,13 +50011,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -50035,7 +50035,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -50137,13 +50137,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -50161,7 +50161,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -50282,13 +50282,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -50306,7 +50306,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -50445,13 +50445,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -50469,7 +50469,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -50579,13 +50579,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -50603,7 +50603,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -50723,13 +50723,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -50747,7 +50747,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -50874,13 +50874,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -50898,7 +50898,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -51000,13 +51000,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -51024,7 +51024,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -51157,13 +51157,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -51181,7 +51181,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -51354,13 +51354,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -51378,7 +51378,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -51513,13 +51513,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -51537,7 +51537,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -51689,13 +51689,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -51713,7 +51713,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -51855,13 +51855,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -51879,7 +51879,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -52014,13 +52014,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -52038,7 +52038,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -52200,13 +52200,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -52224,7 +52224,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -52356,13 +52356,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -52380,7 +52380,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -52510,13 +52510,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -52534,7 +52534,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -52669,13 +52669,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -52693,7 +52693,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -52810,13 +52810,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -52834,7 +52834,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -52923,13 +52923,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -52947,7 +52947,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -53074,13 +53074,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -53098,7 +53098,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -53250,13 +53250,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -53274,7 +53274,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -53434,13 +53434,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -53458,7 +53458,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -53632,13 +53632,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -53656,7 +53656,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -53809,13 +53809,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -53833,7 +53833,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -53985,13 +53985,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -54009,7 +54009,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -54126,13 +54126,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -54150,7 +54150,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -54293,13 +54293,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -54317,7 +54317,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -54464,13 +54464,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -54488,7 +54488,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -54655,13 +54655,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -54679,7 +54679,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -54877,13 +54877,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -54901,7 +54901,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -55048,13 +55048,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -55072,7 +55072,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -55197,13 +55197,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -55221,7 +55221,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -55341,13 +55341,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -55365,7 +55365,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -55490,13 +55490,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -55514,7 +55514,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -55634,13 +55634,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -55658,7 +55658,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -55791,13 +55791,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -55815,7 +55815,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -55937,13 +55937,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -55961,7 +55961,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -56076,13 +56076,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -56100,7 +56100,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -56223,13 +56223,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -56247,7 +56247,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -56388,13 +56388,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -56412,7 +56412,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -56531,13 +56531,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -56555,7 +56555,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -56699,13 +56699,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -56723,7 +56723,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -56838,13 +56838,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -56862,7 +56862,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -56979,13 +56979,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -57003,7 +57003,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -57130,13 +57130,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -57154,7 +57154,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -57309,13 +57309,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -57333,7 +57333,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -57528,13 +57528,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -57552,7 +57552,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -57687,13 +57687,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -57711,7 +57711,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -57876,13 +57876,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -57900,7 +57900,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -58102,13 +58102,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -58126,7 +58126,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -58268,13 +58268,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -58292,7 +58292,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -58436,13 +58436,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -58460,7 +58460,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -58863,13 +58863,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -58887,7 +58887,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -59781,13 +59781,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -59805,7 +59805,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -60384,13 +60384,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -60408,7 +60408,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -60510,13 +60510,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -60534,7 +60534,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -60651,13 +60651,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -60675,7 +60675,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -60848,13 +60848,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -60872,7 +60872,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -61017,13 +61017,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -61041,7 +61041,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -61186,13 +61186,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -61210,7 +61210,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -61363,13 +61363,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -61387,7 +61387,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -61534,13 +61534,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -61558,7 +61558,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -61987,13 +61987,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -62011,7 +62011,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -62950,13 +62950,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -62974,7 +62974,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -63612,13 +63612,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -63636,7 +63636,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -63820,13 +63820,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -63844,7 +63844,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -63993,13 +63993,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -64017,7 +64017,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -64238,13 +64238,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -64262,7 +64262,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -64515,13 +64515,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -64539,7 +64539,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -64722,13 +64722,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -64746,7 +64746,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -64919,13 +64919,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -64943,7 +64943,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -65071,13 +65071,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -65095,7 +65095,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -65199,13 +65199,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -65223,7 +65223,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -65348,13 +65348,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -65372,7 +65372,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -65508,13 +65508,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -65532,7 +65532,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -65665,13 +65665,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -65689,7 +65689,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -65831,13 +65831,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -65855,7 +65855,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -65963,13 +65963,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -65987,7 +65987,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -66184,13 +66184,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -66208,7 +66208,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -66481,13 +66481,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -66505,7 +66505,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -66667,13 +66667,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -66691,7 +66691,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -66822,13 +66822,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -66846,7 +66846,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -66999,13 +66999,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -67023,7 +67023,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -67153,13 +67153,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -67177,7 +67177,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -67301,13 +67301,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -67325,7 +67325,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -67450,13 +67450,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -67474,7 +67474,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -67610,13 +67610,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -67634,7 +67634,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -67739,13 +67739,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -67763,7 +67763,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -67901,13 +67901,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -67925,7 +67925,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -68085,13 +68085,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -68109,7 +68109,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -68243,13 +68243,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -68267,7 +68267,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -68392,13 +68392,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -68416,7 +68416,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -68542,13 +68542,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -68566,7 +68566,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -68703,13 +68703,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -68727,7 +68727,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -68830,13 +68830,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -68854,7 +68854,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -69000,13 +69000,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -69024,7 +69024,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -69211,13 +69211,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -69235,7 +69235,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -69376,13 +69376,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -69400,7 +69400,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -69513,13 +69513,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -69537,7 +69537,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -69652,13 +69652,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -69676,7 +69676,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -69801,13 +69801,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -69825,7 +69825,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -69966,13 +69966,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -69990,7 +69990,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -70162,13 +70162,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -70186,7 +70186,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -70319,13 +70319,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -70343,7 +70343,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -70466,13 +70466,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -70490,7 +70490,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -70602,13 +70602,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -70626,7 +70626,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -70745,13 +70745,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -70769,7 +70769,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -70882,13 +70882,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -70906,7 +70906,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -71021,13 +71021,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -71045,7 +71045,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -71170,13 +71170,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -71194,7 +71194,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -71320,13 +71320,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -71344,7 +71344,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -71480,13 +71480,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -71504,7 +71504,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -71606,13 +71606,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -71630,7 +71630,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -71755,13 +71755,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -71779,7 +71779,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -71922,13 +71922,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -71946,7 +71946,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -72068,13 +72068,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -72092,7 +72092,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -72205,13 +72205,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -72229,7 +72229,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -72344,13 +72344,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -72368,7 +72368,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -72493,13 +72493,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -72517,7 +72517,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -72643,13 +72643,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -72667,7 +72667,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -72829,13 +72829,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -72853,7 +72853,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -72982,13 +72982,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -73006,7 +73006,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -73131,13 +73131,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -73155,7 +73155,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -73324,13 +73324,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -73348,7 +73348,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -73566,13 +73566,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -73590,7 +73590,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -73839,13 +73839,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -73863,7 +73863,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -74030,13 +74030,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -74054,7 +74054,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -74171,13 +74171,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -74195,7 +74195,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -74313,13 +74313,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -74337,7 +74337,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -74466,13 +74466,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -74490,7 +74490,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -74588,13 +74588,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -74612,7 +74612,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -74792,13 +74792,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -74816,7 +74816,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -75065,13 +75065,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -75089,7 +75089,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -75256,13 +75256,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -75280,7 +75280,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -75397,13 +75397,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -75421,7 +75421,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -75605,13 +75605,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -75629,7 +75629,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -75888,13 +75888,13 @@ PROCESS {
         "--json"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -75912,7 +75912,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -76078,13 +76078,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -76102,7 +76102,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -76216,13 +76216,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -76240,7 +76240,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -76356,13 +76356,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -76380,7 +76380,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -76506,13 +76506,13 @@ PROCESS {
         "--json"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -76530,7 +76530,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -76629,13 +76629,13 @@ PROCESS {
         "--json"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -76653,7 +76653,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -76834,13 +76834,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -76858,7 +76858,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -77114,13 +77114,13 @@ PROCESS {
         "--json"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -77138,7 +77138,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -77311,13 +77311,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -77335,7 +77335,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -77459,13 +77459,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -77483,7 +77483,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -77608,13 +77608,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -77632,7 +77632,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -77768,13 +77768,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -77792,7 +77792,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -77931,13 +77931,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -77955,7 +77955,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -78108,13 +78108,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -78132,7 +78132,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -78244,13 +78244,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -78268,7 +78268,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -78369,13 +78369,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -78393,7 +78393,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -78493,13 +78493,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -78517,7 +78517,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -78620,13 +78620,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -78644,7 +78644,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -78750,13 +78750,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -78774,7 +78774,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -78893,13 +78893,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -78917,7 +78917,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -79030,13 +79030,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -79054,7 +79054,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -79182,13 +79182,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -79206,7 +79206,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -79358,13 +79358,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -79382,7 +79382,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -79502,13 +79502,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -79526,7 +79526,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -79669,13 +79669,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -79693,7 +79693,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -79840,13 +79840,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -79864,7 +79864,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -79992,13 +79992,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -80016,7 +80016,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -80141,13 +80141,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -80165,7 +80165,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -80285,13 +80285,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -80309,7 +80309,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -80434,13 +80434,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -80458,7 +80458,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -80575,13 +80575,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -80599,7 +80599,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -80724,13 +80724,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -80748,7 +80748,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -80849,13 +80849,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -80873,7 +80873,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -80992,13 +80992,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -81016,7 +81016,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -81146,13 +81146,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -81170,7 +81170,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -81288,13 +81288,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -81312,7 +81312,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -81438,13 +81438,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -81462,7 +81462,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -81564,13 +81564,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -81588,7 +81588,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -81693,13 +81693,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -81717,7 +81717,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -81827,13 +81827,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -81851,7 +81851,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -81945,13 +81945,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -81969,7 +81969,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -82075,13 +82075,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -82099,7 +82099,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -82213,13 +82213,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -82237,7 +82237,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -82353,13 +82353,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -82377,7 +82377,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -82503,13 +82503,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -82527,7 +82527,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -82645,13 +82645,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -82669,7 +82669,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -82795,13 +82795,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -82819,7 +82819,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -82921,13 +82921,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -82945,7 +82945,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -83050,13 +83050,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -83074,7 +83074,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -83184,13 +83184,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -83208,7 +83208,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -83302,13 +83302,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -83326,7 +83326,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -83432,13 +83432,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -83456,7 +83456,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -83578,13 +83578,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -83602,7 +83602,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -83704,13 +83704,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -83728,7 +83728,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -83845,13 +83845,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -83869,7 +83869,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -84003,13 +84003,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -84027,7 +84027,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -84137,13 +84137,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -84161,7 +84161,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -84271,13 +84271,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -84295,7 +84295,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -84405,13 +84405,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -84429,7 +84429,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -84523,13 +84523,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -84547,7 +84547,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -84671,13 +84671,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -84695,7 +84695,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -84862,13 +84862,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -84886,7 +84886,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -85021,13 +85021,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -85045,7 +85045,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -85354,13 +85354,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -85378,7 +85378,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -86072,13 +86072,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -86096,7 +86096,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -86591,13 +86591,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -86615,7 +86615,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -86784,13 +86784,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -86808,7 +86808,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -86929,13 +86929,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -86953,7 +86953,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -87054,13 +87054,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -87078,7 +87078,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -87365,13 +87365,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -87389,7 +87389,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -88077,13 +88077,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -88101,7 +88101,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -88569,13 +88569,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -88593,7 +88593,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -89079,13 +89079,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -89103,7 +89103,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -89213,13 +89213,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -89237,7 +89237,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -89331,13 +89331,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -89355,7 +89355,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -89462,13 +89462,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -89486,7 +89486,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -89601,13 +89601,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -89625,7 +89625,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -89738,13 +89738,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -89762,7 +89762,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -89928,13 +89928,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -89952,7 +89952,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -90062,13 +90062,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -90086,7 +90086,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -90180,13 +90180,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -90204,7 +90204,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -90304,13 +90304,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -90328,7 +90328,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -90438,13 +90438,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -90462,7 +90462,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -90556,13 +90556,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -90580,7 +90580,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -90686,13 +90686,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -90710,7 +90710,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -90832,13 +90832,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -90856,7 +90856,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
@@ -90958,13 +90958,13 @@ PROCESS {
         "--streamOutput"
     )
     $__boundparms = $PSBoundParameters
-    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    
     if ($PSBoundParameters["Debug"]){wait-debugger}
     foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
         $value = $PSBoundParameters[$paramName]
         $param = $__PARAMETERMAP[$paramName]
         if ($param) {
-            if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }
+            if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }
             elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
             else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
         }
@@ -90982,7 +90982,7 @@ PROCESS {
     $__handler = $__handlerInfo.Handler
     if ( $PSCmdlet.ShouldProcess("gsm")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gsm" $__commandArgs | % $__handler
+            & "gsm" $__commandArgs | Foreach-Object $__handler
         }
         else {
             $result = & "gsm" $__commandArgs
