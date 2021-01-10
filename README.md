@@ -1,6 +1,6 @@
 This module is automatically generated with https://github.com/hanneshayashi/crescengo and https://github.com/PowerShell/crescendo.
 
-It is still very much experimental, but it **should** provide basic functionality for [GSM](https://github.com/hanneshayashi/gsm).
+While Crescendo is still in beta and there are probably still a few bugs here and there, the module should provide you with full functionality for [GSM](https://github.com/hanneshayashi/gsm).
 
 Before using the module, make sure you have installed the GSM executable to somewhere in your PATH and set up GSM with a working configuration (see https://gsm.hayashi-ke.online/setup for instructions).
 
@@ -10,7 +10,7 @@ You can load the module by simply invoking
 Import-Module ./GSM.psm1
 ```
 
-Afterwards, you should have PowerShell-Commandlets for all [GSM commands](https://gsm.hayashi-ke.online/gsm), like
+Afterwards, you should have PowerShell commandlets for all [GSM commands](https://gsm.hayashi-ke.online/gsm), like
 
 ```powershell
 List-GSMUsers
@@ -29,11 +29,17 @@ etc.
 To get a list of the available commands, you can call 
 
 ```powershell
-Get-Command *GSM*
+Get-Command -Module GSM
 ```
 
 or, to get help for a specific function:
 
 ```powershell
 Get-Help Create-GSMDrives
+```
+
+The module is written so you can pipe the output of the commands like so:
+
+```powershell
+List-GSMUsers | % {$_.primaryEmail <# or something useful#>}
 ```

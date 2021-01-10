@@ -1,19 +1,3 @@
-function Update-ModuleDefinition {
-    param(
-        [String]$def
-    )
-
-    $replacements = @{
-        '$MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})' = ""
-        '$__commandArgs | & $__handler' = '$__commandArgs | Foreach-Object $__handler'
-        'if ( $value -is [switch] ) { $__commandArgs += if ( $value.IsPresent ) { $param.OriginalName } else { $param.DefaultMissingValue } }' = 'if ( $value -is [switch] ) { $__commandArgs += if ( $null -ne $PSBoundParameters.$paramName ) { if(!$value.ToBool()) {$param.OriginalName + "=false"} else {$param.OriginalName}} else { $param.DefaultMissingValue } }'
-    }
-    foreach($key in $replacements.Keys) {
-        $def = $def.Replace($key, $replacements.$key)
-    }
-    return $def
-}
-
 $files = Get-ChildItem -Path ./json -Filter "*.json"
 $null = Get-ChildItem -Path ./psm1 -Filter "*.psm1" | Remove-Item
 if (Test-Path GSM.psm1) {
@@ -21,9 +5,13 @@ if (Test-Path GSM.psm1) {
 }
 foreach($file in $files) {
     Export-CrescendoModule -ConfigurationFile $file.FullName -ModuleName ("./psm1/" + ($file.Name).Replace(".json",".psm1"))
-    $null = Remove-Item $file.FullName
+    #$null = Remove-Item $file.FullName
 }
+Get-Content -Path ./Invoke-GSM.ps1 -Raw  >> GSM.psm1
+$original = Get-Content -Path ./crescendo_original.txt -Raw
+$new = '    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs'
 $modules = Get-ChildItem -Path ./psm1 -Filter "*.psm1"
+$commandNames = @()
 foreach($module in $modules) {
     $moduleName = ($module.Name).Replace(".psm1","")
     Remove-Module $moduleName -ErrorAction Ignore -WarningAction Ignore
@@ -35,6 +23,9 @@ foreach($module in $modules) {
         $fName = $foo[1] + "-" + $foo[0]+$foo[2]
     }
     $command = Get-Command $fName
-    "Function " + ($command.ToString()).Replace("-","-GSM") + " {`n`n" + (Update-ModuleDefinition -def $command.Definition)  + "}`n`n" >> GSM.psm1
+    $commandName = ($command.ToString()).Replace("-","-GSM")
+    $commandNames += $commandName
+    "Function " + $commandName + " {`n`n" + ($command.Definition).Replace($original, $new)  + "}`n`n" >> GSM.psm1
     $null = Remove-Item $module.FullName
 }
+"Export-ModuleMember -Function " + ($commandNames -join ", ") >> GSM.psm1
