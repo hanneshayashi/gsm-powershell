@@ -210,11 +210,11 @@ This parameter supports both IPv4 and IPv6 address versions.
 .PARAMETER ApplicationName
 Application name for which the events are to be retrieved.
 The following values are accepted:
-ACCESS_TRANSPARENCY   - The G Suite Access Transparency activity reports return information about different types of Access Transparency activity events.
+ACCESS_TRANSPARENCY   - The Workspace Access Transparency activity reports return information about different types of Access Transparency activity events.
 ADMIN                 - The Admin console application's activity reports return account information about different types of administrator activity events.
-CALENDAR              - The G Suite Calendar application's activity reports return information about various Calendar activity events.
+CALENDAR              - The Workspace Calendar application's activity reports return information about various Calendar activity events.
 CHAT                  - The Chat activity reports return information about various Chat activity events.
-DRIVE                 - The Google Drive application's activity reports return information about various Google Drive activity events. The Drive activity report is only available for G Suite Business customers.
+DRIVE                 - The Google Drive application's activity reports return information about various Google Drive activity events. The Drive activity report is only available for Workspace Business customers.
 GCP                   - The Google Cloud Platform application's activity reports return information about various GCP activity events.
 GPLUS                 - The Google+ application's activity reports return information about various Google+ activity events.
 GROUPS                - The Google Groups application's activity reports return information about various Groups activity events.
@@ -252,7 +252,7 @@ An API report has three basic time concepts:
 
 .PARAMETER EventName
 The name of the event being queried by the API.
-Each eventName is related to a specific G Suite service or feature which the API organizes into types of events.
+Each eventName is related to a specific Workspace service or feature which the API organizes into types of events.
 An example is the Google Calendar events in the Admin console application's reports.
 The Calendar Settings type structure has all of the Calendar eventName activities reported by the API.
 When an administrator changes a Calendar setting, the API reports this activity in the Calendar Settings type and eventName parameters.
@@ -315,7 +315,7 @@ The startTime must be before the endTime (if specified) and the current time whe
 
 
 .PARAMETER UserKey
-Represents the profile ID or the user email for which the data should be filtered. Can be all for all information, or userKey for a user's unique G Suite profile ID or their primary email address.
+Represents the profile ID or the user email for which the data should be filtered. Can be all for all information, or userKey for a user's unique Workspace profile ID or their primary email address.
 
 
 .PARAMETER Config
@@ -12221,6 +12221,257 @@ Specify the HTTP error code(s) that GSM should retry on. Note that GSM will alwa
 }
 
 
+Function Create-GSMContactDelegates {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter(Mandatory=$true)]
+[string]$Email,
+[Parameter(Mandatory=$true)]
+[string]$Parent,
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Email = @{ OriginalName = '--email'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Parent = @{ OriginalName = '--parent'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "contactDelegates"
+        "create"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Creates one or more delegates for a given user.
+
+.PARAMETER Email
+Email of the delegate.
+
+
+.PARAMETER Parent
+The parent resource that will own the created delegate.
+
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+
+#>
+}
+
+
+Function Delete-GSMContactDelegates {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter(Mandatory=$true)]
+[string]$Email,
+[Parameter(Mandatory=$true)]
+[string]$Parent,
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Email = @{ OriginalName = '--email'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Parent = @{ OriginalName = '--parent'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "contactDelegates"
+        "delete"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Deletes a delegate from a given user.
+
+.PARAMETER Email
+Email of the delegate.
+
+
+.PARAMETER Parent
+The parent resource that will own the created delegate.
+
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+
+#>
+}
+
+
+Function List-GSMContactDelegates {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter(Mandatory=$true)]
+[string]$Parent,
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Parent = @{ OriginalName = '--parent'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "contactDelegates"
+        "list"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Lists the delegates of a given user.
+
+.PARAMETER Parent
+The parent resource that will own the created delegate.
+
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+
+#>
+}
+
+
 Function BatchGet-GSMContactGroups {
 
 
@@ -18444,6 +18695,92 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 
 .PARAMETER UseDomainAdminAccess
 Issue the request as a domain administrator
+
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+
+#>
+}
+
+
+Function GetSize-GSMDrives {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter(Mandatory=$true)]
+[string]$DriveId,
+[Parameter()]
+[switch]$IncludeTrash,
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        DriveId = @{ OriginalName = '--driveId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        IncludeTrash = @{ OriginalName = '--includeTrash'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "drives"
+        "getSize"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Counts the files in a Shared Drive and returns their number and total size
+
+.PARAMETER DriveId
+The ID of the shared drive
+
+
+.PARAMETER IncludeTrash
+Whether to include trashed items.
 
 
 .PARAMETER Config
@@ -25384,6 +25721,8 @@ param(
 [Parameter()]
 [string]$BatchThreads,
 [Parameter()]
+[string]$ExcludeFolders,
+[Parameter()]
 [string]$Fields,
 [Parameter(Mandatory=$true)]
 [string]$FolderId,
@@ -25404,6 +25743,7 @@ param(
 BEGIN {
     $__PARAMETERMAP = @{
         BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ExcludeFolders = @{ OriginalName = '--excludeFolders'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         FolderId = @{ OriginalName = '--folderId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Parent = @{ OriginalName = '--parent'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -25437,6 +25777,11 @@ Recursively copies a folder to a new destination.
 
 .PARAMETER BatchThreads
 Specify the number of threads that should be used for recursive commands (overrides value in config file. Max 16)
+
+
+.PARAMETER ExcludeFolders
+Ids of folders to exclude.
+Note that due to the way permissions are automatically inherited in Drive, this may not have the desired result for permission commands!
 
 
 .PARAMETER Fields
@@ -25697,6 +26042,180 @@ The last time the file was viewed by the user (RFC 3339 date-time).
 .PARAMETER WritersCanShare
 Whether users with only writer permission can modify the file's permissions.
 Not populated for items in shared drives.
+
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+
+#>
+}
+
+
+Function Count-GSMFilesRecursive {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$ExcludeFolders,
+[Parameter(Mandatory=$true)]
+[string]$FolderId,
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ExcludeFolders = @{ OriginalName = '--excludeFolders'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FolderId = @{ OriginalName = '--folderId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "files"
+        "count"
+        "recursive"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Recursively count files in a folder
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for recursive commands (overrides value in config file. Max 16)
+
+
+.PARAMETER ExcludeFolders
+Ids of folders to exclude.
+Note that due to the way permissions are automatically inherited in Drive, this may not have the desired result for permission commands!
+
+
+.PARAMETER FolderId
+File id of the folder.
+
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+
+#>
+}
+
+
+Function Count-GSMFiles {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$FolderId,
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        FolderId = @{ OriginalName = '--folderId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "files"
+        "count"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Count files in a folder and returns their number and size.
+
+.PARAMETER FolderId
+Id of the folder.
 
 
 .PARAMETER Config
@@ -27478,6 +27997,8 @@ param(
 [Parameter()]
 [string]$BatchThreads,
 [Parameter()]
+[string]$ExcludeFolders,
+[Parameter()]
 [string]$Fields,
 [Parameter(Mandatory=$true)]
 [string]$FolderId,
@@ -27496,6 +28017,7 @@ param(
 BEGIN {
     $__PARAMETERMAP = @{
         BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ExcludeFolders = @{ OriginalName = '--excludeFolders'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         FolderId = @{ OriginalName = '--folderId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -27528,6 +28050,11 @@ Recursively list files in a folder
 
 .PARAMETER BatchThreads
 Specify the number of threads that should be used for recursive commands (overrides value in config file. Max 16)
+
+
+.PARAMETER ExcludeFolders
+Ids of folders to exclude.
+Note that due to the way permissions are automatically inherited in Drive, this may not have the desired result for permission commands!
 
 
 .PARAMETER Fields
@@ -27836,6 +28363,8 @@ Function Move-GSMFilesRecursive {
 param(
 [Parameter()]
 [string]$BatchThreads,
+[Parameter()]
+[string]$ExcludeFolders,
 [Parameter(Mandatory=$true)]
 [string]$FolderId,
 [Parameter(Mandatory=$true)]
@@ -27855,6 +28384,7 @@ param(
 BEGIN {
     $__PARAMETERMAP = @{
         BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ExcludeFolders = @{ OriginalName = '--excludeFolders'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         FolderId = @{ OriginalName = '--folderId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Parent = @{ OriginalName = '--parent'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -27887,6 +28417,11 @@ Moves a folder to a Shared Drive
 
 .PARAMETER BatchThreads
 Specify the number of threads that should be used for recursive commands (overrides value in config file. Max 16)
+
+
+.PARAMETER ExcludeFolders
+Ids of folders to exclude.
+Note that due to the way permissions are automatically inherited in Drive, this may not have the desired result for permission commands!
 
 
 .PARAMETER FolderId
@@ -32665,8 +33200,6 @@ Format: groups/{group_id}, where group_id is the unique id assigned to the Group
 .PARAMETER Roles
 The MembershipRoles that apply to the Membership.
 
-If unspecified, defaults to a single MembershipRole with name MEMBER.
-
 Must not contain duplicate MembershipRoles with the same name.
 
 Can be used multiple times in the form of "--roles name=...;expiryDate...
@@ -32947,7 +33480,7 @@ PROCESS {
 
 
 .DESCRIPTION
-GetMembershipGraphs a Membership.
+Get a membership graph of just a member or both a member and a group.
 
 .PARAMETER Email
 Email address of the group.
@@ -33059,7 +33592,7 @@ PROCESS {
 
 
 .DESCRIPTION
-Lists members of a (dynamic) group
+Lists the Memberships within a Group.
 
 .PARAMETER Email
 Email address of the group.
@@ -33165,7 +33698,7 @@ PROCESS {
 
 
 .DESCRIPTION
-Looks up a Membership.
+Looks up the resource name of a Membership by its EntityKey.
 
 .PARAMETER Email
 Email address of the group.
@@ -33322,18 +33855,18 @@ Must not contain MEMBER. Must not be set if updateRolesParams is set.
 .PARAMETER UpdateRolesParams
 The MembershipRoles to be updated.
 
-Updating roles in the same request as adding or removing roles is not supported.
+	Updating roles in the same request as adding or removing roles is not supported.
 
-Must not be set if either addRoles or removeRoles is set.
+	Must not be set if either addRoles or removeRoles is set.
 
-Can be used multiple times in the form of "--updateRolesParams fieldMask=...;membershipRole=..."
-You can use the following properties:
-name        - The name of the MembershipRole.
-		      Must be one of OWNER, MANAGER, MEMBER.
-expireTime  - The time at which the MembershipRole will expire.
-			  A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
-              Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-              Expiry details are only supported for MEMBER MembershipRoles.
+	Can be used multiple times in the form of "--updateRolesParams fieldMask=...;membershipRole=..."
+	You can use the following properties:
+	name        - The name of the MembershipRole.
+			      Must be one of OWNER, MANAGER, MEMBER.
+	expireTime  - The time at which the MembershipRole will expire.
+				  A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
+	              Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
+	              Expiry details are only supported for MEMBER MembershipRoles.
 
 
 .PARAMETER Config
@@ -33368,11 +33901,7 @@ Function SearchTransitiveGroups-GSMGroupMembershipsCi {
 
 param(
 [Parameter()]
-[string]$Email,
-[Parameter()]
 [string]$Fields,
-[Parameter()]
-[string]$Parent,
 [Parameter(Mandatory=$true)]
 [string]$Query,
 [Parameter()]
@@ -33389,9 +33918,7 @@ param(
 
 BEGIN {
     $__PARAMETERMAP = @{
-        Email = @{ OriginalName = '--email'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Parent = @{ OriginalName = '--parent'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Query = @{ OriginalName = '--query'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -33420,20 +33947,9 @@ PROCESS {
 .DESCRIPTION
 Search transitive groups of a member.
 
-.PARAMETER Email
-Email address of the group.
-This may be used instead of the name to do a lookup of the group resource name.
-Note that this will cause an additional API call.
-
-
 .PARAMETER Fields
 Fields allows partial responses to be retrieved.
 See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
-
-
-.PARAMETER Parent
-Resource name of the group.
-Format: groups/{group_id}, where group_id is the unique id assigned to the Group to which the Membership belongs to.
 
 
 .PARAMETER Query
@@ -34644,10 +35160,6 @@ Function Create-GSMGroupsCiBatch {
 
 param(
 [Parameter()]
-[string]$AdditionalGroupKeys,
-[Parameter()]
-[string]$AdditionalGroupKeys_ALL,
-[Parameter()]
 [string]$BatchThreads,
 [Parameter()]
 [string]$Delimiter,
@@ -34703,8 +35215,6 @@ param(
 
 BEGIN {
     $__PARAMETERMAP = @{
-        AdditionalGroupKeys = @{ OriginalName = '--additionalGroupKeys'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        AdditionalGroupKeys_ALL = @{ OriginalName = '--additionalGroupKeys_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Description = @{ OriginalName = '--description'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -34754,15 +35264,6 @@ PROCESS {
 .DESCRIPTION
 Batch creates groups using a CSV file as input.
 
-.PARAMETER AdditionalGroupKeys
-Additional entity key aliases for a Group.
-Can be used multiple times in the form of "id=...;namespace=..."
-
-
-.PARAMETER AdditionalGroupKeys_ALL
-Same as additionalGroupKeys but value is applied to all lines in the CSV file
-
-
 .PARAMETER BatchThreads
 Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
 
@@ -34800,7 +35301,7 @@ Same as fields but value is applied to all lines in the CSV file
 .PARAMETER Id
 The ID of the entity.
 
-For Google-managed entities, the id must be the email address of an existing group or user.
+For Google-managed entities, the id must be the email address.
 
 For external-identity-mapped entities, the id must be a string conforming to the Identity Source's requirements.
 
@@ -34918,8 +35419,6 @@ Function Create-GSMGroupsCi {
 
 param(
 [Parameter()]
-[string]$AdditionalGroupKeys,
-[Parameter()]
 [string]$Description,
 [Parameter()]
 [string]$DisplayName,
@@ -34951,7 +35450,6 @@ param(
 
 BEGIN {
     $__PARAMETERMAP = @{
-        AdditionalGroupKeys = @{ OriginalName = '--additionalGroupKeys'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Description = @{ OriginalName = '--description'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DisplayName = @{ OriginalName = '--displayName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -34988,11 +35486,6 @@ PROCESS {
 .DESCRIPTION
 Creates a Group.
 
-.PARAMETER AdditionalGroupKeys
-Additional entity key aliases for a Group.
-Can be used multiple times in the form of "id=...;namespace=..."
-
-
 .PARAMETER Description
 An extended description to help users determine the purpose of a Group.
 Must not be longer than 4,096 characters.
@@ -35010,7 +35503,7 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 .PARAMETER Id
 The ID of the entity.
 
-For Google-managed entities, the id must be the email address of an existing group or user.
+For Google-managed entities, the id must be the email address.
 
 For external-identity-mapped entities, the id must be a string conforming to the Identity Source's requirements.
 
@@ -35641,11 +36134,11 @@ param(
 [Parameter()]
 [string]$Delimiter,
 [Parameter()]
-[string]$Email,
-[Parameter()]
 [string]$Fields,
 [Parameter()]
 [string]$Fields_ALL,
+[Parameter()]
+[string]$Id,
 [Parameter(Mandatory=$true)]
 [string]$Path,
 [Parameter()]
@@ -35666,9 +36159,9 @@ BEGIN {
     $__PARAMETERMAP = @{
         BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
-        Email = @{ OriginalName = '--email'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Id = @{ OriginalName = '--id'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
         Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -35707,12 +36200,6 @@ Specify the number of threads that should be used for batch commands (overrides 
 Delimiter to use for CSV columns. Must be exactly one character.
 
 
-.PARAMETER Email
-Email address of the group.
-This may be used instead of the name to do a lookup of the group resource name.
-Note that this will cause an additional API call.
-
-
 .PARAMETER Fields
 Fields allows partial responses to be retrieved.
 See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
@@ -35720,6 +36207,16 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 
 .PARAMETER Fields_ALL
 Same as fields but value is applied to all lines in the CSV file
+
+
+.PARAMETER Id
+The ID of the entity.
+
+For Google-managed entities, the id must be the email address.
+
+For external-identity-mapped entities, the id must be a string conforming to the Identity Source's requirements.
+
+Must be unique within a namespace.
 
 
 .PARAMETER Path
@@ -35762,9 +36259,9 @@ Function Lookup-GSMGroupsCi {
 
 param(
 [Parameter()]
-[string]$Email,
-[Parameter()]
 [string]$Fields,
+[Parameter(Mandatory=$true)]
+[string]$Id,
 [Parameter()]
 [string]$Config,
 [Parameter()]
@@ -35779,8 +36276,8 @@ param(
 
 BEGIN {
     $__PARAMETERMAP = @{
-        Email = @{ OriginalName = '--email'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Id = @{ OriginalName = '--id'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -35808,15 +36305,19 @@ PROCESS {
 .DESCRIPTION
 Looks up a Group.
 
-.PARAMETER Email
-Email address of the group.
-This may be used instead of the name to do a lookup of the group resource name.
-Note that this will cause an additional API call.
-
-
 .PARAMETER Fields
 Fields allows partial responses to be retrieved.
 See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER Id
+The ID of the entity.
+
+For Google-managed entities, the id must be the email address.
+
+For external-identity-mapped entities, the id must be a string conforming to the Identity Source's requirements.
+
+Must be unique within a namespace.
 
 
 .PARAMETER Config
@@ -52772,6 +53273,8 @@ param(
 [Parameter()]
 [string]$ResourceName,
 [Parameter()]
+[string]$SortOrder,
+[Parameter()]
 [string]$Sources,
 [Parameter()]
 [string]$Config,
@@ -52790,6 +53293,7 @@ BEGIN {
         Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         PersonFields = @{ OriginalName = '--personFields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         ResourceName = @{ OriginalName = '--resourceName'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        SortOrder = @{ OriginalName = '--sortOrder'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Sources = @{ OriginalName = '--sources'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -52860,6 +53364,16 @@ Valid values are:
 
 .PARAMETER ResourceName
 The resource name to return connections for. Only people/me is valid.
+
+
+.PARAMETER SortOrder
+Optional. The order in which the connections should be sorted.
+Defaults to LAST_MODIFIED_ASCENDING.
+Valid values are:
+LAST_MODIFIED_ASCENDING   - Sort people by when they were changed; older entries first.
+LAST_MODIFIED_DESCENDING  - Sort people by when they were changed; newer entries first.
+FIRST_NAME_ASCENDING      - Sort people by first name.
+LAST_NAME_ASCENDING       - Sort people by last name.
 
 
 .PARAMETER Sources
@@ -53201,6 +53715,8 @@ param(
 [Parameter()]
 [string]$EmailMessage,
 [Parameter()]
+[string]$ExcludeFolders,
+[Parameter()]
 [string]$Fields,
 [Parameter(Mandatory=$true)]
 [string]$FolderId,
@@ -53235,6 +53751,7 @@ BEGIN {
         Domain = @{ OriginalName = '--domain'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         EmailAddress = @{ OriginalName = '--emailAddress'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         EmailMessage = @{ OriginalName = '--emailMessage'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ExcludeFolders = @{ OriginalName = '--excludeFolders'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         FolderId = @{ OriginalName = '--folderId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         MoveToNewOwnersRoot = @{ OriginalName = '--moveToNewOwnersRoot'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
@@ -53290,6 +53807,11 @@ The email address of the user or group to which this permission refers.
 
 .PARAMETER EmailMessage
 A plain text custom message to include in the notification email
+
+
+.PARAMETER ExcludeFolders
+Ids of folders to exclude.
+Note that due to the way permissions are automatically inherited in Drive, this may not have the desired result for permission commands!
 
 
 .PARAMETER Fields
@@ -53707,6 +54229,8 @@ param(
 [string]$Domain,
 [Parameter()]
 [string]$EmailAddress,
+[Parameter()]
+[string]$ExcludeFolders,
 [Parameter(Mandatory=$true)]
 [string]$FolderId,
 [Parameter()]
@@ -53730,6 +54254,7 @@ BEGIN {
         BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Domain = @{ OriginalName = '--domain'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         EmailAddress = @{ OriginalName = '--emailAddress'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ExcludeFolders = @{ OriginalName = '--excludeFolders'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         FolderId = @{ OriginalName = '--folderId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         PermissionId = @{ OriginalName = '--permissionId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         UseDomainAdminAccess = @{ OriginalName = '--useDomainAdminAccess'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
@@ -53771,6 +54296,11 @@ The domain to which this permission refers.
 
 .PARAMETER EmailAddress
 The email address of the user or group to which this permission refers.
+
+
+.PARAMETER ExcludeFolders
+Ids of folders to exclude.
+Note that due to the way permissions are automatically inherited in Drive, this may not have the desired result for permission commands!
 
 
 .PARAMETER FolderId
@@ -54372,6 +54902,8 @@ param(
 [Parameter()]
 [string]$BatchThreads,
 [Parameter()]
+[string]$ExcludeFolders,
+[Parameter()]
 [string]$Fields,
 [Parameter(Mandatory=$true)]
 [string]$FolderId,
@@ -54392,6 +54924,7 @@ param(
 BEGIN {
     $__PARAMETERMAP = @{
         BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ExcludeFolders = @{ OriginalName = '--excludeFolders'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         FolderId = @{ OriginalName = '--folderId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         UseDomainAdminAccess = @{ OriginalName = '--useDomainAdminAccess'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
@@ -54425,6 +54958,11 @@ Recursively lists permissions to a folder and all of its children.
 
 .PARAMETER BatchThreads
 Specify the number of threads that should be used for recursive commands (overrides value in config file. Max 16)
+
+
+.PARAMETER ExcludeFolders
+Ids of folders to exclude.
+Note that due to the way permissions are automatically inherited in Drive, this may not have the desired result for permission commands!
 
 
 .PARAMETER Fields
@@ -54881,6 +55419,8 @@ param(
 [Parameter()]
 [string]$EmailMessage,
 [Parameter()]
+[string]$ExcludeFolders,
+[Parameter()]
 [string]$ExpirationTime,
 [Parameter()]
 [string]$Fields,
@@ -54919,6 +55459,7 @@ BEGIN {
         Domain = @{ OriginalName = '--domain'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         EmailAddress = @{ OriginalName = '--emailAddress'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         EmailMessage = @{ OriginalName = '--emailMessage'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ExcludeFolders = @{ OriginalName = '--excludeFolders'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         ExpirationTime = @{ OriginalName = '--expirationTime'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         FolderId = @{ OriginalName = '--folderId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -54976,6 +55517,11 @@ The email address of the user or group to which this permission refers.
 
 .PARAMETER EmailMessage
 A plain text custom message to include in the notification email
+
+
+.PARAMETER ExcludeFolders
+Ids of folders to exclude.
+Note that due to the way permissions are automatically inherited in Drive, this may not have the desired result for permission commands!
 
 
 .PARAMETER ExpirationTime
@@ -55213,6 +55759,530 @@ There isn't extra information required for a anyone type.
 
 .PARAMETER UseDomainAdminAccess
 Issue the request as a domain administrator; if set to true, then the requester will be granted access if the file ID parameter refers to a shared drive and the requester is an administrator of the domain to which the shared drive belongs.
+
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+
+#>
+}
+
+
+Function Get-GSMPostmasterDomainsBatch {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$Delimiter,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$Fields_ALL,
+[Parameter()]
+[string]$Name,
+[Parameter()]
+[string]$Name_ALL,
+[Parameter(Mandatory=$true)]
+[string]$Path,
+[Parameter()]
+[switch]$SkipHeader,
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Name = @{ OriginalName = '--name'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Name_ALL = @{ OriginalName = '--name_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "postmasterDomains"
+        "get"
+        "batch"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Batch gets domains by fully qualified name using a CSV file as input.
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
+
+
+.PARAMETER Delimiter
+Delimiter to use for CSV columns. Must be exactly one character.
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER Fields_ALL
+Same as fields but value is applied to all lines in the CSV file
+
+
+.PARAMETER Name
+Fully qualified domain name.
+
+
+.PARAMETER Name_ALL
+Same as name but value is applied to all lines in the CSV file
+
+
+.PARAMETER Path
+Path of the import file (CSV)
+
+
+.PARAMETER SkipHeader
+Whether to skip the first row (header)
+
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+
+#>
+}
+
+
+Function Get-GSMPostmasterDomains {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$Fields,
+[Parameter(Mandatory=$true)]
+[string]$Name,
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Name = @{ OriginalName = '--name'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "postmasterDomains"
+        "get"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Gets a specific domain registered by the client. Returns NOT_FOUND if the domain does not exist.
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER Name
+Fully qualified domain name.
+
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+
+#>
+}
+
+
+Function List-GSMPostmasterDomains {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "postmasterDomains"
+        "list"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Lists the domains that have been registered by the client.
+The order of domains in the response is unspecified and non-deterministic.
+Newly created domains will not necessarily be added to the end of this list.
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+
+#>
+}
+
+
+Function Get-GSMPostmasterTrafficStats {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$Fields,
+[Parameter(Mandatory=$true)]
+[string]$Name,
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Name = @{ OriginalName = '--name'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "postmasterTrafficStats"
+        "get"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Get traffic statistics for a domain on a specific date.
+Returns PERMISSION_DENIED if user does not have permission to access TrafficStats for the domain.
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER Name
+The resource name of the traffic statistics to get.
+E.g., domains/mymail.mydomain.com/trafficStats/20160807.
+
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+
+#>
+}
+
+
+Function List-GSMPostmasterTrafficStats {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$EndDateDay,
+[Parameter()]
+[string]$EndDateMonth,
+[Parameter()]
+[string]$EndDateYear,
+[Parameter()]
+[string]$Fields,
+[Parameter(Mandatory=$true)]
+[string]$Parent,
+[Parameter()]
+[string]$StartDateDay,
+[Parameter()]
+[string]$StartDateMonth,
+[Parameter()]
+[string]$StartDateYear,
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Log,
+[Parameter()]
+[string]$RetryOn
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        EndDateDay = @{ OriginalName = '--endDateDay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        EndDateMonth = @{ OriginalName = '--endDateMonth'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        EndDateYear = @{ OriginalName = '--endDateYear'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Parent = @{ OriginalName = '--parent'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        StartDateDay = @{ OriginalName = '--startDateDay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        StartDateMonth = @{ OriginalName = '--startDateMonth'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        StartDateYear = @{ OriginalName = '--startDateYear'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "postmasterTrafficStats"
+        "list"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+List traffic statistics for all available days.
+Returns PERMISSION_DENIED if user does not have permission to access TrafficStats for the domain.
+
+.PARAMETER EndDateDay
+The day of the most recent date of the metrics to retrieve inclusive.
+If you specify one date flag, you must specify ALL (start and end)!
+
+
+.PARAMETER EndDateMonth
+The month of the most recent date of the metrics to retrieve inclusive.
+If you specify one date flag, you must specify ALL (start and end)!
+
+
+.PARAMETER EndDateYear
+The year of the most recent date of the metrics to retrieve inclusive.
+If you specify one date flag, you must specify ALL (start and end)!
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER Parent
+Fully qualified domain name.
+
+
+.PARAMETER StartDateDay
+The day of the earliest date of the metrics to retrieve inclusive.
+If you specify one date flag, you must specify ALL (start and end)!
+
+
+.PARAMETER StartDateMonth
+The month of the earliest date of the metrics to retrieve inclusive.
+If you specify one date flag, you must specify ALL (start and end)!
+
+
+.PARAMETER StartDateYear
+The year of the earliest date of the metrics to retrieve inclusive.
+If you specify one date flag, you must specify ALL (start and end)!
 
 
 .PARAMETER Config
@@ -59614,7 +60684,7 @@ Specify the number of threads that should be used for batch commands (overrides 
 
 
 .PARAMETER CustomerId
-Immutable ID of the G Suite account.
+Immutable ID of the Workspace account.
 
 
 .PARAMETER CustomerId_ALL
@@ -59716,7 +60786,7 @@ PROCESS {
 Delete a custom schema.
 
 .PARAMETER CustomerId
-Immutable ID of the G Suite account.
+Immutable ID of the Workspace account.
 
 
 .PARAMETER SchemaKey
@@ -59828,7 +60898,7 @@ Specify the number of threads that should be used for batch commands (overrides 
 
 
 .PARAMETER CustomerId
-Immutable ID of the G Suite account.
+Immutable ID of the Workspace account.
 
 
 .PARAMETER CustomerId_ALL
@@ -59942,7 +61012,7 @@ PROCESS {
 Retrieve a custom schema.
 
 .PARAMETER CustomerId
-Immutable ID of the G Suite account.
+Immutable ID of the Workspace account.
 
 
 .PARAMETER Fields
@@ -60065,7 +61135,7 @@ Specify the number of threads that should be used for batch commands (overrides 
 
 
 .PARAMETER CustomerId
-Immutable ID of the G Suite account.
+Immutable ID of the Workspace account.
 
 
 .PARAMETER CustomerId_ALL
@@ -60216,7 +61286,7 @@ PROCESS {
 Create a custom schema.
 
 .PARAMETER CustomerId
-Immutable ID of the G Suite account.
+Immutable ID of the Workspace account.
 
 
 .PARAMETER DisplayName
@@ -60338,7 +61408,7 @@ PROCESS {
 List custom schemas
 
 .PARAMETER CustomerId
-Immutable ID of the G Suite account.
+Immutable ID of the Workspace account.
 
 
 .PARAMETER Fields
@@ -60460,7 +61530,7 @@ Specify the number of threads that should be used for batch commands (overrides 
 
 
 .PARAMETER CustomerId
-Immutable ID of the G Suite account.
+Immutable ID of the Workspace account.
 
 
 .PARAMETER CustomerId_ALL
@@ -60618,7 +61688,7 @@ PROCESS {
 Patches a custom schema
 
 .PARAMETER CustomerId
-Immutable ID of the G Suite account.
+Immutable ID of the Workspace account.
 
 
 .PARAMETER DisplayName
@@ -74309,7 +75379,7 @@ An example of an invalid request parameter is one that does not belong to the ap
 
 .PARAMETER UserKey
 Represents the profile ID or the user email for which the data should be filtered.
-Can be "all" for all information, or userKey for a user's unique G Suite profile ID or their primary email address.
+Can be "all" for all information, or userKey for a user's unique Workspace profile ID or their primary email address.
 
 
 .PARAMETER Config
@@ -75217,4 +76287,4 @@ Specify the HTTP error code(s) that GSM should retry on. Note that GSM will alwa
 }
 
 
-Export-ModuleMember -Function Get-GSMAbout, List-GSMActivities, Delete-GSMAspsBatch, Delete-GSMAsps, Get-GSMAspsBatch, Get-GSMAsps, List-GSMAspsBatch, List-GSMAspsRecursive, List-GSMAsps, Get-GSMAttachmentsBatch, Get-GSMAttachments, Delete-GSMBuildingsBatch, Delete-GSMBuildings, Get-GSMBuildingsBatch, Get-GSMBuildings, Insert-GSMBuildingsBatch, Insert-GSMBuildings, List-GSMBuildings, Patch-GSMBuildingsBatch, Patch-GSMBuildings, Delete-GSMCalendarAclBatch, Delete-GSMCalendarAcl, Get-GSMCalendarAclBatch, Get-GSMCalendarAcl, Insert-GSMCalendarAclBatch, Insert-GSMCalendarAcl, List-GSMCalendarAclBatch, List-GSMCalendarAcl, Patch-GSMCalendarAclBatch, Patch-GSMCalendarAcl, Delete-GSMCalendarListsBatch, Delete-GSMCalendarLists, Get-GSMCalendarListsBatch, Get-GSMCalendarLists, Insert-GSMCalendarListsBatch, Insert-GSMCalendarLists, List-GSMCalendarLists, Patch-GSMCalendarListsBatch, Patch-GSMCalendarLists, Delete-GSMCalendarResourcesBatch, Delete-GSMCalendarResources, Get-GSMCalendarResourcesBatch, Get-GSMCalendarResources, Insert-GSMCalendarResourcesBatch, Insert-GSMCalendarResources, List-GSMCalendarResources, Patch-GSMCalendarResourcesBatch, Patch-GSMCalendarResources, Clear-GSMCalendars, Delete-GSMCalendarsBatch, Delete-GSMCalendars, Get-GSMCalendarsBatch, Get-GSMCalendars, Insert-GSMCalendarsBatch, Insert-GSMCalendars, Patch-GSMCalendarsBatch, Patch-GSMCalendars, Get-GSMCalendarSettingsBatch, Get-GSMCalendarSettings, List-GSMCalendarSettings, GetStartPageToken-GSMChanges, List-GSMChanges, IssueCommand-GSMChromeOsBatch, IssueCommand-GSMChromeOs, Action-GSMChromeOsDevicesBatch, Action-GSMChromeOsDevices, Get-GSMChromeOsDevicesBatch, Get-GSMChromeOsDevices, List-GSMChromeOsDevices, MoveToOU-GSMChromeOsDevices, Patch-GSMChromeOsDevicesBatch, Patch-GSMChromeOsDevices, Get-GSMColors, Create-GSMCommentsBatch, Create-GSMComments, Delete-GSMCommentsBatch, Delete-GSMComments, Get-GSMCommentsBatch, Get-GSMComments, List-GSMCommentsBatch, List-GSMComments, Update-GSMCommentsBatch, Update-GSMComments, Get-GSMConfigs, GetScopes-GSMConfigs, List-GSMConfigs, Load-GSMConfigs, New-GSMConfigs, Remove-GSMConfigs, Update-GSMConfigs, BatchGet-GSMContactGroups, Create-GSMContactGroupsBatch, Create-GSMContactGroups, Delete-GSMContactGroupsBatch, Delete-GSMContactGroups, Get-GSMContactGroupsBatch, Get-GSMContactGroups, List-GSMContactGroups, Update-GSMContactGroupsBatch, Update-GSMContactGroups, Modify-GSMContactGroupsMembersBatch, Modify-GSMContactGroupsMembers, Get-GSMCustomers, Patch-GSMCustomers, Get-GSMCustomerUsageReports, Create-GSMDelegatesBatch, Create-GSMDelegates, Delete-GSMDelegatesBatch, Delete-GSMDelegates, Get-GSMDelegatesBatch, Get-GSMDelegates, List-GSMDelegates, Delete-GSMDomainAliasesBatch, Delete-GSMDomainAliases, Get-GSMDomainAliasesBatch, Get-GSMDomainAliases, Insert-GSMDomainAliasesBatch, Insert-GSMDomainAliases, List-GSMDomainAliases, Delete-GSMDomainsBatch, Delete-GSMDomains, Get-GSMDomainsBatch, Get-GSMDomains, Insert-GSMDomainsBatch, Insert-GSMDomains, List-GSMDomains, Create-GSMDraftsBatch, Create-GSMDrafts, Delete-GSMDraftsBatch, Delete-GSMDrafts, Get-GSMDraftsBatch, Get-GSMDrafts, List-GSMDrafts, Send-GSMDraftsBatch, Send-GSMDrafts, Update-GSMDraftsBatch, Update-GSMDrafts, Create-GSMDrivesBatch, Create-GSMDrives, Delete-GSMDrivesBatch, Delete-GSMDrives, Get-GSMDrivesBatch, Get-GSMDrives, Hide-GSMDrivesBatch, Hide-GSMDrives, List-GSMDrives, Unhide-GSMDrivesBatch, Unhide-GSMDrives, Update-GSMDrivesBatch, Update-GSMDrives, Get-GSMEntityUsageReports, Delete-GSMEventsBatch, Delete-GSMEvents, Get-GSMEventsBatch, Get-GSMEvents, Import-GSMEventsBatch, Import-GSMEvents, Insert-GSMEventsBatch, Insert-GSMEvents, Instances-GSMEventsBatch, Instances-GSMEvents, List-GSMEventsBatch, List-GSMEvents, Move-GSMEventsBatch, Move-GSMEvents, Patch-GSMEventsBatch, Patch-GSMEvents, QuickAdd-GSMEventsBatch, QuickAdd-GSMEvents, Delete-GSMFeaturesBatch, Delete-GSMFeatures, Get-GSMFeaturesBatch, Get-GSMFeatures, Insert-GSMFeaturesBatch, Insert-GSMFeatures, List-GSMFeatures, Patch-GSMFeaturesBatch, Patch-GSMFeatures, Rename-GSMFeaturesBatch, Rename-GSMFeatures, Copy-GSMFilesBatch, Copy-GSMFilesRecursive, Copy-GSMFiles, Create-GSMFilesBatch, Create-GSMFiles, Delete-GSMFilesBatch, Delete-GSMFiles, Download-GSMFilesBatch, Download-GSMFiles, Export-GSMFilesBatch, Export-GSMFiles, GenerateIds-GSMFiles, Get-GSMFilesBatch, Get-GSMFiles, List-GSMFilesRecursive, List-GSMFiles, Move-GSMFilesBatch, Move-GSMFilesRecursive, Move-GSMFiles, Update-GSMFilesBatch, Update-GSMFiles, Create-GSMFiltersBatch, Create-GSMFilters, Delete-GSMFiltersBatch, Delete-GSMFilters, Get-GSMFiltersBatch, Get-GSMFilters, List-GSMFilters, Create-GSMForwardingAddressesBatch, Create-GSMForwardingAddresses, Delete-GSMForwardingAddressesBatch, Delete-GSMForwardingAddresses, Get-GSMForwardingAddressesBatch, Get-GSMForwardingAddresses, List-GSMForwardingAddresses, Query-GSMFreeBusy, GetAutoForwarding-GSMGmailSettings, GetImap-GSMGmailSettings, GetLanguage-GSMGmailSettings, GetPop-GSMGmailSettings, GetVacation-GSMGmailSettings, UpdateAutoForwarding-GSMGmailSettings, UpdateImap-GSMGmailSettings, UpdateLanguage-GSMGmailSettings, UpdatePop-GSMGmailSettings, UpdateVacation-GSMGmailSettings, GetProfile-GSMGmailUsers, Delete-GSMGroupAliasesBatch, Delete-GSMGroupAliases, Insert-GSMGroupAliasesBatch, Insert-GSMGroupAliases, List-GSMGroupAliasesBatch, List-GSMGroupAliases, CheckTransitiveMembership-GSMGroupMembershipsCi, Create-GSMGroupMembershipsCi, Delete-GSMGroupMembershipsCi, Get-GSMGroupMembershipsCi, GetMembershipGraph-GSMGroupMembershipsCi, List-GSMGroupMembershipsCi, Lookup-GSMGroupMembershipsCi, ModifyMembershipRoles-GSMGroupMembershipsCi, SearchTransitiveGroups-GSMGroupMembershipsCi, SearchTransitiveMemberships-GSMGroupMembershipsCi, Delete-GSMGroupsBatch, Delete-GSMGroups, Get-GSMGroupsBatch, Get-GSMGroups, Insert-GSMGroupsBatch, Insert-GSMGroups, List-GSMGroups, Patch-GSMGroupsBatch, Patch-GSMGroups, Create-GSMGroupsCiBatch, Create-GSMGroupsCi, Delete-GSMGroupsCiBatch, Delete-GSMGroupsCi, Get-GSMGroupsCiBatch, Get-GSMGroupsCi, List-GSMGroupsCi, Lookup-GSMGroupsCiBatch, Lookup-GSMGroupsCi, Patch-GSMGroupsCiBatch, Patch-GSMGroupsCi, Search-GSMGroupsCi, Get-GSMGroupSettingsBatch, Get-GSMGroupSettings, Patch-GSMGroupSettingsBatch, Patch-GSMGroupSettings, List-GSMHistory, Create-GSMLabelsBatch, Create-GSMLabels, Delete-GSMLabelsBatch, Delete-GSMLabels, Get-GSMLabelsBatch, Get-GSMLabels, List-GSMLabels, Patch-GSMLabelsBatch, Patch-GSMLabels, Delete-GSMLicenseAssignmentsBatch, Delete-GSMLicenseAssignmentsRecursive, Delete-GSMLicenseAssignments, Get-GSMLicenseAssignmentsBatch, Get-GSMLicenseAssignmentsRecursive, Get-GSMLicenseAssignments, Insert-GSMLicenseAssignmentsBatch, Insert-GSMLicenseAssignmentsRecursive, Insert-GSMLicenseAssignments, ListForProduct-GSMLicenseAssignments, ListForProductAndSku-GSMLicenseAssignments, Patch-GSMLicenseAssignmentsBatch, Patch-GSMLicenseAssignmentsRecursive, Patch-GSMLicenseAssignments, Clear-GSMLog, Show-GSMLog, Delete-GSMMembersBatch, Delete-GSMMembersRecursive, Delete-GSMMembers, Get-GSMMembersBatch, Get-GSMMembersRecursive, Get-GSMMembers, HasMember-GSMMembersBatch, HasMember-GSMMembersRecursive, HasMember-GSMMembers, Insert-GSMMembersBatch, Insert-GSMMembersRecursive, Insert-GSMMembers, List-GSMMembersBatch, List-GSMMembers, Patch-GSMMembersBatch, Patch-GSMMembersRecursive, Patch-GSMMembers, Set-GSMMembersRecursive, Set-GSMMembers, BatchDelete-GSMMessages, Delete-GSMMessages, Get-GSMMessagesBatch, Get-GSMMessages, Import-GSMMessagesBatch, Import-GSMMessages, Insert-GSMMessagesBatch, Insert-GSMMessages, List-GSMMessages, Modify-GSMMessagesBatch, Modify-GSMMessages, Send-GSMMessagesBatch, Send-GSMMessages, Trash-GSMMessagesBatch, Trash-GSMMessages, Untrash-GSMMessagesBatch, Untrash-GSMMessages, Action-GSMMobileDevicesBatch, Action-GSMMobileDevices, Delete-GSMMobileDevicesBatch, Delete-GSMMobileDevices, Get-GSMMobileDevicesBatch, Get-GSMMobileDevices, List-GSMMobileDevices, Delete-GSMOrgUnitsBatch, Delete-GSMOrgUnits, Get-GSMOrgUnitsBatch, Get-GSMOrgUnits, Insert-GSMOrgUnitsBatch, Insert-GSMOrgUnits, List-GSMOrgUnits, Patch-GSMOrgUnitsBatch, Patch-GSMOrgUnits, CopyOtherContactToMyContactsGroup-GSMOtherContacts, List-GSMOtherContacts, CreateContact-GSMPeopleBatch, CreateContact-GSMPeople, DeleteContact-GSMPeopleBatch, DeleteContact-GSMPeople, DeleteContactPhoto-GSMPeopleBatch, DeleteContactPhoto-GSMPeople, Get-GSMPeople, GetBatchGet-GSMPeople, ListDirectoryPeople-GSMPeople, SearchDirectoryPeople-GSMPeople, UpdateContact-GSMPeopleBatch, UpdateContact-GSMPeople, UpdateContactPhoto-GSMPeopleBatch, UpdateContactPhoto-GSMPeople, List-GSMPeopleConnections, Create-GSMPermissionsBatch, Create-GSMPermissionsRecursive, Create-GSMPermissions, Delete-GSMPermissionsBatch, Delete-GSMPermissionsRecursive, Delete-GSMPermissions, Get-GSMPermissionsBatch, Get-GSMPermissions, List-GSMPermissionsBatch, List-GSMPermissionsRecursive, List-GSMPermissions, Update-GSMPermissionsBatch, Update-GSMPermissionsRecursive, Update-GSMPermissions, List-GSMPrivileges, Create-GSMRepliesBatch, Create-GSMReplies, Delete-GSMRepliesBatch, Delete-GSMReplies, Get-GSMRepliesBatch, Get-GSMReplies, List-GSMReplies, Update-GSMRepliesBatch, Update-GSMReplies, Delete-GSMRevisionsBatch, Delete-GSMRevisions, Get-GSMRevisionsBatch, Get-GSMRevisions, List-GSMRevisions, Update-GSMRevisionsBatch, Update-GSMRevisions, Delete-GSMRoleAssignmentsBatch, Delete-GSMRoleAssignments, Get-GSMRoleAssignmentsBatch, Get-GSMRoleAssignments, Insert-GSMRoleAssignmentsBatch, Insert-GSMRoleAssignmentsRecursive, Insert-GSMRoleAssignments, List-GSMRoleAssignmentsRecursive, List-GSMRoleAssignments, Delete-GSMRolesBatch, Delete-GSMRoles, Get-GSMRolesBatch, Get-GSMRoles, Insert-GSMRolesBatch, Insert-GSMRoles, List-GSMRoles, Patch-GSMRolesBatch, Patch-GSMRoles, Delete-GSMSchemasBatch, Delete-GSMSchemas, Get-GSMSchemasBatch, Get-GSMSchemas, Insert-GSMSchemasBatch, Insert-GSMSchemas, List-GSMSchemas, Patch-GSMSchemasBatch, Patch-GSMSchemas, Create-GSMSendAsBatch, Create-GSMSendAs, Delete-GSMSendAsBatch, Delete-GSMSendAs, Get-GSMSendAsBatch, Get-GSMSendAs, List-GSMSendAs, Patch-GSMSendAsBatch, Patch-GSMSendAs, Verify-GSMSendAsBatch, Verify-GSMSendAs, Create-GSMSharedContactsBatch, Create-GSMSharedContacts, Delete-GSMSharedContactsBatch, Delete-GSMSharedContacts, Get-GSMSharedContactsBatch, Get-GSMSharedContacts, List-GSMSharedContacts, Update-GSMSharedContactsBatch, Update-GSMSharedContacts, Delete-GSMSmimeInfoBatch, Delete-GSMSmimeInfo, Get-GSMSmimeInfoBatch, Get-GSMSmimeInfo, Insert-GSMSmimeInfoBatch, Insert-GSMSmimeInfo, List-GSMSmimeInfo, SetDefault-GSMSmimeInfo, BatchUpdate-GSMSpreadsheets, Create-GSMSpreadsheets, Get-GSMSpreadsheets, Delete-GSMThreadsBatch, Delete-GSMThreads, Get-GSMThreadsBatch, Get-GSMThreads, List-GSMThreads, Modify-GSMThreadsBatch, Modify-GSMThreads, Trash-GSMThreadsBatch, Trash-GSMThreads, Untrash-GSMThreadsBatch, Untrash-GSMThreads, Delete-GSMTokensBatch, Delete-GSMTokensRecursive, Delete-GSMTokens, Get-GSMTokensBatch, Get-GSMTokens, List-GSMTokensBatch, List-GSMTokensRecursive, List-GSMTokens, TurnOff-GSMTwoStepVerificationBatch, TurnOff-GSMTwoStepVerificationRecursive, TurnOff-GSMTwoStepVerification, Delete-GSMUserAliasesBatch, Delete-GSMUserAliases, Insert-GSMUserAliasesBatch, Insert-GSMUserAliases, List-GSMUserAliasesBatch, List-GSMUserAliasesRecursive, List-GSMUserAliases, Delete-GSMUserPhotosBatch, Delete-GSMUserPhotosRecursive, Delete-GSMUserPhotos, Get-GSMUserPhotosBatch, Get-GSMUserPhotosRecursive, Get-GSMUserPhotos, Update-GSMUserPhotosBatch, Update-GSMUserPhotosRecursive, Update-GSMUserPhotos, Delete-GSMUsersBatch, Delete-GSMUsersRecursive, Delete-GSMUsers, Get-GSMUsersBatch, Get-GSMUsersRecursive, Get-GSMUsers, Insert-GSMUsersBatch, Insert-GSMUsers, List-GSMUsers, MakeAdmin-GSMUsersBatch, MakeAdmin-GSMUsersRecursive, MakeAdmin-GSMUsers, SignOut-GSMUsersBatch, SignOut-GSMUsersRecursive, SignOut-GSMUsers, Undelete-GSMUsersBatch, Undelete-GSMUsers, Update-GSMUsersBatch, Update-GSMUsersRecursive, Update-GSMUsers, Get-GSMUserUsageReports, Generate-GSMVerificationCodesBatch, Generate-GSMVerificationCodesRecursive, Generate-GSMVerificationCodes, Invalidate-GSMVerificationCodesBatch, Invalidate-GSMVerificationCodesRecursive, Invalidate-GSMVerificationCodes, List-GSMVerificationCodesBatch, List-GSMVerificationCodesRecursive, List-GSMVerificationCodes
+Export-ModuleMember -Function Get-GSMAbout, List-GSMActivities, Delete-GSMAspsBatch, Delete-GSMAsps, Get-GSMAspsBatch, Get-GSMAsps, List-GSMAspsBatch, List-GSMAspsRecursive, List-GSMAsps, Get-GSMAttachmentsBatch, Get-GSMAttachments, Delete-GSMBuildingsBatch, Delete-GSMBuildings, Get-GSMBuildingsBatch, Get-GSMBuildings, Insert-GSMBuildingsBatch, Insert-GSMBuildings, List-GSMBuildings, Patch-GSMBuildingsBatch, Patch-GSMBuildings, Delete-GSMCalendarAclBatch, Delete-GSMCalendarAcl, Get-GSMCalendarAclBatch, Get-GSMCalendarAcl, Insert-GSMCalendarAclBatch, Insert-GSMCalendarAcl, List-GSMCalendarAclBatch, List-GSMCalendarAcl, Patch-GSMCalendarAclBatch, Patch-GSMCalendarAcl, Delete-GSMCalendarListsBatch, Delete-GSMCalendarLists, Get-GSMCalendarListsBatch, Get-GSMCalendarLists, Insert-GSMCalendarListsBatch, Insert-GSMCalendarLists, List-GSMCalendarLists, Patch-GSMCalendarListsBatch, Patch-GSMCalendarLists, Delete-GSMCalendarResourcesBatch, Delete-GSMCalendarResources, Get-GSMCalendarResourcesBatch, Get-GSMCalendarResources, Insert-GSMCalendarResourcesBatch, Insert-GSMCalendarResources, List-GSMCalendarResources, Patch-GSMCalendarResourcesBatch, Patch-GSMCalendarResources, Clear-GSMCalendars, Delete-GSMCalendarsBatch, Delete-GSMCalendars, Get-GSMCalendarsBatch, Get-GSMCalendars, Insert-GSMCalendarsBatch, Insert-GSMCalendars, Patch-GSMCalendarsBatch, Patch-GSMCalendars, Get-GSMCalendarSettingsBatch, Get-GSMCalendarSettings, List-GSMCalendarSettings, GetStartPageToken-GSMChanges, List-GSMChanges, IssueCommand-GSMChromeOsBatch, IssueCommand-GSMChromeOs, Action-GSMChromeOsDevicesBatch, Action-GSMChromeOsDevices, Get-GSMChromeOsDevicesBatch, Get-GSMChromeOsDevices, List-GSMChromeOsDevices, MoveToOU-GSMChromeOsDevices, Patch-GSMChromeOsDevicesBatch, Patch-GSMChromeOsDevices, Get-GSMColors, Create-GSMCommentsBatch, Create-GSMComments, Delete-GSMCommentsBatch, Delete-GSMComments, Get-GSMCommentsBatch, Get-GSMComments, List-GSMCommentsBatch, List-GSMComments, Update-GSMCommentsBatch, Update-GSMComments, Get-GSMConfigs, GetScopes-GSMConfigs, List-GSMConfigs, Load-GSMConfigs, New-GSMConfigs, Remove-GSMConfigs, Update-GSMConfigs, Create-GSMContactDelegates, Delete-GSMContactDelegates, List-GSMContactDelegates, BatchGet-GSMContactGroups, Create-GSMContactGroupsBatch, Create-GSMContactGroups, Delete-GSMContactGroupsBatch, Delete-GSMContactGroups, Get-GSMContactGroupsBatch, Get-GSMContactGroups, List-GSMContactGroups, Update-GSMContactGroupsBatch, Update-GSMContactGroups, Modify-GSMContactGroupsMembersBatch, Modify-GSMContactGroupsMembers, Get-GSMCustomers, Patch-GSMCustomers, Get-GSMCustomerUsageReports, Create-GSMDelegatesBatch, Create-GSMDelegates, Delete-GSMDelegatesBatch, Delete-GSMDelegates, Get-GSMDelegatesBatch, Get-GSMDelegates, List-GSMDelegates, Delete-GSMDomainAliasesBatch, Delete-GSMDomainAliases, Get-GSMDomainAliasesBatch, Get-GSMDomainAliases, Insert-GSMDomainAliasesBatch, Insert-GSMDomainAliases, List-GSMDomainAliases, Delete-GSMDomainsBatch, Delete-GSMDomains, Get-GSMDomainsBatch, Get-GSMDomains, Insert-GSMDomainsBatch, Insert-GSMDomains, List-GSMDomains, Create-GSMDraftsBatch, Create-GSMDrafts, Delete-GSMDraftsBatch, Delete-GSMDrafts, Get-GSMDraftsBatch, Get-GSMDrafts, List-GSMDrafts, Send-GSMDraftsBatch, Send-GSMDrafts, Update-GSMDraftsBatch, Update-GSMDrafts, Create-GSMDrivesBatch, Create-GSMDrives, Delete-GSMDrivesBatch, Delete-GSMDrives, Get-GSMDrivesBatch, Get-GSMDrives, GetSize-GSMDrives, Hide-GSMDrivesBatch, Hide-GSMDrives, List-GSMDrives, Unhide-GSMDrivesBatch, Unhide-GSMDrives, Update-GSMDrivesBatch, Update-GSMDrives, Get-GSMEntityUsageReports, Delete-GSMEventsBatch, Delete-GSMEvents, Get-GSMEventsBatch, Get-GSMEvents, Import-GSMEventsBatch, Import-GSMEvents, Insert-GSMEventsBatch, Insert-GSMEvents, Instances-GSMEventsBatch, Instances-GSMEvents, List-GSMEventsBatch, List-GSMEvents, Move-GSMEventsBatch, Move-GSMEvents, Patch-GSMEventsBatch, Patch-GSMEvents, QuickAdd-GSMEventsBatch, QuickAdd-GSMEvents, Delete-GSMFeaturesBatch, Delete-GSMFeatures, Get-GSMFeaturesBatch, Get-GSMFeatures, Insert-GSMFeaturesBatch, Insert-GSMFeatures, List-GSMFeatures, Patch-GSMFeaturesBatch, Patch-GSMFeatures, Rename-GSMFeaturesBatch, Rename-GSMFeatures, Copy-GSMFilesBatch, Copy-GSMFilesRecursive, Copy-GSMFiles, Count-GSMFilesRecursive, Count-GSMFiles, Create-GSMFilesBatch, Create-GSMFiles, Delete-GSMFilesBatch, Delete-GSMFiles, Download-GSMFilesBatch, Download-GSMFiles, Export-GSMFilesBatch, Export-GSMFiles, GenerateIds-GSMFiles, Get-GSMFilesBatch, Get-GSMFiles, List-GSMFilesRecursive, List-GSMFiles, Move-GSMFilesBatch, Move-GSMFilesRecursive, Move-GSMFiles, Update-GSMFilesBatch, Update-GSMFiles, Create-GSMFiltersBatch, Create-GSMFilters, Delete-GSMFiltersBatch, Delete-GSMFilters, Get-GSMFiltersBatch, Get-GSMFilters, List-GSMFilters, Create-GSMForwardingAddressesBatch, Create-GSMForwardingAddresses, Delete-GSMForwardingAddressesBatch, Delete-GSMForwardingAddresses, Get-GSMForwardingAddressesBatch, Get-GSMForwardingAddresses, List-GSMForwardingAddresses, Query-GSMFreeBusy, GetAutoForwarding-GSMGmailSettings, GetImap-GSMGmailSettings, GetLanguage-GSMGmailSettings, GetPop-GSMGmailSettings, GetVacation-GSMGmailSettings, UpdateAutoForwarding-GSMGmailSettings, UpdateImap-GSMGmailSettings, UpdateLanguage-GSMGmailSettings, UpdatePop-GSMGmailSettings, UpdateVacation-GSMGmailSettings, GetProfile-GSMGmailUsers, Delete-GSMGroupAliasesBatch, Delete-GSMGroupAliases, Insert-GSMGroupAliasesBatch, Insert-GSMGroupAliases, List-GSMGroupAliasesBatch, List-GSMGroupAliases, CheckTransitiveMembership-GSMGroupMembershipsCi, Create-GSMGroupMembershipsCi, Delete-GSMGroupMembershipsCi, Get-GSMGroupMembershipsCi, GetMembershipGraph-GSMGroupMembershipsCi, List-GSMGroupMembershipsCi, Lookup-GSMGroupMembershipsCi, ModifyMembershipRoles-GSMGroupMembershipsCi, SearchTransitiveGroups-GSMGroupMembershipsCi, SearchTransitiveMemberships-GSMGroupMembershipsCi, Delete-GSMGroupsBatch, Delete-GSMGroups, Get-GSMGroupsBatch, Get-GSMGroups, Insert-GSMGroupsBatch, Insert-GSMGroups, List-GSMGroups, Patch-GSMGroupsBatch, Patch-GSMGroups, Create-GSMGroupsCiBatch, Create-GSMGroupsCi, Delete-GSMGroupsCiBatch, Delete-GSMGroupsCi, Get-GSMGroupsCiBatch, Get-GSMGroupsCi, List-GSMGroupsCi, Lookup-GSMGroupsCiBatch, Lookup-GSMGroupsCi, Patch-GSMGroupsCiBatch, Patch-GSMGroupsCi, Search-GSMGroupsCi, Get-GSMGroupSettingsBatch, Get-GSMGroupSettings, Patch-GSMGroupSettingsBatch, Patch-GSMGroupSettings, List-GSMHistory, Create-GSMLabelsBatch, Create-GSMLabels, Delete-GSMLabelsBatch, Delete-GSMLabels, Get-GSMLabelsBatch, Get-GSMLabels, List-GSMLabels, Patch-GSMLabelsBatch, Patch-GSMLabels, Delete-GSMLicenseAssignmentsBatch, Delete-GSMLicenseAssignmentsRecursive, Delete-GSMLicenseAssignments, Get-GSMLicenseAssignmentsBatch, Get-GSMLicenseAssignmentsRecursive, Get-GSMLicenseAssignments, Insert-GSMLicenseAssignmentsBatch, Insert-GSMLicenseAssignmentsRecursive, Insert-GSMLicenseAssignments, ListForProduct-GSMLicenseAssignments, ListForProductAndSku-GSMLicenseAssignments, Patch-GSMLicenseAssignmentsBatch, Patch-GSMLicenseAssignmentsRecursive, Patch-GSMLicenseAssignments, Clear-GSMLog, Show-GSMLog, Delete-GSMMembersBatch, Delete-GSMMembersRecursive, Delete-GSMMembers, Get-GSMMembersBatch, Get-GSMMembersRecursive, Get-GSMMembers, HasMember-GSMMembersBatch, HasMember-GSMMembersRecursive, HasMember-GSMMembers, Insert-GSMMembersBatch, Insert-GSMMembersRecursive, Insert-GSMMembers, List-GSMMembersBatch, List-GSMMembers, Patch-GSMMembersBatch, Patch-GSMMembersRecursive, Patch-GSMMembers, Set-GSMMembersRecursive, Set-GSMMembers, BatchDelete-GSMMessages, Delete-GSMMessages, Get-GSMMessagesBatch, Get-GSMMessages, Import-GSMMessagesBatch, Import-GSMMessages, Insert-GSMMessagesBatch, Insert-GSMMessages, List-GSMMessages, Modify-GSMMessagesBatch, Modify-GSMMessages, Send-GSMMessagesBatch, Send-GSMMessages, Trash-GSMMessagesBatch, Trash-GSMMessages, Untrash-GSMMessagesBatch, Untrash-GSMMessages, Action-GSMMobileDevicesBatch, Action-GSMMobileDevices, Delete-GSMMobileDevicesBatch, Delete-GSMMobileDevices, Get-GSMMobileDevicesBatch, Get-GSMMobileDevices, List-GSMMobileDevices, Delete-GSMOrgUnitsBatch, Delete-GSMOrgUnits, Get-GSMOrgUnitsBatch, Get-GSMOrgUnits, Insert-GSMOrgUnitsBatch, Insert-GSMOrgUnits, List-GSMOrgUnits, Patch-GSMOrgUnitsBatch, Patch-GSMOrgUnits, CopyOtherContactToMyContactsGroup-GSMOtherContacts, List-GSMOtherContacts, CreateContact-GSMPeopleBatch, CreateContact-GSMPeople, DeleteContact-GSMPeopleBatch, DeleteContact-GSMPeople, DeleteContactPhoto-GSMPeopleBatch, DeleteContactPhoto-GSMPeople, Get-GSMPeople, GetBatchGet-GSMPeople, ListDirectoryPeople-GSMPeople, SearchDirectoryPeople-GSMPeople, UpdateContact-GSMPeopleBatch, UpdateContact-GSMPeople, UpdateContactPhoto-GSMPeopleBatch, UpdateContactPhoto-GSMPeople, List-GSMPeopleConnections, Create-GSMPermissionsBatch, Create-GSMPermissionsRecursive, Create-GSMPermissions, Delete-GSMPermissionsBatch, Delete-GSMPermissionsRecursive, Delete-GSMPermissions, Get-GSMPermissionsBatch, Get-GSMPermissions, List-GSMPermissionsBatch, List-GSMPermissionsRecursive, List-GSMPermissions, Update-GSMPermissionsBatch, Update-GSMPermissionsRecursive, Update-GSMPermissions, Get-GSMPostmasterDomainsBatch, Get-GSMPostmasterDomains, List-GSMPostmasterDomains, Get-GSMPostmasterTrafficStats, List-GSMPostmasterTrafficStats, List-GSMPrivileges, Create-GSMRepliesBatch, Create-GSMReplies, Delete-GSMRepliesBatch, Delete-GSMReplies, Get-GSMRepliesBatch, Get-GSMReplies, List-GSMReplies, Update-GSMRepliesBatch, Update-GSMReplies, Delete-GSMRevisionsBatch, Delete-GSMRevisions, Get-GSMRevisionsBatch, Get-GSMRevisions, List-GSMRevisions, Update-GSMRevisionsBatch, Update-GSMRevisions, Delete-GSMRoleAssignmentsBatch, Delete-GSMRoleAssignments, Get-GSMRoleAssignmentsBatch, Get-GSMRoleAssignments, Insert-GSMRoleAssignmentsBatch, Insert-GSMRoleAssignmentsRecursive, Insert-GSMRoleAssignments, List-GSMRoleAssignmentsRecursive, List-GSMRoleAssignments, Delete-GSMRolesBatch, Delete-GSMRoles, Get-GSMRolesBatch, Get-GSMRoles, Insert-GSMRolesBatch, Insert-GSMRoles, List-GSMRoles, Patch-GSMRolesBatch, Patch-GSMRoles, Delete-GSMSchemasBatch, Delete-GSMSchemas, Get-GSMSchemasBatch, Get-GSMSchemas, Insert-GSMSchemasBatch, Insert-GSMSchemas, List-GSMSchemas, Patch-GSMSchemasBatch, Patch-GSMSchemas, Create-GSMSendAsBatch, Create-GSMSendAs, Delete-GSMSendAsBatch, Delete-GSMSendAs, Get-GSMSendAsBatch, Get-GSMSendAs, List-GSMSendAs, Patch-GSMSendAsBatch, Patch-GSMSendAs, Verify-GSMSendAsBatch, Verify-GSMSendAs, Create-GSMSharedContactsBatch, Create-GSMSharedContacts, Delete-GSMSharedContactsBatch, Delete-GSMSharedContacts, Get-GSMSharedContactsBatch, Get-GSMSharedContacts, List-GSMSharedContacts, Update-GSMSharedContactsBatch, Update-GSMSharedContacts, Delete-GSMSmimeInfoBatch, Delete-GSMSmimeInfo, Get-GSMSmimeInfoBatch, Get-GSMSmimeInfo, Insert-GSMSmimeInfoBatch, Insert-GSMSmimeInfo, List-GSMSmimeInfo, SetDefault-GSMSmimeInfo, BatchUpdate-GSMSpreadsheets, Create-GSMSpreadsheets, Get-GSMSpreadsheets, Delete-GSMThreadsBatch, Delete-GSMThreads, Get-GSMThreadsBatch, Get-GSMThreads, List-GSMThreads, Modify-GSMThreadsBatch, Modify-GSMThreads, Trash-GSMThreadsBatch, Trash-GSMThreads, Untrash-GSMThreadsBatch, Untrash-GSMThreads, Delete-GSMTokensBatch, Delete-GSMTokensRecursive, Delete-GSMTokens, Get-GSMTokensBatch, Get-GSMTokens, List-GSMTokensBatch, List-GSMTokensRecursive, List-GSMTokens, TurnOff-GSMTwoStepVerificationBatch, TurnOff-GSMTwoStepVerificationRecursive, TurnOff-GSMTwoStepVerification, Delete-GSMUserAliasesBatch, Delete-GSMUserAliases, Insert-GSMUserAliasesBatch, Insert-GSMUserAliases, List-GSMUserAliasesBatch, List-GSMUserAliasesRecursive, List-GSMUserAliases, Delete-GSMUserPhotosBatch, Delete-GSMUserPhotosRecursive, Delete-GSMUserPhotos, Get-GSMUserPhotosBatch, Get-GSMUserPhotosRecursive, Get-GSMUserPhotos, Update-GSMUserPhotosBatch, Update-GSMUserPhotosRecursive, Update-GSMUserPhotos, Delete-GSMUsersBatch, Delete-GSMUsersRecursive, Delete-GSMUsers, Get-GSMUsersBatch, Get-GSMUsersRecursive, Get-GSMUsers, Insert-GSMUsersBatch, Insert-GSMUsers, List-GSMUsers, MakeAdmin-GSMUsersBatch, MakeAdmin-GSMUsersRecursive, MakeAdmin-GSMUsers, SignOut-GSMUsersBatch, SignOut-GSMUsersRecursive, SignOut-GSMUsers, Undelete-GSMUsersBatch, Undelete-GSMUsers, Update-GSMUsersBatch, Update-GSMUsersRecursive, Update-GSMUsers, Get-GSMUserUsageReports, Generate-GSMVerificationCodesBatch, Generate-GSMVerificationCodesRecursive, Generate-GSMVerificationCodes, Invalidate-GSMVerificationCodesBatch, Invalidate-GSMVerificationCodesRecursive, Invalidate-GSMVerificationCodes, List-GSMVerificationCodesBatch, List-GSMVerificationCodesRecursive, List-GSMVerificationCodes
