@@ -1,6 +1,6 @@
 This module is automatically generated with https://github.com/hanneshayashi/crescengo and https://github.com/PowerShell/crescendo.
 
-While Crescendo is still in beta and there are probably still a few bugs here and there, the module should provide you with full functionality for [GSM](https://github.com/hanneshayashi/gsm).
+This module provides you with PowerShell functions for all [GSM](https://github.com/hanneshayashi/gsm) commands.
 
 Before using the module, make sure you have installed the GSM executable to somewhere in your PATH and set up GSM with a working configuration (see https://gsm.hayashi-ke.online/setup for instructions).
 
