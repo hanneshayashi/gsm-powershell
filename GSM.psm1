@@ -22394,7 +22394,7 @@ Specify the HTTP error code(s) that GSM should retry on. Note that GSM will alwa
 
 .PARAMETER ReturnWhenReady
 The Google Drive API returns the drive after creation immediately, but usually before it can be used in subsequent requests.
-Setting this flag will make sure that the drive is ready to be used before returning it.
+Setting this flag will cause GSM to try to to read the permission on the newly created drive to make sure that it is available before returning it.
 
 
 .PARAMETER ReturnWhenReady_ALL
@@ -22522,7 +22522,7 @@ Specify the HTTP error code(s) that GSM should retry on. Note that GSM will alwa
 
 .PARAMETER ReturnWhenReady
 The Google Drive API returns the drive after creation immediately, but usually before it can be used in subsequent requests.
-Setting this flag will make sure that the drive is ready to be used before returning it.
+Setting this flag will cause GSM to try to to read the permission on the newly created drive to make sure that it is available before returning it.
 
 
 .PARAMETER ThemeId
