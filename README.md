@@ -1,5 +1,3 @@
-This module is automatically generated with https://github.com/hanneshayashi/crescengo and https://github.com/PowerShell/crescendo.
-
 This module provides you with PowerShell functions for all [GSM](https://github.com/hanneshayashi/gsm) commands.
 
 Before using the module, make sure you have installed the GSM executable to somewhere in your PATH and set up GSM with a working configuration (see https://gsm.hayashi-ke.online/setup for instructions).
@@ -43,3 +41,5 @@ The module is written so you can pipe the output of the commands like so:
 ```powershell
 List-GSMUsers | % {$_.primaryEmail <# or something useful#>}
 ```
+
+This module is automatically generated with https://github.com/hanneshayashi/crescengo and https://github.com/PowerShell/crescendo.
