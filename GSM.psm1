@@ -13071,6 +13071,322 @@ Specify the HTTP error code(s) that GSM should retry on. Note that GSM will alwa
 }
 
 
+Function Bash-GSMCompletion {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Log,
+[Parameter()]
+[switch]$NoDescriptions,
+[Parameter()]
+[string]$RetryOn
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        NoDescriptions = @{ OriginalName = '--no-descriptions'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "completion"
+        "bash"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+generate the autocompletion script for bash
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER NoDescriptions
+disable completion descriptions
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+
+#>
+}
+
+
+Function Fish-GSMCompletion {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Log,
+[Parameter()]
+[switch]$NoDescriptions,
+[Parameter()]
+[string]$RetryOn
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        NoDescriptions = @{ OriginalName = '--no-descriptions'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "completion"
+        "fish"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+generate the autocompletion script for fish
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER NoDescriptions
+disable completion descriptions
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+
+#>
+}
+
+
+Function Powershell-GSMCompletion {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Log,
+[Parameter()]
+[switch]$NoDescriptions,
+[Parameter()]
+[string]$RetryOn
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        NoDescriptions = @{ OriginalName = '--no-descriptions'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "completion"
+        "powershell"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+generate the autocompletion script for powershell
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER NoDescriptions
+disable completion descriptions
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+
+#>
+}
+
+
+Function Zsh-GSMCompletion {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Log,
+[Parameter()]
+[switch]$NoDescriptions,
+[Parameter()]
+[string]$RetryOn
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        NoDescriptions = @{ OriginalName = '--no-descriptions'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "completion"
+        "zsh"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+generate the autocompletion script for zsh
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER NoDescriptions
+disable completion descriptions
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+
+#>
+}
+
+
 Function Get-GSMConfigs {
 
 
@@ -81616,4 +81932,4 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Export-ModuleMember -Function Get-GSMAbout, List-GSMActivities, Delete-GSMAspsBatch, Delete-GSMAsps, Get-GSMAspsBatch, Get-GSMAsps, List-GSMAspsBatch, List-GSMAspsRecursive, List-GSMAsps, Get-GSMAttachmentsBatch, Get-GSMAttachments, Delete-GSMBuildingsBatch, Delete-GSMBuildings, Get-GSMBuildingsBatch, Get-GSMBuildings, Insert-GSMBuildingsBatch, Insert-GSMBuildings, List-GSMBuildings, Patch-GSMBuildingsBatch, Patch-GSMBuildings, Delete-GSMCalendarAclBatch, Delete-GSMCalendarAcl, Get-GSMCalendarAclBatch, Get-GSMCalendarAcl, Insert-GSMCalendarAclBatch, Insert-GSMCalendarAcl, List-GSMCalendarAclBatch, List-GSMCalendarAcl, Patch-GSMCalendarAclBatch, Patch-GSMCalendarAcl, Delete-GSMCalendarListsBatch, Delete-GSMCalendarLists, Get-GSMCalendarListsBatch, Get-GSMCalendarLists, Insert-GSMCalendarListsBatch, Insert-GSMCalendarLists, List-GSMCalendarLists, Patch-GSMCalendarListsBatch, Patch-GSMCalendarLists, Delete-GSMCalendarResourcesBatch, Delete-GSMCalendarResources, Get-GSMCalendarResourcesBatch, Get-GSMCalendarResources, Insert-GSMCalendarResourcesBatch, Insert-GSMCalendarResources, List-GSMCalendarResources, Patch-GSMCalendarResourcesBatch, Patch-GSMCalendarResources, Clear-GSMCalendars, Delete-GSMCalendarsBatch, Delete-GSMCalendars, Get-GSMCalendarsBatch, Get-GSMCalendars, Insert-GSMCalendarsBatch, Insert-GSMCalendars, Patch-GSMCalendarsBatch, Patch-GSMCalendars, Get-GSMCalendarSettingsBatch, Get-GSMCalendarSettings, List-GSMCalendarSettings, GetStartPageToken-GSMChanges, List-GSMChanges, IssueCommand-GSMChromeOsBatch, IssueCommand-GSMChromeOs, Action-GSMChromeOsDevicesBatch, Action-GSMChromeOsDevices, Get-GSMChromeOsDevicesBatch, Get-GSMChromeOsDevices, List-GSMChromeOsDevices, MoveToOU-GSMChromeOsDevices, Patch-GSMChromeOsDevicesBatch, Patch-GSMChromeOsDevices, BatchCreate-GSMChromePrinters, BatchDelete-GSMChromePrinters, Create-GSMChromePrinters, Delete-GSMChromePrinters, Get-GSMChromePrinters, List-GSMChromePrinters, ListModels-GSMChromePrinters, Patch-GSMChromePrinters, Get-GSMClientStatesBatch, Get-GSMClientStates, List-GSMClientStates, Patch-GSMClientStatesBatch, Patch-GSMClientStates, Get-GSMColors, Create-GSMCommentsBatch, Create-GSMComments, Delete-GSMCommentsBatch, Delete-GSMComments, Get-GSMCommentsBatch, Get-GSMComments, List-GSMCommentsBatch, List-GSMComments, Update-GSMCommentsBatch, Update-GSMComments, Get-GSMConfigs, GetScopes-GSMConfigs, List-GSMConfigs, Load-GSMConfigs, New-GSMConfigs, Remove-GSMConfigs, Update-GSMConfigs, Create-GSMContactDelegates, Delete-GSMContactDelegates, List-GSMContactDelegates, BatchGet-GSMContactGroups, Create-GSMContactGroupsBatch, Create-GSMContactGroups, Delete-GSMContactGroupsBatch, Delete-GSMContactGroups, Get-GSMContactGroupsBatch, Get-GSMContactGroups, List-GSMContactGroups, Update-GSMContactGroupsBatch, Update-GSMContactGroups, Modify-GSMContactGroupsMembersBatch, Modify-GSMContactGroupsMembers, Get-GSMCustomers, Patch-GSMCustomers, Get-GSMCustomerUsageReports, Create-GSMDelegatesBatch, Create-GSMDelegates, Delete-GSMDelegatesBatch, Delete-GSMDelegates, Get-GSMDelegatesBatch, Get-GSMDelegates, List-GSMDelegates, CancelWipe-GSMDevicesBatch, CancelWipe-GSMDevices, Create-GSMDevices, Delete-GSMDevicesBatch, Delete-GSMDevices, Get-GSMDevicesBatch, Get-GSMDevices, List-GSMDevices, Wipe-GSMDevicesBatch, Wipe-GSMDevices, Approve-GSMDeviceUsersBatch, Approve-GSMDeviceUsers, Block-GSMDeviceUsersBatch, Block-GSMDeviceUsers, CancelWipe-GSMDeviceUsersBatch, CancelWipe-GSMDeviceUsers, Delete-GSMDeviceUsersBatch, Delete-GSMDeviceUsers, Get-GSMDeviceUsersBatch, Get-GSMDeviceUsers, List-GSMDeviceUsers, Lookup-GSMDeviceUsers, Wipe-GSMDeviceUsersBatch, Wipe-GSMDeviceUsers, Delete-GSMDomainAliasesBatch, Delete-GSMDomainAliases, Get-GSMDomainAliasesBatch, Get-GSMDomainAliases, Insert-GSMDomainAliasesBatch, Insert-GSMDomainAliases, List-GSMDomainAliases, Delete-GSMDomainsBatch, Delete-GSMDomains, Get-GSMDomainsBatch, Get-GSMDomains, Insert-GSMDomainsBatch, Insert-GSMDomains, List-GSMDomains, Create-GSMDraftsBatch, Create-GSMDrafts, Delete-GSMDraftsBatch, Delete-GSMDrafts, Get-GSMDraftsBatch, Get-GSMDrafts, List-GSMDrafts, Send-GSMDraftsBatch, Send-GSMDrafts, Update-GSMDraftsBatch, Update-GSMDrafts, Create-GSMDrivesBatch, Create-GSMDrives, Delete-GSMDrivesBatch, Delete-GSMDrives, Get-GSMDrivesBatch, Get-GSMDrives, GetSize-GSMDrives, Hide-GSMDrivesBatch, Hide-GSMDrives, List-GSMDrives, Unhide-GSMDrivesBatch, Unhide-GSMDrives, Update-GSMDrivesBatch, Update-GSMDrives, Get-GSMEntityUsageReports, Delete-GSMEventsBatch, Delete-GSMEvents, Get-GSMEventsBatch, Get-GSMEvents, Import-GSMEventsBatch, Import-GSMEvents, Insert-GSMEventsBatch, Insert-GSMEvents, Instances-GSMEventsBatch, Instances-GSMEvents, List-GSMEventsBatch, List-GSMEvents, Move-GSMEventsBatch, Move-GSMEvents, Patch-GSMEventsBatch, Patch-GSMEvents, QuickAdd-GSMEventsBatch, QuickAdd-GSMEvents, Delete-GSMFeaturesBatch, Delete-GSMFeatures, Get-GSMFeaturesBatch, Get-GSMFeatures, Insert-GSMFeaturesBatch, Insert-GSMFeatures, List-GSMFeatures, Patch-GSMFeaturesBatch, Patch-GSMFeatures, Rename-GSMFeaturesBatch, Rename-GSMFeatures, Copy-GSMFilesBatch, Copy-GSMFilesRecursive, Copy-GSMFiles, Count-GSMFilesRecursive, Count-GSMFiles, Create-GSMFilesBatch, Create-GSMFiles, Delete-GSMFilesBatch, Delete-GSMFiles, Download-GSMFilesBatch, Download-GSMFiles, Export-GSMFilesBatch, Export-GSMFiles, GenerateIds-GSMFiles, Get-GSMFilesBatch, Get-GSMFiles, List-GSMFilesRecursive, List-GSMFiles, Move-GSMFilesBatch, Move-GSMFilesRecursive, Move-GSMFiles, Update-GSMFilesBatch, Update-GSMFiles, Create-GSMFiltersBatch, Create-GSMFilters, Delete-GSMFiltersBatch, Delete-GSMFilters, Get-GSMFiltersBatch, Get-GSMFilters, List-GSMFilters, Create-GSMForwardingAddressesBatch, Create-GSMForwardingAddresses, Delete-GSMForwardingAddressesBatch, Delete-GSMForwardingAddresses, Get-GSMForwardingAddressesBatch, Get-GSMForwardingAddresses, List-GSMForwardingAddresses, Query-GSMFreeBusy, GetAutoForwarding-GSMGmailSettings, GetImap-GSMGmailSettings, GetLanguage-GSMGmailSettings, GetPop-GSMGmailSettings, GetVacation-GSMGmailSettings, UpdateAutoForwarding-GSMGmailSettings, UpdateImap-GSMGmailSettings, UpdateLanguage-GSMGmailSettings, UpdatePop-GSMGmailSettings, UpdateVacation-GSMGmailSettings, GetProfile-GSMGmailUsers, Delete-GSMGroupAliasesBatch, Delete-GSMGroupAliases, Insert-GSMGroupAliasesBatch, Insert-GSMGroupAliases, List-GSMGroupAliasesBatch, List-GSMGroupAliases, CheckTransitiveMembership-GSMGroupMembershipsCi, Create-GSMGroupMembershipsCi, Delete-GSMGroupMembershipsCi, Get-GSMGroupMembershipsCi, GetMembershipGraph-GSMGroupMembershipsCi, List-GSMGroupMembershipsCi, Lookup-GSMGroupMembershipsCi, ModifyMembershipRoles-GSMGroupMembershipsCi, SearchTransitiveGroups-GSMGroupMembershipsCi, SearchTransitiveMemberships-GSMGroupMembershipsCi, Delete-GSMGroupsBatch, Delete-GSMGroups, Get-GSMGroupsBatch, Get-GSMGroups, Insert-GSMGroupsBatch, Insert-GSMGroups, List-GSMGroups, Patch-GSMGroupsBatch, Patch-GSMGroups, Create-GSMGroupsCiBatch, Create-GSMGroupsCi, Delete-GSMGroupsCiBatch, Delete-GSMGroupsCi, Get-GSMGroupsCiBatch, Get-GSMGroupsCi, List-GSMGroupsCi, Lookup-GSMGroupsCiBatch, Lookup-GSMGroupsCi, Patch-GSMGroupsCiBatch, Patch-GSMGroupsCi, Search-GSMGroupsCi, Get-GSMGroupSettingsBatch, Get-GSMGroupSettings, Patch-GSMGroupSettingsBatch, Patch-GSMGroupSettings, List-GSMHistory, Create-GSMLabelsBatch, Create-GSMLabels, Delete-GSMLabelsBatch, Delete-GSMLabels, Get-GSMLabelsBatch, Get-GSMLabels, List-GSMLabels, Patch-GSMLabelsBatch, Patch-GSMLabels, Delete-GSMLicenseAssignmentsBatch, Delete-GSMLicenseAssignmentsRecursive, Delete-GSMLicenseAssignments, Get-GSMLicenseAssignmentsBatch, Get-GSMLicenseAssignmentsRecursive, Get-GSMLicenseAssignments, Insert-GSMLicenseAssignmentsBatch, Insert-GSMLicenseAssignmentsRecursive, Insert-GSMLicenseAssignments, ListForProduct-GSMLicenseAssignments, ListForProductAndSku-GSMLicenseAssignments, Patch-GSMLicenseAssignmentsBatch, Patch-GSMLicenseAssignmentsRecursive, Patch-GSMLicenseAssignments, Clear-GSMLog, Show-GSMLog, Delete-GSMMembersBatch, Delete-GSMMembersRecursive, Delete-GSMMembers, Get-GSMMembersBatch, Get-GSMMembersRecursive, Get-GSMMembers, HasMember-GSMMembersBatch, HasMember-GSMMembersRecursive, HasMember-GSMMembers, Insert-GSMMembersBatch, Insert-GSMMembersRecursive, Insert-GSMMembers, List-GSMMembersBatch, List-GSMMembers, Patch-GSMMembersBatch, Patch-GSMMembersRecursive, Patch-GSMMembers, Set-GSMMembersRecursive, Set-GSMMembers, BatchDelete-GSMMessages, Delete-GSMMessages, Get-GSMMessagesBatch, Get-GSMMessages, Import-GSMMessagesBatch, Import-GSMMessages, Insert-GSMMessagesBatch, Insert-GSMMessages, List-GSMMessages, Modify-GSMMessagesBatch, Modify-GSMMessages, Send-GSMMessagesBatch, Send-GSMMessages, Trash-GSMMessagesBatch, Trash-GSMMessages, Untrash-GSMMessagesBatch, Untrash-GSMMessages, Action-GSMMobileDevicesBatch, Action-GSMMobileDevices, Delete-GSMMobileDevicesBatch, Delete-GSMMobileDevices, Get-GSMMobileDevicesBatch, Get-GSMMobileDevices, List-GSMMobileDevices, Delete-GSMOrgUnitsBatch, Delete-GSMOrgUnits, Get-GSMOrgUnitsBatch, Get-GSMOrgUnits, Insert-GSMOrgUnitsBatch, Insert-GSMOrgUnits, List-GSMOrgUnits, Patch-GSMOrgUnitsBatch, Patch-GSMOrgUnits, CopyOtherContactToMyContactsGroup-GSMOtherContacts, List-GSMOtherContacts, CreateContact-GSMPeopleBatch, CreateContact-GSMPeople, DeleteContact-GSMPeopleBatch, DeleteContact-GSMPeople, DeleteContactPhoto-GSMPeopleBatch, DeleteContactPhoto-GSMPeople, Get-GSMPeople, GetBatchGet-GSMPeople, ListDirectoryPeople-GSMPeople, SearchDirectoryPeople-GSMPeople, UpdateContact-GSMPeopleBatch, UpdateContact-GSMPeople, UpdateContactPhoto-GSMPeopleBatch, UpdateContactPhoto-GSMPeople, List-GSMPeopleConnections, Create-GSMPermissionsBatch, Create-GSMPermissionsRecursive, Create-GSMPermissions, Delete-GSMPermissionsBatch, Delete-GSMPermissionsRecursive, Delete-GSMPermissions, Get-GSMPermissionsBatch, Get-GSMPermissions, List-GSMPermissionsBatch, List-GSMPermissionsRecursive, List-GSMPermissions, Update-GSMPermissionsBatch, Update-GSMPermissionsRecursive, Update-GSMPermissions, Get-GSMPostmasterDomainsBatch, Get-GSMPostmasterDomains, List-GSMPostmasterDomains, Get-GSMPostmasterTrafficStats, List-GSMPostmasterTrafficStats, List-GSMPrivileges, Create-GSMRepliesBatch, Create-GSMReplies, Delete-GSMRepliesBatch, Delete-GSMReplies, Get-GSMRepliesBatch, Get-GSMReplies, List-GSMReplies, Update-GSMRepliesBatch, Update-GSMReplies, Delete-GSMRevisionsBatch, Delete-GSMRevisions, Get-GSMRevisionsBatch, Get-GSMRevisions, List-GSMRevisions, Update-GSMRevisionsBatch, Update-GSMRevisions, Delete-GSMRoleAssignmentsBatch, Delete-GSMRoleAssignments, Get-GSMRoleAssignmentsBatch, Get-GSMRoleAssignments, Insert-GSMRoleAssignmentsBatch, Insert-GSMRoleAssignmentsRecursive, Insert-GSMRoleAssignments, List-GSMRoleAssignmentsRecursive, List-GSMRoleAssignments, Delete-GSMRolesBatch, Delete-GSMRoles, Get-GSMRolesBatch, Get-GSMRoles, Insert-GSMRolesBatch, Insert-GSMRoles, List-GSMRoles, Patch-GSMRolesBatch, Patch-GSMRoles, Delete-GSMSchemasBatch, Delete-GSMSchemas, Get-GSMSchemasBatch, Get-GSMSchemas, Insert-GSMSchemasBatch, Insert-GSMSchemas, List-GSMSchemas, Patch-GSMSchemasBatch, Patch-GSMSchemas, Create-GSMSendAsBatch, Create-GSMSendAs, Delete-GSMSendAsBatch, Delete-GSMSendAs, Get-GSMSendAsBatch, Get-GSMSendAs, List-GSMSendAs, Patch-GSMSendAsBatch, Patch-GSMSendAs, Verify-GSMSendAsBatch, Verify-GSMSendAs, Create-GSMSharedContactsBatch, Create-GSMSharedContacts, Delete-GSMSharedContactsBatch, Delete-GSMSharedContacts, Get-GSMSharedContactsBatch, Get-GSMSharedContacts, List-GSMSharedContacts, Update-GSMSharedContactsBatch, Update-GSMSharedContacts, Delete-GSMSmimeInfoBatch, Delete-GSMSmimeInfo, Get-GSMSmimeInfoBatch, Get-GSMSmimeInfo, Insert-GSMSmimeInfoBatch, Insert-GSMSmimeInfo, List-GSMSmimeInfo, SetDefault-GSMSmimeInfo, BatchUpdate-GSMSpreadsheets, Create-GSMSpreadsheets, Get-GSMSpreadsheets, Delete-GSMThreadsBatch, Delete-GSMThreads, Get-GSMThreadsBatch, Get-GSMThreads, List-GSMThreads, Modify-GSMThreadsBatch, Modify-GSMThreads, Trash-GSMThreadsBatch, Trash-GSMThreads, Untrash-GSMThreadsBatch, Untrash-GSMThreads, Delete-GSMTokensBatch, Delete-GSMTokensRecursive, Delete-GSMTokens, Get-GSMTokensBatch, Get-GSMTokens, List-GSMTokensBatch, List-GSMTokensRecursive, List-GSMTokens, TurnOff-GSMTwoStepVerificationBatch, TurnOff-GSMTwoStepVerificationRecursive, TurnOff-GSMTwoStepVerification, Delete-GSMUserAliasesBatch, Delete-GSMUserAliases, Insert-GSMUserAliasesBatch, Insert-GSMUserAliases, List-GSMUserAliasesBatch, List-GSMUserAliasesRecursive, List-GSMUserAliases, Cancel-GSMUserInvitationsBatch, Cancel-GSMUserInvitations, Get-GSMUserInvitationsBatch, Get-GSMUserInvitations, IsInvitableUser-GSMUserInvitationsBatch, IsInvitableUser-GSMUserInvitations, List-GSMUserInvitations, Send-GSMUserInvitationsBatch, Send-GSMUserInvitations, Delete-GSMUserPhotosBatch, Delete-GSMUserPhotosRecursive, Delete-GSMUserPhotos, Get-GSMUserPhotosBatch, Get-GSMUserPhotosRecursive, Get-GSMUserPhotos, Update-GSMUserPhotosBatch, Update-GSMUserPhotosRecursive, Update-GSMUserPhotos, Delete-GSMUsersBatch, Delete-GSMUsersRecursive, Delete-GSMUsers, Get-GSMUsersBatch, Get-GSMUsersRecursive, Get-GSMUsers, Insert-GSMUsersBatch, Insert-GSMUsers, List-GSMUsers, MakeAdmin-GSMUsersBatch, MakeAdmin-GSMUsersRecursive, MakeAdmin-GSMUsers, SignOut-GSMUsersBatch, SignOut-GSMUsersRecursive, SignOut-GSMUsers, Undelete-GSMUsersBatch, Undelete-GSMUsers, Update-GSMUsersBatch, Update-GSMUsersRecursive, Update-GSMUsers, Get-GSMUserUsageReports, Generate-GSMVerificationCodesBatch, Generate-GSMVerificationCodesRecursive, Generate-GSMVerificationCodes, Invalidate-GSMVerificationCodesBatch, Invalidate-GSMVerificationCodesRecursive, Invalidate-GSMVerificationCodes, List-GSMVerificationCodesBatch, List-GSMVerificationCodesRecursive, List-GSMVerificationCodes
+Export-ModuleMember -Function Get-GSMAbout, List-GSMActivities, Delete-GSMAspsBatch, Delete-GSMAsps, Get-GSMAspsBatch, Get-GSMAsps, List-GSMAspsBatch, List-GSMAspsRecursive, List-GSMAsps, Get-GSMAttachmentsBatch, Get-GSMAttachments, Delete-GSMBuildingsBatch, Delete-GSMBuildings, Get-GSMBuildingsBatch, Get-GSMBuildings, Insert-GSMBuildingsBatch, Insert-GSMBuildings, List-GSMBuildings, Patch-GSMBuildingsBatch, Patch-GSMBuildings, Delete-GSMCalendarAclBatch, Delete-GSMCalendarAcl, Get-GSMCalendarAclBatch, Get-GSMCalendarAcl, Insert-GSMCalendarAclBatch, Insert-GSMCalendarAcl, List-GSMCalendarAclBatch, List-GSMCalendarAcl, Patch-GSMCalendarAclBatch, Patch-GSMCalendarAcl, Delete-GSMCalendarListsBatch, Delete-GSMCalendarLists, Get-GSMCalendarListsBatch, Get-GSMCalendarLists, Insert-GSMCalendarListsBatch, Insert-GSMCalendarLists, List-GSMCalendarLists, Patch-GSMCalendarListsBatch, Patch-GSMCalendarLists, Delete-GSMCalendarResourcesBatch, Delete-GSMCalendarResources, Get-GSMCalendarResourcesBatch, Get-GSMCalendarResources, Insert-GSMCalendarResourcesBatch, Insert-GSMCalendarResources, List-GSMCalendarResources, Patch-GSMCalendarResourcesBatch, Patch-GSMCalendarResources, Clear-GSMCalendars, Delete-GSMCalendarsBatch, Delete-GSMCalendars, Get-GSMCalendarsBatch, Get-GSMCalendars, Insert-GSMCalendarsBatch, Insert-GSMCalendars, Patch-GSMCalendarsBatch, Patch-GSMCalendars, Get-GSMCalendarSettingsBatch, Get-GSMCalendarSettings, List-GSMCalendarSettings, GetStartPageToken-GSMChanges, List-GSMChanges, IssueCommand-GSMChromeOsBatch, IssueCommand-GSMChromeOs, Action-GSMChromeOsDevicesBatch, Action-GSMChromeOsDevices, Get-GSMChromeOsDevicesBatch, Get-GSMChromeOsDevices, List-GSMChromeOsDevices, MoveToOU-GSMChromeOsDevices, Patch-GSMChromeOsDevicesBatch, Patch-GSMChromeOsDevices, BatchCreate-GSMChromePrinters, BatchDelete-GSMChromePrinters, Create-GSMChromePrinters, Delete-GSMChromePrinters, Get-GSMChromePrinters, List-GSMChromePrinters, ListModels-GSMChromePrinters, Patch-GSMChromePrinters, Get-GSMClientStatesBatch, Get-GSMClientStates, List-GSMClientStates, Patch-GSMClientStatesBatch, Patch-GSMClientStates, Get-GSMColors, Create-GSMCommentsBatch, Create-GSMComments, Delete-GSMCommentsBatch, Delete-GSMComments, Get-GSMCommentsBatch, Get-GSMComments, List-GSMCommentsBatch, List-GSMComments, Update-GSMCommentsBatch, Update-GSMComments, Bash-GSMCompletion, Fish-GSMCompletion, Powershell-GSMCompletion, Zsh-GSMCompletion, Get-GSMConfigs, GetScopes-GSMConfigs, List-GSMConfigs, Load-GSMConfigs, New-GSMConfigs, Remove-GSMConfigs, Update-GSMConfigs, Create-GSMContactDelegates, Delete-GSMContactDelegates, List-GSMContactDelegates, BatchGet-GSMContactGroups, Create-GSMContactGroupsBatch, Create-GSMContactGroups, Delete-GSMContactGroupsBatch, Delete-GSMContactGroups, Get-GSMContactGroupsBatch, Get-GSMContactGroups, List-GSMContactGroups, Update-GSMContactGroupsBatch, Update-GSMContactGroups, Modify-GSMContactGroupsMembersBatch, Modify-GSMContactGroupsMembers, Get-GSMCustomers, Patch-GSMCustomers, Get-GSMCustomerUsageReports, Create-GSMDelegatesBatch, Create-GSMDelegates, Delete-GSMDelegatesBatch, Delete-GSMDelegates, Get-GSMDelegatesBatch, Get-GSMDelegates, List-GSMDelegates, CancelWipe-GSMDevicesBatch, CancelWipe-GSMDevices, Create-GSMDevices, Delete-GSMDevicesBatch, Delete-GSMDevices, Get-GSMDevicesBatch, Get-GSMDevices, List-GSMDevices, Wipe-GSMDevicesBatch, Wipe-GSMDevices, Approve-GSMDeviceUsersBatch, Approve-GSMDeviceUsers, Block-GSMDeviceUsersBatch, Block-GSMDeviceUsers, CancelWipe-GSMDeviceUsersBatch, CancelWipe-GSMDeviceUsers, Delete-GSMDeviceUsersBatch, Delete-GSMDeviceUsers, Get-GSMDeviceUsersBatch, Get-GSMDeviceUsers, List-GSMDeviceUsers, Lookup-GSMDeviceUsers, Wipe-GSMDeviceUsersBatch, Wipe-GSMDeviceUsers, Delete-GSMDomainAliasesBatch, Delete-GSMDomainAliases, Get-GSMDomainAliasesBatch, Get-GSMDomainAliases, Insert-GSMDomainAliasesBatch, Insert-GSMDomainAliases, List-GSMDomainAliases, Delete-GSMDomainsBatch, Delete-GSMDomains, Get-GSMDomainsBatch, Get-GSMDomains, Insert-GSMDomainsBatch, Insert-GSMDomains, List-GSMDomains, Create-GSMDraftsBatch, Create-GSMDrafts, Delete-GSMDraftsBatch, Delete-GSMDrafts, Get-GSMDraftsBatch, Get-GSMDrafts, List-GSMDrafts, Send-GSMDraftsBatch, Send-GSMDrafts, Update-GSMDraftsBatch, Update-GSMDrafts, Create-GSMDrivesBatch, Create-GSMDrives, Delete-GSMDrivesBatch, Delete-GSMDrives, Get-GSMDrivesBatch, Get-GSMDrives, GetSize-GSMDrives, Hide-GSMDrivesBatch, Hide-GSMDrives, List-GSMDrives, Unhide-GSMDrivesBatch, Unhide-GSMDrives, Update-GSMDrivesBatch, Update-GSMDrives, Get-GSMEntityUsageReports, Delete-GSMEventsBatch, Delete-GSMEvents, Get-GSMEventsBatch, Get-GSMEvents, Import-GSMEventsBatch, Import-GSMEvents, Insert-GSMEventsBatch, Insert-GSMEvents, Instances-GSMEventsBatch, Instances-GSMEvents, List-GSMEventsBatch, List-GSMEvents, Move-GSMEventsBatch, Move-GSMEvents, Patch-GSMEventsBatch, Patch-GSMEvents, QuickAdd-GSMEventsBatch, QuickAdd-GSMEvents, Delete-GSMFeaturesBatch, Delete-GSMFeatures, Get-GSMFeaturesBatch, Get-GSMFeatures, Insert-GSMFeaturesBatch, Insert-GSMFeatures, List-GSMFeatures, Patch-GSMFeaturesBatch, Patch-GSMFeatures, Rename-GSMFeaturesBatch, Rename-GSMFeatures, Copy-GSMFilesBatch, Copy-GSMFilesRecursive, Copy-GSMFiles, Count-GSMFilesRecursive, Count-GSMFiles, Create-GSMFilesBatch, Create-GSMFiles, Delete-GSMFilesBatch, Delete-GSMFiles, Download-GSMFilesBatch, Download-GSMFiles, Export-GSMFilesBatch, Export-GSMFiles, GenerateIds-GSMFiles, Get-GSMFilesBatch, Get-GSMFiles, List-GSMFilesRecursive, List-GSMFiles, Move-GSMFilesBatch, Move-GSMFilesRecursive, Move-GSMFiles, Update-GSMFilesBatch, Update-GSMFiles, Create-GSMFiltersBatch, Create-GSMFilters, Delete-GSMFiltersBatch, Delete-GSMFilters, Get-GSMFiltersBatch, Get-GSMFilters, List-GSMFilters, Create-GSMForwardingAddressesBatch, Create-GSMForwardingAddresses, Delete-GSMForwardingAddressesBatch, Delete-GSMForwardingAddresses, Get-GSMForwardingAddressesBatch, Get-GSMForwardingAddresses, List-GSMForwardingAddresses, Query-GSMFreeBusy, GetAutoForwarding-GSMGmailSettings, GetImap-GSMGmailSettings, GetLanguage-GSMGmailSettings, GetPop-GSMGmailSettings, GetVacation-GSMGmailSettings, UpdateAutoForwarding-GSMGmailSettings, UpdateImap-GSMGmailSettings, UpdateLanguage-GSMGmailSettings, UpdatePop-GSMGmailSettings, UpdateVacation-GSMGmailSettings, GetProfile-GSMGmailUsers, Delete-GSMGroupAliasesBatch, Delete-GSMGroupAliases, Insert-GSMGroupAliasesBatch, Insert-GSMGroupAliases, List-GSMGroupAliasesBatch, List-GSMGroupAliases, CheckTransitiveMembership-GSMGroupMembershipsCi, Create-GSMGroupMembershipsCi, Delete-GSMGroupMembershipsCi, Get-GSMGroupMembershipsCi, GetMembershipGraph-GSMGroupMembershipsCi, List-GSMGroupMembershipsCi, Lookup-GSMGroupMembershipsCi, ModifyMembershipRoles-GSMGroupMembershipsCi, SearchTransitiveGroups-GSMGroupMembershipsCi, SearchTransitiveMemberships-GSMGroupMembershipsCi, Delete-GSMGroupsBatch, Delete-GSMGroups, Get-GSMGroupsBatch, Get-GSMGroups, Insert-GSMGroupsBatch, Insert-GSMGroups, List-GSMGroups, Patch-GSMGroupsBatch, Patch-GSMGroups, Create-GSMGroupsCiBatch, Create-GSMGroupsCi, Delete-GSMGroupsCiBatch, Delete-GSMGroupsCi, Get-GSMGroupsCiBatch, Get-GSMGroupsCi, List-GSMGroupsCi, Lookup-GSMGroupsCiBatch, Lookup-GSMGroupsCi, Patch-GSMGroupsCiBatch, Patch-GSMGroupsCi, Search-GSMGroupsCi, Get-GSMGroupSettingsBatch, Get-GSMGroupSettings, Patch-GSMGroupSettingsBatch, Patch-GSMGroupSettings, List-GSMHistory, Create-GSMLabelsBatch, Create-GSMLabels, Delete-GSMLabelsBatch, Delete-GSMLabels, Get-GSMLabelsBatch, Get-GSMLabels, List-GSMLabels, Patch-GSMLabelsBatch, Patch-GSMLabels, Delete-GSMLicenseAssignmentsBatch, Delete-GSMLicenseAssignmentsRecursive, Delete-GSMLicenseAssignments, Get-GSMLicenseAssignmentsBatch, Get-GSMLicenseAssignmentsRecursive, Get-GSMLicenseAssignments, Insert-GSMLicenseAssignmentsBatch, Insert-GSMLicenseAssignmentsRecursive, Insert-GSMLicenseAssignments, ListForProduct-GSMLicenseAssignments, ListForProductAndSku-GSMLicenseAssignments, Patch-GSMLicenseAssignmentsBatch, Patch-GSMLicenseAssignmentsRecursive, Patch-GSMLicenseAssignments, Clear-GSMLog, Show-GSMLog, Delete-GSMMembersBatch, Delete-GSMMembersRecursive, Delete-GSMMembers, Get-GSMMembersBatch, Get-GSMMembersRecursive, Get-GSMMembers, HasMember-GSMMembersBatch, HasMember-GSMMembersRecursive, HasMember-GSMMembers, Insert-GSMMembersBatch, Insert-GSMMembersRecursive, Insert-GSMMembers, List-GSMMembersBatch, List-GSMMembers, Patch-GSMMembersBatch, Patch-GSMMembersRecursive, Patch-GSMMembers, Set-GSMMembersRecursive, Set-GSMMembers, BatchDelete-GSMMessages, Delete-GSMMessages, Get-GSMMessagesBatch, Get-GSMMessages, Import-GSMMessagesBatch, Import-GSMMessages, Insert-GSMMessagesBatch, Insert-GSMMessages, List-GSMMessages, Modify-GSMMessagesBatch, Modify-GSMMessages, Send-GSMMessagesBatch, Send-GSMMessages, Trash-GSMMessagesBatch, Trash-GSMMessages, Untrash-GSMMessagesBatch, Untrash-GSMMessages, Action-GSMMobileDevicesBatch, Action-GSMMobileDevices, Delete-GSMMobileDevicesBatch, Delete-GSMMobileDevices, Get-GSMMobileDevicesBatch, Get-GSMMobileDevices, List-GSMMobileDevices, Delete-GSMOrgUnitsBatch, Delete-GSMOrgUnits, Get-GSMOrgUnitsBatch, Get-GSMOrgUnits, Insert-GSMOrgUnitsBatch, Insert-GSMOrgUnits, List-GSMOrgUnits, Patch-GSMOrgUnitsBatch, Patch-GSMOrgUnits, CopyOtherContactToMyContactsGroup-GSMOtherContacts, List-GSMOtherContacts, CreateContact-GSMPeopleBatch, CreateContact-GSMPeople, DeleteContact-GSMPeopleBatch, DeleteContact-GSMPeople, DeleteContactPhoto-GSMPeopleBatch, DeleteContactPhoto-GSMPeople, Get-GSMPeople, GetBatchGet-GSMPeople, ListDirectoryPeople-GSMPeople, SearchDirectoryPeople-GSMPeople, UpdateContact-GSMPeopleBatch, UpdateContact-GSMPeople, UpdateContactPhoto-GSMPeopleBatch, UpdateContactPhoto-GSMPeople, List-GSMPeopleConnections, Create-GSMPermissionsBatch, Create-GSMPermissionsRecursive, Create-GSMPermissions, Delete-GSMPermissionsBatch, Delete-GSMPermissionsRecursive, Delete-GSMPermissions, Get-GSMPermissionsBatch, Get-GSMPermissions, List-GSMPermissionsBatch, List-GSMPermissionsRecursive, List-GSMPermissions, Update-GSMPermissionsBatch, Update-GSMPermissionsRecursive, Update-GSMPermissions, Get-GSMPostmasterDomainsBatch, Get-GSMPostmasterDomains, List-GSMPostmasterDomains, Get-GSMPostmasterTrafficStats, List-GSMPostmasterTrafficStats, List-GSMPrivileges, Create-GSMRepliesBatch, Create-GSMReplies, Delete-GSMRepliesBatch, Delete-GSMReplies, Get-GSMRepliesBatch, Get-GSMReplies, List-GSMReplies, Update-GSMRepliesBatch, Update-GSMReplies, Delete-GSMRevisionsBatch, Delete-GSMRevisions, Get-GSMRevisionsBatch, Get-GSMRevisions, List-GSMRevisions, Update-GSMRevisionsBatch, Update-GSMRevisions, Delete-GSMRoleAssignmentsBatch, Delete-GSMRoleAssignments, Get-GSMRoleAssignmentsBatch, Get-GSMRoleAssignments, Insert-GSMRoleAssignmentsBatch, Insert-GSMRoleAssignmentsRecursive, Insert-GSMRoleAssignments, List-GSMRoleAssignmentsRecursive, List-GSMRoleAssignments, Delete-GSMRolesBatch, Delete-GSMRoles, Get-GSMRolesBatch, Get-GSMRoles, Insert-GSMRolesBatch, Insert-GSMRoles, List-GSMRoles, Patch-GSMRolesBatch, Patch-GSMRoles, Delete-GSMSchemasBatch, Delete-GSMSchemas, Get-GSMSchemasBatch, Get-GSMSchemas, Insert-GSMSchemasBatch, Insert-GSMSchemas, List-GSMSchemas, Patch-GSMSchemasBatch, Patch-GSMSchemas, Create-GSMSendAsBatch, Create-GSMSendAs, Delete-GSMSendAsBatch, Delete-GSMSendAs, Get-GSMSendAsBatch, Get-GSMSendAs, List-GSMSendAs, Patch-GSMSendAsBatch, Patch-GSMSendAs, Verify-GSMSendAsBatch, Verify-GSMSendAs, Create-GSMSharedContactsBatch, Create-GSMSharedContacts, Delete-GSMSharedContactsBatch, Delete-GSMSharedContacts, Get-GSMSharedContactsBatch, Get-GSMSharedContacts, List-GSMSharedContacts, Update-GSMSharedContactsBatch, Update-GSMSharedContacts, Delete-GSMSmimeInfoBatch, Delete-GSMSmimeInfo, Get-GSMSmimeInfoBatch, Get-GSMSmimeInfo, Insert-GSMSmimeInfoBatch, Insert-GSMSmimeInfo, List-GSMSmimeInfo, SetDefault-GSMSmimeInfo, BatchUpdate-GSMSpreadsheets, Create-GSMSpreadsheets, Get-GSMSpreadsheets, Delete-GSMThreadsBatch, Delete-GSMThreads, Get-GSMThreadsBatch, Get-GSMThreads, List-GSMThreads, Modify-GSMThreadsBatch, Modify-GSMThreads, Trash-GSMThreadsBatch, Trash-GSMThreads, Untrash-GSMThreadsBatch, Untrash-GSMThreads, Delete-GSMTokensBatch, Delete-GSMTokensRecursive, Delete-GSMTokens, Get-GSMTokensBatch, Get-GSMTokens, List-GSMTokensBatch, List-GSMTokensRecursive, List-GSMTokens, TurnOff-GSMTwoStepVerificationBatch, TurnOff-GSMTwoStepVerificationRecursive, TurnOff-GSMTwoStepVerification, Delete-GSMUserAliasesBatch, Delete-GSMUserAliases, Insert-GSMUserAliasesBatch, Insert-GSMUserAliases, List-GSMUserAliasesBatch, List-GSMUserAliasesRecursive, List-GSMUserAliases, Cancel-GSMUserInvitationsBatch, Cancel-GSMUserInvitations, Get-GSMUserInvitationsBatch, Get-GSMUserInvitations, IsInvitableUser-GSMUserInvitationsBatch, IsInvitableUser-GSMUserInvitations, List-GSMUserInvitations, Send-GSMUserInvitationsBatch, Send-GSMUserInvitations, Delete-GSMUserPhotosBatch, Delete-GSMUserPhotosRecursive, Delete-GSMUserPhotos, Get-GSMUserPhotosBatch, Get-GSMUserPhotosRecursive, Get-GSMUserPhotos, Update-GSMUserPhotosBatch, Update-GSMUserPhotosRecursive, Update-GSMUserPhotos, Delete-GSMUsersBatch, Delete-GSMUsersRecursive, Delete-GSMUsers, Get-GSMUsersBatch, Get-GSMUsersRecursive, Get-GSMUsers, Insert-GSMUsersBatch, Insert-GSMUsers, List-GSMUsers, MakeAdmin-GSMUsersBatch, MakeAdmin-GSMUsersRecursive, MakeAdmin-GSMUsers, SignOut-GSMUsersBatch, SignOut-GSMUsersRecursive, SignOut-GSMUsers, Undelete-GSMUsersBatch, Undelete-GSMUsers, Update-GSMUsersBatch, Update-GSMUsersRecursive, Update-GSMUsers, Get-GSMUserUsageReports, Generate-GSMVerificationCodesBatch, Generate-GSMVerificationCodesRecursive, Generate-GSMVerificationCodes, Invalidate-GSMVerificationCodesBatch, Invalidate-GSMVerificationCodesRecursive, Invalidate-GSMVerificationCodes, List-GSMVerificationCodesBatch, List-GSMVerificationCodesRecursive, List-GSMVerificationCodes
