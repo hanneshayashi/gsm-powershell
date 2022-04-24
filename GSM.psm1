@@ -24133,7 +24133,7 @@ Represents the key of the object to filter the data with.
 Accepted values are:
 ALL         - Returns activity events for all users.
 ENTITY_KEY  - Represents an app-specific identifier for the entity.
-			  For details on how to obtain the entityKey for a particular entityType, see the https://developers.google.com/admin-sdk/reports/v1/reference/usage-ref-appendix-a/entities
+              For details on how to obtain the entityKey for a particular entityType, see the https://developers.google.com/admin-sdk/reports/v1/reference/usage-ref-appendix-a/entities
 
 
 .PARAMETER EntityType
@@ -76777,7 +76777,7 @@ For more information, see https://developers.google.com/admin-sdk/directory/v1/g
 Acceptable values are:
 admin_view     - Results include both administrator-only and domain-public fields for the user. (default)
 domain_public  - Results only include fields for the user that are publicly visible to other users in the domain.
-				 Contact sharing must be enabled for the domain.
+                 Contact sharing must be enabled for the domain.
 
 
 .PARAMETER ViewType_ALL
@@ -76916,7 +76916,7 @@ For more information, see https://developers.google.com/admin-sdk/directory/v1/g
 Acceptable values are:
 admin_view     - Results include both administrator-only and domain-public fields for the user. (default)
 domain_public  - Results only include fields for the user that are publicly visible to other users in the domain.
-				 Contact sharing must be enabled for the domain.
+                 Contact sharing must be enabled for the domain.
 
 
 .PARAMETER Config
@@ -77037,7 +77037,7 @@ For more information, see https://developers.google.com/admin-sdk/directory/v1/g
 Acceptable values are:
 admin_view     - Results include both administrator-only and domain-public fields for the user. (default)
 domain_public  - Results only include fields for the user that are publicly visible to other users in the domain.
-				 Contact sharing must be enabled for the domain.
+                 Contact sharing must be enabled for the domain.
 
 
 .PARAMETER Config
@@ -77329,7 +77329,7 @@ type                - The address type.
                         - "custom"
                         - "home"
                         - "other"
-						- "work"
+                        - "work"
 
 
 .PARAMETER Addresses_ALL
@@ -77398,10 +77398,10 @@ type        - The type of the ID.
                 - "account"
                 - "custom"
                 - "customer"
-				- "login_id"
-				- "network"
-				- "organization": IDs of this type map to employee ID in the Admin Console
-value           - The value of the ID.
+                - "login_id"
+                - "network"
+                - "organization": IDs of this type map to employee ID in the Admin Console
+value       - The value of the ID.
 
 
 .PARAMETER ExternalIds_ALL
@@ -77523,7 +77523,7 @@ type        - Each entry can have a type which indicates standard type of that e
                 - "custom"
                 - "mission"
                 - "occupation"
-				- "outlook"
+                - "outlook"
 value  -      Keyword.
 
 
@@ -77534,15 +77534,21 @@ Same as keywords but value is applied to all lines in the CSV file
 .PARAMETER Languages
 The user's languages. The maximum allowed data size for this field is 1Kb.
 May be used multiple times in the form of:
-'--languages "customLanguage=..."'
-'--languages "languageCode=..."'
+'--languages "customLanguage=...;preference=..."'
+'--languages "languageCode=...;preference=..."'
 You can use the following properties:
 customLanguage  - Other language.
-				  A user can provide their own language name if there is no corresponding Google III language code.
-			      If this is set, LanguageCode can't be set
+                  A user can provide their own language name if there is no corresponding Google III language code.
+                  If this is set, LanguageCode can't be set
 languageCode    - Language Code.
                   Should be used for storing Google III LanguageCode string representation for language.
-				  Illegal values cause SchemaException.
+                  Illegal values cause SchemaException.
+preference      - Optional.
+                  If present, controls whether the specified languageCode is the user's preferred language.
+                  If customLanguage is set, this can't be set.
+                  Allowed values are:
+                    - preferred
+                    - not_preferred
 
 
 .PARAMETER Languages_ALL
@@ -77555,8 +77561,8 @@ May be used multiple times in the form of:
 '--locations "area=...;buildingId=...;customType=..."', etc.
 You can use the following properties:
 area          - Textual location.
-		        This is most useful for display purposes to concisely describe the location.
-		        For example, "Mountain View, CA", "Near Seattle".
+                This is most useful for display purposes to concisely describe the location.
+                For example, "Mountain View, CA", "Near Seattle".
 buildingId    - Building identifier.
 customType    - If the location type is custom, this property contains the custom value.
 deskCode      - Most specific textual code of individual desk location.
@@ -77567,7 +77573,7 @@ type          - The location type.
                 Acceptable values are:
                   - "custom"
                   - "default"
-				  - "desk"
+                  - "desk"
 
 
 .PARAMETER Locations_ALL
@@ -77612,9 +77618,9 @@ customType          - If the value of type is custom, this property contains the
 department          - Specifies the department within the organization, such as 'sales' or 'engineering'.
 description         - The description of the organization.
 domain              - The domain the organization belongs to.
-fullTimeEquivalent  - INT! The full-time equivalent millipercent within the organization (100000 = 100%).	
+fullTimeEquivalent  - INT! The full-time equivalent millipercent within the organization (100000 = 100%).    
 location            - The physical location of the organization.
-			          This does not need to be a fully qualified address.
+                      This does not need to be a fully qualified address.
 name                - The name of the organization.
 primary             - BOOL! Indicates if this is the user's primary organization.
                       A user may only have one primary organization.
@@ -77626,7 +77632,7 @@ type                - The type of organization.
                         - "domain_only"
                         - "school"
                         - "unknown"
-						- "work"
+                        - "work"
 
 
 .PARAMETER Organizations_ALL
@@ -77682,9 +77688,9 @@ type        - The type of phone number.
                 - "work"
                 - "work_fax"
                 - "work_mobile"
-		        - "work_pager"
+                - "work_pager"
 value       - A human-readable phone number.
-			  It may be in any telephone number format.
+              It may be in any telephone number format.
 
 
 .PARAMETER Phones_ALL
@@ -77766,7 +77772,7 @@ type        - The type of relation.
               - "referred_by"
               - "relative"
               - "sister"
-			  - "spouse"
+              - "spouse"
 value       - The name of the person the user is related to.
 
 
@@ -77808,21 +77814,21 @@ You can use the following properties:
 customType  - The custom type. Only used if the type is custom.
 primary     - BOOL! If this is user's primary website or not.
 type        - The type or purpose of the website.
-			  For example, a website could be labeled as home or blog.
-			  Alternatively, an entry can have a custom type.
-			  Custom types must have a customType value.
-			  Acceptable values are:
-			    - "app_install_page"
-			    - "blog"
-			    - "custom"
-			    - "ftp"
-			    - "home"
-			    - "home_page"
-			    - "other"
-			    - "profile"
-			    - "reservations"
-			    - "resume"
-			    - "work"
+              For example, a website could be labeled as home or blog.
+              Alternatively, an entry can have a custom type.
+              Custom types must have a customType value.
+              Acceptable values are:
+                - "app_install_page"
+                - "blog"
+                - "custom"
+                - "ftp"
+                - "home"
+                - "home_page"
+                - "other"
+                - "profile"
+                - "reservations"
+                - "resume"
+                - "work"
 value       - The URL of the website.
 
 
@@ -78016,7 +78022,7 @@ type                - The address type.
                         - "custom"
                         - "home"
                         - "other"
-						- "work"
+                        - "work"
 
 
 .PARAMETER Archived
@@ -78057,10 +78063,10 @@ type        - The type of the ID.
                 - "account"
                 - "custom"
                 - "customer"
-				- "login_id"
-				- "network"
-				- "organization": IDs of this type map to employee ID in the Admin Console
-value           - The value of the ID.
+                - "login_id"
+                - "network"
+                - "organization": IDs of this type map to employee ID in the Admin Console
+value       - The value of the ID.
 
 
 .PARAMETER FamilyName
@@ -78146,22 +78152,28 @@ type        - Each entry can have a type which indicates standard type of that e
                 - "custom"
                 - "mission"
                 - "occupation"
-				- "outlook"
+                - "outlook"
 value  -      Keyword.
 
 
 .PARAMETER Languages
 The user's languages. The maximum allowed data size for this field is 1Kb.
 May be used multiple times in the form of:
-'--languages "customLanguage=..."'
-'--languages "languageCode=..."'
+'--languages "customLanguage=...;preference=..."'
+'--languages "languageCode=...;preference=..."'
 You can use the following properties:
 customLanguage  - Other language.
-				  A user can provide their own language name if there is no corresponding Google III language code.
-			      If this is set, LanguageCode can't be set
+                  A user can provide their own language name if there is no corresponding Google III language code.
+                  If this is set, LanguageCode can't be set
 languageCode    - Language Code.
                   Should be used for storing Google III LanguageCode string representation for language.
-				  Illegal values cause SchemaException.
+                  Illegal values cause SchemaException.
+preference      - Optional.
+                  If present, controls whether the specified languageCode is the user's preferred language.
+                  If customLanguage is set, this can't be set.
+                  Allowed values are:
+                    - preferred
+                    - not_preferred
 
 
 .PARAMETER Locations
@@ -78170,8 +78182,8 @@ May be used multiple times in the form of:
 '--locations "area=...;buildingId=...;customType=..."', etc.
 You can use the following properties:
 area          - Textual location.
-		        This is most useful for display purposes to concisely describe the location.
-		        For example, "Mountain View, CA", "Near Seattle".
+                This is most useful for display purposes to concisely describe the location.
+                For example, "Mountain View, CA", "Near Seattle".
 buildingId    - Building identifier.
 customType    - If the location type is custom, this property contains the custom value.
 deskCode      - Most specific textual code of individual desk location.
@@ -78182,7 +78194,7 @@ type          - The location type.
                 Acceptable values are:
                   - "custom"
                   - "default"
-				  - "desk"
+                  - "desk"
 
 
 .PARAMETER NotesContentType
@@ -78211,9 +78223,9 @@ customType          - If the value of type is custom, this property contains the
 department          - Specifies the department within the organization, such as 'sales' or 'engineering'.
 description         - The description of the organization.
 domain              - The domain the organization belongs to.
-fullTimeEquivalent  - INT! The full-time equivalent millipercent within the organization (100000 = 100%).	
+fullTimeEquivalent  - INT! The full-time equivalent millipercent within the organization (100000 = 100%).    
 location            - The physical location of the organization.
-			          This does not need to be a fully qualified address.
+                      This does not need to be a fully qualified address.
 name                - The name of the organization.
 primary             - BOOL! Indicates if this is the user's primary organization.
                       A user may only have one primary organization.
@@ -78225,7 +78237,7 @@ type                - The type of organization.
                         - "domain_only"
                         - "school"
                         - "unknown"
-						- "work"
+                        - "work"
 
 
 .PARAMETER Password
@@ -78269,9 +78281,9 @@ type        - The type of phone number.
                 - "work"
                 - "work_fax"
                 - "work_mobile"
-		        - "work_pager"
+                - "work_pager"
 value       - A human-readable phone number.
-			  It may be in any telephone number format.
+              It may be in any telephone number format.
 
 
 .PARAMETER PosixAccounts
@@ -78337,7 +78349,7 @@ type        - The type of relation.
               - "referred_by"
               - "relative"
               - "sister"
-			  - "spouse"
+              - "spouse"
 value       - The name of the person the user is related to.
 
 
@@ -78363,21 +78375,21 @@ You can use the following properties:
 customType  - The custom type. Only used if the type is custom.
 primary     - BOOL! If this is user's primary website or not.
 type        - The type or purpose of the website.
-			  For example, a website could be labeled as home or blog.
-			  Alternatively, an entry can have a custom type.
-			  Custom types must have a customType value.
-			  Acceptable values are:
-			    - "app_install_page"
-			    - "blog"
-			    - "custom"
-			    - "ftp"
-			    - "home"
-			    - "home_page"
-			    - "other"
-			    - "profile"
-			    - "reservations"
-			    - "resume"
-			    - "work"
+              For example, a website could be labeled as home or blog.
+              Alternatively, an entry can have a custom type.
+              Custom types must have a customType value.
+              Acceptable values are:
+                - "app_install_page"
+                - "blog"
+                - "custom"
+                - "ftp"
+                - "home"
+                - "home_page"
+                - "other"
+                - "profile"
+                - "reservations"
+                - "resume"
+                - "work"
 value       - The URL of the website.
 
 
@@ -78548,7 +78560,7 @@ For more information, see https://developers.google.com/admin-sdk/directory/v1/g
 Acceptable values are:
 admin_view     - Results include both administrator-only and domain-public fields for the user. (default)
 domain_public  - Results only include fields for the user that are publicly visible to other users in the domain.
-				 Contact sharing must be enabled for the domain.
+                 Contact sharing must be enabled for the domain.
 
 
 .PARAMETER Config
@@ -79650,7 +79662,7 @@ type                - The address type.
                         - "custom"
                         - "home"
                         - "other"
-						- "work"
+                        - "work"
 
 
 .PARAMETER Addresses_ALL
@@ -79719,10 +79731,10 @@ type        - The type of the ID.
                 - "account"
                 - "custom"
                 - "customer"
-				- "login_id"
-				- "network"
-				- "organization": IDs of this type map to employee ID in the Admin Console
-value           - The value of the ID.
+                - "login_id"
+                - "network"
+                - "organization": IDs of this type map to employee ID in the Admin Console
+value       - The value of the ID.
 
 
 .PARAMETER ExternalIds_ALL
@@ -79844,7 +79856,7 @@ type        - Each entry can have a type which indicates standard type of that e
                 - "custom"
                 - "mission"
                 - "occupation"
-				- "outlook"
+                - "outlook"
 value  -      Keyword.
 
 
@@ -79855,15 +79867,21 @@ Same as keywords but value is applied to all lines in the CSV file
 .PARAMETER Languages
 The user's languages. The maximum allowed data size for this field is 1Kb.
 May be used multiple times in the form of:
-'--languages "customLanguage=..."'
-'--languages "languageCode=..."'
+'--languages "customLanguage=...;preference=..."'
+'--languages "languageCode=...;preference=..."'
 You can use the following properties:
 customLanguage  - Other language.
-				  A user can provide their own language name if there is no corresponding Google III language code.
-			      If this is set, LanguageCode can't be set
+                  A user can provide their own language name if there is no corresponding Google III language code.
+                  If this is set, LanguageCode can't be set
 languageCode    - Language Code.
                   Should be used for storing Google III LanguageCode string representation for language.
-				  Illegal values cause SchemaException.
+                  Illegal values cause SchemaException.
+preference      - Optional.
+                  If present, controls whether the specified languageCode is the user's preferred language.
+                  If customLanguage is set, this can't be set.
+                  Allowed values are:
+                    - preferred
+                    - not_preferred
 
 
 .PARAMETER Languages_ALL
@@ -79876,8 +79894,8 @@ May be used multiple times in the form of:
 '--locations "area=...;buildingId=...;customType=..."', etc.
 You can use the following properties:
 area          - Textual location.
-		        This is most useful for display purposes to concisely describe the location.
-		        For example, "Mountain View, CA", "Near Seattle".
+                This is most useful for display purposes to concisely describe the location.
+                For example, "Mountain View, CA", "Near Seattle".
 buildingId    - Building identifier.
 customType    - If the location type is custom, this property contains the custom value.
 deskCode      - Most specific textual code of individual desk location.
@@ -79888,7 +79906,7 @@ type          - The location type.
                 Acceptable values are:
                   - "custom"
                   - "default"
-				  - "desk"
+                  - "desk"
 
 
 .PARAMETER Locations_ALL
@@ -79933,9 +79951,9 @@ customType          - If the value of type is custom, this property contains the
 department          - Specifies the department within the organization, such as 'sales' or 'engineering'.
 description         - The description of the organization.
 domain              - The domain the organization belongs to.
-fullTimeEquivalent  - INT! The full-time equivalent millipercent within the organization (100000 = 100%).	
+fullTimeEquivalent  - INT! The full-time equivalent millipercent within the organization (100000 = 100%).    
 location            - The physical location of the organization.
-			          This does not need to be a fully qualified address.
+                      This does not need to be a fully qualified address.
 name                - The name of the organization.
 primary             - BOOL! Indicates if this is the user's primary organization.
                       A user may only have one primary organization.
@@ -79947,7 +79965,7 @@ type                - The type of organization.
                         - "domain_only"
                         - "school"
                         - "unknown"
-						- "work"
+                        - "work"
 
 
 .PARAMETER Organizations_ALL
@@ -80003,9 +80021,9 @@ type        - The type of phone number.
                 - "work"
                 - "work_fax"
                 - "work_mobile"
-		        - "work_pager"
+                - "work_pager"
 value       - A human-readable phone number.
-			  It may be in any telephone number format.
+              It may be in any telephone number format.
 
 
 .PARAMETER Phones_ALL
@@ -80087,7 +80105,7 @@ type        - The type of relation.
               - "referred_by"
               - "relative"
               - "sister"
-			  - "spouse"
+              - "spouse"
 value       - The name of the person the user is related to.
 
 
@@ -80134,21 +80152,21 @@ You can use the following properties:
 customType  - The custom type. Only used if the type is custom.
 primary     - BOOL! If this is user's primary website or not.
 type        - The type or purpose of the website.
-			  For example, a website could be labeled as home or blog.
-			  Alternatively, an entry can have a custom type.
-			  Custom types must have a customType value.
-			  Acceptable values are:
-			    - "app_install_page"
-			    - "blog"
-			    - "custom"
-			    - "ftp"
-			    - "home"
-			    - "home_page"
-			    - "other"
-			    - "profile"
-			    - "reservations"
-			    - "resume"
-			    - "work"
+              For example, a website could be labeled as home or blog.
+              Alternatively, an entry can have a custom type.
+              Custom types must have a customType value.
+              Acceptable values are:
+                - "app_install_page"
+                - "blog"
+                - "custom"
+                - "ftp"
+                - "home"
+                - "home_page"
+                - "other"
+                - "profile"
+                - "reservations"
+                - "resume"
+                - "work"
 value       - The URL of the website.
 
 
@@ -80331,7 +80349,7 @@ type                - The address type.
                         - "custom"
                         - "home"
                         - "other"
-						- "work"
+                        - "work"
 
 
 .PARAMETER Archived
@@ -80400,22 +80418,28 @@ type        - Each entry can have a type which indicates standard type of that e
                 - "custom"
                 - "mission"
                 - "occupation"
-				- "outlook"
+                - "outlook"
 value  -      Keyword.
 
 
 .PARAMETER Languages
 The user's languages. The maximum allowed data size for this field is 1Kb.
 May be used multiple times in the form of:
-'--languages "customLanguage=..."'
-'--languages "languageCode=..."'
+'--languages "customLanguage=...;preference=..."'
+'--languages "languageCode=...;preference=..."'
 You can use the following properties:
 customLanguage  - Other language.
-				  A user can provide their own language name if there is no corresponding Google III language code.
-			      If this is set, LanguageCode can't be set
+                  A user can provide their own language name if there is no corresponding Google III language code.
+                  If this is set, LanguageCode can't be set
 languageCode    - Language Code.
                   Should be used for storing Google III LanguageCode string representation for language.
-				  Illegal values cause SchemaException.
+                  Illegal values cause SchemaException.
+preference      - Optional.
+                  If present, controls whether the specified languageCode is the user's preferred language.
+                  If customLanguage is set, this can't be set.
+                  Allowed values are:
+                    - preferred
+                    - not_preferred
 
 
 .PARAMETER Locations
@@ -80424,8 +80448,8 @@ May be used multiple times in the form of:
 '--locations "area=...;buildingId=...;customType=..."', etc.
 You can use the following properties:
 area          - Textual location.
-		        This is most useful for display purposes to concisely describe the location.
-		        For example, "Mountain View, CA", "Near Seattle".
+                This is most useful for display purposes to concisely describe the location.
+                For example, "Mountain View, CA", "Near Seattle".
 buildingId    - Building identifier.
 customType    - If the location type is custom, this property contains the custom value.
 deskCode      - Most specific textual code of individual desk location.
@@ -80436,7 +80460,7 @@ type          - The location type.
                 Acceptable values are:
                   - "custom"
                   - "default"
-				  - "desk"
+                  - "desk"
 
 
 .PARAMETER NotesContentType
@@ -80469,9 +80493,9 @@ customType          - If the value of type is custom, this property contains the
 department          - Specifies the department within the organization, such as 'sales' or 'engineering'.
 description         - The description of the organization.
 domain              - The domain the organization belongs to.
-fullTimeEquivalent  - INT! The full-time equivalent millipercent within the organization (100000 = 100%).	
+fullTimeEquivalent  - INT! The full-time equivalent millipercent within the organization (100000 = 100%).    
 location            - The physical location of the organization.
-			          This does not need to be a fully qualified address.
+                      This does not need to be a fully qualified address.
 name                - The name of the organization.
 primary             - BOOL! Indicates if this is the user's primary organization.
                       A user may only have one primary organization.
@@ -80483,7 +80507,7 @@ type                - The type of organization.
                         - "domain_only"
                         - "school"
                         - "unknown"
-						- "work"
+                        - "work"
 
 
 .PARAMETER Password
@@ -80527,9 +80551,9 @@ type        - The type of phone number.
                 - "work"
                 - "work_fax"
                 - "work_mobile"
-		        - "work_pager"
+                - "work_pager"
 value       - A human-readable phone number.
-			  It may be in any telephone number format.
+              It may be in any telephone number format.
 
 
 .PARAMETER RecoveryEmail
@@ -80568,7 +80592,7 @@ type        - The type of relation.
               - "referred_by"
               - "relative"
               - "sister"
-			  - "spouse"
+              - "spouse"
 value       - The name of the person the user is related to.
 
 
@@ -80585,21 +80609,21 @@ You can use the following properties:
 customType  - The custom type. Only used if the type is custom.
 primary     - BOOL! If this is user's primary website or not.
 type        - The type or purpose of the website.
-			  For example, a website could be labeled as home or blog.
-			  Alternatively, an entry can have a custom type.
-			  Custom types must have a customType value.
-			  Acceptable values are:
-			    - "app_install_page"
-			    - "blog"
-			    - "custom"
-			    - "ftp"
-			    - "home"
-			    - "home_page"
-			    - "other"
-			    - "profile"
-			    - "reservations"
-			    - "resume"
-			    - "work"
+              For example, a website could be labeled as home or blog.
+              Alternatively, an entry can have a custom type.
+              Custom types must have a customType value.
+              Acceptable values are:
+                - "app_install_page"
+                - "blog"
+                - "custom"
+                - "ftp"
+                - "home"
+                - "home_page"
+                - "other"
+                - "profile"
+                - "reservations"
+                - "resume"
+                - "work"
 value       - The URL of the website.
 
 
@@ -80792,7 +80816,7 @@ type                - The address type.
                         - "custom"
                         - "home"
                         - "other"
-						- "work"
+                        - "work"
 
 
 .PARAMETER Archived
@@ -80833,10 +80857,10 @@ type        - The type of the ID.
                 - "account"
                 - "custom"
                 - "customer"
-				- "login_id"
-				- "network"
-				- "organization": IDs of this type map to employee ID in the Admin Console
-value           - The value of the ID.
+                - "login_id"
+                - "network"
+                - "organization": IDs of this type map to employee ID in the Admin Console
+value       - The value of the ID.
 
 
 .PARAMETER FamilyName
@@ -80922,22 +80946,28 @@ type        - Each entry can have a type which indicates standard type of that e
                 - "custom"
                 - "mission"
                 - "occupation"
-				- "outlook"
+                - "outlook"
 value  -      Keyword.
 
 
 .PARAMETER Languages
 The user's languages. The maximum allowed data size for this field is 1Kb.
 May be used multiple times in the form of:
-'--languages "customLanguage=..."'
-'--languages "languageCode=..."'
+'--languages "customLanguage=...;preference=..."'
+'--languages "languageCode=...;preference=..."'
 You can use the following properties:
 customLanguage  - Other language.
-				  A user can provide their own language name if there is no corresponding Google III language code.
-			      If this is set, LanguageCode can't be set
+                  A user can provide their own language name if there is no corresponding Google III language code.
+                  If this is set, LanguageCode can't be set
 languageCode    - Language Code.
                   Should be used for storing Google III LanguageCode string representation for language.
-				  Illegal values cause SchemaException.
+                  Illegal values cause SchemaException.
+preference      - Optional.
+                  If present, controls whether the specified languageCode is the user's preferred language.
+                  If customLanguage is set, this can't be set.
+                  Allowed values are:
+                    - preferred
+                    - not_preferred
 
 
 .PARAMETER Locations
@@ -80946,8 +80976,8 @@ May be used multiple times in the form of:
 '--locations "area=...;buildingId=...;customType=..."', etc.
 You can use the following properties:
 area          - Textual location.
-		        This is most useful for display purposes to concisely describe the location.
-		        For example, "Mountain View, CA", "Near Seattle".
+                This is most useful for display purposes to concisely describe the location.
+                For example, "Mountain View, CA", "Near Seattle".
 buildingId    - Building identifier.
 customType    - If the location type is custom, this property contains the custom value.
 deskCode      - Most specific textual code of individual desk location.
@@ -80958,7 +80988,7 @@ type          - The location type.
                 Acceptable values are:
                   - "custom"
                   - "default"
-				  - "desk"
+                  - "desk"
 
 
 .PARAMETER NotesContentType
@@ -80987,9 +81017,9 @@ customType          - If the value of type is custom, this property contains the
 department          - Specifies the department within the organization, such as 'sales' or 'engineering'.
 description         - The description of the organization.
 domain              - The domain the organization belongs to.
-fullTimeEquivalent  - INT! The full-time equivalent millipercent within the organization (100000 = 100%).	
+fullTimeEquivalent  - INT! The full-time equivalent millipercent within the organization (100000 = 100%).    
 location            - The physical location of the organization.
-			          This does not need to be a fully qualified address.
+                      This does not need to be a fully qualified address.
 name                - The name of the organization.
 primary             - BOOL! Indicates if this is the user's primary organization.
                       A user may only have one primary organization.
@@ -81001,7 +81031,7 @@ type                - The type of organization.
                         - "domain_only"
                         - "school"
                         - "unknown"
-						- "work"
+                        - "work"
 
 
 .PARAMETER Password
@@ -81045,9 +81075,9 @@ type        - The type of phone number.
                 - "work"
                 - "work_fax"
                 - "work_mobile"
-		        - "work_pager"
+                - "work_pager"
 value       - A human-readable phone number.
-			  It may be in any telephone number format.
+              It may be in any telephone number format.
 
 
 .PARAMETER PosixAccounts
@@ -81113,7 +81143,7 @@ type        - The type of relation.
               - "referred_by"
               - "relative"
               - "sister"
-			  - "spouse"
+              - "spouse"
 value       - The name of the person the user is related to.
 
 
@@ -81144,21 +81174,21 @@ You can use the following properties:
 customType  - The custom type. Only used if the type is custom.
 primary     - BOOL! If this is user's primary website or not.
 type        - The type or purpose of the website.
-			  For example, a website could be labeled as home or blog.
-			  Alternatively, an entry can have a custom type.
-			  Custom types must have a customType value.
-			  Acceptable values are:
-			    - "app_install_page"
-			    - "blog"
-			    - "custom"
-			    - "ftp"
-			    - "home"
-			    - "home_page"
-			    - "other"
-			    - "profile"
-			    - "reservations"
-			    - "resume"
-			    - "work"
+              For example, a website could be labeled as home or blog.
+              Alternatively, an entry can have a custom type.
+              Custom types must have a customType value.
+              Acceptable values are:
+                - "app_install_page"
+                - "blog"
+                - "custom"
+                - "ftp"
+                - "home"
+                - "home_page"
+                - "other"
+                - "profile"
+                - "reservations"
+                - "resume"
+                - "work"
 value       - The URL of the website.
 
 
