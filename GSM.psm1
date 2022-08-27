@@ -292,12 +292,12 @@ The list is composed of event parameters that are manipulated by relational oper
 Event parameters are in the form [parameter1 name][relational operator][parameter1 value],[parameter2 name][relational operator][parameter2 value],...
 
 These event parameters are associated with a specific eventName. An empty report is returned if the filtered request's parameter does not belong to the eventName. For more information about eventName parameters, see the list of event names for various applications above in applicationName.
-		
-In the following Admin Activity example, the <> operator is URL-encoded in the request's query string (%3C%3E):	
+
+In the following Admin Activity example, the <> operator is URL-encoded in the request's query string (%3C%3E):
 
 GET...&eventName=CHANGE_CALENDAR_SETTING
 &filters=NEW_VALUE%3C%3EREAD_ONLY_ACCESS
-		
+
 In the following Drive example, the list can be a view or edit event's doc_id parameter with a value that is manipulated by an 'equal to' (==) or 'not equal to' (<>) relational operator. In the first example, the report returns each edited document's doc_id. In the second example, the report returns each viewed document's doc_id that equals the value 12345 and does not return any viewed document's which have a doc_id value of 98765. The <> operator is URL-encoded in the request's query string (%3C%3E):
 
 GET...&eventName=edit&filters=doc_id
@@ -446,7 +446,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -676,7 +676,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -916,7 +916,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -1267,7 +1267,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -1535,7 +1535,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -1763,7 +1763,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -2125,7 +2125,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Description
@@ -2759,7 +2759,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Description
@@ -3173,7 +3173,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -3403,7 +3403,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -3671,7 +3671,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -3994,7 +3994,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -4273,7 +4273,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -4588,7 +4588,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -4797,7 +4797,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -5113,7 +5113,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -5692,7 +5692,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -6067,7 +6067,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -6297,7 +6297,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -6616,7 +6616,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -7210,7 +7210,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -7669,7 +7669,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -7879,7 +7879,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -8121,7 +8121,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Description
@@ -8425,7 +8425,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Description
@@ -8708,7 +8708,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -9286,7 +9286,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DeviceId
@@ -9572,7 +9572,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DeprovisionReason
@@ -9858,7 +9858,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DeviceId
@@ -10445,7 +10445,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DeviceId
@@ -11649,7 +11649,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -12055,7 +12055,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -12488,7 +12488,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -12753,7 +12753,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -12987,7 +12987,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -13254,7 +13254,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -13560,7 +13560,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -14918,7 +14918,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -15150,7 +15150,7 @@ Same as deleteContacts but value is applied to all lines in the CSV file
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -15370,7 +15370,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -15701,7 +15701,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -15951,7 +15951,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -16631,7 +16631,7 @@ The email address of the delegate.
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -16870,7 +16870,7 @@ The email address of the delegate.
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -17098,7 +17098,7 @@ The email address of the delegate.
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -17437,7 +17437,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -17787,7 +17787,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -18019,7 +18019,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -18390,7 +18390,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -18622,7 +18622,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -18871,7 +18871,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -19120,7 +19120,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -19369,7 +19369,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -19618,7 +19618,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -20102,7 +20102,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -20343,7 +20343,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DomainAliasName
@@ -20571,7 +20571,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DomainAliasName
@@ -20822,7 +20822,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DomainAliasName
@@ -21177,7 +21177,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DomainName
@@ -21405,7 +21405,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DomainName
@@ -21650,7 +21650,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DomainName
@@ -22053,7 +22053,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -22355,7 +22355,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -22589,7 +22589,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -22963,7 +22963,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -23266,7 +23266,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -23494,6 +23494,273 @@ The user's email address. The special value "me" can be used to indicate the aut
 }
 
 
+Function Get-GSMDriveLabels {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$LanguageCode,
+[Parameter()]
+[string]$Log,
+[Parameter(Mandatory=$true)]
+[string]$Name,
+[Parameter()]
+[string]$RedirectPort,
+[Parameter()]
+[string]$RetryOn,
+[Parameter()]
+[switch]$UseAdminAccess,
+[Parameter()]
+[string]$View
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        LanguageCode = @{ OriginalName = '--languageCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Name = @{ OriginalName = '--name'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RedirectPort = @{ OriginalName = '--redirectPort'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        UseAdminAccess = @{ OriginalName = '--useAdminAccess'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+        View = @{ OriginalName = '--view'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "driveLabels"
+        "get"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Get a label by its resource name.
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER LanguageCode
+The BCP-47 language code to use for evaluating localized field labels.
+When not specified, values in the default configured language are used.
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER Name
+Label resource name.
+May be any of:
+  - labels/{id} (equivalent to labels/{id}@latest)
+  - labels/{id}@latest
+  - labels/{id}@published
+  - labels/{id}@{revisionId}
+If you don't specify the "labels/" prefix, GSM will automatically prepend it to the request.
+
+
+.PARAMETER RedirectPort
+This is the TCP port on which GSM will create web server if you authenticate with a user account for the first time. This is necessary for the OAuth flow. See https://developers.google.com/identity/protocols/oauth2/native-app#redirect-uri_loopback
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+.PARAMETER UseAdminAccess
+Set to true in order to use the user's admin credentials.
+The server verifies that the user is an admin for the label before allowing access.
+
+
+.PARAMETER View
+When specified, only certain fields belonging to the indicated view are returned.
+[LABEL_VIEW_BASIC|LABEL_VIEW_FULL]
+LABEL_VIEW_BASIC - Implies the field mask: name,id,revisionId,labelType,properties.*
+LABEL_VIEW_FULL  - All possible fields.
+
+
+
+#>
+}
+
+
+Function List-GSMDriveLabels {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$LanguageCode,
+[Parameter()]
+[string]$Log,
+[Parameter()]
+[string]$MinimumRole,
+[Parameter()]
+[switch]$PublishedOnly,
+[Parameter()]
+[string]$RedirectPort,
+[Parameter()]
+[string]$RetryOn,
+[Parameter()]
+[switch]$UseAdminAccess,
+[Parameter()]
+[string]$View
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        LanguageCode = @{ OriginalName = '--languageCode'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        MinimumRole = @{ OriginalName = '--minimumRole'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        PublishedOnly = @{ OriginalName = '--publishedOnly'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+        RedirectPort = @{ OriginalName = '--redirectPort'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        UseAdminAccess = @{ OriginalName = '--useAdminAccess'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+        View = @{ OriginalName = '--view'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "driveLabels"
+        "list"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+List labels.
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER LanguageCode
+The BCP-47 language code to use for evaluating localized field labels.
+When not specified, values in the default configured language are used.
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER MinimumRole
+Specifies the level of access the user must have on the returned Labels.
+The minimum role a user must have on a label.
+Defaults to READER.
+[READER|APPLIER|ORGANIZER|EDITOR]
+READER     - A reader can read the label and associated metadata applied to Drive items.
+APPLIER    - An applier can write associated metadata on Drive items in which they also have write access to. Implies READER.
+ORGANIZER  - An organizer can pin this label in shared drives they manage and add new appliers to the label.
+EDITOR     - Editors can make any update including deleting the label which also deletes the associated Drive item metadata. Implies APPLIER.
+
+
+.PARAMETER PublishedOnly
+Whether to include only published labels in the results.
+
+When true, only the current published label revisions are returned.
+Disabled labels are included.
+Returned label resource names reference the published revision (labels/{id}/{revisionId}).
+
+When false, the current label revisions are returned, which might not be published.
+Returned label resource names don't reference a specific revision (labels/{id}).
+
+
+.PARAMETER RedirectPort
+This is the TCP port on which GSM will create web server if you authenticate with a user account for the first time. This is necessary for the OAuth flow. See https://developers.google.com/identity/protocols/oauth2/native-app#redirect-uri_loopback
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+.PARAMETER UseAdminAccess
+Set to true in order to use the user's admin credentials.
+The server verifies that the user is an admin for the label before allowing access.
+
+
+.PARAMETER View
+When specified, only certain fields belonging to the indicated view are returned.
+[LABEL_VIEW_BASIC|LABEL_VIEW_FULL]
+LABEL_VIEW_BASIC - Implies the field mask: name,id,revisionId,labelType,properties.*
+LABEL_VIEW_FULL  - All possible fields.
+
+
+
+#>
+}
+
+
 Function Create-GSMDrivesBatch {
 
 
@@ -23600,7 +23867,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -23875,7 +24142,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DriveId
@@ -24089,7 +24356,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DriveId
@@ -24427,7 +24694,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DriveId
@@ -24774,7 +25041,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DriveId
@@ -25117,7 +25384,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DomainUsersOnly
@@ -25511,7 +25778,7 @@ In this example, the <> 'not equal to' operator is URL-encoded in the request's 
 GET
 https://www.googleapis.com/admin/reports/v1/usage/gplus_communities/all/dates/2017-12-01
 ?parameters=gplus:community_name,gplus:num_total_members
-&filters=gplus:num_total_members%3C%3E0 
+&filters=gplus:num_total_members%3C%3E0
 The relational operators include:
 
 == - 'equal to'.
@@ -25653,7 +25920,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -25918,7 +26185,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -26227,7 +26494,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Destination
@@ -26739,7 +27006,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Description
@@ -27541,7 +27808,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -27966,7 +28233,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -28429,7 +28696,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Destination
@@ -28958,7 +29225,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Description
@@ -29753,7 +30020,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -30021,7 +30288,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -30251,7 +30518,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -30498,7 +30765,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -30840,7 +31107,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -31084,7 +31351,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -31444,7 +31711,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Description
@@ -31512,7 +31779,7 @@ Set the path of the log file. Default is either ~/gsm.log or defined in your con
 
 
 .PARAMETER MimeType
-The MIME type of the file.
+The target MIME type of the file.
 Google Drive will attempt to automatically detect an appropriate value from uploaded content if no value is provided.
 The value cannot be changed unless a new revision is uploaded.
 
@@ -31668,6 +31935,8 @@ param(
 [Parameter()]
 [string]$FolderId,
 [Parameter()]
+[switch]$IncludeRoot,
+[Parameter()]
 [string]$Log,
 [Parameter()]
 [string]$Parent,
@@ -31686,6 +31955,7 @@ BEGIN {
         ExcludeFolders = @{ OriginalName = '--excludeFolders'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         FolderId = @{ OriginalName = '--folderId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        IncludeRoot = @{ OriginalName = '--includeRoot'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Parent = @{ OriginalName = '--parent'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         RedirectPort = @{ OriginalName = '--redirectPort'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -31741,6 +32011,10 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 
 .PARAMETER FolderId
 File id of the folder.
+
+
+.PARAMETER IncludeRoot
+If set to true, the root (specified parent) is included in the results
 
 
 .PARAMETER Log
@@ -31943,7 +32217,7 @@ Set the path of the log file. Default is either ~/gsm.log or defined in your con
 
 
 .PARAMETER MimeType
-The MIME type of the file.
+The target MIME type of the file.
 Google Drive will attempt to automatically detect an appropriate value from uploaded content if no value is provided.
 The value cannot be changed unless a new revision is uploaded.
 
@@ -32037,6 +32311,8 @@ param(
 [Parameter()]
 [string]$FolderId,
 [Parameter()]
+[switch]$IncludeRoot,
+[Parameter()]
 [string]$Log,
 [Parameter()]
 [string]$RedirectPort,
@@ -32052,6 +32328,7 @@ BEGIN {
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         ExcludeFolders = @{ OriginalName = '--excludeFolders'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         FolderId = @{ OriginalName = '--folderId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        IncludeRoot = @{ OriginalName = '--includeRoot'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         RedirectPort = @{ OriginalName = '--redirectPort'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -32101,6 +32378,10 @@ Note that due to the way permissions are automatically inherited in Drive, this 
 
 .PARAMETER FolderId
 File id of the folder.
+
+
+.PARAMETER IncludeRoot
+If set to true, the root (specified parent) is included in the results
 
 
 .PARAMETER Log
@@ -32315,6 +32596,10 @@ param(
 [Parameter()]
 [switch]$SkipHeader,
 [Parameter()]
+[string]$SourceMimeType,
+[Parameter()]
+[string]$SourceMimeType_ALL,
+[Parameter()]
 [string]$Starred,
 [Parameter()]
 [switch]$Starred_ALL,
@@ -32397,6 +32682,8 @@ BEGIN {
         RedirectPort = @{ OriginalName = '--redirectPort'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+        SourceMimeType = @{ OriginalName = '--sourceMimeType'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        SourceMimeType_ALL = @{ OriginalName = '--sourceMimeType_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Starred = @{ OriginalName = '--starred'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Starred_ALL = @{ OriginalName = '--starred_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
         TargetId = @{ OriginalName = '--targetId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -32472,7 +32759,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Description
@@ -32563,7 +32850,7 @@ Set the path of the log file. Default is either ~/gsm.log or defined in your con
 
 
 .PARAMETER MimeType
-The MIME type of the file.
+The target MIME type of the file.
 Google Drive will attempt to automatically detect an appropriate value from uploaded content if no value is provided.
 The value cannot be changed unless a new revision is uploaded.
 
@@ -32659,6 +32946,15 @@ Specify the HTTP error code(s) that GSM should retry on. Note that GSM will alwa
 
 .PARAMETER SkipHeader
 Whether to skip the first row (header)
+
+
+.PARAMETER SourceMimeType
+The MIME type of the source file to upload.
+Set this to "text/csv" and "mimeType" to "application/vnd.google-apps.spreadsheet" in order to import a CSV file as a Sheet
+
+
+.PARAMETER SourceMimeType_ALL
+Same as sourceMimeType but value is applied to all lines in the CSV file
 
 
 .PARAMETER Starred
@@ -32785,6 +33081,8 @@ param(
 [Parameter()]
 [string]$RetryOn,
 [Parameter()]
+[string]$SourceMimeType,
+[Parameter()]
 [switch]$Starred,
 [Parameter()]
 [string]$TargetId,
@@ -32829,6 +33127,7 @@ BEGIN {
         ReadOnlyReason = @{ OriginalName = '--readOnlyReason'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         RedirectPort = @{ OriginalName = '--redirectPort'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        SourceMimeType = @{ OriginalName = '--sourceMimeType'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Starred = @{ OriginalName = '--starred'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
         TargetId = @{ OriginalName = '--targetId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         ThumbnailImage = @{ OriginalName = '--thumbnailImage'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -32935,7 +33234,7 @@ Set the path of the log file. Default is either ~/gsm.log or defined in your con
 
 
 .PARAMETER MimeType
-The MIME type of the file.
+The target MIME type of the file.
 Google Drive will attempt to automatically detect an appropriate value from uploaded content if no value is provided.
 The value cannot be changed unless a new revision is uploaded.
 
@@ -32987,6 +33286,11 @@ This is the TCP port on which GSM will create web server if you authenticate wit
 
 .PARAMETER RetryOn
 Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+.PARAMETER SourceMimeType
+The MIME type of the source file to upload.
+Set this to "text/csv" and "mimeType" to "application/vnd.google-apps.spreadsheet" in order to import a CSV file as a Sheet
 
 
 .PARAMETER Starred
@@ -33103,7 +33407,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -33326,7 +33630,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -33561,7 +33865,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -33585,7 +33889,7 @@ Set the path of the log file. Default is either ~/gsm.log or defined in your con
 
 
 .PARAMETER MimeType
-The MIME type of the file.
+The target MIME type of the file.
 Google Drive will attempt to automatically detect an appropriate value from uploaded content if no value is provided.
 The value cannot be changed unless a new revision is uploaded.
 
@@ -33702,7 +34006,7 @@ Set the path of the log file. Default is either ~/gsm.log or defined in your con
 
 
 .PARAMETER MimeType
-The MIME type of the file.
+The target MIME type of the file.
 Google Drive will attempt to automatically detect an appropriate value from uploaded content if no value is provided.
 The value cannot be changed unless a new revision is uploaded.
 
@@ -33908,7 +34212,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -34085,6 +34389,8 @@ param(
 [Parameter()]
 [string]$FolderId,
 [Parameter()]
+[switch]$IncludeRoot,
+[Parameter()]
 [string]$Log,
 [Parameter()]
 [string]$RedirectPort,
@@ -34101,6 +34407,7 @@ BEGIN {
         ExcludeFolders = @{ OriginalName = '--excludeFolders'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         FolderId = @{ OriginalName = '--folderId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        IncludeRoot = @{ OriginalName = '--includeRoot'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         RedirectPort = @{ OriginalName = '--redirectPort'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -34155,6 +34462,10 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 
 .PARAMETER FolderId
 File id of the folder.
+
+
+.PARAMETER IncludeRoot
+If set to true, the root (specified parent) is included in the results
 
 
 .PARAMETER Log
@@ -34323,6 +34634,761 @@ Supported values are 'drive', 'appDataFolder' and 'photos'.
 }
 
 
+Function ListLabels-GSMFilesBatch {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$Delimiter,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$Fields_ALL,
+[Parameter()]
+[string]$FileId,
+[Parameter()]
+[string]$Log,
+[Parameter(Mandatory=$true)]
+[string]$Path,
+[Parameter()]
+[string]$RedirectPort,
+[Parameter()]
+[string]$RetryOn,
+[Parameter()]
+[switch]$SkipHeader
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FileId = @{ OriginalName = '--fileId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RedirectPort = @{ OriginalName = '--redirectPort'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "files"
+        "listLabels"
+        "batch"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Batch list the labels on files using a CSV file as input.
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
+
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER Delimiter
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER Fields_ALL
+Same as fields but value is applied to all lines in the CSV file
+
+
+.PARAMETER FileId
+The ID of the file
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER Path
+Path of the import file (CSV)
+
+
+.PARAMETER RedirectPort
+This is the TCP port on which GSM will create web server if you authenticate with a user account for the first time. This is necessary for the OAuth flow. See https://developers.google.com/identity/protocols/oauth2/native-app#redirect-uri_loopback
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+.PARAMETER SkipHeader
+Whether to skip the first row (header)
+
+
+
+#>
+}
+
+
+Function ListLabels-GSMFilesRecursive {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$ExcludeFolders,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$FolderId,
+[Parameter()]
+[switch]$IncludeRoot,
+[Parameter()]
+[string]$Log,
+[Parameter()]
+[string]$RedirectPort,
+[Parameter()]
+[string]$RetryOn
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ExcludeFolders = @{ OriginalName = '--excludeFolders'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FolderId = @{ OriginalName = '--folderId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        IncludeRoot = @{ OriginalName = '--includeRoot'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RedirectPort = @{ OriginalName = '--redirectPort'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "files"
+        "listLabels"
+        "recursive"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Recursively lists labels on a folder and all of its children.
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for recursive commands (overrides value in config file. Max 16)
+
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER ExcludeFolders
+Ids of folders to exclude.
+Note that due to the way permissions are automatically inherited in Drive, this may not have the desired result for permission commands!
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER FolderId
+File id of the folder.
+
+
+.PARAMETER IncludeRoot
+If set to true, the root (specified parent) is included in the results
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RedirectPort
+This is the TCP port on which GSM will create web server if you authenticate with a user account for the first time. This is necessary for the OAuth flow. See https://developers.google.com/identity/protocols/oauth2/native-app#redirect-uri_loopback
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+
+#>
+}
+
+
+Function ListLabels-GSMFiles {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Fields,
+[Parameter(Mandatory=$true)]
+[string]$FileId,
+[Parameter()]
+[string]$Log,
+[Parameter()]
+[string]$RedirectPort,
+[Parameter()]
+[string]$RetryOn
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FileId = @{ OriginalName = '--fileId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RedirectPort = @{ OriginalName = '--redirectPort'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "files"
+        "listLabels"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Lists the labels on a file.
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER FileId
+The ID of the file
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RedirectPort
+This is the TCP port on which GSM will create web server if you authenticate with a user account for the first time. This is necessary for the OAuth flow. See https://developers.google.com/identity/protocols/oauth2/native-app#redirect-uri_loopback
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+
+#>
+}
+
+
+Function ModifyLabels-GSMFilesBatch {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$Delimiter,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$Fields_ALL,
+[Parameter()]
+[string]$FileId,
+[Parameter()]
+[string]$LabelField,
+[Parameter()]
+[string]$LabelField_ALL,
+[Parameter()]
+[string]$Log,
+[Parameter(Mandatory=$true)]
+[string]$Path,
+[Parameter()]
+[string]$RedirectPort,
+[Parameter()]
+[string]$RetryOn,
+[Parameter()]
+[switch]$SkipHeader
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FileId = @{ OriginalName = '--fileId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        LabelField = @{ OriginalName = '--labelField'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        LabelField_ALL = @{ OriginalName = '--labelField_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RedirectPort = @{ OriginalName = '--redirectPort'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "files"
+        "modifyLabels"
+        "batch"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Batch modify the labels on files using a CSV file as input.
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
+
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER Delimiter
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER Fields_ALL
+Same as fields but value is applied to all lines in the CSV file
+
+
+.PARAMETER FileId
+The ID of the file
+
+
+.PARAMETER LabelField
+A single label field that should be updated on a file.
+Can be used multiple times in the form of "--labelField "labelId=...;fieldId=...;valueType=...,value=...", etc.
+GSM will consolidate all instances into a single request.
+You can use the following properties:
+labelId              The ID of the label.
+fieldId              The identifier of this field.
+valueType            The field type. While new values may be supported in the future, the following are currently allowed:
+                     - dateString
+                     - integer
+                     - selection
+                     - text
+                     - user
+values				The value that should be set.
+                    Must be compatible with the specified valueType.
+                    When specifying multiple values use the pipe character ('|') to separate them.
+index               The index of the value if the field is multi-value
+
+
+.PARAMETER LabelField_ALL
+Same as labelField but value is applied to all lines in the CSV file
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER Path
+Path of the import file (CSV)
+
+
+.PARAMETER RedirectPort
+This is the TCP port on which GSM will create web server if you authenticate with a user account for the first time. This is necessary for the OAuth flow. See https://developers.google.com/identity/protocols/oauth2/native-app#redirect-uri_loopback
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+.PARAMETER SkipHeader
+Whether to skip the first row (header)
+
+
+
+#>
+}
+
+
+Function ModifyLabels-GSMFilesRecursive {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$ExcludeFolders,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$FolderId,
+[Parameter()]
+[switch]$IncludeRoot,
+[Parameter(Mandatory=$true)]
+[string]$LabelField,
+[Parameter()]
+[string]$Log,
+[Parameter()]
+[string]$RedirectPort,
+[Parameter()]
+[string]$RetryOn
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ExcludeFolders = @{ OriginalName = '--excludeFolders'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FolderId = @{ OriginalName = '--folderId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        IncludeRoot = @{ OriginalName = '--includeRoot'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+        LabelField = @{ OriginalName = '--labelField'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RedirectPort = @{ OriginalName = '--redirectPort'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "files"
+        "modifyLabels"
+        "recursive"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Recursively modifies the labels on a folder and all of its children.
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for recursive commands (overrides value in config file. Max 16)
+
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER ExcludeFolders
+Ids of folders to exclude.
+Note that due to the way permissions are automatically inherited in Drive, this may not have the desired result for permission commands!
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER FolderId
+File id of the folder.
+
+
+.PARAMETER IncludeRoot
+If set to true, the root (specified parent) is included in the results
+
+
+.PARAMETER LabelField
+A single label field that should be updated on a file.
+Can be used multiple times in the form of "--labelField "labelId=...;fieldId=...;valueType=...,value=...", etc.
+GSM will consolidate all instances into a single request.
+You can use the following properties:
+labelId              The ID of the label.
+fieldId              The identifier of this field.
+valueType            The field type. While new values may be supported in the future, the following are currently allowed:
+                     - dateString
+                     - integer
+                     - selection
+                     - text
+                     - user
+values				The value that should be set.
+                    Must be compatible with the specified valueType.
+                    When specifying multiple values use the pipe character ('|') to separate them.
+index               The index of the value if the field is multi-value
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RedirectPort
+This is the TCP port on which GSM will create web server if you authenticate with a user account for the first time. This is necessary for the OAuth flow. See https://developers.google.com/identity/protocols/oauth2/native-app#redirect-uri_loopback
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+
+#>
+}
+
+
+Function ModifyLabels-GSMFiles {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Fields,
+[Parameter(Mandatory=$true)]
+[string]$FileId,
+[Parameter(Mandatory=$true)]
+[string]$LabelField,
+[Parameter()]
+[string]$Log,
+[Parameter()]
+[string]$RedirectPort,
+[Parameter()]
+[string]$RetryOn
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FileId = @{ OriginalName = '--fileId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        LabelField = @{ OriginalName = '--labelField'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RedirectPort = @{ OriginalName = '--redirectPort'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "files"
+        "modifyLabels"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Modifies the set of labels on a file.
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER FileId
+The ID of the file
+
+
+.PARAMETER LabelField
+A single label field that should be updated on a file.
+Can be used multiple times in the form of "--labelField "labelId=...;fieldId=...;valueType=...,value=...", etc.
+GSM will consolidate all instances into a single request.
+You can use the following properties:
+labelId              The ID of the label.
+fieldId              The identifier of this field.
+valueType            The field type. While new values may be supported in the future, the following are currently allowed:
+                     - dateString
+                     - integer
+                     - selection
+                     - text
+                     - user
+values				The value that should be set.
+                    Must be compatible with the specified valueType.
+                    When specifying multiple values use the pipe character ('|') to separate them.
+index               The index of the value if the field is multi-value
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RedirectPort
+This is the TCP port on which GSM will create web server if you authenticate with a user account for the first time. This is necessary for the OAuth flow. See https://developers.google.com/identity/protocols/oauth2/native-app#redirect-uri_loopback
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+
+#>
+}
+
+
 Function Move-GSMFilesBatch {
 
 
@@ -34408,7 +35474,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -34471,6 +35537,8 @@ param(
 [Parameter()]
 [string]$FolderId,
 [Parameter()]
+[switch]$IncludeRoot,
+[Parameter()]
 [string]$Log,
 [Parameter(Mandatory=$true)]
 [string]$Parent,
@@ -34488,6 +35556,7 @@ BEGIN {
         DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         ExcludeFolders = @{ OriginalName = '--excludeFolders'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         FolderId = @{ OriginalName = '--folderId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        IncludeRoot = @{ OriginalName = '--includeRoot'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Parent = @{ OriginalName = '--parent'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         RedirectPort = @{ OriginalName = '--redirectPort'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -34538,6 +35607,10 @@ Note that due to the way permissions are automatically inherited in Drive, this 
 
 .PARAMETER FolderId
 File id of the folder.
+
+
+.PARAMETER IncludeRoot
+If set to true, the root (specified parent) is included in the results
 
 
 .PARAMETER Log
@@ -34639,6 +35712,378 @@ Set the path of the log file. Default is either ~/gsm.log or defined in your con
 
 .PARAMETER Parent
 The single parent of the file.
+
+
+.PARAMETER RedirectPort
+This is the TCP port on which GSM will create web server if you authenticate with a user account for the first time. This is necessary for the OAuth flow. See https://developers.google.com/identity/protocols/oauth2/native-app#redirect-uri_loopback
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+
+#>
+}
+
+
+Function RemoveLabels-GSMFilesBatch {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$Delimiter,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$Fields_ALL,
+[Parameter()]
+[string]$FileId,
+[Parameter()]
+[string]$LabelId,
+[Parameter()]
+[string]$LabelId_ALL,
+[Parameter()]
+[string]$Log,
+[Parameter(Mandatory=$true)]
+[string]$Path,
+[Parameter()]
+[string]$RedirectPort,
+[Parameter()]
+[string]$RetryOn,
+[Parameter()]
+[switch]$SkipHeader
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delimiter = @{ OriginalName = '--delimiter'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields_ALL = @{ OriginalName = '--fields_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FileId = @{ OriginalName = '--fileId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        LabelId = @{ OriginalName = '--labelId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        LabelId_ALL = @{ OriginalName = '--labelId_ALL'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Path = @{ OriginalName = '--path'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RedirectPort = @{ OriginalName = '--redirectPort'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        SkipHeader = @{ OriginalName = '--skipHeader'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "files"
+        "removeLabels"
+        "batch"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Batch remove the specified labels on files using a CSV file as input.
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for batch commands (overrides value in config file. Max 16)
+
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER Delimiter
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER Fields_ALL
+Same as fields but value is applied to all lines in the CSV file
+
+
+.PARAMETER FileId
+The ID of the file
+
+
+.PARAMETER LabelId
+The ID of a label that should be removed from the file
+Can be used multiple times to remove multiple labels in one request
+
+
+.PARAMETER LabelId_ALL
+Same as labelId but value is applied to all lines in the CSV file
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER Path
+Path of the import file (CSV)
+
+
+.PARAMETER RedirectPort
+This is the TCP port on which GSM will create web server if you authenticate with a user account for the first time. This is necessary for the OAuth flow. See https://developers.google.com/identity/protocols/oauth2/native-app#redirect-uri_loopback
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+.PARAMETER SkipHeader
+Whether to skip the first row (header)
+
+
+
+#>
+}
+
+
+Function RemoveLabels-GSMFilesRecursive {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$BatchThreads,
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$ExcludeFolders,
+[Parameter()]
+[string]$Fields,
+[Parameter()]
+[string]$FolderId,
+[Parameter()]
+[switch]$IncludeRoot,
+[Parameter(Mandatory=$true)]
+[string]$LabelId,
+[Parameter()]
+[string]$Log,
+[Parameter()]
+[string]$RedirectPort,
+[Parameter()]
+[string]$RetryOn
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        BatchThreads = @{ OriginalName = '--batchThreads'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        ExcludeFolders = @{ OriginalName = '--excludeFolders'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FolderId = @{ OriginalName = '--folderId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        IncludeRoot = @{ OriginalName = '--includeRoot'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
+        LabelId = @{ OriginalName = '--labelId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RedirectPort = @{ OriginalName = '--redirectPort'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "files"
+        "removeLabels"
+        "recursive"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Recursively removes the specified labels on a folder and all of its children.
+
+.PARAMETER BatchThreads
+Specify the number of threads that should be used for recursive commands (overrides value in config file. Max 16)
+
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER ExcludeFolders
+Ids of folders to exclude.
+Note that due to the way permissions are automatically inherited in Drive, this may not have the desired result for permission commands!
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER FolderId
+File id of the folder.
+
+
+.PARAMETER IncludeRoot
+If set to true, the root (specified parent) is included in the results
+
+
+.PARAMETER LabelId
+The ID of a label that should be removed from the file
+Can be used multiple times to remove multiple labels in one request
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
+
+
+.PARAMETER RedirectPort
+This is the TCP port on which GSM will create web server if you authenticate with a user account for the first time. This is necessary for the OAuth flow. See https://developers.google.com/identity/protocols/oauth2/native-app#redirect-uri_loopback
+
+
+.PARAMETER RetryOn
+Specify the HTTP error code(s) that GSM should retry on. Note that GSM will always retry on HTTP 403 errors that indicate a quota / rate limit error
+
+
+
+#>
+}
+
+
+Function RemoveLabels-GSMFiles {
+
+
+[CmdletBinding()]
+
+param(
+[Parameter()]
+[string]$Config,
+[Parameter()]
+[string]$Delay,
+[Parameter()]
+[string]$DwdSubject,
+[Parameter()]
+[string]$Fields,
+[Parameter(Mandatory=$true)]
+[string]$FileId,
+[Parameter(Mandatory=$true)]
+[string]$LabelId,
+[Parameter()]
+[string]$Log,
+[Parameter()]
+[string]$RedirectPort,
+[Parameter()]
+[string]$RetryOn
+    )
+
+BEGIN {
+    $__PARAMETERMAP = @{
+        Config = @{ OriginalName = '--config'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Delay = @{ OriginalName = '--delay'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        DwdSubject = @{ OriginalName = '--dwdSubject'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        FileId = @{ OriginalName = '--fileId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        LabelId = @{ OriginalName = '--labelId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RedirectPort = @{ OriginalName = '--redirectPort'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+    }
+
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { $_ | ConvertFrom-Json } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "files"
+        "removeLabels"
+        "--compressOutput"
+        "--streamOutput"
+    )
+    Invoke-GSM -OriginalParams $PSBoundParameters -ParameterMap $__PARAMETERMAP -OutputHandlers $__outputHandlers -CommandArgs $__commandArgs
+  } # end PROCESS
+
+<#
+
+
+.DESCRIPTION
+Removes labels from a file.
+
+.PARAMETER Config
+config file (default is $HOME/.config/gsm/.gsm.yaml)
+
+
+.PARAMETER Delay
+This delay (plus a random jitter between 0 and 50) will be applied after every command to avoid reaching quota and rate limits. Set to 0 to disable.
+
+
+.PARAMETER DwdSubject
+Specify a subject used for DWD impersonation (overrides value in config file)
+
+
+.PARAMETER Fields
+Fields allows partial responses to be retrieved.
+See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more information.
+
+
+.PARAMETER FileId
+The ID of the file
+
+
+.PARAMETER LabelId
+The ID of a label that should be removed from the file
+Can be used multiple times to remove multiple labels in one request
+
+
+.PARAMETER Log
+Set the path of the log file. Default is either ~/gsm.log or defined in your config file
 
 
 .PARAMETER RedirectPort
@@ -34900,7 +36345,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Description
@@ -34980,7 +36425,7 @@ Set the path of the log file. Default is either ~/gsm.log or defined in your con
 
 
 .PARAMETER MimeType
-The MIME type of the file.
+The target MIME type of the file.
 Google Drive will attempt to automatically detect an appropriate value from uploaded content if no value is provided.
 The value cannot be changed unless a new revision is uploaded.
 
@@ -35339,7 +36784,7 @@ Set the path of the log file. Default is either ~/gsm.log or defined in your con
 
 
 .PARAMETER MimeType
-The MIME type of the file.
+The target MIME type of the file.
 Google Drive will attempt to automatically detect an appropriate value from uploaded content if no value is provided.
 The value cannot be changed unless a new revision is uploaded.
 
@@ -35600,7 +37045,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -36020,7 +37465,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -36248,7 +37693,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -36587,7 +38032,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -36828,7 +38273,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -37056,7 +38501,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -38731,7 +40176,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -38961,7 +40406,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -39194,7 +40639,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -40576,7 +42021,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -40785,7 +42230,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -41023,7 +42468,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Description
@@ -41439,7 +42884,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Description
@@ -41754,7 +43199,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Description
@@ -42156,7 +43601,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -42385,7 +43830,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -42637,7 +44082,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -43006,7 +44451,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -43257,7 +44702,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -43709,7 +45154,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -44044,7 +45489,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -44526,7 +45971,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -45468,7 +46913,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -45759,7 +47204,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -45987,7 +47432,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -46361,7 +47806,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -46672,7 +48117,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -47057,7 +48502,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -47476,7 +48921,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -48127,7 +49572,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -48724,7 +50169,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -49074,7 +50519,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -49443,7 +50888,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -49805,7 +51250,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Delivery_settings
@@ -50265,7 +51710,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -50542,7 +51987,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Delivery_settings
@@ -51434,7 +52879,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -51755,7 +53200,7 @@ Same as deleted but value is applied to all lines in the CSV file
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -52082,7 +53527,7 @@ Same as deleted but value is applied to all lines in the CSV file
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -52493,7 +53938,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -52838,7 +54283,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -53165,7 +54610,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -53410,7 +54855,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -53680,7 +55125,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -53920,7 +55365,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -54158,7 +55603,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -54562,7 +56007,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -54794,7 +56239,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -55086,7 +56531,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Description
@@ -55581,7 +57026,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Description
@@ -55939,7 +57384,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -56230,7 +57675,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DestinationOrgUnit
@@ -57179,7 +58624,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -58527,7 +59972,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -58746,7 +60191,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -60063,7 +61508,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -61515,7 +62960,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -62088,7 +63533,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Domain
@@ -62254,6 +63699,8 @@ param(
 [Parameter()]
 [string]$FolderId,
 [Parameter()]
+[switch]$IncludeRoot,
+[Parameter()]
 [string]$Log,
 [Parameter()]
 [switch]$MoveToNewOwnersRoot,
@@ -62286,6 +63733,7 @@ BEGIN {
         ExcludeFolders = @{ OriginalName = '--excludeFolders'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         FolderId = @{ OriginalName = '--folderId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        IncludeRoot = @{ OriginalName = '--includeRoot'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         MoveToNewOwnersRoot = @{ OriginalName = '--moveToNewOwnersRoot'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
         RedirectPort = @{ OriginalName = '--redirectPort'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -62363,6 +63811,10 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 
 .PARAMETER FolderId
 File id of the folder.
+
+
+.PARAMETER IncludeRoot
+If set to true, the root (specified parent) is included in the results
 
 
 .PARAMETER Log
@@ -62701,7 +64153,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Domain
@@ -62788,6 +64240,8 @@ param(
 [Parameter()]
 [string]$FolderId,
 [Parameter()]
+[switch]$IncludeRoot,
+[Parameter()]
 [string]$Log,
 [Parameter()]
 [string]$PermissionId,
@@ -62809,6 +64263,7 @@ BEGIN {
         EmailAddress = @{ OriginalName = '--emailAddress'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         ExcludeFolders = @{ OriginalName = '--excludeFolders'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         FolderId = @{ OriginalName = '--folderId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        IncludeRoot = @{ OriginalName = '--includeRoot'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         PermissionId = @{ OriginalName = '--permissionId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         RedirectPort = @{ OriginalName = '--redirectPort'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -62868,6 +64323,10 @@ Note that due to the way permissions are automatically inherited in Drive, this 
 
 .PARAMETER FolderId
 File id of the folder.
+
+
+.PARAMETER IncludeRoot
+If set to true, the root (specified parent) is included in the results
 
 
 .PARAMETER Log
@@ -63115,7 +64574,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Domain
@@ -63410,7 +64869,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -63497,6 +64956,8 @@ param(
 [Parameter()]
 [string]$FolderId,
 [Parameter()]
+[switch]$IncludeRoot,
+[Parameter()]
 [string]$Log,
 [Parameter()]
 [string]$RedirectPort,
@@ -63515,6 +64976,7 @@ BEGIN {
         ExcludeFolders = @{ OriginalName = '--excludeFolders'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         FolderId = @{ OriginalName = '--folderId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        IncludeRoot = @{ OriginalName = '--includeRoot'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         RedirectPort = @{ OriginalName = '--redirectPort'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         RetryOn = @{ OriginalName = '--retryOn'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -63570,6 +65032,10 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 
 .PARAMETER FolderId
 File id of the folder.
+
+
+.PARAMETER IncludeRoot
+If set to true, the root (specified parent) is included in the results
 
 
 .PARAMETER Log
@@ -63865,7 +65331,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Domain
@@ -64037,6 +65503,8 @@ param(
 [Parameter()]
 [string]$FolderId,
 [Parameter()]
+[switch]$IncludeRoot,
+[Parameter()]
 [string]$Log,
 [Parameter()]
 [switch]$MoveToNewOwnersRoot,
@@ -64072,6 +65540,7 @@ BEGIN {
         ExpirationTime = @{ OriginalName = '--expirationTime'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         Fields = @{ OriginalName = '--fields'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         FolderId = @{ OriginalName = '--folderId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
+        IncludeRoot = @{ OriginalName = '--includeRoot'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
         Log = @{ OriginalName = '--log'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
         MoveToNewOwnersRoot = @{ OriginalName = '--moveToNewOwnersRoot'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [switch]; NoGap = $False }
         PermissionId = @{ OriginalName = '--permissionId'; OriginalPosition = '0'; Position = '2147483647'; ParameterType = [string]; NoGap = $False }
@@ -64157,6 +65626,10 @@ See https://developers.google.com/gdata/docs/2.0/basics#PartialResponse for more
 
 .PARAMETER FolderId
 File id of the folder.
+
+
+.PARAMETER IncludeRoot
+If set to true, the root (specified parent) is included in the results
 
 
 .PARAMETER Log
@@ -64492,7 +65965,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -65189,7 +66662,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -65454,7 +66927,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -65703,7 +67176,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -66100,7 +67573,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -66377,7 +67850,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -66628,7 +68101,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -67014,7 +68487,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -67341,7 +68814,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -67569,7 +69042,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -67843,7 +69316,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -68494,7 +69967,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -68722,7 +70195,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -68973,7 +70446,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -69336,7 +70809,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -69601,7 +71074,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -69829,7 +71302,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -70080,7 +71553,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DisplayName
@@ -70496,7 +71969,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DisplayName
@@ -70875,7 +72348,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DisplayName
@@ -71291,7 +72764,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -71526,7 +72999,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -71933,7 +73406,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DisplayName
@@ -72349,7 +73822,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -72658,7 +74131,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Domain
@@ -73075,7 +74548,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Domain
@@ -73305,7 +74778,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER Domain
@@ -73719,7 +75192,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -74140,7 +75613,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -74389,7 +75862,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -74664,7 +76137,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -75458,7 +76931,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -75699,7 +77172,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -76122,7 +77595,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -76389,7 +77862,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -76634,7 +78107,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -76884,7 +78357,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -77229,7 +78702,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -77469,7 +78942,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -77802,7 +79275,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -78116,7 +79589,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -78346,7 +79819,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -78586,7 +80059,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -78919,7 +80392,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -79126,7 +80599,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -79344,7 +80817,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -79663,7 +81136,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -79881,7 +81354,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -80191,7 +81664,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -80532,7 +82005,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -80886,7 +82359,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -81223,7 +82696,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -81878,7 +83351,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -82138,7 +83611,7 @@ customType          - If the value of type is custom, this property contains the
 department          - Specifies the department within the organization, such as 'sales' or 'engineering'.
 description         - The description of the organization.
 domain              - The domain the organization belongs to.
-fullTimeEquivalent  - INT! The full-time equivalent millipercent within the organization (100000 = 100%).    
+fullTimeEquivalent  - INT! The full-time equivalent millipercent within the organization (100000 = 100%).
 location            - The physical location of the organization.
                       This does not need to be a fully qualified address.
 name                - The name of the organization.
@@ -82750,7 +84223,7 @@ customType          - If the value of type is custom, this property contains the
 department          - Specifies the department within the organization, such as 'sales' or 'engineering'.
 description         - The description of the organization.
 domain              - The domain the organization belongs to.
-fullTimeEquivalent  - INT! The full-time equivalent millipercent within the organization (100000 = 100%).    
+fullTimeEquivalent  - INT! The full-time equivalent millipercent within the organization (100000 = 100%).
 location            - The physical location of the organization.
                       This does not need to be a fully qualified address.
 name                - The name of the organization.
@@ -83195,7 +84668,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -83521,7 +84994,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -83832,7 +85305,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -84288,7 +85761,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -84548,7 +86021,7 @@ customType          - If the value of type is custom, this property contains the
 department          - Specifies the department within the organization, such as 'sales' or 'engineering'.
 description         - The description of the organization.
 domain              - The domain the organization belongs to.
-fullTimeEquivalent  - INT! The full-time equivalent millipercent within the organization (100000 = 100%).    
+fullTimeEquivalent  - INT! The full-time equivalent millipercent within the organization (100000 = 100%).
 location            - The physical location of the organization.
                       This does not need to be a fully qualified address.
 name                - The name of the organization.
@@ -85097,7 +86570,7 @@ customType          - If the value of type is custom, this property contains the
 department          - Specifies the department within the organization, such as 'sales' or 'engineering'.
 description         - The description of the organization.
 domain              - The domain the organization belongs to.
-fullTimeEquivalent  - INT! The full-time equivalent millipercent within the organization (100000 = 100%).    
+fullTimeEquivalent  - INT! The full-time equivalent millipercent within the organization (100000 = 100%).
 location            - The physical location of the organization.
                       This does not need to be a fully qualified address.
 name                - The name of the organization.
@@ -85628,7 +87101,7 @@ customType          - If the value of type is custom, this property contains the
 department          - Specifies the department within the organization, such as 'sales' or 'engineering'.
 description         - The description of the organization.
 domain              - The domain the organization belongs to.
-fullTimeEquivalent  - INT! The full-time equivalent millipercent within the organization (100000 = 100%).    
+fullTimeEquivalent  - INT! The full-time equivalent millipercent within the organization (100000 = 100%).
 location            - The physical location of the organization.
                       This does not need to be a fully qualified address.
 name                - The name of the organization.
@@ -85931,7 +87404,7 @@ In this example, the <> 'not equal to' operator is URL-encoded in the request's 
 GET
 https://www.googleapis.com/admin/reports/v1/usage/gplus_communities/all/dates/2017-12-01
 ?parameters=gplus:community_name,gplus:num_total_members
-&filters=gplus:num_total_members%3C%3E0 
+&filters=gplus:num_total_members%3C%3E0
 The relational operators include:
 
 == - 'equal to'.
@@ -86069,7 +87542,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -86373,7 +87846,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -86683,7 +88156,7 @@ This delay (plus a random jitter between 0 and 50) will be applied after every c
 
 
 .PARAMETER Delimiter
-Delimiter to use for CSV columns. Must be exactly one character.
+Delimiter to use for CSV columns. Must be exactly one character. Default is ';'
 
 
 .PARAMETER DwdSubject
@@ -86933,4 +88406,4 @@ The value can be the user's primary email address, alias email address, or uniqu
 }
 
 
-Export-ModuleMember -Function Get-GSMAbout, List-GSMActivities, Delete-GSMAspsBatch, Delete-GSMAsps, Get-GSMAspsBatch, Get-GSMAsps, List-GSMAspsBatch, List-GSMAspsRecursive, List-GSMAsps, Get-GSMAttachmentsBatch, Get-GSMAttachments, Delete-GSMBuildingsBatch, Delete-GSMBuildings, Get-GSMBuildingsBatch, Get-GSMBuildings, Insert-GSMBuildingsBatch, Insert-GSMBuildings, List-GSMBuildings, Patch-GSMBuildingsBatch, Patch-GSMBuildings, Delete-GSMCalendarAclBatch, Delete-GSMCalendarAcl, Get-GSMCalendarAclBatch, Get-GSMCalendarAcl, Insert-GSMCalendarAclBatch, Insert-GSMCalendarAcl, List-GSMCalendarAclBatch, List-GSMCalendarAcl, Patch-GSMCalendarAclBatch, Patch-GSMCalendarAcl, Delete-GSMCalendarListsBatch, Delete-GSMCalendarLists, Get-GSMCalendarListsBatch, Get-GSMCalendarLists, Insert-GSMCalendarListsBatch, Insert-GSMCalendarLists, List-GSMCalendarLists, Patch-GSMCalendarListsBatch, Patch-GSMCalendarLists, Delete-GSMCalendarResourcesBatch, Delete-GSMCalendarResources, Get-GSMCalendarResourcesBatch, Get-GSMCalendarResources, Insert-GSMCalendarResourcesBatch, Insert-GSMCalendarResources, List-GSMCalendarResources, Patch-GSMCalendarResourcesBatch, Patch-GSMCalendarResources, Clear-GSMCalendars, Delete-GSMCalendarsBatch, Delete-GSMCalendars, Get-GSMCalendarsBatch, Get-GSMCalendars, Insert-GSMCalendarsBatch, Insert-GSMCalendars, Patch-GSMCalendarsBatch, Patch-GSMCalendars, Get-GSMCalendarSettingsBatch, Get-GSMCalendarSettings, List-GSMCalendarSettings, GetStartPageToken-GSMChanges, List-GSMChanges, IssueCommand-GSMChromeOsBatch, IssueCommand-GSMChromeOs, Action-GSMChromeOsDevicesBatch, Action-GSMChromeOsDevices, Get-GSMChromeOsDevicesBatch, Get-GSMChromeOsDevices, List-GSMChromeOsDevices, MoveToOU-GSMChromeOsDevices, Patch-GSMChromeOsDevicesBatch, Patch-GSMChromeOsDevices, BatchCreate-GSMChromePrinters, BatchDelete-GSMChromePrinters, Create-GSMChromePrinters, Delete-GSMChromePrinters, Get-GSMChromePrinters, List-GSMChromePrinters, ListModels-GSMChromePrinters, Patch-GSMChromePrinters, Get-GSMClientStatesBatch, Get-GSMClientStates, List-GSMClientStates, Patch-GSMClientStatesBatch, Patch-GSMClientStates, Get-GSMColors, Create-GSMCommentsBatch, Create-GSMComments, Delete-GSMCommentsBatch, Delete-GSMComments, Get-GSMCommentsBatch, Get-GSMComments, List-GSMCommentsBatch, List-GSMComments, Update-GSMCommentsBatch, Update-GSMComments, Get-GSMConfigs, GetScopes-GSMConfigs, List-GSMConfigs, Load-GSMConfigs, New-GSMConfigs, Remove-GSMConfigs, Update-GSMConfigs, Create-GSMContactDelegates, Delete-GSMContactDelegates, List-GSMContactDelegates, BatchGet-GSMContactGroups, Create-GSMContactGroupsBatch, Create-GSMContactGroups, Delete-GSMContactGroupsBatch, Delete-GSMContactGroups, Get-GSMContactGroupsBatch, Get-GSMContactGroups, List-GSMContactGroups, Update-GSMContactGroupsBatch, Update-GSMContactGroups, Modify-GSMContactGroupsMembersBatch, Modify-GSMContactGroupsMembers, Get-GSMCustomers, Patch-GSMCustomers, Get-GSMCustomerUsageReports, Create-GSMDelegatesBatch, Create-GSMDelegates, Delete-GSMDelegatesBatch, Delete-GSMDelegates, Get-GSMDelegatesBatch, Get-GSMDelegates, List-GSMDelegates, CancelWipe-GSMDevicesBatch, CancelWipe-GSMDevices, Create-GSMDevices, Delete-GSMDevicesBatch, Delete-GSMDevices, Get-GSMDevicesBatch, Get-GSMDevices, List-GSMDevices, Wipe-GSMDevicesBatch, Wipe-GSMDevices, Approve-GSMDeviceUsersBatch, Approve-GSMDeviceUsers, Block-GSMDeviceUsersBatch, Block-GSMDeviceUsers, CancelWipe-GSMDeviceUsersBatch, CancelWipe-GSMDeviceUsers, Delete-GSMDeviceUsersBatch, Delete-GSMDeviceUsers, Get-GSMDeviceUsersBatch, Get-GSMDeviceUsers, List-GSMDeviceUsers, Lookup-GSMDeviceUsers, Wipe-GSMDeviceUsersBatch, Wipe-GSMDeviceUsers, Delete-GSMDomainAliasesBatch, Delete-GSMDomainAliases, Get-GSMDomainAliasesBatch, Get-GSMDomainAliases, Insert-GSMDomainAliasesBatch, Insert-GSMDomainAliases, List-GSMDomainAliases, Delete-GSMDomainsBatch, Delete-GSMDomains, Get-GSMDomainsBatch, Get-GSMDomains, Insert-GSMDomainsBatch, Insert-GSMDomains, List-GSMDomains, Create-GSMDraftsBatch, Create-GSMDrafts, Delete-GSMDraftsBatch, Delete-GSMDrafts, Get-GSMDraftsBatch, Get-GSMDrafts, List-GSMDrafts, Send-GSMDraftsBatch, Send-GSMDrafts, Update-GSMDraftsBatch, Update-GSMDrafts, Create-GSMDrivesBatch, Create-GSMDrives, Delete-GSMDrivesBatch, Delete-GSMDrives, Get-GSMDrivesBatch, Get-GSMDrives, GetSize-GSMDrives, Hide-GSMDrivesBatch, Hide-GSMDrives, List-GSMDrives, Unhide-GSMDrivesBatch, Unhide-GSMDrives, Update-GSMDrivesBatch, Update-GSMDrives, Get-GSMEntityUsageReports, Delete-GSMEventsBatch, Delete-GSMEvents, Get-GSMEventsBatch, Get-GSMEvents, Import-GSMEventsBatch, Import-GSMEvents, Insert-GSMEventsBatch, Insert-GSMEvents, Instances-GSMEventsBatch, Instances-GSMEvents, List-GSMEventsBatch, List-GSMEvents, Move-GSMEventsBatch, Move-GSMEvents, Patch-GSMEventsBatch, Patch-GSMEvents, QuickAdd-GSMEventsBatch, QuickAdd-GSMEvents, Delete-GSMFeaturesBatch, Delete-GSMFeatures, Get-GSMFeaturesBatch, Get-GSMFeatures, Insert-GSMFeaturesBatch, Insert-GSMFeatures, List-GSMFeatures, Patch-GSMFeaturesBatch, Patch-GSMFeatures, Rename-GSMFeaturesBatch, Rename-GSMFeatures, Copy-GSMFilesBatch, Copy-GSMFilesRecursive, Copy-GSMFiles, Count-GSMFilesRecursive, Count-GSMFiles, Create-GSMFilesBatch, Create-GSMFiles, Delete-GSMFilesBatch, Delete-GSMFiles, Download-GSMFilesBatch, Download-GSMFiles, Export-GSMFilesBatch, Export-GSMFiles, GenerateIds-GSMFiles, Get-GSMFilesBatch, Get-GSMFiles, List-GSMFilesRecursive, List-GSMFiles, Move-GSMFilesBatch, Move-GSMFilesRecursive, Move-GSMFiles, Update-GSMFilesBatch, Update-GSMFiles, Create-GSMFiltersBatch, Create-GSMFilters, Delete-GSMFiltersBatch, Delete-GSMFilters, Get-GSMFiltersBatch, Get-GSMFilters, List-GSMFilters, Create-GSMForwardingAddressesBatch, Create-GSMForwardingAddresses, Delete-GSMForwardingAddressesBatch, Delete-GSMForwardingAddresses, Get-GSMForwardingAddressesBatch, Get-GSMForwardingAddresses, List-GSMForwardingAddresses, Query-GSMFreeBusy, GetAutoForwarding-GSMGmailSettings, GetImap-GSMGmailSettings, GetLanguage-GSMGmailSettings, GetPop-GSMGmailSettings, GetVacation-GSMGmailSettings, UpdateAutoForwarding-GSMGmailSettings, UpdateImap-GSMGmailSettings, UpdateLanguage-GSMGmailSettings, UpdatePop-GSMGmailSettings, UpdateVacation-GSMGmailSettings, GetProfile-GSMGmailUsers, Delete-GSMGroupAliasesBatch, Delete-GSMGroupAliases, Insert-GSMGroupAliasesBatch, Insert-GSMGroupAliases, List-GSMGroupAliasesBatch, List-GSMGroupAliases, CheckTransitiveMembership-GSMGroupMembershipsCi, Create-GSMGroupMembershipsCi, Delete-GSMGroupMembershipsCi, Get-GSMGroupMembershipsCi, GetMembershipGraph-GSMGroupMembershipsCi, List-GSMGroupMembershipsCi, Lookup-GSMGroupMembershipsCi, ModifyMembershipRoles-GSMGroupMembershipsCi, SearchTransitiveGroups-GSMGroupMembershipsCi, SearchTransitiveMemberships-GSMGroupMembershipsCi, Delete-GSMGroupsBatch, Delete-GSMGroups, Get-GSMGroupsBatch, Get-GSMGroups, Insert-GSMGroupsBatch, Insert-GSMGroups, List-GSMGroups, Patch-GSMGroupsBatch, Patch-GSMGroups, Create-GSMGroupsCiBatch, Create-GSMGroupsCi, Delete-GSMGroupsCiBatch, Delete-GSMGroupsCi, Get-GSMGroupsCiBatch, Get-GSMGroupsCi, GetSecuritySettings-GSMGroupsCiBatch, GetSecuritySettings-GSMGroupsCi, List-GSMGroupsCi, Lookup-GSMGroupsCiBatch, Lookup-GSMGroupsCi, Patch-GSMGroupsCiBatch, Patch-GSMGroupsCi, Search-GSMGroupsCi, UpdateSecuritySettings-GSMGroupsCiBatch, UpdateSecuritySettings-GSMGroupsCi, Get-GSMGroupSettingsBatch, Get-GSMGroupSettings, Patch-GSMGroupSettingsBatch, Patch-GSMGroupSettings, List-GSMHistory, Create-GSMLabelsBatch, Create-GSMLabels, Delete-GSMLabelsBatch, Delete-GSMLabels, Get-GSMLabelsBatch, Get-GSMLabels, List-GSMLabels, Patch-GSMLabelsBatch, Patch-GSMLabels, Delete-GSMLicenseAssignmentsBatch, Delete-GSMLicenseAssignmentsRecursive, Delete-GSMLicenseAssignments, Get-GSMLicenseAssignmentsBatch, Get-GSMLicenseAssignmentsRecursive, Get-GSMLicenseAssignments, Insert-GSMLicenseAssignmentsBatch, Insert-GSMLicenseAssignmentsRecursive, Insert-GSMLicenseAssignments, ListForProduct-GSMLicenseAssignments, ListForProductAndSku-GSMLicenseAssignments, Patch-GSMLicenseAssignmentsBatch, Patch-GSMLicenseAssignmentsRecursive, Patch-GSMLicenseAssignments, Clear-GSMLog, Show-GSMLog, Delete-GSMMembersBatch, Delete-GSMMembersRecursive, Delete-GSMMembers, Get-GSMMembersBatch, Get-GSMMembersRecursive, Get-GSMMembers, HasMember-GSMMembersBatch, HasMember-GSMMembersRecursive, HasMember-GSMMembers, Insert-GSMMembersBatch, Insert-GSMMembersRecursive, Insert-GSMMembers, List-GSMMembersBatch, List-GSMMembers, Patch-GSMMembersBatch, Patch-GSMMembersRecursive, Patch-GSMMembers, Set-GSMMembersRecursive, Set-GSMMembers, BatchDelete-GSMMessages, Delete-GSMMessages, Get-GSMMessagesBatch, Get-GSMMessages, Import-GSMMessagesBatch, Import-GSMMessages, Insert-GSMMessagesBatch, Insert-GSMMessages, List-GSMMessages, Modify-GSMMessagesBatch, Modify-GSMMessages, Send-GSMMessagesBatch, Send-GSMMessages, Trash-GSMMessagesBatch, Trash-GSMMessages, Untrash-GSMMessagesBatch, Untrash-GSMMessages, Action-GSMMobileDevicesBatch, Action-GSMMobileDevices, Delete-GSMMobileDevicesBatch, Delete-GSMMobileDevices, Get-GSMMobileDevicesBatch, Get-GSMMobileDevices, List-GSMMobileDevices, Delete-GSMOrgUnitsBatch, Delete-GSMOrgUnits, Get-GSMOrgUnitsBatch, Get-GSMOrgUnits, Insert-GSMOrgUnitsBatch, Insert-GSMOrgUnits, List-GSMOrgUnits, Patch-GSMOrgUnitsBatch, Patch-GSMOrgUnits, List-GSMOrgUnitsMembershipsBatch, List-GSMOrgUnitsMemberships, Move-GSMOrgUnitsMembershipsBatch, Move-GSMOrgUnitsMemberships, CopyOtherContactToMyContactsGroup-GSMOtherContacts, List-GSMOtherContacts, CreateContact-GSMPeopleBatch, CreateContact-GSMPeople, DeleteContact-GSMPeopleBatch, DeleteContact-GSMPeople, DeleteContactPhoto-GSMPeopleBatch, DeleteContactPhoto-GSMPeople, Get-GSMPeople, GetBatchGet-GSMPeople, ListDirectoryPeople-GSMPeople, SearchDirectoryPeople-GSMPeople, UpdateContact-GSMPeopleBatch, UpdateContact-GSMPeople, UpdateContactPhoto-GSMPeopleBatch, UpdateContactPhoto-GSMPeople, List-GSMPeopleConnections, Create-GSMPermissionsBatch, Create-GSMPermissionsRecursive, Create-GSMPermissions, Delete-GSMPermissionsBatch, Delete-GSMPermissionsRecursive, Delete-GSMPermissions, Get-GSMPermissionsBatch, Get-GSMPermissions, List-GSMPermissionsBatch, List-GSMPermissionsRecursive, List-GSMPermissions, Update-GSMPermissionsBatch, Update-GSMPermissionsRecursive, Update-GSMPermissions, Get-GSMPostmasterDomainsBatch, Get-GSMPostmasterDomains, List-GSMPostmasterDomains, Get-GSMPostmasterTrafficStats, List-GSMPostmasterTrafficStats, List-GSMPrivileges, Create-GSMRepliesBatch, Create-GSMReplies, Delete-GSMRepliesBatch, Delete-GSMReplies, Get-GSMRepliesBatch, Get-GSMReplies, List-GSMReplies, Update-GSMRepliesBatch, Update-GSMReplies, Delete-GSMRevisionsBatch, Delete-GSMRevisions, Get-GSMRevisionsBatch, Get-GSMRevisions, List-GSMRevisions, Update-GSMRevisionsBatch, Update-GSMRevisions, Delete-GSMRoleAssignmentsBatch, Delete-GSMRoleAssignments, Get-GSMRoleAssignmentsBatch, Get-GSMRoleAssignments, Insert-GSMRoleAssignmentsBatch, Insert-GSMRoleAssignmentsRecursive, Insert-GSMRoleAssignments, List-GSMRoleAssignmentsRecursive, List-GSMRoleAssignments, Delete-GSMRolesBatch, Delete-GSMRoles, Get-GSMRolesBatch, Get-GSMRoles, Insert-GSMRolesBatch, Insert-GSMRoles, List-GSMRoles, Patch-GSMRolesBatch, Patch-GSMRoles, Delete-GSMSchemasBatch, Delete-GSMSchemas, Get-GSMSchemasBatch, Get-GSMSchemas, Insert-GSMSchemasBatch, Insert-GSMSchemas, List-GSMSchemas, Patch-GSMSchemasBatch, Patch-GSMSchemas, Create-GSMSendAsBatch, Create-GSMSendAs, Delete-GSMSendAsBatch, Delete-GSMSendAs, Get-GSMSendAsBatch, Get-GSMSendAs, List-GSMSendAs, Patch-GSMSendAsBatch, Patch-GSMSendAs, Verify-GSMSendAsBatch, Verify-GSMSendAs, Create-GSMSharedContactsBatch, Create-GSMSharedContacts, Delete-GSMSharedContactsBatch, Delete-GSMSharedContacts, Get-GSMSharedContactsBatch, Get-GSMSharedContacts, List-GSMSharedContacts, Update-GSMSharedContactsBatch, Update-GSMSharedContacts, Delete-GSMSmimeInfoBatch, Delete-GSMSmimeInfo, Get-GSMSmimeInfoBatch, Get-GSMSmimeInfo, Insert-GSMSmimeInfoBatch, Insert-GSMSmimeInfo, List-GSMSmimeInfo, SetDefault-GSMSmimeInfo, BatchUpdate-GSMSpreadsheets, Create-GSMSpreadsheets, Get-GSMSpreadsheets, Delete-GSMThreadsBatch, Delete-GSMThreads, Get-GSMThreadsBatch, Get-GSMThreads, List-GSMThreads, Modify-GSMThreadsBatch, Modify-GSMThreads, Trash-GSMThreadsBatch, Trash-GSMThreads, Untrash-GSMThreadsBatch, Untrash-GSMThreads, Delete-GSMTokensBatch, Delete-GSMTokensRecursive, Delete-GSMTokens, Get-GSMTokensBatch, Get-GSMTokens, List-GSMTokensBatch, List-GSMTokensRecursive, List-GSMTokens, TurnOff-GSMTwoStepVerificationBatch, TurnOff-GSMTwoStepVerificationRecursive, TurnOff-GSMTwoStepVerification, Delete-GSMUserAliasesBatch, Delete-GSMUserAliases, Insert-GSMUserAliasesBatch, Insert-GSMUserAliases, List-GSMUserAliasesBatch, List-GSMUserAliasesRecursive, List-GSMUserAliases, Cancel-GSMUserInvitationsBatch, Cancel-GSMUserInvitations, Get-GSMUserInvitationsBatch, Get-GSMUserInvitations, IsInvitableUser-GSMUserInvitationsBatch, IsInvitableUser-GSMUserInvitations, List-GSMUserInvitations, Send-GSMUserInvitationsBatch, Send-GSMUserInvitations, Delete-GSMUserPhotosBatch, Delete-GSMUserPhotosRecursive, Delete-GSMUserPhotos, Get-GSMUserPhotosBatch, Get-GSMUserPhotosRecursive, Get-GSMUserPhotos, Update-GSMUserPhotosBatch, Update-GSMUserPhotosRecursive, Update-GSMUserPhotos, Delete-GSMUsersBatch, Delete-GSMUsersRecursive, Delete-GSMUsers, Get-GSMUsersBatch, Get-GSMUsersRecursive, Get-GSMUsers, Insert-GSMUsersBatch, Insert-GSMUsers, List-GSMUsers, MakeAdmin-GSMUsersBatch, MakeAdmin-GSMUsersRecursive, MakeAdmin-GSMUsers, SignOut-GSMUsersBatch, SignOut-GSMUsersRecursive, SignOut-GSMUsers, Undelete-GSMUsersBatch, Undelete-GSMUsers, Update-GSMUsersBatch, Update-GSMUsersRecursive, Update-GSMUsers, Get-GSMUserUsageReports, Generate-GSMVerificationCodesBatch, Generate-GSMVerificationCodesRecursive, Generate-GSMVerificationCodes, Invalidate-GSMVerificationCodesBatch, Invalidate-GSMVerificationCodesRecursive, Invalidate-GSMVerificationCodes, List-GSMVerificationCodesBatch, List-GSMVerificationCodesRecursive, List-GSMVerificationCodes
+Export-ModuleMember -Function Get-GSMAbout, List-GSMActivities, Delete-GSMAspsBatch, Delete-GSMAsps, Get-GSMAspsBatch, Get-GSMAsps, List-GSMAspsBatch, List-GSMAspsRecursive, List-GSMAsps, Get-GSMAttachmentsBatch, Get-GSMAttachments, Delete-GSMBuildingsBatch, Delete-GSMBuildings, Get-GSMBuildingsBatch, Get-GSMBuildings, Insert-GSMBuildingsBatch, Insert-GSMBuildings, List-GSMBuildings, Patch-GSMBuildingsBatch, Patch-GSMBuildings, Delete-GSMCalendarAclBatch, Delete-GSMCalendarAcl, Get-GSMCalendarAclBatch, Get-GSMCalendarAcl, Insert-GSMCalendarAclBatch, Insert-GSMCalendarAcl, List-GSMCalendarAclBatch, List-GSMCalendarAcl, Patch-GSMCalendarAclBatch, Patch-GSMCalendarAcl, Delete-GSMCalendarListsBatch, Delete-GSMCalendarLists, Get-GSMCalendarListsBatch, Get-GSMCalendarLists, Insert-GSMCalendarListsBatch, Insert-GSMCalendarLists, List-GSMCalendarLists, Patch-GSMCalendarListsBatch, Patch-GSMCalendarLists, Delete-GSMCalendarResourcesBatch, Delete-GSMCalendarResources, Get-GSMCalendarResourcesBatch, Get-GSMCalendarResources, Insert-GSMCalendarResourcesBatch, Insert-GSMCalendarResources, List-GSMCalendarResources, Patch-GSMCalendarResourcesBatch, Patch-GSMCalendarResources, Clear-GSMCalendars, Delete-GSMCalendarsBatch, Delete-GSMCalendars, Get-GSMCalendarsBatch, Get-GSMCalendars, Insert-GSMCalendarsBatch, Insert-GSMCalendars, Patch-GSMCalendarsBatch, Patch-GSMCalendars, Get-GSMCalendarSettingsBatch, Get-GSMCalendarSettings, List-GSMCalendarSettings, GetStartPageToken-GSMChanges, List-GSMChanges, IssueCommand-GSMChromeOsBatch, IssueCommand-GSMChromeOs, Action-GSMChromeOsDevicesBatch, Action-GSMChromeOsDevices, Get-GSMChromeOsDevicesBatch, Get-GSMChromeOsDevices, List-GSMChromeOsDevices, MoveToOU-GSMChromeOsDevices, Patch-GSMChromeOsDevicesBatch, Patch-GSMChromeOsDevices, BatchCreate-GSMChromePrinters, BatchDelete-GSMChromePrinters, Create-GSMChromePrinters, Delete-GSMChromePrinters, Get-GSMChromePrinters, List-GSMChromePrinters, ListModels-GSMChromePrinters, Patch-GSMChromePrinters, Get-GSMClientStatesBatch, Get-GSMClientStates, List-GSMClientStates, Patch-GSMClientStatesBatch, Patch-GSMClientStates, Get-GSMColors, Create-GSMCommentsBatch, Create-GSMComments, Delete-GSMCommentsBatch, Delete-GSMComments, Get-GSMCommentsBatch, Get-GSMComments, List-GSMCommentsBatch, List-GSMComments, Update-GSMCommentsBatch, Update-GSMComments, Get-GSMConfigs, GetScopes-GSMConfigs, List-GSMConfigs, Load-GSMConfigs, New-GSMConfigs, Remove-GSMConfigs, Update-GSMConfigs, Create-GSMContactDelegates, Delete-GSMContactDelegates, List-GSMContactDelegates, BatchGet-GSMContactGroups, Create-GSMContactGroupsBatch, Create-GSMContactGroups, Delete-GSMContactGroupsBatch, Delete-GSMContactGroups, Get-GSMContactGroupsBatch, Get-GSMContactGroups, List-GSMContactGroups, Update-GSMContactGroupsBatch, Update-GSMContactGroups, Modify-GSMContactGroupsMembersBatch, Modify-GSMContactGroupsMembers, Get-GSMCustomers, Patch-GSMCustomers, Get-GSMCustomerUsageReports, Create-GSMDelegatesBatch, Create-GSMDelegates, Delete-GSMDelegatesBatch, Delete-GSMDelegates, Get-GSMDelegatesBatch, Get-GSMDelegates, List-GSMDelegates, CancelWipe-GSMDevicesBatch, CancelWipe-GSMDevices, Create-GSMDevices, Delete-GSMDevicesBatch, Delete-GSMDevices, Get-GSMDevicesBatch, Get-GSMDevices, List-GSMDevices, Wipe-GSMDevicesBatch, Wipe-GSMDevices, Approve-GSMDeviceUsersBatch, Approve-GSMDeviceUsers, Block-GSMDeviceUsersBatch, Block-GSMDeviceUsers, CancelWipe-GSMDeviceUsersBatch, CancelWipe-GSMDeviceUsers, Delete-GSMDeviceUsersBatch, Delete-GSMDeviceUsers, Get-GSMDeviceUsersBatch, Get-GSMDeviceUsers, List-GSMDeviceUsers, Lookup-GSMDeviceUsers, Wipe-GSMDeviceUsersBatch, Wipe-GSMDeviceUsers, Delete-GSMDomainAliasesBatch, Delete-GSMDomainAliases, Get-GSMDomainAliasesBatch, Get-GSMDomainAliases, Insert-GSMDomainAliasesBatch, Insert-GSMDomainAliases, List-GSMDomainAliases, Delete-GSMDomainsBatch, Delete-GSMDomains, Get-GSMDomainsBatch, Get-GSMDomains, Insert-GSMDomainsBatch, Insert-GSMDomains, List-GSMDomains, Create-GSMDraftsBatch, Create-GSMDrafts, Delete-GSMDraftsBatch, Delete-GSMDrafts, Get-GSMDraftsBatch, Get-GSMDrafts, List-GSMDrafts, Send-GSMDraftsBatch, Send-GSMDrafts, Update-GSMDraftsBatch, Update-GSMDrafts, Get-GSMDriveLabels, List-GSMDriveLabels, Create-GSMDrivesBatch, Create-GSMDrives, Delete-GSMDrivesBatch, Delete-GSMDrives, Get-GSMDrivesBatch, Get-GSMDrives, GetSize-GSMDrives, Hide-GSMDrivesBatch, Hide-GSMDrives, List-GSMDrives, Unhide-GSMDrivesBatch, Unhide-GSMDrives, Update-GSMDrivesBatch, Update-GSMDrives, Get-GSMEntityUsageReports, Delete-GSMEventsBatch, Delete-GSMEvents, Get-GSMEventsBatch, Get-GSMEvents, Import-GSMEventsBatch, Import-GSMEvents, Insert-GSMEventsBatch, Insert-GSMEvents, Instances-GSMEventsBatch, Instances-GSMEvents, List-GSMEventsBatch, List-GSMEvents, Move-GSMEventsBatch, Move-GSMEvents, Patch-GSMEventsBatch, Patch-GSMEvents, QuickAdd-GSMEventsBatch, QuickAdd-GSMEvents, Delete-GSMFeaturesBatch, Delete-GSMFeatures, Get-GSMFeaturesBatch, Get-GSMFeatures, Insert-GSMFeaturesBatch, Insert-GSMFeatures, List-GSMFeatures, Patch-GSMFeaturesBatch, Patch-GSMFeatures, Rename-GSMFeaturesBatch, Rename-GSMFeatures, Copy-GSMFilesBatch, Copy-GSMFilesRecursive, Copy-GSMFiles, Count-GSMFilesRecursive, Count-GSMFiles, Create-GSMFilesBatch, Create-GSMFiles, Delete-GSMFilesBatch, Delete-GSMFiles, Download-GSMFilesBatch, Download-GSMFiles, Export-GSMFilesBatch, Export-GSMFiles, GenerateIds-GSMFiles, Get-GSMFilesBatch, Get-GSMFiles, List-GSMFilesRecursive, List-GSMFiles, ListLabels-GSMFilesBatch, ListLabels-GSMFilesRecursive, ListLabels-GSMFiles, ModifyLabels-GSMFilesBatch, ModifyLabels-GSMFilesRecursive, ModifyLabels-GSMFiles, Move-GSMFilesBatch, Move-GSMFilesRecursive, Move-GSMFiles, RemoveLabels-GSMFilesBatch, RemoveLabels-GSMFilesRecursive, RemoveLabels-GSMFiles, Update-GSMFilesBatch, Update-GSMFiles, Create-GSMFiltersBatch, Create-GSMFilters, Delete-GSMFiltersBatch, Delete-GSMFilters, Get-GSMFiltersBatch, Get-GSMFilters, List-GSMFilters, Create-GSMForwardingAddressesBatch, Create-GSMForwardingAddresses, Delete-GSMForwardingAddressesBatch, Delete-GSMForwardingAddresses, Get-GSMForwardingAddressesBatch, Get-GSMForwardingAddresses, List-GSMForwardingAddresses, Query-GSMFreeBusy, GetAutoForwarding-GSMGmailSettings, GetImap-GSMGmailSettings, GetLanguage-GSMGmailSettings, GetPop-GSMGmailSettings, GetVacation-GSMGmailSettings, UpdateAutoForwarding-GSMGmailSettings, UpdateImap-GSMGmailSettings, UpdateLanguage-GSMGmailSettings, UpdatePop-GSMGmailSettings, UpdateVacation-GSMGmailSettings, GetProfile-GSMGmailUsers, Delete-GSMGroupAliasesBatch, Delete-GSMGroupAliases, Insert-GSMGroupAliasesBatch, Insert-GSMGroupAliases, List-GSMGroupAliasesBatch, List-GSMGroupAliases, CheckTransitiveMembership-GSMGroupMembershipsCi, Create-GSMGroupMembershipsCi, Delete-GSMGroupMembershipsCi, Get-GSMGroupMembershipsCi, GetMembershipGraph-GSMGroupMembershipsCi, List-GSMGroupMembershipsCi, Lookup-GSMGroupMembershipsCi, ModifyMembershipRoles-GSMGroupMembershipsCi, SearchTransitiveGroups-GSMGroupMembershipsCi, SearchTransitiveMemberships-GSMGroupMembershipsCi, Delete-GSMGroupsBatch, Delete-GSMGroups, Get-GSMGroupsBatch, Get-GSMGroups, Insert-GSMGroupsBatch, Insert-GSMGroups, List-GSMGroups, Patch-GSMGroupsBatch, Patch-GSMGroups, Create-GSMGroupsCiBatch, Create-GSMGroupsCi, Delete-GSMGroupsCiBatch, Delete-GSMGroupsCi, Get-GSMGroupsCiBatch, Get-GSMGroupsCi, GetSecuritySettings-GSMGroupsCiBatch, GetSecuritySettings-GSMGroupsCi, List-GSMGroupsCi, Lookup-GSMGroupsCiBatch, Lookup-GSMGroupsCi, Patch-GSMGroupsCiBatch, Patch-GSMGroupsCi, Search-GSMGroupsCi, UpdateSecuritySettings-GSMGroupsCiBatch, UpdateSecuritySettings-GSMGroupsCi, Get-GSMGroupSettingsBatch, Get-GSMGroupSettings, Patch-GSMGroupSettingsBatch, Patch-GSMGroupSettings, List-GSMHistory, Create-GSMLabelsBatch, Create-GSMLabels, Delete-GSMLabelsBatch, Delete-GSMLabels, Get-GSMLabelsBatch, Get-GSMLabels, List-GSMLabels, Patch-GSMLabelsBatch, Patch-GSMLabels, Delete-GSMLicenseAssignmentsBatch, Delete-GSMLicenseAssignmentsRecursive, Delete-GSMLicenseAssignments, Get-GSMLicenseAssignmentsBatch, Get-GSMLicenseAssignmentsRecursive, Get-GSMLicenseAssignments, Insert-GSMLicenseAssignmentsBatch, Insert-GSMLicenseAssignmentsRecursive, Insert-GSMLicenseAssignments, ListForProduct-GSMLicenseAssignments, ListForProductAndSku-GSMLicenseAssignments, Patch-GSMLicenseAssignmentsBatch, Patch-GSMLicenseAssignmentsRecursive, Patch-GSMLicenseAssignments, Clear-GSMLog, Show-GSMLog, Delete-GSMMembersBatch, Delete-GSMMembersRecursive, Delete-GSMMembers, Get-GSMMembersBatch, Get-GSMMembersRecursive, Get-GSMMembers, HasMember-GSMMembersBatch, HasMember-GSMMembersRecursive, HasMember-GSMMembers, Insert-GSMMembersBatch, Insert-GSMMembersRecursive, Insert-GSMMembers, List-GSMMembersBatch, List-GSMMembers, Patch-GSMMembersBatch, Patch-GSMMembersRecursive, Patch-GSMMembers, Set-GSMMembersRecursive, Set-GSMMembers, BatchDelete-GSMMessages, Delete-GSMMessages, Get-GSMMessagesBatch, Get-GSMMessages, Import-GSMMessagesBatch, Import-GSMMessages, Insert-GSMMessagesBatch, Insert-GSMMessages, List-GSMMessages, Modify-GSMMessagesBatch, Modify-GSMMessages, Send-GSMMessagesBatch, Send-GSMMessages, Trash-GSMMessagesBatch, Trash-GSMMessages, Untrash-GSMMessagesBatch, Untrash-GSMMessages, Action-GSMMobileDevicesBatch, Action-GSMMobileDevices, Delete-GSMMobileDevicesBatch, Delete-GSMMobileDevices, Get-GSMMobileDevicesBatch, Get-GSMMobileDevices, List-GSMMobileDevices, Delete-GSMOrgUnitsBatch, Delete-GSMOrgUnits, Get-GSMOrgUnitsBatch, Get-GSMOrgUnits, Insert-GSMOrgUnitsBatch, Insert-GSMOrgUnits, List-GSMOrgUnits, Patch-GSMOrgUnitsBatch, Patch-GSMOrgUnits, List-GSMOrgUnitsMembershipsBatch, List-GSMOrgUnitsMemberships, Move-GSMOrgUnitsMembershipsBatch, Move-GSMOrgUnitsMemberships, CopyOtherContactToMyContactsGroup-GSMOtherContacts, List-GSMOtherContacts, CreateContact-GSMPeopleBatch, CreateContact-GSMPeople, DeleteContact-GSMPeopleBatch, DeleteContact-GSMPeople, DeleteContactPhoto-GSMPeopleBatch, DeleteContactPhoto-GSMPeople, Get-GSMPeople, GetBatchGet-GSMPeople, ListDirectoryPeople-GSMPeople, SearchDirectoryPeople-GSMPeople, UpdateContact-GSMPeopleBatch, UpdateContact-GSMPeople, UpdateContactPhoto-GSMPeopleBatch, UpdateContactPhoto-GSMPeople, List-GSMPeopleConnections, Create-GSMPermissionsBatch, Create-GSMPermissionsRecursive, Create-GSMPermissions, Delete-GSMPermissionsBatch, Delete-GSMPermissionsRecursive, Delete-GSMPermissions, Get-GSMPermissionsBatch, Get-GSMPermissions, List-GSMPermissionsBatch, List-GSMPermissionsRecursive, List-GSMPermissions, Update-GSMPermissionsBatch, Update-GSMPermissionsRecursive, Update-GSMPermissions, Get-GSMPostmasterDomainsBatch, Get-GSMPostmasterDomains, List-GSMPostmasterDomains, Get-GSMPostmasterTrafficStats, List-GSMPostmasterTrafficStats, List-GSMPrivileges, Create-GSMRepliesBatch, Create-GSMReplies, Delete-GSMRepliesBatch, Delete-GSMReplies, Get-GSMRepliesBatch, Get-GSMReplies, List-GSMReplies, Update-GSMRepliesBatch, Update-GSMReplies, Delete-GSMRevisionsBatch, Delete-GSMRevisions, Get-GSMRevisionsBatch, Get-GSMRevisions, List-GSMRevisions, Update-GSMRevisionsBatch, Update-GSMRevisions, Delete-GSMRoleAssignmentsBatch, Delete-GSMRoleAssignments, Get-GSMRoleAssignmentsBatch, Get-GSMRoleAssignments, Insert-GSMRoleAssignmentsBatch, Insert-GSMRoleAssignmentsRecursive, Insert-GSMRoleAssignments, List-GSMRoleAssignmentsRecursive, List-GSMRoleAssignments, Delete-GSMRolesBatch, Delete-GSMRoles, Get-GSMRolesBatch, Get-GSMRoles, Insert-GSMRolesBatch, Insert-GSMRoles, List-GSMRoles, Patch-GSMRolesBatch, Patch-GSMRoles, Delete-GSMSchemasBatch, Delete-GSMSchemas, Get-GSMSchemasBatch, Get-GSMSchemas, Insert-GSMSchemasBatch, Insert-GSMSchemas, List-GSMSchemas, Patch-GSMSchemasBatch, Patch-GSMSchemas, Create-GSMSendAsBatch, Create-GSMSendAs, Delete-GSMSendAsBatch, Delete-GSMSendAs, Get-GSMSendAsBatch, Get-GSMSendAs, List-GSMSendAs, Patch-GSMSendAsBatch, Patch-GSMSendAs, Verify-GSMSendAsBatch, Verify-GSMSendAs, Create-GSMSharedContactsBatch, Create-GSMSharedContacts, Delete-GSMSharedContactsBatch, Delete-GSMSharedContacts, Get-GSMSharedContactsBatch, Get-GSMSharedContacts, List-GSMSharedContacts, Update-GSMSharedContactsBatch, Update-GSMSharedContacts, Delete-GSMSmimeInfoBatch, Delete-GSMSmimeInfo, Get-GSMSmimeInfoBatch, Get-GSMSmimeInfo, Insert-GSMSmimeInfoBatch, Insert-GSMSmimeInfo, List-GSMSmimeInfo, SetDefault-GSMSmimeInfo, BatchUpdate-GSMSpreadsheets, Create-GSMSpreadsheets, Get-GSMSpreadsheets, Delete-GSMThreadsBatch, Delete-GSMThreads, Get-GSMThreadsBatch, Get-GSMThreads, List-GSMThreads, Modify-GSMThreadsBatch, Modify-GSMThreads, Trash-GSMThreadsBatch, Trash-GSMThreads, Untrash-GSMThreadsBatch, Untrash-GSMThreads, Delete-GSMTokensBatch, Delete-GSMTokensRecursive, Delete-GSMTokens, Get-GSMTokensBatch, Get-GSMTokens, List-GSMTokensBatch, List-GSMTokensRecursive, List-GSMTokens, TurnOff-GSMTwoStepVerificationBatch, TurnOff-GSMTwoStepVerificationRecursive, TurnOff-GSMTwoStepVerification, Delete-GSMUserAliasesBatch, Delete-GSMUserAliases, Insert-GSMUserAliasesBatch, Insert-GSMUserAliases, List-GSMUserAliasesBatch, List-GSMUserAliasesRecursive, List-GSMUserAliases, Cancel-GSMUserInvitationsBatch, Cancel-GSMUserInvitations, Get-GSMUserInvitationsBatch, Get-GSMUserInvitations, IsInvitableUser-GSMUserInvitationsBatch, IsInvitableUser-GSMUserInvitations, List-GSMUserInvitations, Send-GSMUserInvitationsBatch, Send-GSMUserInvitations, Delete-GSMUserPhotosBatch, Delete-GSMUserPhotosRecursive, Delete-GSMUserPhotos, Get-GSMUserPhotosBatch, Get-GSMUserPhotosRecursive, Get-GSMUserPhotos, Update-GSMUserPhotosBatch, Update-GSMUserPhotosRecursive, Update-GSMUserPhotos, Delete-GSMUsersBatch, Delete-GSMUsersRecursive, Delete-GSMUsers, Get-GSMUsersBatch, Get-GSMUsersRecursive, Get-GSMUsers, Insert-GSMUsersBatch, Insert-GSMUsers, List-GSMUsers, MakeAdmin-GSMUsersBatch, MakeAdmin-GSMUsersRecursive, MakeAdmin-GSMUsers, SignOut-GSMUsersBatch, SignOut-GSMUsersRecursive, SignOut-GSMUsers, Undelete-GSMUsersBatch, Undelete-GSMUsers, Update-GSMUsersBatch, Update-GSMUsersRecursive, Update-GSMUsers, Get-GSMUserUsageReports, Generate-GSMVerificationCodesBatch, Generate-GSMVerificationCodesRecursive, Generate-GSMVerificationCodes, Invalidate-GSMVerificationCodesBatch, Invalidate-GSMVerificationCodesRecursive, Invalidate-GSMVerificationCodes, List-GSMVerificationCodesBatch, List-GSMVerificationCodesRecursive, List-GSMVerificationCodes
